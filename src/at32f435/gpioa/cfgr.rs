@@ -299,7 +299,7 @@ impl W {
         IOMC_W::new(self, 30)
     }
 }
-#[doc = "GPIO configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`cfgr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfgr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPIO function configurate register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.\n\nYou can [`read`](crate::Reg::read) this register and get [`cfgr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfgr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CFGR_SPEC;
 impl crate::RegisterSpec for CFGR_SPEC {
     type Ux = u32;
@@ -310,7 +310,5 @@ impl crate::Readable for CFGR_SPEC {}
 impl crate::Writable for CFGR_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CFGR to value 0xa800_0000"]
-impl crate::Resettable for CFGR_SPEC {
-    const RESET_VALUE: u32 = 0xa800_0000;
-}
+#[doc = "`reset()` method sets CFGR to value 0"]
+impl crate::Resettable for CFGR_SPEC {}

@@ -13,12 +13,12 @@ pub struct RegisterBlock {
     hdrv: HDRV,
 }
 impl RegisterBlock {
-    #[doc = "0x00 - GPIO function configurate low register"]
+    #[doc = "0x00 - GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
     #[inline(always)]
     pub const fn cfglr(&self) -> &CFGLR {
         &self.cfglr
     }
-    #[doc = "0x04 - GPIO function configurate high register"]
+    #[doc = "0x04 - GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
     #[inline(always)]
     pub const fn cfghr(&self) -> &CFGHR {
         &self.cfghr
@@ -54,13 +54,13 @@ impl RegisterBlock {
         &self.hdrv
     }
 }
-#[doc = "CFGLR (rw) register accessor: GPIO function configurate low register\n\nYou can [`read`](crate::Reg::read) this register and get [`cfglr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfglr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfglr`] module"]
+#[doc = "CFGLR (rw) register accessor: GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.\n\nYou can [`read`](crate::Reg::read) this register and get [`cfglr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfglr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfglr`] module"]
 pub type CFGLR = crate::Reg<cfglr::CFGLR_SPEC>;
-#[doc = "GPIO function configurate low register"]
+#[doc = "GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
 pub mod cfglr;
-#[doc = "CFGHR (rw) register accessor: GPIO function configurate high register\n\nYou can [`read`](crate::Reg::read) this register and get [`cfghr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfghr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfghr`] module"]
+#[doc = "CFGHR (rw) register accessor: GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.\n\nYou can [`read`](crate::Reg::read) this register and get [`cfghr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfghr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfghr`] module"]
 pub type CFGHR = crate::Reg<cfghr::CFGHR_SPEC>;
-#[doc = "GPIO function configurate high register"]
+#[doc = "GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
 pub mod cfghr;
 #[doc = "IDT (r) register accessor: Port input data register\n\nYou can [`read`](crate::Reg::read) this register and get [`idt::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@idt`] module"]
 pub type IDT = crate::Reg<idt::IDT_SPEC>;

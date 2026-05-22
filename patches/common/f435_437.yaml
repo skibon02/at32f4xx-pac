@@ -9,7 +9,6 @@ _include:
   - ertc/alarmb.yaml
   - ertc/wat.yaml
   - gpio/gpio-v2.yaml
-  - gpio/f435-437-resetvals.yaml
   - adc/common.yaml
   - adc/odt.yaml
   - flash/common.yaml

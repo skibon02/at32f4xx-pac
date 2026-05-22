@@ -1,6 +1,12 @@
 GPIO?:
   _include:
     - common.yaml
+  _modify:
+    CFG?R:
+      description: >-
+        GPIO function configurate register (low/high).
+        **WARNING**: `reset()` writes the hardware reset value which does NOT account for
+        SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.
   CFG?R:
     _array:
       IOMC*: {}

@@ -17,7 +17,7 @@ pub struct RegisterBlock {
     hdrv: HDRV,
 }
 impl RegisterBlock {
-    #[doc = "0x00 - GPIO configuration register"]
+    #[doc = "0x00 - GPIO function configurate register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
     #[inline(always)]
     pub const fn cfgr(&self) -> &CFGR {
         &self.cfgr
@@ -32,7 +32,7 @@ impl RegisterBlock {
     pub const fn odrvr(&self) -> &ODRVR {
         &self.odrvr
     }
-    #[doc = "0x0c - GPIO pull-up/pull-down register"]
+    #[doc = "0x0c - GPIO pull-up/pull-down register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
     #[inline(always)]
     pub const fn pull(&self) -> &PULL {
         &self.pull
@@ -78,9 +78,9 @@ impl RegisterBlock {
         &self.hdrv
     }
 }
-#[doc = "CFGR (rw) register accessor: GPIO configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`cfgr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfgr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfgr`] module"]
+#[doc = "CFGR (rw) register accessor: GPIO function configurate register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.\n\nYou can [`read`](crate::Reg::read) this register and get [`cfgr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfgr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfgr`] module"]
 pub type CFGR = crate::Reg<cfgr::CFGR_SPEC>;
-#[doc = "GPIO configuration register"]
+#[doc = "GPIO function configurate register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
 pub mod cfgr;
 #[doc = "OMODE (rw) register accessor: GPIO output mode register\n\nYou can [`read`](crate::Reg::read) this register and get [`omode::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`omode::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@omode`] module"]
 pub type OMODE = crate::Reg<omode::OMODE_SPEC>;
@@ -90,9 +90,9 @@ pub mod omode;
 pub type ODRVR = crate::Reg<odrvr::ODRVR_SPEC>;
 #[doc = "GPIO drive capability register"]
 pub mod odrvr;
-#[doc = "PULL (rw) register accessor: GPIO pull-up/pull-down register\n\nYou can [`read`](crate::Reg::read) this register and get [`pull::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pull::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pull`] module"]
+#[doc = "PULL (rw) register accessor: GPIO pull-up/pull-down register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.\n\nYou can [`read`](crate::Reg::read) this register and get [`pull::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pull::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pull`] module"]
 pub type PULL = crate::Reg<pull::PULL_SPEC>;
-#[doc = "GPIO pull-up/pull-down register"]
+#[doc = "GPIO pull-up/pull-down register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU."]
 pub mod pull;
 #[doc = "IDT (r) register accessor: GPIO input data register\n\nYou can [`read`](crate::Reg::read) this register and get [`idt::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@idt`] module"]
 pub type IDT = crate::Reg<idt::IDT_SPEC>;

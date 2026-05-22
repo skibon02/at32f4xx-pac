@@ -410,7 +410,7 @@ impl W {
         IOFC_W::new(self, 30)
     }
 }
-#[doc = "GPIO function configurate high register\n\nYou can [`read`](crate::Reg::read) this register and get [`cfghr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfghr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.\n\nYou can [`read`](crate::Reg::read) this register and get [`cfghr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfghr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CFGHR_SPEC;
 impl crate::RegisterSpec for CFGHR_SPEC {
     type Ux = u32;

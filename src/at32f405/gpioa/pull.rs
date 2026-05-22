@@ -286,7 +286,7 @@ impl W {
         PULL_W::new(self, 30)
     }
 }
-#[doc = "GPIO pull-up/pull-down register\n\nYou can [`read`](crate::Reg::read) this register and get [`pull::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pull::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPIO pull-up/pull-down register. **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.\n\nYou can [`read`](crate::Reg::read) this register and get [`pull::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pull::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PULL_SPEC;
 impl crate::RegisterSpec for PULL_SPEC {
     type Ux = u32;
@@ -297,7 +297,5 @@ impl crate::Readable for PULL_SPEC {}
 impl crate::Writable for PULL_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets PULL to value 0x2400_0000"]
-impl crate::Resettable for PULL_SPEC {
-    const RESET_VALUE: u32 = 0x2400_0000;
-}
+#[doc = "`reset()` method sets PULL to value 0"]
+impl crate::Resettable for PULL_SPEC {}

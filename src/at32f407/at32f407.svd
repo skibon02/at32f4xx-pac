@@ -2427,7 +2427,7 @@
         <register>
           <name>CFGLR</name>
           <displayName>CFGLR</displayName>
-          <description>GPIO function configurate low register</description>
+          <description>GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.</description>
           <addressOffset>0x0</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -2503,7 +2503,7 @@
         <register>
           <name>CFGHR</name>
           <displayName>CFGHR</displayName>
-          <description>GPIO function configurate high register</description>
+          <description>GPIO function configurate register (low/high). **WARNING**: `reset()` writes the hardware reset value which does NOT account for SWD/JTAG pin default configuration. Calling `reset()` may disable debug access to the MCU.</description>
           <addressOffset>0x4</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
