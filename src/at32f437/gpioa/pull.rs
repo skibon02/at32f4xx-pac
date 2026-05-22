@@ -297,5 +297,7 @@ impl crate::Readable for PULL_SPEC {}
 impl crate::Writable for PULL_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets PULL to value 0"]
-impl crate::Resettable for PULL_SPEC {}
+#[doc = "`reset()` method sets PULL to value 0x6400_0000"]
+impl crate::Resettable for PULL_SPEC {
+    const RESET_VALUE: u32 = 0x6400_0000;
+}

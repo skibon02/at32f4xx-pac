@@ -6,6 +6,7 @@ _include:
   - ertc/wat.yaml
   - flash/common.yaml
   - gpio/gpio-v2.yaml
+  - gpio/f402-405-resetvals.yaml
   - adc/common.yaml
   - adc/occe.yaml
   - adc/odt.yaml

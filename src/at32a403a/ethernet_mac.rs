@@ -88,7 +88,7 @@ impl RegisterBlock {
     pub const fn macimr(&self) -> &MACIMR {
         &self.macimr
     }
-    #[doc = "0x40 - Ethernet MAC address 0 high register. This register changed to 16bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1."]
+    #[doc = "0x40 - Ethernet MAC address 0 high register. This register changed to 16 bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1."]
     #[inline(always)]
     pub const fn maca0h(&self) -> &MACA0H {
         &self.maca0h
@@ -177,9 +177,9 @@ pub mod macists;
 pub type MACIMR = crate::Reg<macimr::MACIMR_SPEC>;
 #[doc = "Ethernet MAC interrupt mask register"]
 pub mod macimr;
-#[doc = "MACA0H (rw) register accessor: Ethernet MAC address 0 high register. This register changed to 16bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1.\n\nYou can [`read`](crate::Reg::read) this register and get [`maca0h::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`maca0h::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@maca0h`] module"]
+#[doc = "MACA0H (rw) register accessor: Ethernet MAC address 0 high register. This register changed to 16 bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1.\n\nYou can [`read`](crate::Reg::read) this register and get [`maca0h::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`maca0h::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@maca0h`] module"]
 pub type MACA0H = crate::Reg<maca0h::MACA0H_SPEC>;
-#[doc = "Ethernet MAC address 0 high register. This register changed to 16bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1."]
+#[doc = "Ethernet MAC address 0 high register. This register changed to 16 bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1."]
 pub mod maca0h;
 #[doc = "MACA0L (rw) register accessor: Ethernet MAC address 0 low register\n\nYou can [`read`](crate::Reg::read) this register and get [`maca0l::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`maca0l::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@maca0l`] module"]
 pub type MACA0L = crate::Reg<maca0l::MACA0L_SPEC>;

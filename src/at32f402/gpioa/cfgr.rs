@@ -310,5 +310,7 @@ impl crate::Readable for CFGR_SPEC {}
 impl crate::Writable for CFGR_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CFGR to value 0"]
-impl crate::Resettable for CFGR_SPEC {}
+#[doc = "`reset()` method sets CFGR to value 0x2800_0000"]
+impl crate::Resettable for CFGR_SPEC {
+    const RESET_VALUE: u32 = 0x2800_0000;
+}
