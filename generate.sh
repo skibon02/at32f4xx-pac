@@ -14,14 +14,20 @@ cd "$ROOT"
 
 JOBS="${JOBS:-$(nproc)}"
 
-mkdir -p svd
+echo "[0/4] Cleaning previous build artifacts..."
+rm -rf "$ROOT/.gen-tmp" "$ROOT/svd" "$ROOT/html"
+# Clean generated chip dirs and generic.rs but keep hand-maintained lib.rs
+for d in "$ROOT/src"/*/; do
+    rm -rf "$d"
+done
+rm -f "$ROOT/src/generic.rs"
+mkdir -p svd src
 
 extract_pack() {
     local pack="$1"
     local base
     base="$(basename "$pack" .pack)"
     local tmp="$ROOT/.gen-tmp/$base"
-    rm -rf "$tmp"
     mkdir -p "$tmp"
     unzip -q -o "$pack" -d "$tmp"
     if [ -d "$tmp/SVD" ]; then
@@ -35,17 +41,16 @@ extract_pack() {
             cp -f "$svd" "$ROOT/svd/$name"
         done
     fi
-    rm -rf "$tmp"
 }
 
 export -f extract_pack
 export ROOT
 
-echo "[1/5] Extracting SVDs from PACKs..."
+echo "[1/4] Extracting SVDs from PACKs..."
 find PACKs/Keil5 -maxdepth 1 -name '*.pack' -print0 |
     xargs -0 -P"$JOBS" -I{} bash -c 'extract_pack "$@"' _ {}
 
-echo "[2/5] Patching SVDs (svdtools)..."
+echo "[2/4] Patching SVDs (svdtools)..."
 find patches -maxdepth 1 -name '*.yaml' -print0 |
     xargs -0 -P"$JOBS" -I{} svdtools patch {}
 
@@ -66,7 +71,6 @@ generate_chip() {
     fi
 
     local work="$ROOT/.gen-tmp/$dir_name"
-    rm -rf "$work"
     mkdir -p "$work"
     cp "$svd_patched" "$work/$svd_name"
     pushd "$work" >/dev/null
@@ -86,7 +90,6 @@ generate_chip() {
     fi
 
     form -i mod.rs -o src/
-    rm -f mod.rs
     cargo fmt
     cp "$svd_name" src/
     cp device.x src/
@@ -95,24 +98,17 @@ generate_chip() {
     popd >/dev/null
 
     local target="$ROOT/src/$dir_name"
-    case "$target" in
-        "$ROOT/src/"|"$ROOT/src"|"$ROOT/"|"$ROOT") echo "FATAL: refusing to rm '$target'" >&2; return 1 ;;
-    esac
-    rm -rf "$target"
     cp "$work/generic.rs" "$ROOT/src/"
-    rm -f "$work/generic.rs"
     cp -r "$work/src" "$target"
-    rm -rf "$work"
 }
 
 export -f generate_chip
 
-echo "[3/5] Running svd2rust + form per chip..."
-mkdir -p src
+echo "[3/4] Running svd2rust + form per chip..."
 find svd -maxdepth 1 -name '*.svd.patched' -print0 |
     xargs -0 -P"$JOBS" -I{} bash -c 'generate_chip "$@"' _ {}
 
-echo "[4/5] Generating HTML docs..."
+echo "[4/4] Generating HTML docs..."
 mapfile -t patched_svds < <(find svd -maxdepth 1 -name '*.svd.patched')
 mapfile -t orig_svds    < <(find svd -maxdepth 1 -name '*.svd' ! -name '*.patched')
 mkdir -p html html/original
@@ -122,8 +118,5 @@ svdtools htmlcompare ./html/comparison "${patched_svds[@]}" >/dev/null
 svdtools htmlcompare ./html/original/comparison "${orig_svds[@]}" >/dev/null
 sed -i 's|comparisons.html|comparison/index.html|g' \
     ./html/index.html ./html/original/index.html
-
-echo "[5/5] Cleaning up..."
-rm -rf .gen-tmp
 
 echo "Done."
