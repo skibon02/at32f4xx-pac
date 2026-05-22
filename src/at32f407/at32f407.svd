@@ -28594,7 +28594,7 @@
         <register>
           <name>MACA0H</name>
           <displayName>MACA0H</displayName>
-          <description>Ethernet MAC address 0 high register</description>
+          <description>Ethernet MAC address 0 high register. This register changed to 16bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1.</description>
           <addressOffset>0x40</addressOffset>
           <size>0x10</size>
           <resetValue>0x0000FFFF</resetValue>
@@ -28711,7 +28711,7 @@
           <addressOffset>0x50</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
-          <resetValue>0x00000050</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <fields>
             <field>
               <name>MA2H</name>

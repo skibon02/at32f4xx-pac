@@ -183,7 +183,7 @@ impl crate::Readable for MACA2H_SPEC {}
 impl crate::Writable for MACA2H_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets MACA2H to value 0x50"]
+#[doc = "`reset()` method sets MACA2H to value 0xffff"]
 impl crate::Resettable for MACA2H_SPEC {
-    const RESET_VALUE: u32 = 0x50;
+    const RESET_VALUE: u32 = 0xffff;
 }

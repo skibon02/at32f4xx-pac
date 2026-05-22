@@ -8,7 +8,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {}
-#[doc = "Ethernet MAC address 0 high register\n\nYou can [`read`](crate::Reg::read) this register and get [`maca0h::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`maca0h::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Ethernet MAC address 0 high register. This register changed to 16bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1.\n\nYou can [`read`](crate::Reg::read) this register and get [`maca0h::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`maca0h::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MACA0H_SPEC;
 impl crate::RegisterSpec for MACA0H_SPEC {
     type Ux = u16;

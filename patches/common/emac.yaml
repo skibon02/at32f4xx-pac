@@ -88,9 +88,12 @@ ETHERNET_MAC:
       size: 16
       writeConstraint: [ 0, 0xFFFF ]
     MACA0H:
+      description: "Ethernet MAC address 0 high register. This register changed to 16 bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1."
       size: 16
       writeConstraint: [ 0, 0xFFFF ]
       resetValue: 0xFFFF
+    MACA2H:
+      resetValue: 0x0000FFFF
     MACA?L:
       size: 32
       writeConstraint: [0, 0xFFFFFFFF]
