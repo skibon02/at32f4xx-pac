@@ -4243,7 +4243,7 @@
                 <bitOffset>8</bitOffset>
                 <bitWidth>2</bitWidth>
                 <enumeratedValues>
-                  <name>PWIDTH</name>
+                  <name>BitWidth</name>
                   <enumeratedValue>
                     <name>bit8</name>
                     <description>8 bits</description>
@@ -4266,24 +4266,7 @@
                 <description>Memory data bit width</description>
                 <bitOffset>10</bitOffset>
                 <bitWidth>2</bitWidth>
-                <enumeratedValues>
-                  <name>MWIDTH</name>
-                  <enumeratedValue>
-                    <name>bit8</name>
-                    <description>8 bits</description>
-                    <value>0</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit16</name>
-                    <description>16 bits</description>
-                    <value>1</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit32</name>
-                    <description>32 bits</description>
-                    <value>2</value>
-                  </enumeratedValue>
-                </enumeratedValues>
+                <enumeratedValues derivedFrom="BitWidth"/>
               </field>
               <field>
                 <name>CHPL</name>
@@ -19648,12 +19631,99 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -19666,7 +19736,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -19674,12 +19744,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -19692,7 +19756,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -19700,12 +19764,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -22724,6 +22782,19 @@
               <description>Unlock key value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
+              <enumeratedValues>
+                <name>UKVALW</name>
+                <enumeratedValue>
+                  <name>Key1</name>
+                  <description>Unlock key 1</description>
+                  <value>1164378403</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Key2</name>
+                  <description>Unlock key 2</description>
+                  <value>3455027627</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -22867,14 +22938,12 @@
           <size>0x20</size>
           <access>write-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>FA</name>
-              <description>Flash Address</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>USD</name>

@@ -1,6 +1,7 @@
 #[doc = "Register `STS` reader"]
 pub type R = crate::R<STS_SPEC>;
 #[doc = "Internal high-speed clock calibration ready\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CALRDY_A {
     #[doc = "0: Interal 8MHz oscillator calibration is not ready"]
@@ -37,6 +38,7 @@ impl CALRDY_R {
     }
 }
 #[doc = "Reference Signal Lost\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RSLOST_A {
     #[doc = "0: Reference Signal is not lost"]

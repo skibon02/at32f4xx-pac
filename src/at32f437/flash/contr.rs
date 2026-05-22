@@ -2,10 +2,60 @@
 pub type R = crate::R<CONTR_SPEC>;
 #[doc = "Register `CONTR` writer"]
 pub type W = crate::W<CONTR_SPEC>;
+#[doc = "Flash continue read enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FCONTR_EN_A {
+    #[doc = "0: Flash continue read disabled"]
+    Disabled = 0,
+    #[doc = "1: Flash continue read enabled. Faster reads, but more power consumption"]
+    Enabled = 1,
+}
+impl From<FCONTR_EN_A> for bool {
+    #[inline(always)]
+    fn from(variant: FCONTR_EN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `FCONTR_EN` reader - Flash continue read enable"]
-pub type FCONTR_EN_R = crate::BitReader;
+pub type FCONTR_EN_R = crate::BitReader<FCONTR_EN_A>;
+impl FCONTR_EN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> FCONTR_EN_A {
+        match self.bits {
+            false => FCONTR_EN_A::Disabled,
+            true => FCONTR_EN_A::Enabled,
+        }
+    }
+    #[doc = "Flash continue read disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == FCONTR_EN_A::Disabled
+    }
+    #[doc = "Flash continue read enabled. Faster reads, but more power consumption"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == FCONTR_EN_A::Enabled
+    }
+}
 #[doc = "Field `FCONTR_EN` writer - Flash continue read enable"]
-pub type FCONTR_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type FCONTR_EN_W<'a, REG> = crate::BitWriter<'a, REG, FCONTR_EN_A>;
+impl<'a, REG> FCONTR_EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Flash continue read disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(FCONTR_EN_A::Disabled)
+    }
+    #[doc = "Flash continue read enabled. Faster reads, but more power consumption"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(FCONTR_EN_A::Enabled)
+    }
+}
 impl R {
     #[doc = "Bit 31 - Flash continue read enable"]
     #[inline(always)]

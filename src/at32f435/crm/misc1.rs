@@ -6,30 +6,423 @@ pub type W = crate::W<MISC1_SPEC>;
 pub type HICKCAL_KEY_R = crate::FieldReader;
 #[doc = "Field `HICKCAL_KEY` writer - HICKCAL write key value"]
 pub type HICKCAL_KEY_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+#[doc = "HICK 6 divider selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HICKDIV_A {
+    #[doc = "0: HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
+    Div6 = 0,
+    #[doc = "1: HICK is not divided"]
+    Div1 = 1,
+}
+impl From<HICKDIV_A> for bool {
+    #[inline(always)]
+    fn from(variant: HICKDIV_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `HICKDIV` reader - HICK 6 divider selection"]
-pub type HICKDIV_R = crate::BitReader;
+pub type HICKDIV_R = crate::BitReader<HICKDIV_A>;
+impl HICKDIV_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> HICKDIV_A {
+        match self.bits {
+            false => HICKDIV_A::Div6,
+            true => HICKDIV_A::Div1,
+        }
+    }
+    #[doc = "HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
+    #[inline(always)]
+    pub fn is_div6(&self) -> bool {
+        *self == HICKDIV_A::Div6
+    }
+    #[doc = "HICK is not divided"]
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        *self == HICKDIV_A::Div1
+    }
+}
 #[doc = "Field `HICKDIV` writer - HICK 6 divider selection"]
-pub type HICKDIV_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type HICKDIV_W<'a, REG> = crate::BitWriter<'a, REG, HICKDIV_A>;
+impl<'a, REG> HICKDIV_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
+    #[inline(always)]
+    pub fn div6(self) -> &'a mut crate::W<REG> {
+        self.variant(HICKDIV_A::Div6)
+    }
+    #[doc = "HICK is not divided"]
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(HICKDIV_A::Div1)
+    }
+}
+#[doc = "HICK to usb clock\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HICK_TO_USB_A {
+    #[doc = "0: PLL or PLL division"]
+    Plldiv = 0,
+    #[doc = "1: 48 MHz or 8 MHz, depending on the HICKDIV"]
+    Hickdiv = 1,
+}
+impl From<HICK_TO_USB_A> for bool {
+    #[inline(always)]
+    fn from(variant: HICK_TO_USB_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `HICK_TO_USB` reader - HICK to usb clock"]
-pub type HICK_TO_USB_R = crate::BitReader;
+pub type HICK_TO_USB_R = crate::BitReader<HICK_TO_USB_A>;
+impl HICK_TO_USB_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> HICK_TO_USB_A {
+        match self.bits {
+            false => HICK_TO_USB_A::Plldiv,
+            true => HICK_TO_USB_A::Hickdiv,
+        }
+    }
+    #[doc = "PLL or PLL division"]
+    #[inline(always)]
+    pub fn is_plldiv(&self) -> bool {
+        *self == HICK_TO_USB_A::Plldiv
+    }
+    #[doc = "48 MHz or 8 MHz, depending on the HICKDIV"]
+    #[inline(always)]
+    pub fn is_hickdiv(&self) -> bool {
+        *self == HICK_TO_USB_A::Hickdiv
+    }
+}
 #[doc = "Field `HICK_TO_USB` writer - HICK to usb clock"]
-pub type HICK_TO_USB_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type HICK_TO_USB_W<'a, REG> = crate::BitWriter<'a, REG, HICK_TO_USB_A>;
+impl<'a, REG> HICK_TO_USB_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "PLL or PLL division"]
+    #[inline(always)]
+    pub fn plldiv(self) -> &'a mut crate::W<REG> {
+        self.variant(HICK_TO_USB_A::Plldiv)
+    }
+    #[doc = "48 MHz or 8 MHz, depending on the HICKDIV"]
+    #[inline(always)]
+    pub fn hickdiv(self) -> &'a mut crate::W<REG> {
+        self.variant(HICK_TO_USB_A::Hickdiv)
+    }
+}
+#[doc = "HICK to system clock\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HICK_TO_SCLK_A {
+    #[doc = "0: Fixed 8 MHz, that is, HICK/6"]
+    Hickdiv6 = 0,
+    #[doc = "1: 48 MHz or 8 MHz, depending on the HICKDIV"]
+    Hickdiv = 1,
+}
+impl From<HICK_TO_SCLK_A> for bool {
+    #[inline(always)]
+    fn from(variant: HICK_TO_SCLK_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `HICK_TO_SCLK` reader - HICK to system clock"]
-pub type HICK_TO_SCLK_R = crate::BitReader;
+pub type HICK_TO_SCLK_R = crate::BitReader<HICK_TO_SCLK_A>;
+impl HICK_TO_SCLK_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> HICK_TO_SCLK_A {
+        match self.bits {
+            false => HICK_TO_SCLK_A::Hickdiv6,
+            true => HICK_TO_SCLK_A::Hickdiv,
+        }
+    }
+    #[doc = "Fixed 8 MHz, that is, HICK/6"]
+    #[inline(always)]
+    pub fn is_hickdiv6(&self) -> bool {
+        *self == HICK_TO_SCLK_A::Hickdiv6
+    }
+    #[doc = "48 MHz or 8 MHz, depending on the HICKDIV"]
+    #[inline(always)]
+    pub fn is_hickdiv(&self) -> bool {
+        *self == HICK_TO_SCLK_A::Hickdiv
+    }
+}
 #[doc = "Field `HICK_TO_SCLK` writer - HICK to system clock"]
-pub type HICK_TO_SCLK_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type HICK_TO_SCLK_W<'a, REG> = crate::BitWriter<'a, REG, HICK_TO_SCLK_A>;
+impl<'a, REG> HICK_TO_SCLK_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Fixed 8 MHz, that is, HICK/6"]
+    #[inline(always)]
+    pub fn hickdiv6(self) -> &'a mut crate::W<REG> {
+        self.variant(HICK_TO_SCLK_A::Hickdiv6)
+    }
+    #[doc = "48 MHz or 8 MHz, depending on the HICKDIV"]
+    #[inline(always)]
+    pub fn hickdiv(self) -> &'a mut crate::W<REG> {
+        self.variant(HICK_TO_SCLK_A::Hickdiv)
+    }
+}
+#[doc = "Clock output2 select2\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum CLKOUT2_SEL2_A {
+    #[doc = "0: USB clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    Usb = 0,
+    #[doc = "1: ADC clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    Adc = 1,
+    #[doc = "2: HICK (after divider) clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    Hickdiv = 2,
+    #[doc = "3: LICK clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    Lick = 3,
+    #[doc = "4: LEXT clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    Lext = 4,
+}
+impl From<CLKOUT2_SEL2_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CLKOUT2_SEL2_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for CLKOUT2_SEL2_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for CLKOUT2_SEL2_A {}
 #[doc = "Field `CLKOUT2_SEL2` reader - Clock output2 select2"]
-pub type CLKOUT2_SEL2_R = crate::FieldReader;
+pub type CLKOUT2_SEL2_R = crate::FieldReader<CLKOUT2_SEL2_A>;
+impl CLKOUT2_SEL2_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<CLKOUT2_SEL2_A> {
+        match self.bits {
+            0 => Some(CLKOUT2_SEL2_A::Usb),
+            1 => Some(CLKOUT2_SEL2_A::Adc),
+            2 => Some(CLKOUT2_SEL2_A::Hickdiv),
+            3 => Some(CLKOUT2_SEL2_A::Lick),
+            4 => Some(CLKOUT2_SEL2_A::Lext),
+            _ => None,
+        }
+    }
+    #[doc = "USB clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn is_usb(&self) -> bool {
+        *self == CLKOUT2_SEL2_A::Usb
+    }
+    #[doc = "ADC clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn is_adc(&self) -> bool {
+        *self == CLKOUT2_SEL2_A::Adc
+    }
+    #[doc = "HICK (after divider) clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn is_hickdiv(&self) -> bool {
+        *self == CLKOUT2_SEL2_A::Hickdiv
+    }
+    #[doc = "LICK clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn is_lick(&self) -> bool {
+        *self == CLKOUT2_SEL2_A::Lick
+    }
+    #[doc = "LEXT clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn is_lext(&self) -> bool {
+        *self == CLKOUT2_SEL2_A::Lext
+    }
+}
 #[doc = "Field `CLKOUT2_SEL2` writer - Clock output2 select2"]
-pub type CLKOUT2_SEL2_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub type CLKOUT2_SEL2_W<'a, REG> = crate::FieldWriter<'a, REG, 4, CLKOUT2_SEL2_A>;
+impl<'a, REG> CLKOUT2_SEL2_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "USB clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn usb(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT2_SEL2_A::Usb)
+    }
+    #[doc = "ADC clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn adc(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT2_SEL2_A::Adc)
+    }
+    #[doc = "HICK (after divider) clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn hickdiv(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT2_SEL2_A::Hickdiv)
+    }
+    #[doc = "LICK clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn lick(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT2_SEL2_A::Lick)
+    }
+    #[doc = "LEXT clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+    #[inline(always)]
+    pub fn lext(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT2_SEL2_A::Lext)
+    }
+}
+#[doc = "Clock output1 division2\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum CLKOUT1DIV2_A {
+    #[doc = "8: CLKOUT%s is divided by 2"]
+    Div2 = 8,
+    #[doc = "9: CLKOUT%s is divided by 4"]
+    Div4 = 9,
+    #[doc = "10: CLKOUT%s is divided by 8"]
+    Div8 = 10,
+    #[doc = "11: CLKOUT%s is divided by 16"]
+    Div16 = 11,
+    #[doc = "12: CLKOUT%s is divided by 64"]
+    Div64 = 12,
+    #[doc = "13: CLKOUT%s is divided by 128"]
+    Div128 = 13,
+    #[doc = "14: CLKOUT%s is divided by 256"]
+    Div256 = 14,
+    #[doc = "15: CLKOUT%s is divided by 512"]
+    Div512 = 15,
+    #[doc = "0: CLKOUT%s is divided by 1"]
+    Div1 = 0,
+}
+impl From<CLKOUT1DIV2_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CLKOUT1DIV2_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for CLKOUT1DIV2_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for CLKOUT1DIV2_A {}
 #[doc = "Field `CLKOUT1DIV2` reader - Clock output1 division2"]
-pub type CLKOUT1DIV2_R = crate::FieldReader;
+pub type CLKOUT1DIV2_R = crate::FieldReader<CLKOUT1DIV2_A>;
+impl CLKOUT1DIV2_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> CLKOUT1DIV2_A {
+        match self.bits {
+            8 => CLKOUT1DIV2_A::Div2,
+            9 => CLKOUT1DIV2_A::Div4,
+            10 => CLKOUT1DIV2_A::Div8,
+            11 => CLKOUT1DIV2_A::Div16,
+            12 => CLKOUT1DIV2_A::Div64,
+            13 => CLKOUT1DIV2_A::Div128,
+            14 => CLKOUT1DIV2_A::Div256,
+            15 => CLKOUT1DIV2_A::Div512,
+            _ => CLKOUT1DIV2_A::Div1,
+        }
+    }
+    #[doc = "CLKOUT%s is divided by 2"]
+    #[inline(always)]
+    pub fn is_div2(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div2
+    }
+    #[doc = "CLKOUT%s is divided by 4"]
+    #[inline(always)]
+    pub fn is_div4(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div4
+    }
+    #[doc = "CLKOUT%s is divided by 8"]
+    #[inline(always)]
+    pub fn is_div8(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div8
+    }
+    #[doc = "CLKOUT%s is divided by 16"]
+    #[inline(always)]
+    pub fn is_div16(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div16
+    }
+    #[doc = "CLKOUT%s is divided by 64"]
+    #[inline(always)]
+    pub fn is_div64(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div64
+    }
+    #[doc = "CLKOUT%s is divided by 128"]
+    #[inline(always)]
+    pub fn is_div128(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div128
+    }
+    #[doc = "CLKOUT%s is divided by 256"]
+    #[inline(always)]
+    pub fn is_div256(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div256
+    }
+    #[doc = "CLKOUT%s is divided by 512"]
+    #[inline(always)]
+    pub fn is_div512(&self) -> bool {
+        *self == CLKOUT1DIV2_A::Div512
+    }
+    #[doc = "CLKOUT%s is divided by 1"]
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        matches!(self.variant(), CLKOUT1DIV2_A::Div1)
+    }
+}
 #[doc = "Field `CLKOUT1DIV2` writer - Clock output1 division2"]
-pub type CLKOUT1DIV2_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub type CLKOUT1DIV2_W<'a, REG> = crate::FieldWriter<'a, REG, 4, CLKOUT1DIV2_A, crate::Safe>;
+impl<'a, REG> CLKOUT1DIV2_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "CLKOUT%s is divided by 2"]
+    #[inline(always)]
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div2)
+    }
+    #[doc = "CLKOUT%s is divided by 4"]
+    #[inline(always)]
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div4)
+    }
+    #[doc = "CLKOUT%s is divided by 8"]
+    #[inline(always)]
+    pub fn div8(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div8)
+    }
+    #[doc = "CLKOUT%s is divided by 16"]
+    #[inline(always)]
+    pub fn div16(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div16)
+    }
+    #[doc = "CLKOUT%s is divided by 64"]
+    #[inline(always)]
+    pub fn div64(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div64)
+    }
+    #[doc = "CLKOUT%s is divided by 128"]
+    #[inline(always)]
+    pub fn div128(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div128)
+    }
+    #[doc = "CLKOUT%s is divided by 256"]
+    #[inline(always)]
+    pub fn div256(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div256)
+    }
+    #[doc = "CLKOUT%s is divided by 512"]
+    #[inline(always)]
+    pub fn div512(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div512)
+    }
+    #[doc = "CLKOUT%s is divided by 1"]
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(CLKOUT1DIV2_A::Div1)
+    }
+}
 #[doc = "Field `CLKOUT2DIV2` reader - Clock output2 division2"]
-pub type CLKOUT2DIV2_R = crate::FieldReader;
+pub use CLKOUT1DIV2_R as CLKOUT2DIV2_R;
 #[doc = "Field `CLKOUT2DIV2` writer - Clock output2 division2"]
-pub type CLKOUT2DIV2_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use CLKOUT1DIV2_W as CLKOUT2DIV2_W;
 impl R {
     #[doc = "Bits 0:7 - HICKCAL write key value"]
     #[inline(always)]

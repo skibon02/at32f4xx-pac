@@ -3,6 +3,7 @@ pub type R = crate::R<DIV_SPEC>;
 #[doc = "Register `DIV` writer"]
 pub type W = crate::W<DIV_SPEC>;
 #[doc = "Division divider\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DIV_A {

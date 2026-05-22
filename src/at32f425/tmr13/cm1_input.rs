@@ -7,6 +7,7 @@ pub type C1C_R = crate::FieldReader;
 #[doc = "Field `C1C` writer - Channel 1 configure"]
 pub type C1C_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Channel %s input divider\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C1IDIV_A {

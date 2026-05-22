@@ -3,6 +3,7 @@ pub type R = crate::R<I2SCTRL_SPEC>;
 #[doc = "Register `I2SCTRL` writer"]
 pub type W = crate::W<I2SCTRL_SPEC>;
 #[doc = "I2S channel bit num\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CBN_A {
     #[doc = "0: 16-bit wide"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "I2S data bit num\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DBN_A {
@@ -129,6 +131,7 @@ where
     }
 }
 #[doc = "I2S clock polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLKPOL_A {
     #[doc = "0: Low"]
@@ -182,6 +185,7 @@ where
     }
 }
 #[doc = "I2S standard select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum STDSEL_A {
@@ -268,6 +272,7 @@ where
     }
 }
 #[doc = "PCM frame synchronization select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PCMFSSEL_A {
     #[doc = "0: Short frame synchronization"]
@@ -321,6 +326,7 @@ where
     }
 }
 #[doc = "I2S operation select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OPERSEL_A {
@@ -407,6 +413,7 @@ where
     }
 }
 #[doc = "I2S Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Enr {
     #[doc = "0: I2S is disabled"]
@@ -443,6 +450,7 @@ impl EN_R {
     }
 }
 #[doc = "I2S Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EnwWO {
     #[doc = "0: I2S disable"]
@@ -474,6 +482,7 @@ where
     }
 }
 #[doc = "I2S mode select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MSEL_A {
     #[doc = "0: SPI mode"]

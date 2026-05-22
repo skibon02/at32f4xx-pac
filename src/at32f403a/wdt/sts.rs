@@ -1,6 +1,7 @@
 #[doc = "Register `STS` reader"]
 pub type R = crate::R<STS_SPEC>;
 #[doc = "Division value update complete flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DIVF_A {
     #[doc = "0: Division value update complete"]
@@ -37,6 +38,7 @@ impl DIVF_R {
     }
 }
 #[doc = "Reload value update complete flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RLDF_A {
     #[doc = "0: Reload value update complete"]

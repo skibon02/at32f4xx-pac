@@ -3,6 +3,7 @@ pub type R = crate::R<CM2_OUTPUT_SPEC>;
 #[doc = "Register `CM2_OUTPUT` writer"]
 pub type W = crate::W<CM2_OUTPUT_SPEC>;
 #[doc = "Channel 3 configure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C3C_A {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Channel %s output immediately enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C3OIEN_A {
     #[doc = "0: Need to compare the CVAL with CxDT before generating an output"]
@@ -142,6 +144,7 @@ where
     }
 }
 #[doc = "Channel %s output buffer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C3obenr {
     #[doc = "0: Channel output buffer is disabled"]
@@ -178,6 +181,7 @@ impl COBEN_R {
     }
 }
 #[doc = "Channel %s output buffer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C3obenwWO {
     #[doc = "0: Channel output buffer disable"]
@@ -213,6 +217,7 @@ pub type COCTRL_R = crate::FieldReader;
 #[doc = "Field `COCTRL(3-4)` writer - Channel %s output control"]
 pub type COCTRL_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Channel %s output switch enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C3osenr {
     #[doc = "0: CxORAW is not affected by EXT input"]
@@ -249,6 +254,7 @@ impl COSEN_R {
     }
 }
 #[doc = "Channel %s output switch enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C3osenwWO {
     #[doc = "0: CxORAW is not affected by EXT input"]
@@ -280,6 +286,7 @@ where
     }
 }
 #[doc = "Channel 4 configure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C4C_A {

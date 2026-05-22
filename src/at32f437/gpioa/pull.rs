@@ -3,6 +3,7 @@ pub type R = crate::R<PULL_SPEC>;
 #[doc = "Register `PULL` writer"]
 pub type W = crate::W<PULL_SPEC>;
 #[doc = "GPIOx pin %s pull configuration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PULL0_A {

@@ -1,19 +1,11 @@
 #[doc = "Register `ADDR` writer"]
 pub type W = crate::W<ADDR_SPEC>;
-#[doc = "Field `FA` writer - Flash Address"]
-pub type FA_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl core::fmt::Debug for crate::generic::Reg<ADDR_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "(not readable)")
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - Flash Address"]
-    #[inline(always)]
-    pub fn fa(&mut self) -> FA_W<'_, ADDR_SPEC> {
-        FA_W::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Address register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`addr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ADDR_SPEC;
 impl crate::RegisterSpec for ADDR_SPEC {
@@ -21,7 +13,7 @@ impl crate::RegisterSpec for ADDR_SPEC {
 }
 #[doc = "`write(|w| ..)` method takes [`addr::W`](W) writer structure"]
 impl crate::Writable for ADDR_SPEC {
-    type Safety = crate::Unsafe;
+    type Safety = crate::Safe;
 }
 #[doc = "`reset()` method sets ADDR to value 0"]
 impl crate::Resettable for ADDR_SPEC {}

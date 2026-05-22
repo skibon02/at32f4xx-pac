@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL3_SPEC>;
 #[doc = "Register `CTRL3` writer"]
 pub type W = crate::W<CTRL3_SPEC>;
 #[doc = "Error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Errienr {
     #[doc = "0: Error interrupt is disabled"]
@@ -39,6 +40,7 @@ impl ERRIEN_R {
     }
 }
 #[doc = "Error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ErrienwWO {
     #[doc = "0: Error interrupt disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "IrDA enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Irdaenr {
     #[doc = "0: IrDA is disabled"]
@@ -106,6 +109,7 @@ impl IRDAEN_R {
     }
 }
 #[doc = "IrDA enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IrdaenwWO {
     #[doc = "0: IrDA disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "IrDA low-power mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Irdalpr {
     #[doc = "0: IrDA low-power mode is disabled"]
@@ -173,6 +178,7 @@ impl IRDALP_R {
     }
 }
 #[doc = "IrDA low-power mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IrdalpwWO {
     #[doc = "0: IrDA low-power mode disable"]
@@ -204,6 +210,7 @@ where
     }
 }
 #[doc = "Single line bidirectional half-duplex enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Slbenr {
     #[doc = "0: Single-wire bidirectional half-duplex is disabled"]
@@ -240,6 +247,7 @@ impl SLBEN_R {
     }
 }
 #[doc = "Single line bidirectional half-duplex enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SlbenwWO {
     #[doc = "0: Single-wire bidirectional half-duplex disable"]
@@ -271,6 +279,7 @@ where
     }
 }
 #[doc = "Smartcard NACK enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Scnackenr {
     #[doc = "0: Smartcard NACK is disabled"]
@@ -307,6 +316,7 @@ impl SCNACKEN_R {
     }
 }
 #[doc = "Smartcard NACK enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ScnackenwWO {
     #[doc = "0: Smartcard NACK disable"]
@@ -338,6 +348,7 @@ where
     }
 }
 #[doc = "Smartcard mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Scmenr {
     #[doc = "0: Smartcard mode is disabled"]
@@ -374,6 +385,7 @@ impl SCMEN_R {
     }
 }
 #[doc = "Smartcard mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ScmenwWO {
     #[doc = "0: Smartcard mode disable"]
@@ -405,6 +417,7 @@ where
     }
 }
 #[doc = "DMA receiver enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dmarenr {
     #[doc = "0: DMA receiver is disabled"]
@@ -441,6 +454,7 @@ impl DMAREN_R {
     }
 }
 #[doc = "DMA receiver enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DmarenwWO {
     #[doc = "0: DMA receiver disable"]
@@ -472,6 +486,7 @@ where
     }
 }
 #[doc = "DMA transmitter enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dmatenr {
     #[doc = "0: DMA transmitter is disabled"]
@@ -508,6 +523,7 @@ impl DMATEN_R {
     }
 }
 #[doc = "DMA transmitter enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DmatenwWO {
     #[doc = "0: DMA transmitter disable"]
@@ -539,6 +555,7 @@ where
     }
 }
 #[doc = "RTS enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rtsenr {
     #[doc = "0: RTS is disabled"]
@@ -575,6 +592,7 @@ impl RTSEN_R {
     }
 }
 #[doc = "RTS enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RtsenwWO {
     #[doc = "0: RTS disable"]
@@ -606,6 +624,7 @@ where
     }
 }
 #[doc = "CTS enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ctsenr {
     #[doc = "0: CTS is disabled"]
@@ -642,6 +661,7 @@ impl CTSEN_R {
     }
 }
 #[doc = "CTS enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CtsenwWO {
     #[doc = "0: CTS disable"]
@@ -673,6 +693,7 @@ where
     }
 }
 #[doc = "CTSCF interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ctscfienr {
     #[doc = "0: CTSCF interrupt is disabled"]
@@ -709,6 +730,7 @@ impl CTSCFIEN_R {
     }
 }
 #[doc = "CTSCF interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CtscfienwWO {
     #[doc = "0: CTSCF interrupt disable"]

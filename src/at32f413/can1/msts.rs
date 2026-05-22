@@ -3,6 +3,7 @@ pub type R = crate::R<MSTS_SPEC>;
 #[doc = "Register `MSTS` writer"]
 pub type W = crate::W<MSTS_SPEC>;
 #[doc = "Freeze mode confirm\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FZC_A {
     #[doc = "0: The CAN is not in Freeze mode"]
@@ -39,6 +40,7 @@ impl FZC_R {
     }
 }
 #[doc = "Doze mode confirm\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DZC_A {
     #[doc = "0: The CAN is not in Sleep mode"]
@@ -75,6 +77,7 @@ impl DZC_R {
     }
 }
 #[doc = "Error occur Interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Eoifr {
     #[doc = "0: No error interrupt or no condition for error interrupt flag"]
@@ -111,6 +114,7 @@ impl EOIF_R {
     }
 }
 #[doc = "Error occur Interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EoifwWO {
     #[doc = "1: Clear error flag"]
@@ -135,6 +139,7 @@ where
     }
 }
 #[doc = "Quit doze mode interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Qdzifr {
     #[doc = "0: Sleep mode is not left or no condition for exit"]
@@ -171,6 +176,7 @@ impl QDZIF_R {
     }
 }
 #[doc = "Quit doze mode interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum QdzifwWO {
     #[doc = "1: Clear exit doze flag"]
@@ -195,6 +201,7 @@ where
     }
 }
 #[doc = "Enter doze mode interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Edzifr {
     #[doc = "0: Sleep mode is not entered or no condition for flag set"]
@@ -231,6 +238,7 @@ impl EDZIF_R {
     }
 }
 #[doc = "Enter doze mode interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EdzifwWO {
     #[doc = "1: Clear enter doze flag"]
@@ -255,6 +263,7 @@ where
     }
 }
 #[doc = "Currently sending status\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CUSS_A {
     #[doc = "0: No transmit occurs"]
@@ -291,6 +300,7 @@ impl CUSS_R {
     }
 }
 #[doc = "Currently receiving status\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CURS_A {
     #[doc = "0: No reception occurs"]
@@ -327,6 +337,7 @@ impl CURS_R {
     }
 }
 #[doc = "Last sample level of RX pin\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LSAMPRX_A {
     #[doc = "0: Low"]
@@ -363,6 +374,7 @@ impl LSAMPRX_R {
     }
 }
 #[doc = "Real time level of RX pin\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum REALRX_A {
     #[doc = "0: Low"]

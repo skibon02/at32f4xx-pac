@@ -3,3 +3,4 @@
 *.pack
 svd
 html
+.gen-tmp/

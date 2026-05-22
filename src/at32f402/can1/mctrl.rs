@@ -3,6 +3,7 @@ pub type R = crate::R<MCTRL_SPEC>;
 #[doc = "Register `MCTRL` writer"]
 pub type W = crate::W<MCTRL_SPEC>;
 #[doc = "Freeze mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fzenr {
     #[doc = "0: Freeze mode is disabled"]
@@ -39,6 +40,7 @@ impl FZEN_R {
     }
 }
 #[doc = "Freeze mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FzenwWO {
     #[doc = "0: Freeze mode disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Doze mode enable\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dzenr {
     #[doc = "0: Doze mode is disabled"]
@@ -106,6 +109,7 @@ impl DZEN_R {
     }
 }
 #[doc = "Doze mode enable\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DzenwWO {
     #[doc = "0: Doze mode disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "Multiple message sending sequence rule\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MMSSR_A {
     #[doc = "0: The message with the smallest identifier is first transmitted"]
@@ -190,6 +195,7 @@ where
     }
 }
 #[doc = "Message discarding rule select when overflow\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MDRSEL_A {
     #[doc = "0: The previous message is discarded"]
@@ -243,6 +249,7 @@ where
     }
 }
 #[doc = "Prohibit retransmission when sending fails enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Prsfenr {
     #[doc = "0: Prohibit retransmission is disabled when sending fails enable"]
@@ -279,6 +286,7 @@ impl PRSFEN_R {
     }
 }
 #[doc = "Prohibit retransmission when sending fails enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PrsfenwWO {
     #[doc = "0: Prohibit retransmission disable"]
@@ -310,6 +318,7 @@ where
     }
 }
 #[doc = "Automatic exit doze mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Aedenr {
     #[doc = "0: Automatic exit doze mode is disabled"]
@@ -346,6 +355,7 @@ impl AEDEN_R {
     }
 }
 #[doc = "Automatic exit doze mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AedenwWO {
     #[doc = "0: Automatic exit doze mode disable"]
@@ -377,6 +387,7 @@ where
     }
 }
 #[doc = "Automatic exit bus-off enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Aeboenr {
     #[doc = "0: Automatic exit bus-off is disabled"]
@@ -413,6 +424,7 @@ impl AEBOEN_R {
     }
 }
 #[doc = "Automatic exit bus-off enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AeboenwWO {
     #[doc = "0: Automatic exit bus-off disable"]
@@ -444,6 +456,7 @@ where
     }
 }
 #[doc = "Time triggered communication mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ttcenr {
     #[doc = "0: Time triggered communication mode is disabled"]
@@ -480,6 +493,7 @@ impl TTCEN_R {
     }
 }
 #[doc = "Time triggered communication mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TtcenwWO {
     #[doc = "0: Time triggered communication mode disable"]
@@ -511,6 +525,7 @@ where
     }
 }
 #[doc = "Software partial reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sprstr {
     #[doc = "0: Normal"]
@@ -547,6 +562,7 @@ impl SPRST_R {
     }
 }
 #[doc = "Software partial reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SprstwWO {
     #[doc = "1: Software partial reset"]
@@ -571,6 +587,7 @@ where
     }
 }
 #[doc = "Prohibit transmission when debug\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PTD_A {
     #[doc = "0: Transmission works during debug"]

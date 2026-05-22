@@ -7,6 +7,7 @@ pub type DIV7_0_R = crate::FieldReader;
 #[doc = "Field `DIV7_0` writer - I2S division bit7 to bit0"]
 pub type DIV7_0_W<'a, REG> = crate::FieldWriter<'a, REG, 8, u8, crate::Safe>;
 #[doc = "Odd result for I2S division\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ODD_A {
     #[doc = "0: Actual divider factor = DIV*2"]
@@ -60,6 +61,7 @@ where
     }
 }
 #[doc = "I2S master clock output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Mclkoer {
     #[doc = "0: Master clock output is disabled"]
@@ -96,6 +98,7 @@ impl MCLKOE_R {
     }
 }
 #[doc = "I2S master clock output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MclkoewWO {
     #[doc = "0: Master clock output disable"]

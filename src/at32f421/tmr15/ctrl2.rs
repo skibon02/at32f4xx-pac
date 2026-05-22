@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL2_SPEC>;
 #[doc = "Register `CTRL2` writer"]
 pub type W = crate::W<CTRL2_SPEC>;
 #[doc = "Channel buffer control\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cbctrlr {
     #[doc = "0: CxEN, CxCEN and CxOCTRL bits are not buffered"]
@@ -39,6 +40,7 @@ impl CBCTRL_R {
     }
 }
 #[doc = "Channel buffer control\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CbctrlwWO {
     #[doc = "0: CxEN, CxCEN and CxOCTRL bits buffer disable"]
@@ -78,6 +80,7 @@ pub type DRS_R = crate::BitReader;
 #[doc = "Field `DRS` writer - DMA request source"]
 pub type DRS_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Primary TMR output selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PTOS_A {

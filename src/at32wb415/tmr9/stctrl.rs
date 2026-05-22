@@ -3,6 +3,7 @@ pub type R = crate::R<STCTRL_SPEC>;
 #[doc = "Register `STCTRL` writer"]
 pub type W = crate::W<STCTRL_SPEC>;
 #[doc = "Subordinate TMR mode selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SMSEL_A {
@@ -141,6 +142,7 @@ where
     }
 }
 #[doc = "Subordinate TMR input selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum STIS_A {

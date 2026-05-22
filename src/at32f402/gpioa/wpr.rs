@@ -3,6 +3,7 @@ pub type R = crate::R<WPR_SPEC>;
 #[doc = "Register `WPR` writer"]
 pub type W = crate::W<WPR_SPEC>;
 #[doc = "Write protect enable %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wpen0r {
     #[doc = "0: Port is not write protected"]
@@ -39,6 +40,7 @@ impl WPEN_R {
     }
 }
 #[doc = "Write protect enable %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wpen0wWO {
     #[doc = "0: No effect"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Write protect sequence\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WPSEQ_A {
     #[doc = "0: Clear"]

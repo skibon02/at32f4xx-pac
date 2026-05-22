@@ -18,9 +18,9 @@ pub type ERWF_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type RMP_R = crate::BitReader;
 #[doc = "Field `RMP` writer - Received magic packet"]
 pub type RMP_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RRWF` reader - Recevied remote wakeup frame"]
+#[doc = "Field `RRWF` reader - Received remote wakeup frame"]
 pub type RRWF_R = crate::BitReader;
-#[doc = "Field `RRWF` writer - Recevied remote wakeup frame"]
+#[doc = "Field `RRWF` writer - Received remote wakeup frame"]
 pub type RRWF_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `GUC` reader - Global unicast"]
 pub type GUC_R = crate::BitReader;
@@ -51,7 +51,7 @@ impl R {
     pub fn rmp(&self) -> RMP_R {
         RMP_R::new(((self.bits >> 5) & 1) != 0)
     }
-    #[doc = "Bit 6 - Recevied remote wakeup frame"]
+    #[doc = "Bit 6 - Received remote wakeup frame"]
     #[inline(always)]
     pub fn rrwf(&self) -> RRWF_R {
         RRWF_R::new(((self.bits >> 6) & 1) != 0)
@@ -101,7 +101,7 @@ impl W {
     pub fn rmp(&mut self) -> RMP_W<'_, MACPMTCTRLSTS_SPEC> {
         RMP_W::new(self, 5)
     }
-    #[doc = "Bit 6 - Recevied remote wakeup frame"]
+    #[doc = "Bit 6 - Received remote wakeup frame"]
     #[inline(always)]
     pub fn rrwf(&mut self) -> RRWF_W<'_, MACPMTCTRLSTS_SPEC> {
         RRWF_W::new(self, 6)

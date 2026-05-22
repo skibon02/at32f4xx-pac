@@ -3,6 +3,7 @@ pub type R = crate::R<REMAP7_SPEC>;
 #[doc = "Register `REMAP7` writer"]
 pub type W = crate::W<REMAP7_SPEC>;
 #[doc = "ADC1 external trigger preempted conversion muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADC1_ETP_GMUX_A {
     #[doc = "0: ADC1 external trigger preempted conversion is connected to EXINT15"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "ADC1 external trigger ordinary conversion muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADC1_ETO_GMUX_A {
     #[doc = "0: ADC1 external trigger ordinary conversion is connected to EXINT11"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Serial wire JTAG muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SWJTAG_GMUX_A {
@@ -195,6 +198,7 @@ where
     }
 }
 #[doc = "PortD0/PortD1 muxing on OSC_IN/OSC_OUT\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PD01_GMUX_A {
     #[doc = "0: Not PD0 and PD1 mapping"]

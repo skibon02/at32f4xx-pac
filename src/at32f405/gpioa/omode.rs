@@ -3,6 +3,7 @@ pub type R = crate::R<OMODE_SPEC>;
 #[doc = "Register `OMODE` writer"]
 pub type W = crate::W<OMODE_SPEC>;
 #[doc = "GPIOx pin %s outpu mode configurate\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OM0_A {
     #[doc = "0: Push-pull"]

@@ -3,6 +3,7 @@ pub type R = crate::R<POLCFG2_SPEC>;
 #[doc = "Register `POLCFG2` writer"]
 pub type W = crate::W<POLCFG2_SPEC>;
 #[doc = "Falling polarity configuration bit on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fp0r {
     #[doc = "0: Falling polarity is disabled"]
@@ -39,6 +40,7 @@ impl FP_R {
     }
 }
 #[doc = "Falling polarity configuration bit on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fp0wWO {
     #[doc = "0: Falling polarity disable"]

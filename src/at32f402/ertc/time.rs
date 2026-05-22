@@ -27,6 +27,7 @@ pub type HT_R = crate::FieldReader;
 #[doc = "Field `HT` writer - Hour tens"]
 pub type HT_W<'a, REG> = crate::FieldWriter<'a, REG, 2, u8, crate::Safe>;
 #[doc = "AM/PM notation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AMPM_A {
     #[doc = "0: AM"]

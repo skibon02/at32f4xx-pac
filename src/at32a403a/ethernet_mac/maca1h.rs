@@ -10,14 +10,114 @@ pub type MA1H_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 pub type MBC_R = crate::FieldReader;
 #[doc = "Field `MBC` writer - Mask byte control"]
 pub type MBC_W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+#[doc = "Source address\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SA_A {
+    #[doc = "0: Second MAC address filter is used for source address filtering"]
+    Source = 0,
+    #[doc = "1: Second MAC address filter is used for destination address filtering"]
+    Destination = 1,
+}
+impl From<SA_A> for bool {
+    #[inline(always)]
+    fn from(variant: SA_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SA` reader - Source address"]
-pub type SA_R = crate::BitReader;
+pub type SA_R = crate::BitReader<SA_A>;
+impl SA_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SA_A {
+        match self.bits {
+            false => SA_A::Source,
+            true => SA_A::Destination,
+        }
+    }
+    #[doc = "Second MAC address filter is used for source address filtering"]
+    #[inline(always)]
+    pub fn is_source(&self) -> bool {
+        *self == SA_A::Source
+    }
+    #[doc = "Second MAC address filter is used for destination address filtering"]
+    #[inline(always)]
+    pub fn is_destination(&self) -> bool {
+        *self == SA_A::Destination
+    }
+}
 #[doc = "Field `SA` writer - Source address"]
-pub type SA_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SA_W<'a, REG> = crate::BitWriter<'a, REG, SA_A>;
+impl<'a, REG> SA_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Second MAC address filter is used for source address filtering"]
+    #[inline(always)]
+    pub fn source(self) -> &'a mut crate::W<REG> {
+        self.variant(SA_A::Source)
+    }
+    #[doc = "Second MAC address filter is used for destination address filtering"]
+    #[inline(always)]
+    pub fn destination(self) -> &'a mut crate::W<REG> {
+        self.variant(SA_A::Destination)
+    }
+}
+#[doc = "Address enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AE_A {
+    #[doc = "0: Second MAC address filter is disabled"]
+    Disabled = 0,
+    #[doc = "1: Second MAC address filter is enabled"]
+    Enabled = 1,
+}
+impl From<AE_A> for bool {
+    #[inline(always)]
+    fn from(variant: AE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `AE` reader - Address enable"]
-pub type AE_R = crate::BitReader;
+pub type AE_R = crate::BitReader<AE_A>;
+impl AE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> AE_A {
+        match self.bits {
+            false => AE_A::Disabled,
+            true => AE_A::Enabled,
+        }
+    }
+    #[doc = "Second MAC address filter is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == AE_A::Disabled
+    }
+    #[doc = "Second MAC address filter is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == AE_A::Enabled
+    }
+}
 #[doc = "Field `AE` writer - Address enable"]
-pub type AE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type AE_W<'a, REG> = crate::BitWriter<'a, REG, AE_A>;
+impl<'a, REG> AE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Second MAC address filter is disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AE_A::Disabled)
+    }
+    #[doc = "Second MAC address filter is enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AE_A::Enabled)
+    }
+}
 impl R {
     #[doc = "Bits 0:15 - MAC address1 high"]
     #[inline(always)]

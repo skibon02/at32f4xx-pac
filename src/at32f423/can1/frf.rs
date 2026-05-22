@@ -3,6 +3,7 @@ pub type R = crate::R<FRF_SPEC>;
 #[doc = "Register `FRF` writer"]
 pub type W = crate::W<FRF_SPEC>;
 #[doc = "Filter relation FIFO select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SEL0_A {
     #[doc = "0: Associated with FIFO0"]

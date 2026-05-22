@@ -2,66 +2,116 @@
 pub type R = crate::R<DMAIE_SPEC>;
 #[doc = "Register `DMAIE` writer"]
 pub type W = crate::W<DMAIE_SPEC>;
+#[doc = "Transmit interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TIE_A {
+    #[doc = "0: Interrupt disabled"]
+    Disabled = 0,
+    #[doc = "1: Interrupt enabled"]
+    Enabled = 1,
+}
+impl From<TIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: TIE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TIE` reader - Transmit interrupt enable"]
-pub type TIE_R = crate::BitReader;
+pub type TIE_R = crate::BitReader<TIE_A>;
+impl TIE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TIE_A {
+        match self.bits {
+            false => TIE_A::Disabled,
+            true => TIE_A::Enabled,
+        }
+    }
+    #[doc = "Interrupt disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == TIE_A::Disabled
+    }
+    #[doc = "Interrupt enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == TIE_A::Enabled
+    }
+}
 #[doc = "Field `TIE` writer - Transmit interrupt enable"]
-pub type TIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TIE_W<'a, REG> = crate::BitWriter<'a, REG, TIE_A>;
+impl<'a, REG> TIE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Interrupt disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TIE_A::Disabled)
+    }
+    #[doc = "Interrupt enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TIE_A::Enabled)
+    }
+}
 #[doc = "Field `TSE` reader - Transmit stopped enable"]
-pub type TSE_R = crate::BitReader;
-#[doc = "Field `TSE` writer - Transmit stopped enable"]
-pub type TSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as TSE_R;
 #[doc = "Field `TUE` reader - Transmit buffer unavailable enable"]
-pub type TUE_R = crate::BitReader;
-#[doc = "Field `TUE` writer - Transmit buffer unavailable enable"]
-pub type TUE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as TUE_R;
 #[doc = "Field `TJE` reader - Transmit jabber timeout enable"]
-pub type TJE_R = crate::BitReader;
-#[doc = "Field `TJE` writer - Transmit jabber timeout enable"]
-pub type TJE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as TJE_R;
 #[doc = "Field `OVE` reader - Overflow interrupt enable"]
-pub type OVE_R = crate::BitReader;
-#[doc = "Field `OVE` writer - Overflow interrupt enable"]
-pub type OVE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as OVE_R;
 #[doc = "Field `UNE` reader - Underflow interrupt enable"]
-pub type UNE_R = crate::BitReader;
-#[doc = "Field `UNE` writer - Underflow interrupt enable"]
-pub type UNE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as UNE_R;
 #[doc = "Field `RIE` reader - Receive interrupt enable"]
-pub type RIE_R = crate::BitReader;
-#[doc = "Field `RIE` writer - Receive interrupt enable"]
-pub type RIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as RIE_R;
 #[doc = "Field `RBUE` reader - Receive buffer unavailable enable"]
-pub type RBUE_R = crate::BitReader;
-#[doc = "Field `RBUE` writer - Receive buffer unavailable enable"]
-pub type RBUE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as RBUE_R;
 #[doc = "Field `RSE` reader - Receive stopped enable"]
-pub type RSE_R = crate::BitReader;
-#[doc = "Field `RSE` writer - Receive stopped enable"]
-pub type RSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as RSE_R;
 #[doc = "Field `RWTE` reader - receive watchdog timeout enable"]
-pub type RWTE_R = crate::BitReader;
-#[doc = "Field `RWTE` writer - receive watchdog timeout enable"]
-pub type RWTE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as RWTE_R;
 #[doc = "Field `EIE` reader - Early transmit interrupt enable"]
-pub type EIE_R = crate::BitReader;
-#[doc = "Field `EIE` writer - Early transmit interrupt enable"]
-pub type EIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as EIE_R;
 #[doc = "Field `FBEE` reader - Fatal bus error enable"]
-pub type FBEE_R = crate::BitReader;
-#[doc = "Field `FBEE` writer - Fatal bus error enable"]
-pub type FBEE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as FBEE_R;
 #[doc = "Field `ERE` reader - Early receive interrupt enable"]
-pub type ERE_R = crate::BitReader;
-#[doc = "Field `ERE` writer - Early receive interrupt enable"]
-pub type ERE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as ERE_R;
 #[doc = "Field `AIE` reader - Abnormal interrupt enable"]
-pub type AIE_R = crate::BitReader;
-#[doc = "Field `AIE` writer - Abnormal interrupt enable"]
-pub type AIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_R as AIE_R;
 #[doc = "Field `NIE` reader - Normal interrupt enable"]
-pub type NIE_R = crate::BitReader;
+pub use TIE_R as NIE_R;
+#[doc = "Field `TSE` writer - Transmit stopped enable"]
+pub use TIE_W as TSE_W;
+#[doc = "Field `TUE` writer - Transmit buffer unavailable enable"]
+pub use TIE_W as TUE_W;
+#[doc = "Field `TJE` writer - Transmit jabber timeout enable"]
+pub use TIE_W as TJE_W;
+#[doc = "Field `OVE` writer - Overflow interrupt enable"]
+pub use TIE_W as OVE_W;
+#[doc = "Field `UNE` writer - Underflow interrupt enable"]
+pub use TIE_W as UNE_W;
+#[doc = "Field `RIE` writer - Receive interrupt enable"]
+pub use TIE_W as RIE_W;
+#[doc = "Field `RBUE` writer - Receive buffer unavailable enable"]
+pub use TIE_W as RBUE_W;
+#[doc = "Field `RSE` writer - Receive stopped enable"]
+pub use TIE_W as RSE_W;
+#[doc = "Field `RWTE` writer - receive watchdog timeout enable"]
+pub use TIE_W as RWTE_W;
+#[doc = "Field `EIE` writer - Early transmit interrupt enable"]
+pub use TIE_W as EIE_W;
+#[doc = "Field `FBEE` writer - Fatal bus error enable"]
+pub use TIE_W as FBEE_W;
+#[doc = "Field `ERE` writer - Early receive interrupt enable"]
+pub use TIE_W as ERE_W;
+#[doc = "Field `AIE` writer - Abnormal interrupt enable"]
+pub use TIE_W as AIE_W;
 #[doc = "Field `NIE` writer - Normal interrupt enable"]
-pub type NIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TIE_W as NIE_W;
 impl R {
     #[doc = "Bit 0 - Transmit interrupt enable"]
     #[inline(always)]

@@ -19,6 +19,7 @@ pub type RSAW_R = crate::FieldReader;
 #[doc = "Field `RSAW` writer - Resynchronization adjust width"]
 pub type RSAW_W<'a, REG> = crate::FieldWriter<'a, REG, 2, u8, crate::Safe>;
 #[doc = "Loop back mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lbenr {
     #[doc = "0: Loop back mode is disabled"]
@@ -55,6 +56,7 @@ impl LBEN_R {
     }
 }
 #[doc = "Loop back mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LbenwWO {
     #[doc = "0: Loop back mode disable"]
@@ -86,6 +88,7 @@ where
     }
 }
 #[doc = "Listen-Only mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Loenr {
     #[doc = "0: Listen-Only mode is disabled"]
@@ -122,6 +125,7 @@ impl LOEN_R {
     }
 }
 #[doc = "Listen-Only mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LoenwWO {
     #[doc = "0: Listen-Only mode disable"]

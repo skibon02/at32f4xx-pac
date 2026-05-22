@@ -3,6 +3,7 @@ pub type R = crate::R<ESTS_SPEC>;
 #[doc = "Register `ESTS` writer"]
 pub type W = crate::W<ESTS_SPEC>;
 #[doc = "Error active flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EAF_A {
     #[doc = "0: Error active state is not entered"]
@@ -39,6 +40,7 @@ impl EAF_R {
     }
 }
 #[doc = "Error passive flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EPF_A {
     #[doc = "0: Error passive state is not entered"]
@@ -75,6 +77,7 @@ impl EPF_R {
     }
 }
 #[doc = "Bus-off flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BOF_A {
     #[doc = "0: Bus-off state is not entered"]
@@ -111,6 +114,7 @@ impl BOF_R {
     }
 }
 #[doc = "Error type record\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ETR_A {

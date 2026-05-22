@@ -1,4 +1,4 @@
-_svd: "../svd/AT32F402.svd"
+_svd: "../svd/at32f402.svd"
 
 _modify:
   name: AT32F402

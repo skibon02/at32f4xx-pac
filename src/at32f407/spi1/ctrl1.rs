@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL1_SPEC>;
 #[doc = "Register `CTRL1` writer"]
 pub type W = crate::W<CTRL1_SPEC>;
 #[doc = "Clock phase\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLKPHA_A {
     #[doc = "0: Data capture starts from the first clock edge"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Clock polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLKPOL_A {
     #[doc = "0: Low level"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Master enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MSTEN_A {
     #[doc = "0: Master is disabled (Slave)\""]
@@ -166,6 +169,7 @@ pub type MDIV2_0_R = crate::FieldReader;
 #[doc = "Field `MDIV2_0` writer - Master clock frequency division bit2-0"]
 pub type MDIV2_0_W<'a, REG> = crate::FieldWriter<'a, REG, 3, u8, crate::Safe>;
 #[doc = "SPI enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Spienr {
     #[doc = "0: SPI is disabled"]
@@ -202,6 +206,7 @@ impl SPIEN_R {
     }
 }
 #[doc = "SPI enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SpienwWO {
     #[doc = "0: SPI disable"]
@@ -233,6 +238,7 @@ where
     }
 }
 #[doc = "LSB transmit first\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LTF_A {
     #[doc = "0: Most significant bit first"]
@@ -286,6 +292,7 @@ where
     }
 }
 #[doc = "Software CS internal level\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SWCSIL_A {
     #[doc = "0: Low level"]
@@ -339,6 +346,7 @@ where
     }
 }
 #[doc = "Software CS enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Swcsenr {
     #[doc = "0: Software CS is disabled"]
@@ -375,6 +383,7 @@ impl SWCSEN_R {
     }
 }
 #[doc = "Software CS enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SwcsenwWO {
     #[doc = "0: Software CS disable"]
@@ -406,6 +415,7 @@ where
     }
 }
 #[doc = "Only receive active\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ORA_A {
     #[doc = "0: Transmission and reception"]
@@ -459,6 +469,7 @@ where
     }
 }
 #[doc = "frame bit num\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FBN_A {
     #[doc = "0: 8-bit data frame"]
@@ -512,6 +523,7 @@ where
     }
 }
 #[doc = "Next transmission CRC\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum NTC_A {
     #[doc = "0: Next transmitted data is the normal value"]
@@ -565,6 +577,7 @@ where
     }
 }
 #[doc = "CRC calculation enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ccenr {
     #[doc = "0: RC calculation is disabled"]
@@ -601,6 +614,7 @@ impl CCEN_R {
     }
 }
 #[doc = "CRC calculation enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CcenwWO {
     #[doc = "0: RC calculation disable"]
@@ -632,6 +646,7 @@ where
     }
 }
 #[doc = "Single line bidirectional half-duplex transmission direction\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SLBTD_A {
     #[doc = "0: Receive-only mode"]
@@ -685,6 +700,7 @@ where
     }
 }
 #[doc = "Single line bidirectional half-duplex enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Slbenr {
     #[doc = "0: Single line bidirectional half-duplex is disabled"]
@@ -721,6 +737,7 @@ impl SLBEN_R {
     }
 }
 #[doc = "Single line bidirectional half-duplex enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SlbenwWO {
     #[doc = "0: Single line bidirectional half-duplex disable"]

@@ -3,6 +3,7 @@ pub type R = crate::R<STCTRL_SPEC>;
 #[doc = "Register `STCTRL` writer"]
 pub type W = crate::W<STCTRL_SPEC>;
 #[doc = "Subordinate TMR mode selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SMSEL_A {
@@ -141,6 +142,7 @@ where
     }
 }
 #[doc = "Subordinate TMR input selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum STIS_A {
@@ -279,6 +281,7 @@ where
     }
 }
 #[doc = "Subordinate TMR synchronization\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Stsr {
     #[doc = "0: Subordinate TMR synchronization is disabled"]
@@ -315,6 +318,7 @@ impl STS_R {
     }
 }
 #[doc = "Subordinate TMR synchronization\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum StswWO {
     #[doc = "0: Subordinate TMR synchronization disable"]
@@ -346,6 +350,7 @@ where
     }
 }
 #[doc = "External signal filter\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ESF_A {
@@ -588,6 +593,7 @@ where
     }
 }
 #[doc = "External signal divider\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ESDIV_A {
@@ -674,6 +680,7 @@ where
     }
 }
 #[doc = "External clock mode B enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ecmbenr {
     #[doc = "0: External clock mode B is disabled"]
@@ -710,6 +717,7 @@ impl ECMBEN_R {
     }
 }
 #[doc = "External clock mode B enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EcmbenwWO {
     #[doc = "0: External clock mode B disable"]
@@ -741,6 +749,7 @@ where
     }
 }
 #[doc = "External signal polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ESP_A {
     #[doc = "0: High or rising edge"]

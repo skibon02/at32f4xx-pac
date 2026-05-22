@@ -7,15 +7,15 @@ pub type OBF_R = crate::BitReader;
 #[doc = "Field `PRGMERR` reader - program error"]
 pub type PRGMERR_R = crate::BitReader;
 #[doc = "Field `PRGMERR` writer - program error"]
-pub type PRGMERR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PRGMERR_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `EPPERR` reader - Erase/program protection error"]
 pub type EPPERR_R = crate::BitReader;
 #[doc = "Field `EPPERR` writer - Erase/program protection error"]
-pub type EPPERR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type EPPERR_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `ODF` reader - Operate done flag"]
 pub type ODF_R = crate::BitReader;
 #[doc = "Field `ODF` writer - Operate done flag"]
-pub type ODF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ODF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Operate busy flag"]
     #[inline(always)]
@@ -75,6 +75,7 @@ impl crate::Readable for STS_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`sts::W`](W) writer structure"]
 impl crate::Writable for STS_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x34;
 }
 #[doc = "`reset()` method sets STS to value 0"]
 impl crate::Resettable for STS_SPEC {}

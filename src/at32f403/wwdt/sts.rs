@@ -3,6 +3,7 @@ pub type R = crate::R<STS_SPEC>;
 #[doc = "Register `STS` writer"]
 pub type W = crate::W<STS_SPEC>;
 #[doc = "Reload counter interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rldfr {
     #[doc = "0: Downcounter doesn't reached 0x40"]
@@ -39,6 +40,7 @@ impl RLDF_R {
     }
 }
 #[doc = "Reload counter interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RldfwWO {
     #[doc = "0: Clear flag"]

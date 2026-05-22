@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL2_SPEC>;
 #[doc = "Register `CTRL2` writer"]
 pub type W = crate::W<CTRL2_SPEC>;
 #[doc = "A/D converter enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcenr {
     #[doc = "0: ADC is disabled"]
@@ -39,6 +40,7 @@ impl ADCEN_R {
     }
 }
 #[doc = "A/D converter enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AdcenwWO {
     #[doc = "0: ADC disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Repeat mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rpenr {
     #[doc = "0: Repetition mode is disabled"]
@@ -106,6 +109,7 @@ impl RPEN_R {
     }
 }
 #[doc = "Repeat mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RpenwWO {
     #[doc = "0: Repetition mode disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "A/D Calibration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcalr {
     #[doc = "0: Calibration completed"]
@@ -173,6 +178,7 @@ impl ADCAL_R {
     }
 }
 #[doc = "A/D Calibration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AdcalwWO {
     #[doc = "1: Enable calibration"]
@@ -197,6 +203,7 @@ where
     }
 }
 #[doc = "initialize A/D calibration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcalinitr {
     #[doc = "0: Initialization completed"]
@@ -233,6 +240,7 @@ impl ADCALINIT_R {
     }
 }
 #[doc = "initialize A/D calibration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AdcalinitwWO {
     #[doc = "1: Enable initialization"]
@@ -257,6 +265,7 @@ where
     }
 }
 #[doc = "Data alignment\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DTALIGN_A {
     #[doc = "0: Right alignment"]
@@ -326,6 +335,7 @@ pub type OCTEN_R = crate::BitReader;
 #[doc = "Field `OCTEN` writer - Trigger mode enable for ordinary channels conversion"]
 pub type OCTEN_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Conversion trigger by software of preempted channels\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PCSWTRG_A {
     #[doc = "0: Conversion of ordinary channels not triggered"]

@@ -1,7 +1,8 @@
-_svd: "../svd/AT32F407.svd"
+_svd: "../svd/at32f407.svd"
 
 _modify:
   name: AT32F407
 
 _include:
   - common/f403a_407.yaml
+  - common/emac.yaml

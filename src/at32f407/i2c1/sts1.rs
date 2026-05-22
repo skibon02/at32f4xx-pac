@@ -3,6 +3,7 @@ pub type R = crate::R<STS1_SPEC>;
 #[doc = "Register `STS1` writer"]
 pub type W = crate::W<STS1_SPEC>;
 #[doc = "Start bit (Master mode)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum STARTF_A {
     #[doc = "0: No Start condition"]
@@ -39,6 +40,7 @@ impl STARTF_R {
     }
 }
 #[doc = "Address sent (master mode)/matched (slave mode)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADDR7F_A {
     #[doc = "0: Adress mismatched or not received"]
@@ -75,6 +77,7 @@ impl ADDR7F_R {
     }
 }
 #[doc = "Transmit data complete\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TDC_A {
     #[doc = "0: Data byte transfer not done"]
@@ -111,6 +114,7 @@ impl TDC_R {
     }
 }
 #[doc = "address header match (Master mode)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADDRHF_A {
     #[doc = "0: Master 9~8 bit address head mismatch"]
@@ -147,6 +151,7 @@ impl ADDRHF_R {
     }
 }
 #[doc = "Stop detection (slave mode)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum STOPF_A {
     #[doc = "0: No Stop condition detected"]
@@ -183,6 +188,7 @@ impl STOPF_R {
     }
 }
 #[doc = "Receive data buffer full (receivers)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RDBF_A {
     #[doc = "0: Data register empty"]
@@ -219,6 +225,7 @@ impl RDBF_R {
     }
 }
 #[doc = "Transmit data buffer empty (transmitters)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TDBE_A {
     #[doc = "0: Data register not empty"]
@@ -255,6 +262,7 @@ impl TDBE_R {
     }
 }
 #[doc = "Bus error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Buserrr {
     #[doc = "0: No misplaced Start or Stop condition"]
@@ -291,6 +299,7 @@ impl BUSERR_R {
     }
 }
 #[doc = "Bus error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BuserrwWO {
     #[doc = "0: Clear flag"]
@@ -315,6 +324,7 @@ where
     }
 }
 #[doc = "Arbitration lost (master mode)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Arlostr {
     #[doc = "0: No Arbitration Lost detected"]
@@ -351,6 +361,7 @@ impl ARLOST_R {
     }
 }
 #[doc = "Arbitration lost (master mode)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ArlostwWO {
     #[doc = "0: Clear flag"]
@@ -375,6 +386,7 @@ where
     }
 }
 #[doc = "Acknowledge failure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ackfailr {
     #[doc = "0: No acknowledge failure"]
@@ -411,6 +423,7 @@ impl ACKFAIL_R {
     }
 }
 #[doc = "Acknowledge failure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AckfailwWO {
     #[doc = "0: Clear flag"]
@@ -435,6 +448,7 @@ where
     }
 }
 #[doc = "Overflow or underflow\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Oufr {
     #[doc = "0: No overrun/underrun occured"]
@@ -471,6 +485,7 @@ impl OUF_R {
     }
 }
 #[doc = "Overflow or underflow\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OufwWO {
     #[doc = "0: Clear flag"]
@@ -495,6 +510,7 @@ where
     }
 }
 #[doc = "PEC receive error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pecerrr {
     #[doc = "0: no PEC error: receiver returns ACK after PEC reception (if ACK=1)"]
@@ -531,6 +547,7 @@ impl PECERR_R {
     }
 }
 #[doc = "PEC receive error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PecerrwWO {
     #[doc = "0: Clear flag"]
@@ -555,6 +572,7 @@ where
     }
 }
 #[doc = "Timeout error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tmoutr {
     #[doc = "0: No Timeout error"]
@@ -591,6 +609,7 @@ impl TMOUT_R {
     }
 }
 #[doc = "Timeout error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TmoutwWO {
     #[doc = "0: Clear flag"]
@@ -615,6 +634,7 @@ where
     }
 }
 #[doc = "SMBus alert\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Alertfr {
     #[doc = "0: No SMBALERT occured"]
@@ -651,6 +671,7 @@ impl ALERTF_R {
     }
 }
 #[doc = "SMBus alert\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AlertfwWO {
     #[doc = "0: Clear flag"]

@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
 #[doc = "Reset bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RSTW_A {
     #[doc = "1: Reset CRC calculation unit, the data register is set as 0xFFFF FFFF"]
@@ -48,6 +49,7 @@ pub type POLY_SIZE_R = crate::FieldReader;
 #[doc = "Field `POLY_SIZE` writer - Polynomial size"]
 pub type POLY_SIZE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Reverse input data\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum REVID_A {
@@ -134,6 +136,7 @@ where
     }
 }
 #[doc = "Reverse output data\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum REVOD_A {
     #[doc = "0: No effect"]

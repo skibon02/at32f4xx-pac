@@ -19,6 +19,7 @@ pub type MT_R = crate::BitReader;
 #[doc = "Field `MT` writer - Month tens"]
 pub type MT_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Week\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum WK_A {

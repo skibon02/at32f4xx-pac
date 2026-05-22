@@ -3,6 +3,7 @@ pub type R = crate::R<SWEVT_SPEC>;
 #[doc = "Register `SWEVT` writer"]
 pub type W = crate::W<SWEVT_SPEC>;
 #[doc = "Overflow event triggered by software\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OVFSWTRW_A {
     #[doc = "1: Generate an overflow event"]

@@ -3,6 +3,7 @@ pub type R = crate::R<EVTEN_SPEC>;
 #[doc = "Register `EVTEN` writer"]
 pub type W = crate::W<EVTEN_SPEC>;
 #[doc = "Event enable or disable on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Evten0r {
     #[doc = "0: Event request is disabled"]
@@ -39,6 +40,7 @@ impl EVTEN_R {
     }
 }
 #[doc = "Event enable or disable on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Evten0wWO {
     #[doc = "0: Event request disable"]

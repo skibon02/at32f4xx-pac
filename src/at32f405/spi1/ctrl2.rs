@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL2_SPEC>;
 #[doc = "Register `CTRL2` writer"]
 pub type W = crate::W<CTRL2_SPEC>;
 #[doc = "DMA receive enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dmarenr {
     #[doc = "0: DMA receive is disabled"]
@@ -39,6 +40,7 @@ impl DMAREN_R {
     }
 }
 #[doc = "DMA receive enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DmarenwWO {
     #[doc = "0: DMA receive disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "DMA transmit enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dmatenr {
     #[doc = "0: DMA transmit is disabled"]
@@ -106,6 +109,7 @@ impl DMATEN_R {
     }
 }
 #[doc = "DMA transmit enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DmatenwWO {
     #[doc = "0: DMA transmit disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "Hardware CS output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hwcsoer {
     #[doc = "0: Hardware CS output is disabled"]
@@ -173,6 +178,7 @@ impl HWCSOE_R {
     }
 }
 #[doc = "Hardware CS output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HwcsoewWO {
     #[doc = "0: Hardware CS output disable"]
@@ -208,6 +214,7 @@ pub type TIEN_R = crate::BitReader;
 #[doc = "Field `TIEN` writer - TI mode enable"]
 pub type TIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Errier {
     #[doc = "0: Error interrupt is disabled"]
@@ -244,6 +251,7 @@ impl ERRIE_R {
     }
 }
 #[doc = "Error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ErriewWO {
     #[doc = "0: Error interrupt disable"]
@@ -275,6 +283,7 @@ where
     }
 }
 #[doc = "Receive data buffer full interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rdbfier {
     #[doc = "0: Receive data buffer full interrupt is disabled"]
@@ -311,6 +320,7 @@ impl RDBFIE_R {
     }
 }
 #[doc = "Receive data buffer full interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RdbfiewWO {
     #[doc = "0: Receive data buffer full interrupt disable"]
@@ -342,6 +352,7 @@ where
     }
 }
 #[doc = "Transmit data buffer empty interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tdbeier {
     #[doc = "0: Transmit data buffer empty interrupt is disabled"]
@@ -378,6 +389,7 @@ impl TDBEIE_R {
     }
 }
 #[doc = "Transmit data buffer empty interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TdbeiewWO {
     #[doc = "0: Transmit data buffer empty interrupt disable"]

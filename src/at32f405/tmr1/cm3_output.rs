@@ -3,6 +3,7 @@ pub type R = crate::R<CM3_OUTPUT_SPEC>;
 #[doc = "Register `CM3_OUTPUT` writer"]
 pub type W = crate::W<CM3_OUTPUT_SPEC>;
 #[doc = "Channel %s output immediately enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C5OIEN_A {
     #[doc = "0: Need to compare the CVAL with CxDT before generating an output"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Channel %s output buffer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C5obenr {
     #[doc = "0: Channel output buffer is disabled"]
@@ -92,6 +94,7 @@ impl COBEN_R {
     }
 }
 #[doc = "Channel %s output buffer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C5obenwWO {
     #[doc = "0: Channel output buffer disable"]
@@ -123,6 +126,7 @@ where
     }
 }
 #[doc = "Channel %s output control\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum COCTRL_A {
@@ -261,6 +265,7 @@ where
     }
 }
 #[doc = "Channel %s output switch enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C5osenr {
     #[doc = "0: CxORAW is not affected by EXT input"]
@@ -297,6 +302,7 @@ impl COSEN_R {
     }
 }
 #[doc = "Channel %s output switch enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C5osenwWO {
     #[doc = "0: CxORAW is not affected by EXT input"]

@@ -3,6 +3,7 @@ pub type R = crate::R<CFGHR_SPEC>;
 #[doc = "Register `CFGHR` writer"]
 pub type W = crate::W<CFGHR_SPEC>;
 #[doc = "Port n.%s mode configurate bits\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IOMC8_A {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Port n.%s function configurate bits\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IOFC8_A {

@@ -3,6 +3,7 @@ pub type R = crate::R<REMAP3_SPEC>;
 #[doc = "Register `REMAP3` writer"]
 pub type W = crate::W<REMAP3_SPEC>;
 #[doc = "TMR9 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR9_GMUX_A {
@@ -63,6 +64,7 @@ where
     }
 }
 #[doc = "TMR10 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR10_GMUX_A {
@@ -123,6 +125,7 @@ where
     }
 }
 #[doc = "TMR11 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR11_GMUX_A {

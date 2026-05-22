@@ -204,22 +204,14 @@ pub mod epps0;
 pub type EPPS1 = crate::Reg<epps1::EPPS1_SPEC>;
 #[doc = "Erase/program protection status register 1"]
 pub mod epps1;
-#[doc = "UNLOCK2 (w) register accessor: Unlock 2 register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`unlock2::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@unlock2`] module"]
-pub type UNLOCK2 = crate::Reg<unlock2::UNLOCK2_SPEC>;
-#[doc = "Unlock 2 register"]
-pub mod unlock2;
-#[doc = "STS2 (rw) register accessor: Status 2 register\n\nYou can [`read`](crate::Reg::read) this register and get [`sts2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sts2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sts2`] module"]
-pub type STS2 = crate::Reg<sts2::STS2_SPEC>;
-#[doc = "Status 2 register"]
-pub mod sts2;
-#[doc = "CTRL2 (rw) register accessor: Control 2 register\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ctrl2`] module"]
-pub type CTRL2 = crate::Reg<ctrl2::CTRL2_SPEC>;
-#[doc = "Control 2 register"]
-pub mod ctrl2;
-#[doc = "ADDR2 (w) register accessor: Address 2 register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`addr2::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@addr2`] module"]
-pub type ADDR2 = crate::Reg<addr2::ADDR2_SPEC>;
-#[doc = "Address 2 register"]
-pub mod addr2;
+pub use ADDR as ADDR2;
+pub use CTRL as CTRL2;
+pub use STS as STS2;
+pub use UNLOCK as UNLOCK2;
+pub use addr as addr2;
+pub use ctrl as ctrl2;
+pub use sts as sts2;
+pub use unlock as unlock2;
 #[doc = "CONTR (rw) register accessor: Flash continue read register\n\nYou can [`read`](crate::Reg::read) this register and get [`contr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`contr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@contr`] module"]
 pub type CONTR = crate::Reg<contr::CONTR_SPEC>;
 #[doc = "Flash continue read register"]

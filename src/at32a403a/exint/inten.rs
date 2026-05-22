@@ -3,6 +3,7 @@ pub type R = crate::R<INTEN_SPEC>;
 #[doc = "Register `INTEN` writer"]
 pub type W = crate::W<INTEN_SPEC>;
 #[doc = "Interrupt enable or disable on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Inten0r {
     #[doc = "0: Interrupt request is disabled"]
@@ -39,6 +40,7 @@ impl INTEN_R {
     }
 }
 #[doc = "Interrupt enable or disable on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Inten0wWO {
     #[doc = "0: Interrupt request disable"]

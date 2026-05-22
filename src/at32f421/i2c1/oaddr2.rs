@@ -3,6 +3,7 @@ pub type R = crate::R<OADDR2_SPEC>;
 #[doc = "Register `OADDR2` writer"]
 pub type W = crate::W<OADDR2_SPEC>;
 #[doc = "Own address 2 enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADDR2EN_A {
     #[doc = "0: Single addressing mode"]

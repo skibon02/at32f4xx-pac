@@ -1,6 +1,7 @@
 #[doc = "Register `IDT` reader"]
 pub type R = crate::R<IDT_SPEC>;
 #[doc = "Port input data\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IDT0_A {
     #[doc = "0: Input is logic low"]

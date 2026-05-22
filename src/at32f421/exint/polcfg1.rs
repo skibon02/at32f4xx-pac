@@ -3,6 +3,7 @@ pub type R = crate::R<POLCFG1_SPEC>;
 #[doc = "Register `POLCFG1` writer"]
 pub type W = crate::W<POLCFG1_SPEC>;
 #[doc = "Rising polarity configuration bit on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rp0r {
     #[doc = "0: Rising trigger is disabled"]
@@ -39,6 +40,7 @@ impl RP_R {
     }
 }
 #[doc = "Rising polarity configuration bit on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rp0wWO {
     #[doc = "0: Rising trigger disable"]

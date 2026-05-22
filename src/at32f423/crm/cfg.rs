@@ -3,6 +3,7 @@ pub type R = crate::R<CFG_SPEC>;
 #[doc = "Register `CFG` writer"]
 pub type W = crate::W<CFG_SPEC>;
 #[doc = "System clock select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SCLKSEL_A {
@@ -76,6 +77,7 @@ where
     }
 }
 #[doc = "System Clock select Status\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SCLKSTS_A {
@@ -126,6 +128,7 @@ impl SCLKSTS_R {
     }
 }
 #[doc = "AHB division\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AHBDIV_A {
@@ -277,6 +280,7 @@ where
     }
 }
 #[doc = "APB1 division\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum APB1DIV_A {

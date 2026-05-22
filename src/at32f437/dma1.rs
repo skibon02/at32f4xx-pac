@@ -7,13 +7,7 @@ pub struct RegisterBlock {
     channel: [Channel; 7],
     _reserved3: [u8; 0x6c],
     dma_muxsel: DMA_MUXSEL,
-    muxc1ctrl: MUXC1CTRL,
-    muxc2ctrl: MUXC2CTRL,
-    muxc3ctrl: MUXC3CTRL,
-    muxc4ctrl: MUXC4CTRL,
-    muxc5ctrl: MUXC5CTRL,
-    muxc6ctrl: MUXC6CTRL,
-    muxc7ctrl: MUXC7CTRL,
+    channel_mux: [ChannelMux; 7],
     muxg1ctrl: MUXG1CTRL,
     muxg2ctrl: MUXG2CTRL,
     muxg3ctrl: MUXG3CTRL,
@@ -87,40 +81,53 @@ impl RegisterBlock {
     pub const fn dma_muxsel(&self) -> &DMA_MUXSEL {
         &self.dma_muxsel
     }
-    #[doc = "0x104 - Channel 1 Configuration Register"]
+    #[doc = "0x104..0x120 - Channel %s mux"]
+    #[doc = ""]
+    #[doc = "<div class=\"warning\">`n` is the index of cluster in the array. `n == 0` corresponds to `ChannelMux1` cluster.</div>"]
     #[inline(always)]
-    pub const fn muxc1ctrl(&self) -> &MUXC1CTRL {
-        &self.muxc1ctrl
+    pub const fn channel_mux(&self, n: usize) -> &ChannelMux {
+        &self.channel_mux[n]
     }
-    #[doc = "0x108 - Channel 2 Configuration Register"]
+    #[doc = "Iterator for array of:"]
+    #[doc = "0x104..0x120 - Channel %s mux"]
     #[inline(always)]
-    pub const fn muxc2ctrl(&self) -> &MUXC2CTRL {
-        &self.muxc2ctrl
+    pub fn channel_mux_iter(&self) -> impl Iterator<Item = &ChannelMux> {
+        self.channel_mux.iter()
     }
-    #[doc = "0x10c - Channel 3 Configuration Register"]
+    #[doc = "0x104 - Channel 1 mux"]
     #[inline(always)]
-    pub const fn muxc3ctrl(&self) -> &MUXC3CTRL {
-        &self.muxc3ctrl
+    pub const fn channel_mux1(&self) -> &ChannelMux {
+        self.channel_mux(0)
     }
-    #[doc = "0x110 - Channel 4 Configuration Register"]
+    #[doc = "0x108 - Channel 2 mux"]
     #[inline(always)]
-    pub const fn muxc4ctrl(&self) -> &MUXC4CTRL {
-        &self.muxc4ctrl
+    pub const fn channel_mux2(&self) -> &ChannelMux {
+        self.channel_mux(1)
     }
-    #[doc = "0x114 - Channel 5 Configuration Register"]
+    #[doc = "0x10c - Channel 3 mux"]
     #[inline(always)]
-    pub const fn muxc5ctrl(&self) -> &MUXC5CTRL {
-        &self.muxc5ctrl
+    pub const fn channel_mux3(&self) -> &ChannelMux {
+        self.channel_mux(2)
     }
-    #[doc = "0x118 - Channel 6 Configuration Register"]
+    #[doc = "0x110 - Channel 4 mux"]
     #[inline(always)]
-    pub const fn muxc6ctrl(&self) -> &MUXC6CTRL {
-        &self.muxc6ctrl
+    pub const fn channel_mux4(&self) -> &ChannelMux {
+        self.channel_mux(3)
     }
-    #[doc = "0x11c - Channel 7 Configuration Register"]
+    #[doc = "0x114 - Channel 5 mux"]
     #[inline(always)]
-    pub const fn muxc7ctrl(&self) -> &MUXC7CTRL {
-        &self.muxc7ctrl
+    pub const fn channel_mux5(&self) -> &ChannelMux {
+        self.channel_mux(4)
+    }
+    #[doc = "0x118 - Channel 6 mux"]
+    #[inline(always)]
+    pub const fn channel_mux6(&self) -> &ChannelMux {
+        self.channel_mux(5)
+    }
+    #[doc = "0x11c - Channel 7 mux"]
+    #[inline(always)]
+    pub const fn channel_mux7(&self) -> &ChannelMux {
+        self.channel_mux(6)
     }
     #[doc = "0x120 - Generator 1 Configuration Register"]
     #[inline(always)]
@@ -180,34 +187,11 @@ pub mod channel;
 pub type DMA_MUXSEL = crate::Reg<dma_muxsel::DMA_MUXSEL_SPEC>;
 #[doc = "DMAMUX Table Selection"]
 pub mod dma_muxsel;
-#[doc = "MUXC1CTRL (rw) register accessor: Channel 1 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc1ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc1ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxc1ctrl`] module"]
-pub type MUXC1CTRL = crate::Reg<muxc1ctrl::MUXC1CTRL_SPEC>;
-#[doc = "Channel 1 Configuration Register"]
-pub mod muxc1ctrl;
-#[doc = "MUXC2CTRL (rw) register accessor: Channel 2 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc2ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc2ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxc2ctrl`] module"]
-pub type MUXC2CTRL = crate::Reg<muxc2ctrl::MUXC2CTRL_SPEC>;
-#[doc = "Channel 2 Configuration Register"]
-pub mod muxc2ctrl;
-#[doc = "MUXC3CTRL (rw) register accessor: Channel 3 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc3ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc3ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxc3ctrl`] module"]
-pub type MUXC3CTRL = crate::Reg<muxc3ctrl::MUXC3CTRL_SPEC>;
-#[doc = "Channel 3 Configuration Register"]
-pub mod muxc3ctrl;
-#[doc = "MUXC4CTRL (rw) register accessor: Channel 4 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc4ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc4ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxc4ctrl`] module"]
-pub type MUXC4CTRL = crate::Reg<muxc4ctrl::MUXC4CTRL_SPEC>;
-#[doc = "Channel 4 Configuration Register"]
-pub mod muxc4ctrl;
-#[doc = "MUXC5CTRL (rw) register accessor: Channel 5 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc5ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc5ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxc5ctrl`] module"]
-pub type MUXC5CTRL = crate::Reg<muxc5ctrl::MUXC5CTRL_SPEC>;
-#[doc = "Channel 5 Configuration Register"]
-pub mod muxc5ctrl;
-#[doc = "MUXC6CTRL (rw) register accessor: Channel 6 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc6ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc6ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxc6ctrl`] module"]
-pub type MUXC6CTRL = crate::Reg<muxc6ctrl::MUXC6CTRL_SPEC>;
-#[doc = "Channel 6 Configuration Register"]
-pub mod muxc6ctrl;
-#[doc = "MUXC7CTRL (rw) register accessor: Channel 7 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc7ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc7ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxc7ctrl`] module"]
-pub type MUXC7CTRL = crate::Reg<muxc7ctrl::MUXC7CTRL_SPEC>;
-#[doc = "Channel 7 Configuration Register"]
-pub mod muxc7ctrl;
+#[doc = "Channel %s mux"]
+pub use self::channel_mux::ChannelMux;
+#[doc = r"Cluster"]
+#[doc = "Channel %s mux"]
+pub mod channel_mux;
 #[doc = "MUXG1CTRL (rw) register accessor: Generator 1 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxg1ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxg1ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxg1ctrl`] module"]
 pub type MUXG1CTRL = crate::Reg<muxg1ctrl::MUXG1CTRL_SPEC>;
 #[doc = "Generator 1 Configuration Register"]

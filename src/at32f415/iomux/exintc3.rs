@@ -3,6 +3,7 @@ pub type R = crate::R<EXINTC3_SPEC>;
 #[doc = "Register `EXINTC3` writer"]
 pub type W = crate::W<EXINTC3_SPEC>;
 #[doc = "Select the input source for EXINT%s external interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum EXINT8_A {

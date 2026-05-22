@@ -2,29 +2,12 @@
 pub type R = crate::R<DMARPD_SPEC>;
 #[doc = "Register `DMARPD` writer"]
 pub type W = crate::W<DMARPD_SPEC>;
-#[doc = "Field `RPD` reader - Receive poll demand"]
-pub type RPD_R = crate::FieldReader<u32>;
-#[doc = "Field `RPD` writer - Receive poll demand"]
-pub type RPD_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - Receive poll demand"]
-    #[inline(always)]
-    pub fn rpd(&self) -> RPD_R {
-        RPD_R::new(self.bits)
-    }
-}
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMARPD").field("rpd", &self.rpd()).finish()
+        write!(f, "{}", self.bits())
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - Receive poll demand"]
-    #[inline(always)]
-    pub fn rpd(&mut self) -> RPD_W<'_, DMARPD_SPEC> {
-        RPD_W::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "EHERNET DMA receive poll demand register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmarpd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmarpd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DMARPD_SPEC;
 impl crate::RegisterSpec for DMARPD_SPEC {
@@ -34,7 +17,7 @@ impl crate::RegisterSpec for DMARPD_SPEC {
 impl crate::Readable for DMARPD_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`dmarpd::W`](W) writer structure"]
 impl crate::Writable for DMARPD_SPEC {
-    type Safety = crate::Unsafe;
+    type Safety = crate::Safe;
 }
 #[doc = "`reset()` method sets DMARPD to value 0"]
 impl crate::Resettable for DMARPD_SPEC {}

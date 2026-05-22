@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL2_SPEC>;
 #[doc = "Register `CTRL2` writer"]
 pub type W = crate::W<CTRL2_SPEC>;
 #[doc = "DMA request source\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DRS_A {
     #[doc = "0: Capture/compare event"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Primary TMR output selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PTOS_A {
@@ -194,6 +196,7 @@ where
     }
 }
 #[doc = "C1IN selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1INSEL_A {
     #[doc = "0: CH1 pin is connected to C1IRAW input"]

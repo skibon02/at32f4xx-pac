@@ -7,6 +7,7 @@ pub type WIN_R = crate::FieldReader;
 #[doc = "Field `WIN` writer - Window value"]
 pub type WIN_W<'a, REG> = crate::FieldWriter<'a, REG, 7, u8, crate::Safe>;
 #[doc = "Clock division value\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DIV_A {
@@ -93,6 +94,7 @@ where
     }
 }
 #[doc = "Reload counter interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rldienr {
     #[doc = "0: Disabled"]
@@ -129,6 +131,7 @@ impl RLDIEN_R {
     }
 }
 #[doc = "Reload counter interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RldienwWO {
     #[doc = "0: Disable"]

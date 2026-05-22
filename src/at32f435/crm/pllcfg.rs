@@ -2,18 +2,101 @@
 pub type R = crate::R<PLLCFG_SPEC>;
 #[doc = "Register `PLLCFG` writer"]
 pub type W = crate::W<PLLCFG_SPEC>;
-#[doc = "Field `PLL_MS` reader - PLL pre-division"]
-pub type PLL_MS_R = crate::FieldReader;
-#[doc = "Field `PLL_MS` writer - PLL pre-division"]
-pub type PLL_MS_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
-#[doc = "Field `PLL_NS` reader - PLL frequency multiplication factor"]
-pub type PLL_NS_R = crate::FieldReader<u16>;
-#[doc = "Field `PLL_NS` writer - PLL frequency multiplication factor"]
-pub type PLL_NS_W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
-#[doc = "Field `PLL_FR` reader - PLL post-division"]
-pub type PLL_FR_R = crate::FieldReader;
-#[doc = "Field `PLL_FR` writer - PLL post-division"]
-pub type PLL_FR_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+#[doc = "Field `MS` reader - PLL pre-division"]
+pub type MS_R = crate::FieldReader;
+#[doc = "Field `MS` writer - PLL pre-division"]
+pub type MS_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+#[doc = "Field `NS` reader - PLL frequency multiplication factor"]
+pub type NS_R = crate::FieldReader<u16>;
+#[doc = "Field `NS` writer - PLL frequency multiplication factor"]
+pub type NS_W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
+#[doc = "PLL post-division\n\nValue on reset: 3"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum POST_DIVISION_A {
+    #[doc = "2: Division by 4"]
+    Div4 = 2,
+    #[doc = "3: Division by 8"]
+    Div8 = 3,
+    #[doc = "4: Division by 16"]
+    Div16 = 4,
+    #[doc = "5: Division by 32"]
+    Div32 = 5,
+}
+impl From<POST_DIVISION_A> for u8 {
+    #[inline(always)]
+    fn from(variant: POST_DIVISION_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for POST_DIVISION_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for POST_DIVISION_A {}
+#[doc = "Field `FR` reader - PLL post-division"]
+pub type FR_R = crate::FieldReader<POST_DIVISION_A>;
+impl FR_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<POST_DIVISION_A> {
+        match self.bits {
+            2 => Some(POST_DIVISION_A::Div4),
+            3 => Some(POST_DIVISION_A::Div8),
+            4 => Some(POST_DIVISION_A::Div16),
+            5 => Some(POST_DIVISION_A::Div32),
+            _ => None,
+        }
+    }
+    #[doc = "Division by 4"]
+    #[inline(always)]
+    pub fn is_div4(&self) -> bool {
+        *self == POST_DIVISION_A::Div4
+    }
+    #[doc = "Division by 8"]
+    #[inline(always)]
+    pub fn is_div8(&self) -> bool {
+        *self == POST_DIVISION_A::Div8
+    }
+    #[doc = "Division by 16"]
+    #[inline(always)]
+    pub fn is_div16(&self) -> bool {
+        *self == POST_DIVISION_A::Div16
+    }
+    #[doc = "Division by 32"]
+    #[inline(always)]
+    pub fn is_div32(&self) -> bool {
+        *self == POST_DIVISION_A::Div32
+    }
+}
+#[doc = "Field `FR` writer - PLL post-division"]
+pub type FR_W<'a, REG> = crate::FieldWriter<'a, REG, 3, POST_DIVISION_A>;
+impl<'a, REG> FR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Division by 4"]
+    #[inline(always)]
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(POST_DIVISION_A::Div4)
+    }
+    #[doc = "Division by 8"]
+    #[inline(always)]
+    pub fn div8(self) -> &'a mut crate::W<REG> {
+        self.variant(POST_DIVISION_A::Div8)
+    }
+    #[doc = "Division by 16"]
+    #[inline(always)]
+    pub fn div16(self) -> &'a mut crate::W<REG> {
+        self.variant(POST_DIVISION_A::Div16)
+    }
+    #[doc = "Division by 32"]
+    #[inline(always)]
+    pub fn div32(self) -> &'a mut crate::W<REG> {
+        self.variant(POST_DIVISION_A::Div32)
+    }
+}
 #[doc = "Field `PLLRCS` reader - PLL reference clock select"]
 pub type PLLRCS_R = crate::BitReader;
 #[doc = "Field `PLLRCS` writer - PLL reference clock select"]
@@ -21,18 +104,18 @@ pub type PLLRCS_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:3 - PLL pre-division"]
     #[inline(always)]
-    pub fn pll_ms(&self) -> PLL_MS_R {
-        PLL_MS_R::new((self.bits & 0x0f) as u8)
+    pub fn ms(&self) -> MS_R {
+        MS_R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 6:14 - PLL frequency multiplication factor"]
     #[inline(always)]
-    pub fn pll_ns(&self) -> PLL_NS_R {
-        PLL_NS_R::new(((self.bits >> 6) & 0x01ff) as u16)
+    pub fn ns(&self) -> NS_R {
+        NS_R::new(((self.bits >> 6) & 0x01ff) as u16)
     }
     #[doc = "Bits 16:18 - PLL post-division"]
     #[inline(always)]
-    pub fn pll_fr(&self) -> PLL_FR_R {
-        PLL_FR_R::new(((self.bits >> 16) & 7) as u8)
+    pub fn fr(&self) -> FR_R {
+        FR_R::new(((self.bits >> 16) & 7) as u8)
     }
     #[doc = "Bit 22 - PLL reference clock select"]
     #[inline(always)]
@@ -43,9 +126,9 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("PLLCFG")
-            .field("pll_ms", &self.pll_ms())
-            .field("pll_ns", &self.pll_ns())
-            .field("pll_fr", &self.pll_fr())
+            .field("ms", &self.ms())
+            .field("ns", &self.ns())
+            .field("fr", &self.fr())
             .field("pllrcs", &self.pllrcs())
             .finish()
     }
@@ -53,18 +136,18 @@ impl core::fmt::Debug for R {
 impl W {
     #[doc = "Bits 0:3 - PLL pre-division"]
     #[inline(always)]
-    pub fn pll_ms(&mut self) -> PLL_MS_W<'_, PLLCFG_SPEC> {
-        PLL_MS_W::new(self, 0)
+    pub fn ms(&mut self) -> MS_W<'_, PLLCFG_SPEC> {
+        MS_W::new(self, 0)
     }
     #[doc = "Bits 6:14 - PLL frequency multiplication factor"]
     #[inline(always)]
-    pub fn pll_ns(&mut self) -> PLL_NS_W<'_, PLLCFG_SPEC> {
-        PLL_NS_W::new(self, 6)
+    pub fn ns(&mut self) -> NS_W<'_, PLLCFG_SPEC> {
+        NS_W::new(self, 6)
     }
     #[doc = "Bits 16:18 - PLL post-division"]
     #[inline(always)]
-    pub fn pll_fr(&mut self) -> PLL_FR_W<'_, PLLCFG_SPEC> {
-        PLL_FR_W::new(self, 16)
+    pub fn fr(&mut self) -> FR_W<'_, PLLCFG_SPEC> {
+        FR_W::new(self, 16)
     }
     #[doc = "Bit 22 - PLL reference clock select"]
     #[inline(always)]

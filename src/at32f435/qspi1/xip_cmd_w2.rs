@@ -5,7 +5,7 @@ pub type W = crate::W<XIP_CMD_W2_SPEC>;
 #[doc = "Field `XIPR_DCNT` reader - XIP read data counter"]
 pub type XIPR_DCNT_R = crate::FieldReader;
 #[doc = "Field `XIPR_DCNT` writer - XIP read data counter"]
-pub type XIPR_DCNT_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type XIPR_DCNT_W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `XIPR_TCNT` reader - XIP continue read cycle counter"]
 pub type XIPR_TCNT_R = crate::FieldReader;
 #[doc = "Field `XIPR_TCNT` writer - XIP continue read cycle counter"]
@@ -27,10 +27,10 @@ pub type XIPW_SEL_R = crate::BitReader;
 #[doc = "Field `XIPW_SEL` writer - XIP write continue mode select"]
 pub type XIPW_SEL_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bits 0:4 - XIP read data counter"]
+    #[doc = "Bits 0:5 - XIP read data counter"]
     #[inline(always)]
     pub fn xipr_dcnt(&self) -> XIPR_DCNT_R {
-        XIPR_DCNT_R::new((self.bits & 0x1f) as u8)
+        XIPR_DCNT_R::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 8:14 - XIP continue read cycle counter"]
     #[inline(always)]
@@ -71,7 +71,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:4 - XIP read data counter"]
+    #[doc = "Bits 0:5 - XIP read data counter"]
     #[inline(always)]
     pub fn xipr_dcnt(&mut self) -> XIPR_DCNT_W<'_, XIP_CMD_W2_SPEC> {
         XIPR_DCNT_W::new(self, 0)

@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL1_SPEC>;
 #[doc = "Register `CTRL1` writer"]
 pub type W = crate::W<CTRL1_SPEC>;
 #[doc = "Peripheral enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum I2cenr {
     #[doc = "0: I2C peripheral is disabled"]
@@ -39,6 +40,7 @@ impl I2CEN_R {
     }
 }
 #[doc = "Peripheral enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum I2cenwWO {
     #[doc = "0: Disable I2C peripheral"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "I2C peripheral mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PERMODE_A {
     #[doc = "0: I2C mode"]
@@ -123,6 +126,7 @@ where
     }
 }
 #[doc = "SMBus device mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SMBMODE_A {
     #[doc = "0: SMBus slave"]
@@ -176,6 +180,7 @@ where
     }
 }
 #[doc = "SMBus address resolution protocol enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Arpenr {
     #[doc = "0: SMBus address resolution protocol is disabled"]
@@ -212,6 +217,7 @@ impl ARPEN_R {
     }
 }
 #[doc = "SMBus address resolution protocol enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ArpenwWO {
     #[doc = "0: Disable SMBus address resolution protocol"]
@@ -243,6 +249,7 @@ where
     }
 }
 #[doc = "PEC calculation enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pecenr {
     #[doc = "0: PEC calculation is disabled"]
@@ -279,6 +286,7 @@ impl PECEN_R {
     }
 }
 #[doc = "PEC calculation enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PecenwWO {
     #[doc = "0: Disable PEC calculation"]
@@ -310,6 +318,7 @@ where
     }
 }
 #[doc = "General call address enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Gcaenr {
     #[doc = "0: General call address is disabled"]
@@ -346,6 +355,7 @@ impl GCAEN_R {
     }
 }
 #[doc = "General call address enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GcaenwWO {
     #[doc = "0: Disable general call address"]
@@ -377,6 +387,7 @@ where
     }
 }
 #[doc = "Clock stretching mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Stretchr {
     #[doc = "0: Clock stretching mode is disabled"]
@@ -413,6 +424,7 @@ impl STRETCH_R {
     }
 }
 #[doc = "Clock stretching mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum StretchwWO {
     #[doc = "0: Disable clock stretching mode"]
@@ -444,6 +456,7 @@ where
     }
 }
 #[doc = "Start generation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GENSTART_A {
     #[doc = "0: No Start generation"]
@@ -497,6 +510,7 @@ where
     }
 }
 #[doc = "Stop generation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GENSTOP_A {
     #[doc = "0: No Stop generation"]
@@ -550,6 +564,7 @@ where
     }
 }
 #[doc = "Acknowledge enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ackenr {
     #[doc = "0: No acknowledge returned"]
@@ -586,6 +601,7 @@ impl ACKEN_R {
     }
 }
 #[doc = "Acknowledge enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AckenwWO {
     #[doc = "0: Disable acknowledge"]
@@ -617,6 +633,7 @@ where
     }
 }
 #[doc = "Master receiving mode acknowledge control\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MACKCTRL_A {
     #[doc = "0: ACKEN bit controls ACK of the current byte being transferred"]
@@ -670,6 +687,7 @@ where
     }
 }
 #[doc = "Request PEC transmission enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pectenr {
     #[doc = "0: PEC transfer is disabled"]
@@ -706,6 +724,7 @@ impl PECTEN_R {
     }
 }
 #[doc = "Request PEC transmission enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PectenwWO {
     #[doc = "0: Disable PEC transfer"]
@@ -737,6 +756,7 @@ where
     }
 }
 #[doc = "SMBus alert pin set\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SMBALERT_A {
     #[doc = "0: SMBus alert pin high"]
@@ -790,6 +810,7 @@ where
     }
 }
 #[doc = "I2C peripheral reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RESET_A {
     #[doc = "0: I2C peripheral not under reset"]

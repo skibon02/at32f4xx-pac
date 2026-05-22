@@ -3,6 +3,7 @@ pub type R = crate::R<FACFG_SPEC>;
 #[doc = "Register `FACFG` writer"]
 pub type W = crate::W<FACFG_SPEC>;
 #[doc = "Filter activate enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum En0r {
     #[doc = "0: Filter is disabled"]
@@ -39,6 +40,7 @@ impl EN_R {
     }
 }
 #[doc = "Filter activate enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum En0wWO {
     #[doc = "0: Filter disable"]

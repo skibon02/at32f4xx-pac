@@ -1,6 +1,7 @@
 #[doc = "Register `SCR` writer"]
 pub type W = crate::W<SCR_SPEC>;
 #[doc = "Set bit %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IOSB0W_A {
     #[doc = "1: Set the corresponding ODT bit"]
@@ -25,6 +26,7 @@ where
     }
 }
 #[doc = "Clear bit %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IOCB0W_A {
     #[doc = "1: Clear the corresponding ODT bit"]

@@ -3,6 +3,7 @@ pub type R = crate::R<STS_SPEC>;
 #[doc = "Register `STS` writer"]
 pub type W = crate::W<STS_SPEC>;
 #[doc = "Parity error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PERR_A {
     #[doc = "0: No parity error occurs"]
@@ -39,6 +40,7 @@ impl PERR_R {
     }
 }
 #[doc = "Framing error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FERR_A {
     #[doc = "0: No framing error is detected"]
@@ -75,6 +77,7 @@ impl FERR_R {
     }
 }
 #[doc = "Noise error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum NERR_A {
     #[doc = "0: No noise is detected"]
@@ -111,6 +114,7 @@ impl NERR_R {
     }
 }
 #[doc = "Receiver overflow error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ROERR_A {
     #[doc = "0: No overflow error"]
@@ -147,6 +151,7 @@ impl ROERR_R {
     }
 }
 #[doc = "IDLE flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IDLEF_A {
     #[doc = "0: No idle line is detected"]
@@ -183,6 +188,7 @@ impl IDLEF_R {
     }
 }
 #[doc = "Receive data buffer full\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rdbfr {
     #[doc = "0: Data is not received"]
@@ -219,6 +225,7 @@ impl RDBF_R {
     }
 }
 #[doc = "Receive data buffer full\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RdbfwWO {
     #[doc = "0: Clear receive buffer full flag"]
@@ -243,6 +250,7 @@ where
     }
 }
 #[doc = "Transmit data complete\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tdcr {
     #[doc = "0: Transmission is not completed"]
@@ -279,6 +287,7 @@ impl TDC_R {
     }
 }
 #[doc = "Transmit data complete\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TdcwWO {
     #[doc = "0: Clear transmit data complete flag"]
@@ -303,6 +312,7 @@ where
     }
 }
 #[doc = "Transmit data buffer empty\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TDBE_A {
     #[doc = "0: Data is not transferred to the shift register"]
@@ -339,6 +349,7 @@ impl TDBE_R {
     }
 }
 #[doc = "Break frame flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bffr {
     #[doc = "0: Break frame is not detected"]
@@ -375,6 +386,7 @@ impl BFF_R {
     }
 }
 #[doc = "Break frame flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BffwWO {
     #[doc = "0: Clear break frame flag"]
@@ -399,6 +411,7 @@ where
     }
 }
 #[doc = "CTS change flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ctscfr {
     #[doc = "0: No change on the CTS status line"]
@@ -435,6 +448,7 @@ impl CTSCF_R {
     }
 }
 #[doc = "CTS change flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CtscfwWO {
     #[doc = "0: Clear CTS change flag"]

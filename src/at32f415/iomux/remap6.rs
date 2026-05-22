@@ -3,6 +3,7 @@ pub type R = crate::R<REMAP6_SPEC>;
 #[doc = "Register `REMAP6` writer"]
 pub type W = crate::W<REMAP6_SPEC>;
 #[doc = "CAN1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CAN1_GMUX_A {
@@ -63,6 +64,7 @@ where
     }
 }
 #[doc = "SDIO1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SDIO1_GMUX_A {
@@ -162,6 +164,7 @@ where
     }
 }
 #[doc = "USART1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum USART1_GMUX_A {
@@ -222,6 +225,7 @@ where
     }
 }
 #[doc = "USART3 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum USART3_GMUX_A {
@@ -295,6 +299,7 @@ where
     }
 }
 #[doc = "UART4 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum UART4_GMUX_A {

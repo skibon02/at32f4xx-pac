@@ -1,4 +1,4 @@
-_svd: "../svd/AT32A403A.svd"
+_svd: "../svd/at32a403a.svd"
 
 _modify:
   name: AT32A403A
@@ -31,3 +31,4 @@ _include:
   - common/acc/common.yaml
   - common/debug/common.yaml
   - common/debug/timers.yaml
+  - common/emac.yaml

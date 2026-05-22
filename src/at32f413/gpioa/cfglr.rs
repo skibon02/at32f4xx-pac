@@ -3,6 +3,7 @@ pub type R = crate::R<CFGLR_SPEC>;
 #[doc = "Register `CFGLR` writer"]
 pub type W = crate::W<CFGLR_SPEC>;
 #[doc = "Port n.%s mode configurate bits\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IOMC0_A {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Port n.%s function configurate bits\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IOFC0_A {

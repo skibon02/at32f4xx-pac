@@ -3,6 +3,7 @@ pub type R = crate::R<TMI_SPEC>;
 #[doc = "Register `TMI` writer"]
 pub type W = crate::W<TMI_SPEC>;
 #[doc = "Transmit mailbox send request\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Srr {
     #[doc = "0: Transmission in progress"]
@@ -39,6 +40,7 @@ impl SR_R {
     }
 }
 #[doc = "Transmit mailbox send request\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SrwWO {
     #[doc = "1: Transmit request"]
@@ -63,6 +65,7 @@ where
     }
 }
 #[doc = "Transmit mailbox frame type select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FRSEL_A {
     #[doc = "0: Data frame"]
@@ -116,6 +119,7 @@ where
     }
 }
 #[doc = "Transmit mailbox identifier type select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IDSEL_A {
     #[doc = "0: Standard identifier"]

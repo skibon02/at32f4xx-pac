@@ -3,6 +3,7 @@ pub type R = crate::R<ISTS_SPEC>;
 #[doc = "Register `ISTS` writer"]
 pub type W = crate::W<ISTS_SPEC>;
 #[doc = "Overflow interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovfifr {
     #[doc = "0: No overflow event occurs"]
@@ -39,6 +40,7 @@ impl OVFIF_R {
     }
 }
 #[doc = "Overflow interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OvfifwWO {
     #[doc = "0: Overflow interrupt flag clear"]
@@ -63,6 +65,7 @@ where
     }
 }
 #[doc = "Channel %s interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1ifr {
     #[doc = "0: No compare event occurs"]
@@ -99,6 +102,7 @@ impl CIF_R {
     }
 }
 #[doc = "Channel %s interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1ifwWO {
     #[doc = "0: Interrupt flag clear"]
@@ -135,6 +139,7 @@ pub type BRKIF_R = crate::BitReader;
 #[doc = "Field `BRKIF` writer - Brake interrupt flag"]
 pub type BRKIF_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Channel %s recapture flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1rfr {
     #[doc = "0: No capture is detected"]
@@ -171,6 +176,7 @@ impl CRF_R {
     }
 }
 #[doc = "Channel %s recapture flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1rfwWO {
     #[doc = "0: Recapture flag clear"]

@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL1_SPEC>;
 #[doc = "Register `CTRL1` writer"]
 pub type W = crate::W<CTRL1_SPEC>;
 #[doc = "Send break frame\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sbfr {
     #[doc = "0: No break frame is transmitted"]
@@ -39,6 +40,7 @@ impl SBF_R {
     }
 }
 #[doc = "Send break frame\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SbfwWO {
     #[doc = "0: Clear send break frame"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Receiver mute\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RM_A {
     #[doc = "0: Receiver is in active mode"]
@@ -123,6 +126,7 @@ where
     }
 }
 #[doc = "Receiver enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Renr {
     #[doc = "0: Receiver is disabled"]
@@ -159,6 +163,7 @@ impl REN_R {
     }
 }
 #[doc = "Receiver enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RenwWO {
     #[doc = "0: Receiver disable"]
@@ -190,6 +195,7 @@ where
     }
 }
 #[doc = "Transmitter enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tenr {
     #[doc = "0: Transmitter is disabled"]
@@ -226,6 +232,7 @@ impl TEN_R {
     }
 }
 #[doc = "Transmitter enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TenwWO {
     #[doc = "0: Transmitter disable"]
@@ -257,6 +264,7 @@ where
     }
 }
 #[doc = "IDLE interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Idleienr {
     #[doc = "0: IDLE interrupt is disabled"]
@@ -293,6 +301,7 @@ impl IDLEIEN_R {
     }
 }
 #[doc = "IDLE interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IdleienwWO {
     #[doc = "0: IDLE interrupt disable"]
@@ -324,6 +333,7 @@ where
     }
 }
 #[doc = "RDBF interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rdbfienr {
     #[doc = "0: RDBF interrupt is disabled"]
@@ -360,6 +370,7 @@ impl RDBFIEN_R {
     }
 }
 #[doc = "RDBF interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RdbfienwWO {
     #[doc = "0: RDBF interrupt disable"]
@@ -391,6 +402,7 @@ where
     }
 }
 #[doc = "TDC interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tdcienr {
     #[doc = "0: TDC interrupt is disabled"]
@@ -427,6 +439,7 @@ impl TDCIEN_R {
     }
 }
 #[doc = "TDC interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TdcienwWO {
     #[doc = "0: TDC interrupt disable"]
@@ -458,6 +471,7 @@ where
     }
 }
 #[doc = "TDBE interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tdbeienr {
     #[doc = "0: TDBE interrupt is disabled"]
@@ -494,6 +508,7 @@ impl TDBEIEN_R {
     }
 }
 #[doc = "TDBE interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TdbeienwWO {
     #[doc = "0: TDBE interrupt disable"]
@@ -525,6 +540,7 @@ where
     }
 }
 #[doc = "PERR interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Perrienr {
     #[doc = "0: PERR interrupt is disabled"]
@@ -561,6 +577,7 @@ impl PERRIEN_R {
     }
 }
 #[doc = "PERR interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PerrienwWO {
     #[doc = "0: PERR interrupt disable"]
@@ -592,6 +609,7 @@ where
     }
 }
 #[doc = "Parity selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PSEL_A {
     #[doc = "0: Even parity"]
@@ -645,6 +663,7 @@ where
     }
 }
 #[doc = "Parity enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Penr {
     #[doc = "0: Parity is disabled"]
@@ -681,6 +700,7 @@ impl PEN_R {
     }
 }
 #[doc = "Parity enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PenwWO {
     #[doc = "0: Parity disable"]
@@ -712,6 +732,7 @@ where
     }
 }
 #[doc = "Wake up mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WUM_A {
     #[doc = "0: Waken up by idle line"]
@@ -769,6 +790,7 @@ pub type DBN0_R = crate::BitReader;
 #[doc = "Field `DBN0` writer - low bit for data bit num"]
 pub type DBN0_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "USART enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Uenr {
     #[doc = "0: USART is disabled"]
@@ -805,6 +827,7 @@ impl UEN_R {
     }
 }
 #[doc = "USART enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum UenwWO {
     #[doc = "0: USART disable"]

@@ -7,6 +7,7 @@ pub type SPEED_R = crate::FieldReader<u16>;
 #[doc = "Field `SPEED` writer - I2C bus speed config"]
 pub type SPEED_W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16, crate::Safe>;
 #[doc = "Fast mode duty cycle\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DUTYMODE_A {
     #[doc = "0: The ratio of low to high is 2:1"]
@@ -60,6 +61,7 @@ where
     }
 }
 #[doc = "Speed mode selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPEEDMODE_A {
     #[doc = "0: Standard mode (up to 100 kHz)"]

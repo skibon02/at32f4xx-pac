@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL1_SPEC>;
 #[doc = "Register `CTRL1` writer"]
 pub type W = crate::W<CTRL1_SPEC>;
 #[doc = "Calibration on\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Calonr {
     #[doc = "0: Calibration disabled"]
@@ -39,6 +40,7 @@ impl CALON_R {
     }
 }
 #[doc = "Calibration on\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CalonwWO {
     #[doc = "0: Calibration disabled"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Enable trim\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ENTRIM_A {
     #[doc = "0: HICKCAL is calibrated"]
@@ -127,6 +130,7 @@ pub type SOFSEL_R = crate::BitReader;
 #[doc = "Field `SOFSEL` writer - SOF Select"]
 pub type SOFSEL_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "RSLOST error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Eienr {
     #[doc = "0: Interrupt generation disabled"]
@@ -163,6 +167,7 @@ impl EIEN_R {
     }
 }
 #[doc = "RSLOST error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EienwWO {
     #[doc = "0: Interrupt generation disabled"]
@@ -194,6 +199,7 @@ where
     }
 }
 #[doc = "CALRDY interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Calrdyienr {
     #[doc = "0: Interrupt generation disabled"]
@@ -230,6 +236,7 @@ impl CALRDYIEN_R {
     }
 }
 #[doc = "CALRDY interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CalrdyienwWO {
     #[doc = "0: Interrupt generation disabled"]

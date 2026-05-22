@@ -3,6 +3,7 @@ pub type R = crate::R<ODRVR_SPEC>;
 #[doc = "Register `ODRVR` writer"]
 pub type W = crate::W<ODRVR_SPEC>;
 #[doc = "GPIOx pin %s output drive capability\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ODRV0_A {

@@ -1,6 +1,7 @@
 #[doc = "Register `STS2` reader"]
 pub type R = crate::R<STS2_SPEC>;
 #[doc = "Transmission mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TRMODE_A {
     #[doc = "0: Slave mode"]
@@ -37,6 +38,7 @@ impl TRMODE_R {
     }
 }
 #[doc = "Bus busy\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BUSYF_A {
     #[doc = "0: Bus idle"]
@@ -73,6 +75,7 @@ impl BUSYF_R {
     }
 }
 #[doc = "Transmission direction\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DIRF_A {
     #[doc = "0: Data reception"]
@@ -109,6 +112,7 @@ impl DIRF_R {
     }
 }
 #[doc = "General call address reception\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GCADDRF_A {
     #[doc = "0: General call address is not received"]
@@ -145,6 +149,7 @@ impl GCADDRF_R {
     }
 }
 #[doc = "SMBus device address receiving\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DEVADDRF_A {
     #[doc = "0: SMBus device address is not received"]
@@ -181,6 +186,7 @@ impl DEVADDRF_R {
     }
 }
 #[doc = "SMBus host address receiving\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HOSTADDRF_A {
     #[doc = "0: SMBus host address is not received"]
@@ -217,6 +223,7 @@ impl HOSTADDRF_R {
     }
 }
 #[doc = "Received address 2\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADDR2F_A {
     #[doc = "0: Received address matches the contents of OADDR1"]

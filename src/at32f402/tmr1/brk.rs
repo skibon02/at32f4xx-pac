@@ -7,6 +7,7 @@ pub type DTC_R = crate::FieldReader;
 #[doc = "Field `DTC` writer - Dead-time configuration"]
 pub type DTC_W<'a, REG> = crate::FieldWriter<'a, REG, 8, u8, crate::Safe>;
 #[doc = "Write protected configuration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum WPC_A {
@@ -93,6 +94,7 @@ where
     }
 }
 #[doc = "Frozen channel status when holistic output disable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fcsodisr {
     #[doc = "0: CxOUT/CxCOUT outputs are disabled"]
@@ -129,6 +131,7 @@ impl FCSODIS_R {
     }
 }
 #[doc = "Frozen channel status when holistic output disable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FcsodiswWO {
     #[doc = "0: CxOUT/CxCOUT outputs disable"]
@@ -160,6 +163,7 @@ where
     }
 }
 #[doc = "Frozen channel status when holistic output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fcsoenr {
     #[doc = "0: CxOUT/CxCOUT outputs are disabled"]
@@ -196,6 +200,7 @@ impl FCSOEN_R {
     }
 }
 #[doc = "Frozen channel status when holistic output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FcsoenwWO {
     #[doc = "0: CxOUT/CxCOUT outputs disable"]
@@ -227,6 +232,7 @@ where
     }
 }
 #[doc = "Brake enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Brkenr {
     #[doc = "0: Break input is disabled"]
@@ -263,6 +269,7 @@ impl BRKEN_R {
     }
 }
 #[doc = "Brake enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BrkenwWO {
     #[doc = "0: Break input disable"]
@@ -294,6 +301,7 @@ where
     }
 }
 #[doc = "Brake input validity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BRKV_A {
     #[doc = "0: Break input is active low"]
@@ -347,6 +355,7 @@ where
     }
 }
 #[doc = "Automatic output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Aoenr {
     #[doc = "0: Automatic output is disabled"]
@@ -383,6 +392,7 @@ impl AOEN_R {
     }
 }
 #[doc = "Automatic output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AoenwWO {
     #[doc = "0: Automatic output disable"]
@@ -414,6 +424,7 @@ where
     }
 }
 #[doc = "Output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Oenr {
     #[doc = "0: Output is disabled"]
@@ -450,6 +461,7 @@ impl OEN_R {
     }
 }
 #[doc = "Output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OenwWO {
     #[doc = "0: Output disable"]

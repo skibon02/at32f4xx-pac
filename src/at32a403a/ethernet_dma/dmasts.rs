@@ -5,69 +5,304 @@ pub type W = crate::W<DMASTS_SPEC>;
 #[doc = "Field `TI` reader - Transmit interrupt"]
 pub type TI_R = crate::BitReader;
 #[doc = "Field `TI` writer - Transmit interrupt"]
-pub type TI_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `TPS` reader - Transmit process stopped"]
 pub type TPS_R = crate::BitReader;
 #[doc = "Field `TPS` writer - Transmit process stopped"]
-pub type TPS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TPS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `TBU` reader - Transmit buffer unavailable"]
 pub type TBU_R = crate::BitReader;
 #[doc = "Field `TBU` writer - Transmit buffer unavailable"]
-pub type TBU_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TBU_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `TJT` reader - Transmit jabber timeout"]
 pub type TJT_R = crate::BitReader;
 #[doc = "Field `TJT` writer - Transmit jabber timeout"]
-pub type TJT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TJT_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `OVF` reader - Receive overflow"]
 pub type OVF_R = crate::BitReader;
 #[doc = "Field `OVF` writer - Receive overflow"]
-pub type OVF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type OVF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `UNF` reader - Transmit underflow"]
 pub type UNF_R = crate::BitReader;
 #[doc = "Field `UNF` writer - Transmit underflow"]
-pub type UNF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type UNF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `RI` reader - Receive interrupt"]
 pub type RI_R = crate::BitReader;
 #[doc = "Field `RI` writer - Receive interrupt"]
-pub type RI_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type RI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `RBU` reader - Receive buffer unavailable"]
 pub type RBU_R = crate::BitReader;
 #[doc = "Field `RBU` writer - Receive buffer unavailable"]
-pub type RBU_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type RBU_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `RPS` reader - Receive process stopped"]
 pub type RPS_R = crate::BitReader;
 #[doc = "Field `RPS` writer - Receive process stopped"]
-pub type RPS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type RPS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `RWT` reader - Receive watchdog timeout"]
 pub type RWT_R = crate::BitReader;
 #[doc = "Field `RWT` writer - Receive watchdog timeout"]
-pub type RWT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type RWT_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `ETI` reader - Early transmit interrupt"]
 pub type ETI_R = crate::BitReader;
 #[doc = "Field `ETI` writer - Early transmit interrupt"]
-pub type ETI_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ETI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `FBEI` reader - Fatal bus error interrupt"]
 pub type FBEI_R = crate::BitReader;
 #[doc = "Field `FBEI` writer - Fatal bus error interrupt"]
-pub type FBEI_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type FBEI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `ERI` reader - Early receive interrupt"]
 pub type ERI_R = crate::BitReader;
 #[doc = "Field `ERI` writer - Early receive interrupt"]
-pub type ERI_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ERI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `AIS` reader - Abnormal interrupt summary"]
 pub type AIS_R = crate::BitReader;
 #[doc = "Field `AIS` writer - Abnormal interrupt summary"]
-pub type AIS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type AIS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `NIS` reader - Normal interrupt summary"]
 pub type NIS_R = crate::BitReader;
 #[doc = "Field `NIS` writer - Normal interrupt summary"]
-pub type NIS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type NIS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+#[doc = "Receive process state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum RS_A {
+    #[doc = "0: Stopped. Rest or Stop transmit command issued"]
+    Stopped = 0,
+    #[doc = "1: Running. Fetching receive descriptor"]
+    RunningFetching = 1,
+    #[doc = "3: Running. Waiting for receive packet"]
+    RunningWaiting = 3,
+    #[doc = "4: Suspended. Receive descriptor unavailable"]
+    Suspended = 4,
+    #[doc = "5: Running. Closing receive descriptor"]
+    RunningClosing = 5,
+    #[doc = "6: Time stamp write status"]
+    Timestamp = 6,
+    #[doc = "7: Running. Transferring the receive buffer data to host memory"]
+    RunningTransferring = 7,
+}
+impl From<RS_A> for u8 {
+    #[inline(always)]
+    fn from(variant: RS_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for RS_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for RS_A {}
 #[doc = "Field `RS` reader - Receive process state"]
-pub type RS_R = crate::FieldReader;
+pub type RS_R = crate::FieldReader<RS_A>;
+impl RS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<RS_A> {
+        match self.bits {
+            0 => Some(RS_A::Stopped),
+            1 => Some(RS_A::RunningFetching),
+            3 => Some(RS_A::RunningWaiting),
+            4 => Some(RS_A::Suspended),
+            5 => Some(RS_A::RunningClosing),
+            6 => Some(RS_A::Timestamp),
+            7 => Some(RS_A::RunningTransferring),
+            _ => None,
+        }
+    }
+    #[doc = "Stopped. Rest or Stop transmit command issued"]
+    #[inline(always)]
+    pub fn is_stopped(&self) -> bool {
+        *self == RS_A::Stopped
+    }
+    #[doc = "Running. Fetching receive descriptor"]
+    #[inline(always)]
+    pub fn is_running_fetching(&self) -> bool {
+        *self == RS_A::RunningFetching
+    }
+    #[doc = "Running. Waiting for receive packet"]
+    #[inline(always)]
+    pub fn is_running_waiting(&self) -> bool {
+        *self == RS_A::RunningWaiting
+    }
+    #[doc = "Suspended. Receive descriptor unavailable"]
+    #[inline(always)]
+    pub fn is_suspended(&self) -> bool {
+        *self == RS_A::Suspended
+    }
+    #[doc = "Running. Closing receive descriptor"]
+    #[inline(always)]
+    pub fn is_running_closing(&self) -> bool {
+        *self == RS_A::RunningClosing
+    }
+    #[doc = "Time stamp write status"]
+    #[inline(always)]
+    pub fn is_timestamp(&self) -> bool {
+        *self == RS_A::Timestamp
+    }
+    #[doc = "Running. Transferring the receive buffer data to host memory"]
+    #[inline(always)]
+    pub fn is_running_transferring(&self) -> bool {
+        *self == RS_A::RunningTransferring
+    }
+}
+#[doc = "Transmit process state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum TS_A {
+    #[doc = "0: Stopped. Rest or Stop transmit command issued"]
+    Stopped = 0,
+    #[doc = "1: Running. Fetching receive descriptor"]
+    RunningFetching = 1,
+    #[doc = "2: Running. Waiting for status"]
+    RunningWaiting = 2,
+    #[doc = "3: Running. Reading data from host memory buffer and queuing it to Tx FIFO"]
+    RunningReading = 3,
+    #[doc = "4: Time stamp write status"]
+    Timestamp = 4,
+    #[doc = "6: Suspended. Transmit descriptor unavailable or transmit buffer underflow"]
+    Suspended = 6,
+    #[doc = "7: Running. Closing transmit descriptor"]
+    RunningClosing = 7,
+}
+impl From<TS_A> for u8 {
+    #[inline(always)]
+    fn from(variant: TS_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for TS_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for TS_A {}
 #[doc = "Field `TS` reader - Transmit process state"]
-pub type TS_R = crate::FieldReader;
+pub type TS_R = crate::FieldReader<TS_A>;
+impl TS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<TS_A> {
+        match self.bits {
+            0 => Some(TS_A::Stopped),
+            1 => Some(TS_A::RunningFetching),
+            2 => Some(TS_A::RunningWaiting),
+            3 => Some(TS_A::RunningReading),
+            4 => Some(TS_A::Timestamp),
+            6 => Some(TS_A::Suspended),
+            7 => Some(TS_A::RunningClosing),
+            _ => None,
+        }
+    }
+    #[doc = "Stopped. Rest or Stop transmit command issued"]
+    #[inline(always)]
+    pub fn is_stopped(&self) -> bool {
+        *self == TS_A::Stopped
+    }
+    #[doc = "Running. Fetching receive descriptor"]
+    #[inline(always)]
+    pub fn is_running_fetching(&self) -> bool {
+        *self == TS_A::RunningFetching
+    }
+    #[doc = "Running. Waiting for status"]
+    #[inline(always)]
+    pub fn is_running_waiting(&self) -> bool {
+        *self == TS_A::RunningWaiting
+    }
+    #[doc = "Running. Reading data from host memory buffer and queuing it to Tx FIFO"]
+    #[inline(always)]
+    pub fn is_running_reading(&self) -> bool {
+        *self == TS_A::RunningReading
+    }
+    #[doc = "Time stamp write status"]
+    #[inline(always)]
+    pub fn is_timestamp(&self) -> bool {
+        *self == TS_A::Timestamp
+    }
+    #[doc = "Suspended. Transmit descriptor unavailable or transmit buffer underflow"]
+    #[inline(always)]
+    pub fn is_suspended(&self) -> bool {
+        *self == TS_A::Suspended
+    }
+    #[doc = "Running. Closing transmit descriptor"]
+    #[inline(always)]
+    pub fn is_running_closing(&self) -> bool {
+        *self == TS_A::RunningClosing
+    }
+}
+#[doc = "Error bits\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum EB_A {
+    #[doc = "0: Error during Rx DMA transfer"]
+    RxDmaTransfer = 0,
+    #[doc = "3: Error during Tx DMA transfer"]
+    TxDmaTransfer = 3,
+    #[doc = "4: Error during write access to Rx DMA descriptor"]
+    RxDmaDescriptorWriteAccess = 4,
+    #[doc = "5: Error during write access to Tx DMA descriptor"]
+    TxDmaDescriptorWriteAccess = 5,
+    #[doc = "6: Error during read access to Rx DMA descriptor"]
+    RxDmaDescriptorReadAccess = 6,
+    #[doc = "7: Error during read access to Tx DMA descriptor"]
+    TxDmaDescriptorReadAccess = 7,
+}
+impl From<EB_A> for u8 {
+    #[inline(always)]
+    fn from(variant: EB_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for EB_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for EB_A {}
 #[doc = "Field `EB` reader - Error bits"]
-pub type EB_R = crate::FieldReader;
+pub type EB_R = crate::FieldReader<EB_A>;
+impl EB_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<EB_A> {
+        match self.bits {
+            0 => Some(EB_A::RxDmaTransfer),
+            3 => Some(EB_A::TxDmaTransfer),
+            4 => Some(EB_A::RxDmaDescriptorWriteAccess),
+            5 => Some(EB_A::TxDmaDescriptorWriteAccess),
+            6 => Some(EB_A::RxDmaDescriptorReadAccess),
+            7 => Some(EB_A::TxDmaDescriptorReadAccess),
+            _ => None,
+        }
+    }
+    #[doc = "Error during Rx DMA transfer"]
+    #[inline(always)]
+    pub fn is_rx_dma_transfer(&self) -> bool {
+        *self == EB_A::RxDmaTransfer
+    }
+    #[doc = "Error during Tx DMA transfer"]
+    #[inline(always)]
+    pub fn is_tx_dma_transfer(&self) -> bool {
+        *self == EB_A::TxDmaTransfer
+    }
+    #[doc = "Error during write access to Rx DMA descriptor"]
+    #[inline(always)]
+    pub fn is_rx_dma_descriptor_write_access(&self) -> bool {
+        *self == EB_A::RxDmaDescriptorWriteAccess
+    }
+    #[doc = "Error during write access to Tx DMA descriptor"]
+    #[inline(always)]
+    pub fn is_tx_dma_descriptor_write_access(&self) -> bool {
+        *self == EB_A::TxDmaDescriptorWriteAccess
+    }
+    #[doc = "Error during read access to Rx DMA descriptor"]
+    #[inline(always)]
+    pub fn is_rx_dma_descriptor_read_access(&self) -> bool {
+        *self == EB_A::RxDmaDescriptorReadAccess
+    }
+    #[doc = "Error during read access to Tx DMA descriptor"]
+    #[inline(always)]
+    pub fn is_tx_dma_descriptor_read_access(&self) -> bool {
+        *self == EB_A::TxDmaDescriptorReadAccess
+    }
+}
 #[doc = "Field `MMI` reader - MAC MMC interrupt"]
 pub type MMI_R = crate::BitReader;
 #[doc = "Field `MPI` reader - MAC PMT interrupt"]
@@ -295,6 +530,7 @@ impl crate::Readable for DMASTS_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`dmasts::W`](W) writer structure"]
 impl crate::Writable for DMASTS_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x0001_e7ff;
 }
 #[doc = "`reset()` method sets DMASTS to value 0"]
 impl crate::Resettable for DMASTS_SPEC {}

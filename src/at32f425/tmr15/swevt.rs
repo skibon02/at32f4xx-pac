@@ -3,6 +3,7 @@ pub type R = crate::R<SWEVT_SPEC>;
 #[doc = "Register `SWEVT` writer"]
 pub type W = crate::W<SWEVT_SPEC>;
 #[doc = "Overflow event triggered by software\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OVFSWTRW_A {
     #[doc = "1: Generate an overflow event"]
@@ -44,6 +45,7 @@ where
     }
 }
 #[doc = "Channel %s event triggered by software\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1SWTRW_A {
     #[doc = "1: Generate a channel event"]
@@ -89,6 +91,7 @@ pub type HALLSWTR_R = crate::BitReader;
 #[doc = "Field `HALLSWTR` writer - HALL event triggered by software"]
 pub type HALLSWTR_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Trigger event triggered by software\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TRGSWTRW_A {
     #[doc = "1: Generate a trigger event"]

@@ -1,7 +1,7 @@
-#[doc = "Register `MUXC4CTRL` reader"]
-pub type R = crate::R<MUXC4CTRL_SPEC>;
-#[doc = "Register `MUXC4CTRL` writer"]
-pub type W = crate::W<MUXC4CTRL_SPEC>;
+#[doc = "Register `MUXCTRL` reader"]
+pub type R = crate::R<MUXCTRL_SPEC>;
+#[doc = "Register `MUXCTRL` writer"]
+pub type W = crate::W<MUXCTRL_SPEC>;
 #[doc = "Field `REQSEL` reader - DMA request select"]
 pub type REQSEL_R = crate::FieldReader;
 #[doc = "Field `REQSEL` writer - DMA request select"]
@@ -18,10 +18,93 @@ pub type EVTGEN_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type SYNCEN_R = crate::BitReader;
 #[doc = "Field `SYNCEN` writer - Synchroniztion enable"]
 pub type SYNCEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Synchronization polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum SYNCPOL_A {
+    #[doc = "0: No events"]
+    NoEvents = 0,
+    #[doc = "1: Rising edge"]
+    RisingEdge = 1,
+    #[doc = "2: Falling edge"]
+    FallingEdge = 2,
+    #[doc = "3: Rising and falling edges"]
+    BothEdges = 3,
+}
+impl From<SYNCPOL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SYNCPOL_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for SYNCPOL_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for SYNCPOL_A {}
 #[doc = "Field `SYNCPOL` reader - Synchronization polarity"]
-pub type SYNCPOL_R = crate::FieldReader;
+pub type SYNCPOL_R = crate::FieldReader<SYNCPOL_A>;
+impl SYNCPOL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SYNCPOL_A {
+        match self.bits {
+            0 => SYNCPOL_A::NoEvents,
+            1 => SYNCPOL_A::RisingEdge,
+            2 => SYNCPOL_A::FallingEdge,
+            3 => SYNCPOL_A::BothEdges,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "No events"]
+    #[inline(always)]
+    pub fn is_no_events(&self) -> bool {
+        *self == SYNCPOL_A::NoEvents
+    }
+    #[doc = "Rising edge"]
+    #[inline(always)]
+    pub fn is_rising_edge(&self) -> bool {
+        *self == SYNCPOL_A::RisingEdge
+    }
+    #[doc = "Falling edge"]
+    #[inline(always)]
+    pub fn is_falling_edge(&self) -> bool {
+        *self == SYNCPOL_A::FallingEdge
+    }
+    #[doc = "Rising and falling edges"]
+    #[inline(always)]
+    pub fn is_both_edges(&self) -> bool {
+        *self == SYNCPOL_A::BothEdges
+    }
+}
 #[doc = "Field `SYNCPOL` writer - Synchronization polarity"]
-pub type SYNCPOL_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type SYNCPOL_W<'a, REG> = crate::FieldWriter<'a, REG, 2, SYNCPOL_A, crate::Safe>;
+impl<'a, REG> SYNCPOL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "No events"]
+    #[inline(always)]
+    pub fn no_events(self) -> &'a mut crate::W<REG> {
+        self.variant(SYNCPOL_A::NoEvents)
+    }
+    #[doc = "Rising edge"]
+    #[inline(always)]
+    pub fn rising_edge(self) -> &'a mut crate::W<REG> {
+        self.variant(SYNCPOL_A::RisingEdge)
+    }
+    #[doc = "Falling edge"]
+    #[inline(always)]
+    pub fn falling_edge(self) -> &'a mut crate::W<REG> {
+        self.variant(SYNCPOL_A::FallingEdge)
+    }
+    #[doc = "Rising and falling edges"]
+    #[inline(always)]
+    pub fn both_edges(self) -> &'a mut crate::W<REG> {
+        self.variant(SYNCPOL_A::BothEdges)
+    }
+}
 #[doc = "Field `REQCNT` reader - Number of DMA requests"]
 pub type REQCNT_R = crate::FieldReader;
 #[doc = "Field `REQCNT` writer - Number of DMA requests"]
@@ -69,7 +152,7 @@ impl R {
 }
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MUXC4CTRL")
+        f.debug_struct("MUXCTRL")
             .field("reqsel", &self.reqsel())
             .field("syncovien", &self.syncovien())
             .field("evtgen", &self.evtgen())
@@ -83,50 +166,50 @@ impl core::fmt::Debug for R {
 impl W {
     #[doc = "Bits 0:6 - DMA request select"]
     #[inline(always)]
-    pub fn reqsel(&mut self) -> REQSEL_W<'_, MUXC4CTRL_SPEC> {
+    pub fn reqsel(&mut self) -> REQSEL_W<'_, MUXCTRL_SPEC> {
         REQSEL_W::new(self, 0)
     }
     #[doc = "Bit 8 - Synchronization overrun interrupt enable"]
     #[inline(always)]
-    pub fn syncovien(&mut self) -> SYNCOVIEN_W<'_, MUXC4CTRL_SPEC> {
+    pub fn syncovien(&mut self) -> SYNCOVIEN_W<'_, MUXCTRL_SPEC> {
         SYNCOVIEN_W::new(self, 8)
     }
     #[doc = "Bit 9 - Event generation enable"]
     #[inline(always)]
-    pub fn evtgen(&mut self) -> EVTGEN_W<'_, MUXC4CTRL_SPEC> {
+    pub fn evtgen(&mut self) -> EVTGEN_W<'_, MUXCTRL_SPEC> {
         EVTGEN_W::new(self, 9)
     }
     #[doc = "Bit 16 - Synchroniztion enable"]
     #[inline(always)]
-    pub fn syncen(&mut self) -> SYNCEN_W<'_, MUXC4CTRL_SPEC> {
+    pub fn syncen(&mut self) -> SYNCEN_W<'_, MUXCTRL_SPEC> {
         SYNCEN_W::new(self, 16)
     }
     #[doc = "Bits 17:18 - Synchronization polarity"]
     #[inline(always)]
-    pub fn syncpol(&mut self) -> SYNCPOL_W<'_, MUXC4CTRL_SPEC> {
+    pub fn syncpol(&mut self) -> SYNCPOL_W<'_, MUXCTRL_SPEC> {
         SYNCPOL_W::new(self, 17)
     }
     #[doc = "Bits 19:23 - Number of DMA requests"]
     #[inline(always)]
-    pub fn reqcnt(&mut self) -> REQCNT_W<'_, MUXC4CTRL_SPEC> {
+    pub fn reqcnt(&mut self) -> REQCNT_W<'_, MUXCTRL_SPEC> {
         REQCNT_W::new(self, 19)
     }
     #[doc = "Bits 24:28 - Synchronization Identification"]
     #[inline(always)]
-    pub fn syncsel(&mut self) -> SYNCSEL_W<'_, MUXC4CTRL_SPEC> {
+    pub fn syncsel(&mut self) -> SYNCSEL_W<'_, MUXCTRL_SPEC> {
         SYNCSEL_W::new(self, 24)
     }
 }
-#[doc = "Channel 4 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxc4ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxc4ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct MUXC4CTRL_SPEC;
-impl crate::RegisterSpec for MUXC4CTRL_SPEC {
+#[doc = "DMA channel mux control register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct MUXCTRL_SPEC;
+impl crate::RegisterSpec for MUXCTRL_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`muxc4ctrl::R`](R) reader structure"]
-impl crate::Readable for MUXC4CTRL_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`muxc4ctrl::W`](W) writer structure"]
-impl crate::Writable for MUXC4CTRL_SPEC {
+#[doc = "`read()` method returns [`muxctrl::R`](R) reader structure"]
+impl crate::Readable for MUXCTRL_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`muxctrl::W`](W) writer structure"]
+impl crate::Writable for MUXCTRL_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets MUXC4CTRL to value 0"]
-impl crate::Resettable for MUXC4CTRL_SPEC {}
+#[doc = "`reset()` method sets MUXCTRL to value 0"]
+impl crate::Resettable for MUXCTRL_SPEC {}

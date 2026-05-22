@@ -7,6 +7,7 @@ pub type SELPIN_R = crate::FieldReader;
 #[doc = "Field `SELPIN` writer - Select pin"]
 pub type SELPIN_W<'a, REG> = crate::FieldWriter<'a, REG, 4, u8, crate::Safe>;
 #[doc = "Select port\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SELPORT_A {
@@ -106,6 +107,7 @@ where
     }
 }
 #[doc = "Event output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EVOEN_A {
     #[doc = "0: Disable"]

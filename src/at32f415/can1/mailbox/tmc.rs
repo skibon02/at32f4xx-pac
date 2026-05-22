@@ -7,6 +7,7 @@ pub type DTBL_R = crate::FieldReader;
 #[doc = "Field `DTBL` writer - Transmit mailbox data byte length"]
 pub type DTBL_W<'a, REG> = crate::FieldWriter<'a, REG, 4, u8, crate::Safe>;
 #[doc = "Transmit mailbox time stamp transmit enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tstenr {
     #[doc = "0: Mailbox time stamp transmit is disabled"]
@@ -43,6 +44,7 @@ impl TSTEN_R {
     }
 }
 #[doc = "Transmit mailbox time stamp transmit enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TstenwWO {
     #[doc = "0: Mailbox time stamp transmit disable"]

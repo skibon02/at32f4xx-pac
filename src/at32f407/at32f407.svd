@@ -4657,7 +4657,7 @@
                 <bitOffset>8</bitOffset>
                 <bitWidth>2</bitWidth>
                 <enumeratedValues>
-                  <name>PWIDTH</name>
+                  <name>BitWidth</name>
                   <enumeratedValue>
                     <name>bit8</name>
                     <description>8 bits</description>
@@ -4680,24 +4680,7 @@
                 <description>Memory data bit width</description>
                 <bitOffset>10</bitOffset>
                 <bitWidth>2</bitWidth>
-                <enumeratedValues>
-                  <name>MWIDTH</name>
-                  <enumeratedValue>
-                    <name>bit8</name>
-                    <description>8 bits</description>
-                    <value>0</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit16</name>
-                    <description>16 bits</description>
-                    <value>1</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit32</name>
-                    <description>32 bits</description>
-                    <value>2</value>
-                  </enumeratedValue>
-                </enumeratedValues>
+                <enumeratedValues derivedFrom="BitWidth"/>
               </field>
               <field>
                 <name>CHPL</name>
@@ -20098,12 +20081,99 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -20116,7 +20186,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -20124,12 +20194,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -20142,7 +20206,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -20150,12 +20214,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -21036,12 +21094,99 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -21054,7 +21199,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -21062,12 +21207,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -21080,7 +21219,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -21088,12 +21227,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -21974,12 +22107,99 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -21992,7 +22212,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -22000,12 +22220,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -22018,7 +22232,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -22026,12 +22240,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -25267,6 +25475,19 @@
               <description>Unlock key value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
+              <enumeratedValues>
+                <name>UKVALW</name>
+                <enumeratedValue>
+                  <name>Key1</name>
+                  <description>Unlock key 1</description>
+                  <value>1164378403</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Key2</name>
+                  <description>Unlock key 2</description>
+                  <value>3455027627</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -25404,14 +25625,12 @@
           <size>0x20</size>
           <access>write-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>FA</name>
-              <description>Flash Address</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>USD</name>
@@ -27631,22 +27850,48 @@
               <description>Receiver enable</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>RE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Receive disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Receive enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TE</name>
               <description>Transmitter enable</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Transmit disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Transmit enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DC</name>
-              <description>Deferral check</description>
+              <description>Only in half-duplex mode! Deferral check</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>BL</name>
-              <description>Back-off limit</description>
+              <description>Only in half-duplex mode! Back-off Limit</description>
               <bitOffset>5</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
@@ -27656,10 +27901,23 @@
               stripping</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ACS</name>
+                <enumeratedValue>
+                  <name>NoPadCrcStripping</name>
+                  <description>The MAC will forward all received frames to the master without changing its contents</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AutomaticPadCrcStripping</name>
+                  <description>The MAC strips the pad/FCS field on received frames only when the frame length is shorter than 1536 bytes. All received frame with length field greater than or equal to 1536 bytes are passed on to the application without stripping the Pad or FCS field</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DR</name>
-              <description>Disable retry</description>
+              <description>Only in half-duplex mode! Disable Retry</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -27668,22 +27926,61 @@
               <description>IPv4 checksum offload</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>IPC</name>
+                <enumeratedValue>
+                  <name>NoIpv4Checksum</name>
+                  <description>IPv4 checksum calculation disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ipv4ChecksumEnabled</name>
+                  <description>IPv4 checksum calculation enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DM</name>
               <description>Duplex mode</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DM</name>
+                <enumeratedValue>
+                  <name>HalfDuplex</name>
+                  <description>Half-duplex mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>FullDuplex</name>
+                  <description>Full-duplex mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>LM</name>
               <description>Loopback mode</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>LM</name>
+                <enumeratedValue>
+                  <name>NoLoopback</name>
+                  <description>Loopback mode disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Loopback</name>
+                  <description>Loopback mode. The MII receive clock input (clk_rx_i) is required for the loopback mode to work normally, for the transmit clock is not looped-back internally</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DRO</name>
-              <description>Disable receive own</description>
+              <description>Only in half-duplex mode! Disable Receive Own.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -27692,10 +27989,23 @@
               <description>Fast EMAC speed</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FES</name>
+                <enumeratedValue>
+                  <name>Speed10Mbps</name>
+                  <description>The MAC operates at 10 Mbps</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Speed100Mbps</name>
+                  <description>The MAC operates at 100 Mbps</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DCS</name>
-              <description>Disable carrier sense</description>
+              <description>Only in half-duplex mode! Disable Carrier Sense</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -27704,18 +28014,106 @@
               <description>Interframe gap</description>
               <bitOffset>17</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>IFG</name>
+                <enumeratedValue>
+                  <name>Ifg96Bit</name>
+                  <description>Minimum interframe gap is 96 bits (12 bytes) during transmission</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg88Bit</name>
+                  <description>Minimum interframe gap is 88 bits (11 bytes) during transmission</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg80Bit</name>
+                  <description>Minimum interframe gap is 80 bits (10 bytes) during transmission</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg72Bit</name>
+                  <description>Minimum interframe gap is 72 bits (9 bytes) during transmission</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg64Bit</name>
+                  <description>Minimum interframe gap is 64 bits (8 bytes) during transmission</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg56Bit</name>
+                  <description>Minimum interframe gap is 56 bits (7 bytes) during transmission</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg48Bit</name>
+                  <description>Minimum interframe gap is 48 bits (6 bytes) during transmission</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg40Bit</name>
+                  <description>Minimum interframe gap is 40 bits (5 bytes) during transmission</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>JD</name>
               <description>Jabber disable</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>JD</name>
+                <enumeratedValue>
+                  <name>NoDisable</name>
+                  <description>The MAC disables the Jabber timer on the transmitter, and can transfer frames of up to 16,384 bytes</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>JabberDisabled</name>
+                  <description>Jabber disabled. The MAC allows the application to send out more than 2048 bytes of data during transmission. The MAC does not cut off the transmitter if the application sends out more than 2048 bytes of data during transmission</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>WD</name>
               <description>Watchdog disable</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>WD</name>
+                <enumeratedValue>
+                  <name>NoDisable</name>
+                  <description>The MAC allows no more than 2048 bytes of the frames being received</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>WatchdogDisabled</name>
+                  <description>Watchdog disabled. The MAC disables the watchdog timer on the receiver, and can receive frames of up to 16,384 bytes</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>CST</name>
+              <description>When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application.</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>CST</name>
+                <enumeratedValue>
+                  <name>NoStrip</name>
+                  <description>CRC stripping disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>StrippingEnabled</name>
+                  <description>CRC stripping enabled. The last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -27846,18 +28244,92 @@
               <description>MII busy</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>MBR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoBusy</name>
+                  <description>The MII is not busy, new operation can be started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Busy</name>
+                  <description>The MII is busy, operation in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>MBW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoBusy</name>
+                  <description>The MII is not busy, new operation can be started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>StartOperation</name>
+                  <description>Start an MII operation by writing 1 to this bit. This bit is automatically cleared by hardware when the operation is completed</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MW</name>
               <description>MII write</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>MW</name>
+                <enumeratedValue>
+                  <name>Write</name>
+                  <description>Write operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Read</name>
+                  <description>Read operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CR</name>
               <description>Clock range</description>
               <bitOffset>2</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>CR</name>
+                <enumeratedValue>
+                  <name>CsrFreq60_100</name>
+                  <description>CSR clock frequency is 60-100 MHz and MDC clock frequency is CSR/42 MHz</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq100_150</name>
+                  <description>CSR clock frequency is 100-150 MHz and MDC clock frequency is CSR/62 MHz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq20_35</name>
+                  <description>CSR clock frequency is 20-35 MHz and MDC clock frequency is CSR/16 MHz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq35_60</name>
+                  <description>CSR clock frequency is 35-60 MHz and MDC clock frequency is CSR/26 MHz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq150_250</name>
+                  <description>CSR clock frequency is 150-250 MHz and MDC clock frequency is CSR/102 MHz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq250_288</name>
+                  <description>CSR clock frequency is 250-288 MHz and MDC clock frequency is CSR/124 MHz</description>
+                  <value>5</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MII</name>
@@ -27878,17 +28350,15 @@
           <displayName>MACMIIDT</displayName>
           <description>Ethernet MAC MII data register</description>
           <addressOffset>0x14</addressOffset>
-          <size>0x20</size>
+          <size>0x10</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>MD</name>
-              <description>MII data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>65535</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACFCTRL</name>
@@ -28012,7 +28482,7 @@
             </field>
             <field>
               <name>RRWF</name>
-              <description>Recevied remote wakeup frame</description>
+              <description>Received remote wakeup frame</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -28086,12 +28556,38 @@
               <description>PMT interrupt mask</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PIM</name>
+                <enumeratedValue>
+                  <name>InterruptDisabled</name>
+                  <description>PMT interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>InterruptEnabled</name>
+                  <description>PMT interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TIM</name>
               <description>Timestamp interrupt mask</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TIM</name>
+                <enumeratedValue>
+                  <name>InterruptDisabled</name>
+                  <description>Timestamp interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>InterruptEnabled</name>
+                  <description>Timestamp interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -28100,24 +28596,14 @@
           <displayName>MACA0H</displayName>
           <description>Ethernet MAC address 0 high register</description>
           <addressOffset>0x40</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x0010FFFF</resetValue>
-          <fields>
-            <field>
-              <name>MA0H</name>
-              <description>MAC address0 high</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>AE</name>
-              <description>Address enable</description>
-              <bitOffset>31</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
+          <size>0x10</size>
+          <resetValue>0x0000FFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>65535</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACA0L</name>
@@ -28127,14 +28613,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
-          <fields>
-            <field>
-              <name>MA0L</name>
-              <description>MAC address0 low</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACA1H</name>
@@ -28162,12 +28646,38 @@
               <description>Source address</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SA</name>
+                <enumeratedValue>
+                  <name>Source</name>
+                  <description>Second MAC address filter is used for source address filtering</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Destination</name>
+                  <description>Second MAC address filter is used for destination address filtering</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>AE</name>
               <description>Address enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Second MAC address filter is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Second MAC address filter is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -28179,6 +28689,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
           <fields>
             <field>
               <name>MA1L</name>
@@ -28214,12 +28730,38 @@
               <description>Source address</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SA</name>
+                <enumeratedValue>
+                  <name>Source</name>
+                  <description>Second MAC address filter is used for source address filtering</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Destination</name>
+                  <description>Second MAC address filter is used for destination address filtering</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>AE</name>
               <description>Address enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Second MAC address filter is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Second MAC address filter is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -28231,6 +28773,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
           <fields>
             <field>
               <name>MA2L</name>
@@ -28266,12 +28814,38 @@
               <description>Source address</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SA</name>
+                <enumeratedValue>
+                  <name>Source</name>
+                  <description>Second MAC address filter is used for source address filtering</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Destination</name>
+                  <description>Second MAC address filter is used for destination address filtering</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>AE</name>
               <description>Address enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Second MAC address filter is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Second MAC address filter is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -28283,6 +28857,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
           <fields>
             <field>
               <name>MA3L</name>
@@ -28920,12 +29500,53 @@
               <description>Software reset</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SWRR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoReset</name>
+                  <description>Software reset is not active</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Resetting</name>
+                  <description>Software reset is active. This flag will be cleared when valid clocks are detected on appropriate pins</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>SWRW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoReset</name>
+                  <description>No reset</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>StartReset</name>
+                  <description>Begin reset. Set this bit to reset the DMA</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DA</name>
               <description>DMA Arbitration</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DA</name>
+                <enumeratedValue>
+                  <name>CustomPriority</name>
+                  <description>Custom priority ration between RX and TX. Controlled by PR</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>FixedPriority</name>
+                  <description>Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DSL</name>
@@ -28944,6 +29565,29 @@
               <description>Priority ratio</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>PR</name>
+                <enumeratedValue>
+                  <name>Ratio1_1</name>
+                  <description>1:1</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ratio1_2</name>
+                  <description>1:2</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ratio1_3</name>
+                  <description>1:3</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ratio1_4</name>
+                  <description>1:4</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FB</name>
@@ -28985,14 +29629,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>TPD</name>
-              <description>Transmit poll demand</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMARPD</name>
@@ -29002,14 +29644,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>RPD</name>
-              <description>Receive poll demand</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMARDLADDR</name>
@@ -29019,14 +29659,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>SRL</name>
-              <description>Start of receive list</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMATDLADDR</name>
@@ -29036,14 +29674,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>STL</name>
-              <description>Start of transmit list</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMASTS</name>
@@ -29059,6 +29695,7 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TPS</name>
@@ -29066,6 +29703,7 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TBU</name>
@@ -29073,6 +29711,7 @@
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TJT</name>
@@ -29080,6 +29719,7 @@
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>OVF</name>
@@ -29087,6 +29727,7 @@
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>UNF</name>
@@ -29094,6 +29735,7 @@
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RI</name>
@@ -29101,6 +29743,7 @@
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RBU</name>
@@ -29108,6 +29751,7 @@
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RPS</name>
@@ -29115,6 +29759,7 @@
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RWT</name>
@@ -29122,6 +29767,7 @@
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ETI</name>
@@ -29129,6 +29775,7 @@
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>FBEI</name>
@@ -29136,6 +29783,7 @@
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ERI</name>
@@ -29143,6 +29791,7 @@
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>AIS</name>
@@ -29150,6 +29799,7 @@
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>NIS</name>
@@ -29157,6 +29807,7 @@
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RS</name>
@@ -29164,6 +29815,44 @@
               <bitOffset>17</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>RS</name>
+                <enumeratedValue>
+                  <name>Stopped</name>
+                  <description>Stopped. Rest or Stop transmit command issued</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningFetching</name>
+                  <description>Running. Fetching receive descriptor</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningWaiting</name>
+                  <description>Running. Waiting for receive packet</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Suspended</name>
+                  <description>Suspended. Receive descriptor unavailable</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningClosing</name>
+                  <description>Running. Closing receive descriptor</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Timestamp</name>
+                  <description>Time stamp write status</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningTransferring</name>
+                  <description>Running. Transferring the receive buffer data to host memory</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TS</name>
@@ -29171,6 +29860,44 @@
               <bitOffset>20</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>TS</name>
+                <enumeratedValue>
+                  <name>Stopped</name>
+                  <description>Stopped. Rest or Stop transmit command issued</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningFetching</name>
+                  <description>Running. Fetching receive descriptor</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningWaiting</name>
+                  <description>Running. Waiting for status</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningReading</name>
+                  <description>Running. Reading data from host memory buffer and queuing it to Tx FIFO</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Timestamp</name>
+                  <description>Time stamp write status</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Suspended</name>
+                  <description>Suspended. Transmit descriptor unavailable or transmit buffer underflow</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningClosing</name>
+                  <description>Running. Closing transmit descriptor</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>EB</name>
@@ -29178,6 +29905,39 @@
               <bitOffset>23</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>EB</name>
+                <enumeratedValue>
+                  <name>RxDmaTransfer</name>
+                  <description>Error during Rx DMA transfer</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TxDmaTransfer</name>
+                  <description>Error during Tx DMA transfer</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RxDmaDescriptorWriteAccess</name>
+                  <description>Error during write access to Rx DMA descriptor</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TxDmaDescriptorWriteAccess</name>
+                  <description>Error during write access to Tx DMA descriptor</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RxDmaDescriptorReadAccess</name>
+                  <description>Error during read access to Rx DMA descriptor</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TxDmaDescriptorReadAccess</name>
+                  <description>Error during read access to Tx DMA descriptor</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MMI</name>
@@ -29301,72 +30061,96 @@
               <description>Transmit interrupt enable</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TIE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Interrupt disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Interrupt enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TSE</name>
               <description>Transmit stopped enable</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>TUE</name>
               <description>Transmit buffer unavailable enable</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>TJE</name>
               <description>Transmit jabber timeout enable</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>OVE</name>
               <description>Overflow interrupt enable</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>UNE</name>
               <description>Underflow interrupt enable</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RIE</name>
               <description>Receive interrupt enable</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RBUE</name>
               <description>Receive buffer unavailable enable</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RSE</name>
               <description>Receive stopped enable</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RWTE</name>
               <description>receive watchdog timeout enable</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>EIE</name>
               <description>Early transmit interrupt enable</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>FBEE</name>
               <description>Fatal bus error enable</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>ERE</name>
@@ -29374,18 +30158,21 @@
               enable</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>AIE</name>
               <description>Abnormal interrupt enable</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>NIE</name>
               <description>Normal interrupt enable</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
           </fields>
         </register>

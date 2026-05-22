@@ -3,6 +3,7 @@ pub type R = crate::R<REMAP5_SPEC>;
 #[doc = "Register `REMAP5` writer"]
 pub type W = crate::W<REMAP5_SPEC>;
 #[doc = "I2C1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum I2C1_GMUX_A {
@@ -76,6 +77,7 @@ where
     }
 }
 #[doc = "I2C2 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum I2C2_GMUX_A {
@@ -162,6 +164,7 @@ where
     }
 }
 #[doc = "SPI1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SPI1_GMUX_A {
@@ -222,6 +225,7 @@ where
     }
 }
 #[doc = "SPI2 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SPI2_GMUX_A {

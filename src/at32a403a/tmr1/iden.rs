@@ -3,6 +3,7 @@ pub type R = crate::R<IDEN_SPEC>;
 #[doc = "Register `IDEN` writer"]
 pub type W = crate::W<IDEN_SPEC>;
 #[doc = "Overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovfienr {
     #[doc = "0: Overflow interrupt is disabled"]
@@ -39,6 +40,7 @@ impl OVFIEN_R {
     }
 }
 #[doc = "Overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OvfienwWO {
     #[doc = "0: Overflow interrupt disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Channel %s interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1ienr {
     #[doc = "0: Channel interrupt is disabled"]
@@ -106,6 +109,7 @@ impl CIEN_R {
     }
 }
 #[doc = "Channel %s interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1ienwWO {
     #[doc = "0: Channel interrupt disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "HALL interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hallienr {
     #[doc = "0: HALL interrupt is disabled"]
@@ -173,6 +178,7 @@ impl HALLIEN_R {
     }
 }
 #[doc = "HALL interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HallienwWO {
     #[doc = "0: HALL interrupt disable"]
@@ -204,6 +210,7 @@ where
     }
 }
 #[doc = "Trigger interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tienr {
     #[doc = "0: Trigger interrupt is disabled"]
@@ -240,6 +247,7 @@ impl TIEN_R {
     }
 }
 #[doc = "Trigger interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TienwWO {
     #[doc = "0: Trigger interrupt disable"]
@@ -271,6 +279,7 @@ where
     }
 }
 #[doc = "Brake interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Brkier {
     #[doc = "0: Break interrupt is disabled"]
@@ -307,6 +316,7 @@ impl BRKIE_R {
     }
 }
 #[doc = "Brake interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BrkiewWO {
     #[doc = "0: Break interrupt disable"]
@@ -338,6 +348,7 @@ where
     }
 }
 #[doc = "Overflow DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovfdenr {
     #[doc = "0: Overflow event DMA request is disabled"]
@@ -374,6 +385,7 @@ impl OVFDEN_R {
     }
 }
 #[doc = "Overflow DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OvfdenwWO {
     #[doc = "0: Overflow event DMA request disable"]
@@ -405,6 +417,7 @@ where
     }
 }
 #[doc = "Channel %s DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1denr {
     #[doc = "0: Channel DMA request is disabled"]
@@ -441,6 +454,7 @@ impl CDEN_R {
     }
 }
 #[doc = "Channel %s DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1denwWO {
     #[doc = "0: Channel DMA request disable"]
@@ -472,6 +486,7 @@ where
     }
 }
 #[doc = "HALL DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hallder {
     #[doc = "0: HALL DMA request is disabled"]
@@ -508,6 +523,7 @@ impl HALLDE_R {
     }
 }
 #[doc = "HALL DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HalldewWO {
     #[doc = "0: HALL DMA request disable"]
@@ -539,6 +555,7 @@ where
     }
 }
 #[doc = "Trigger DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tdenr {
     #[doc = "0: Trigger DMA request is disabled"]
@@ -575,6 +592,7 @@ impl TDEN_R {
     }
 }
 #[doc = "Trigger DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TdenwWO {
     #[doc = "0: Trigger DMA request disable"]

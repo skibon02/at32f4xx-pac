@@ -7,6 +7,7 @@ pub type CALVAL_R = crate::FieldReader;
 #[doc = "Field `CALVAL` writer - Calibration value"]
 pub type CALVAL_W<'a, REG> = crate::FieldWriter<'a, REG, 7, u8, crate::Safe>;
 #[doc = "Calibration Clock Output\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Caloutr {
     #[doc = "0: No effect"]
@@ -43,6 +44,7 @@ impl CALOUT_R {
     }
 }
 #[doc = "Calibration Clock Output\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CaloutwWO {
     #[doc = "1: Output the RTC clock with a frequency divided by 64 on the TAMPER pin"]
@@ -67,6 +69,7 @@ where
     }
 }
 #[doc = "Output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Outenr {
     #[doc = "0: Output is disabled"]
@@ -103,6 +106,7 @@ impl OUTEN_R {
     }
 }
 #[doc = "Output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OutenwWO {
     #[doc = "1: Output enable"]
@@ -127,6 +131,7 @@ where
     }
 }
 #[doc = "Output selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Outselr {
     #[doc = "0: RTC alarm event output"]
@@ -163,6 +168,7 @@ impl OUTSEL_R {
     }
 }
 #[doc = "Output selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OutselwWO {
     #[doc = "1: Second event output"]

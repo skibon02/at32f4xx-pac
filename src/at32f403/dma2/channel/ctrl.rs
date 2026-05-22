@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
 #[doc = "Channel enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Chenr {
     #[doc = "0: Channel is disabled"]
@@ -39,6 +40,7 @@ impl CHEN_R {
     }
 }
 #[doc = "Channel enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ChenwWO {
     #[doc = "0: Channel disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Full data transfer interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fdtienr {
     #[doc = "0: Transfer complete interrupt is disabled"]
@@ -106,6 +109,7 @@ impl FDTIEN_R {
     }
 }
 #[doc = "Full data transfer interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FdtienwWO {
     #[doc = "0: Transfer complete interrupt disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "Half data transfer interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hdtienr {
     #[doc = "0: Half-transfer interrupt is disabled"]
@@ -173,6 +178,7 @@ impl HDTIEN_R {
     }
 }
 #[doc = "Half data transfer interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HdtienwWO {
     #[doc = "0: Half-transfer interrupt disable"]
@@ -204,6 +210,7 @@ where
     }
 }
 #[doc = "Data transfer error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dterrienr {
     #[doc = "0: Data transfer error interrupt is disabled"]
@@ -240,6 +247,7 @@ impl DTERRIEN_R {
     }
 }
 #[doc = "Data transfer error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DterrienwWO {
     #[doc = "0: Data transfer error interrupt disable"]
@@ -271,6 +279,7 @@ where
     }
 }
 #[doc = "Data transfer direction\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DTD_A {
     #[doc = "0: Read from peripherals"]
@@ -324,6 +333,7 @@ where
     }
 }
 #[doc = "Loop mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lmr {
     #[doc = "0: Circular mode is disabled"]
@@ -360,6 +370,7 @@ impl LM_R {
     }
 }
 #[doc = "Loop mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LmwWO {
     #[doc = "0: Circular mode disable"]
@@ -391,6 +402,7 @@ where
     }
 }
 #[doc = "Peripheral address increment mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pincmr {
     #[doc = "0: Peripheral address increment is disabled"]
@@ -427,6 +439,7 @@ impl PINCM_R {
     }
 }
 #[doc = "Peripheral address increment mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PincmwWO {
     #[doc = "0: Peripheral address increment disable"]
@@ -458,6 +471,7 @@ where
     }
 }
 #[doc = "Memory address increment mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Mincmr {
     #[doc = "0: Memory address increment is disabled"]
@@ -494,6 +508,7 @@ impl MINCM_R {
     }
 }
 #[doc = "Memory address increment mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MincmwWO {
     #[doc = "0: Memory address increment disable"]
@@ -525,9 +540,10 @@ where
     }
 }
 #[doc = "Peripheral data bit width\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum PWIDTH_A {
+pub enum BIT_WIDTH_A {
     #[doc = "0: 8 bits"]
     Bit8 = 0,
     #[doc = "1: 16 bits"]
@@ -535,47 +551,47 @@ pub enum PWIDTH_A {
     #[doc = "2: 32 bits"]
     Bit32 = 2,
 }
-impl From<PWIDTH_A> for u8 {
+impl From<BIT_WIDTH_A> for u8 {
     #[inline(always)]
-    fn from(variant: PWIDTH_A) -> Self {
+    fn from(variant: BIT_WIDTH_A) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for PWIDTH_A {
+impl crate::FieldSpec for BIT_WIDTH_A {
     type Ux = u8;
 }
-impl crate::IsEnum for PWIDTH_A {}
+impl crate::IsEnum for BIT_WIDTH_A {}
 #[doc = "Field `PWIDTH` reader - Peripheral data bit width"]
-pub type PWIDTH_R = crate::FieldReader<PWIDTH_A>;
+pub type PWIDTH_R = crate::FieldReader<BIT_WIDTH_A>;
 impl PWIDTH_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Option<PWIDTH_A> {
+    pub const fn variant(&self) -> Option<BIT_WIDTH_A> {
         match self.bits {
-            0 => Some(PWIDTH_A::Bit8),
-            1 => Some(PWIDTH_A::Bit16),
-            2 => Some(PWIDTH_A::Bit32),
+            0 => Some(BIT_WIDTH_A::Bit8),
+            1 => Some(BIT_WIDTH_A::Bit16),
+            2 => Some(BIT_WIDTH_A::Bit32),
             _ => None,
         }
     }
     #[doc = "8 bits"]
     #[inline(always)]
     pub fn is_bit8(&self) -> bool {
-        *self == PWIDTH_A::Bit8
+        *self == BIT_WIDTH_A::Bit8
     }
     #[doc = "16 bits"]
     #[inline(always)]
     pub fn is_bit16(&self) -> bool {
-        *self == PWIDTH_A::Bit16
+        *self == BIT_WIDTH_A::Bit16
     }
     #[doc = "32 bits"]
     #[inline(always)]
     pub fn is_bit32(&self) -> bool {
-        *self == PWIDTH_A::Bit32
+        *self == BIT_WIDTH_A::Bit32
     }
 }
 #[doc = "Field `PWIDTH` writer - Peripheral data bit width"]
-pub type PWIDTH_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PWIDTH_A>;
+pub type PWIDTH_W<'a, REG> = crate::FieldWriter<'a, REG, 2, BIT_WIDTH_A>;
 impl<'a, REG> PWIDTH_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -584,93 +600,25 @@ where
     #[doc = "8 bits"]
     #[inline(always)]
     pub fn bit8(self) -> &'a mut crate::W<REG> {
-        self.variant(PWIDTH_A::Bit8)
+        self.variant(BIT_WIDTH_A::Bit8)
     }
     #[doc = "16 bits"]
     #[inline(always)]
     pub fn bit16(self) -> &'a mut crate::W<REG> {
-        self.variant(PWIDTH_A::Bit16)
+        self.variant(BIT_WIDTH_A::Bit16)
     }
     #[doc = "32 bits"]
     #[inline(always)]
     pub fn bit32(self) -> &'a mut crate::W<REG> {
-        self.variant(PWIDTH_A::Bit32)
+        self.variant(BIT_WIDTH_A::Bit32)
     }
 }
-#[doc = "Memory data bit width\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum MWIDTH_A {
-    #[doc = "0: 8 bits"]
-    Bit8 = 0,
-    #[doc = "1: 16 bits"]
-    Bit16 = 1,
-    #[doc = "2: 32 bits"]
-    Bit32 = 2,
-}
-impl From<MWIDTH_A> for u8 {
-    #[inline(always)]
-    fn from(variant: MWIDTH_A) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for MWIDTH_A {
-    type Ux = u8;
-}
-impl crate::IsEnum for MWIDTH_A {}
 #[doc = "Field `MWIDTH` reader - Memory data bit width"]
-pub type MWIDTH_R = crate::FieldReader<MWIDTH_A>;
-impl MWIDTH_R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<MWIDTH_A> {
-        match self.bits {
-            0 => Some(MWIDTH_A::Bit8),
-            1 => Some(MWIDTH_A::Bit16),
-            2 => Some(MWIDTH_A::Bit32),
-            _ => None,
-        }
-    }
-    #[doc = "8 bits"]
-    #[inline(always)]
-    pub fn is_bit8(&self) -> bool {
-        *self == MWIDTH_A::Bit8
-    }
-    #[doc = "16 bits"]
-    #[inline(always)]
-    pub fn is_bit16(&self) -> bool {
-        *self == MWIDTH_A::Bit16
-    }
-    #[doc = "32 bits"]
-    #[inline(always)]
-    pub fn is_bit32(&self) -> bool {
-        *self == MWIDTH_A::Bit32
-    }
-}
+pub use PWIDTH_R as MWIDTH_R;
 #[doc = "Field `MWIDTH` writer - Memory data bit width"]
-pub type MWIDTH_W<'a, REG> = crate::FieldWriter<'a, REG, 2, MWIDTH_A>;
-impl<'a, REG> MWIDTH_W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "8 bits"]
-    #[inline(always)]
-    pub fn bit8(self) -> &'a mut crate::W<REG> {
-        self.variant(MWIDTH_A::Bit8)
-    }
-    #[doc = "16 bits"]
-    #[inline(always)]
-    pub fn bit16(self) -> &'a mut crate::W<REG> {
-        self.variant(MWIDTH_A::Bit16)
-    }
-    #[doc = "32 bits"]
-    #[inline(always)]
-    pub fn bit32(self) -> &'a mut crate::W<REG> {
-        self.variant(MWIDTH_A::Bit32)
-    }
-}
+pub use PWIDTH_W as MWIDTH_W;
 #[doc = "Channel Priority level\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CHPL_A {
@@ -757,6 +705,7 @@ where
     }
 }
 #[doc = "Memory to memory mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum M2mr {
     #[doc = "0: Memory to memory mode is disabled"]
@@ -793,6 +742,7 @@ impl M2M_R {
     }
 }
 #[doc = "Memory to memory mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum M2mwWO {
     #[doc = "0: Memory to memory mode disable"]

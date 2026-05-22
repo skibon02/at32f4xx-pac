@@ -3,6 +3,7 @@ pub type R = crate::R<INTSTS_SPEC>;
 #[doc = "Register `INTSTS` writer"]
 pub type W = crate::W<INTSTS_SPEC>;
 #[doc = "Line %s status bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Line0r {
     #[doc = "0: No interrupt occurred"]
@@ -39,6 +40,7 @@ impl LINE_R {
     }
 }
 #[doc = "Line %s status bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Line0wWO {
     #[doc = "1: Clear status flag"]

@@ -5,6 +5,7 @@ pub type W = crate::W<RF_SPEC>;
 #[doc = "Field `MN` reader - Receive FIFO message num"]
 pub type MN_R = crate::FieldReader;
 #[doc = "Receive FIFO full flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ffr {
     #[doc = "0: Receive FIFO is not full"]
@@ -41,6 +42,7 @@ impl FF_R {
     }
 }
 #[doc = "Receive FIFO full flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FfwWO {
     #[doc = "1: Clear full flag"]
@@ -65,6 +67,7 @@ where
     }
 }
 #[doc = "Receive FIFO overflow flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ofr {
     #[doc = "0: No overflow"]
@@ -101,6 +104,7 @@ impl OF_R {
     }
 }
 #[doc = "Receive FIFO overflow flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OfwWO {
     #[doc = "1: Clear overflow flag"]
@@ -125,6 +129,7 @@ where
     }
 }
 #[doc = "Receive FIFO release\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rr {
     #[doc = "0: FIFO is released"]
@@ -161,6 +166,7 @@ impl R_R {
     }
 }
 #[doc = "Receive FIFO release\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RwWO {
     #[doc = "1: Release FIFO"]

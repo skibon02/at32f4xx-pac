@@ -3,6 +3,7 @@ pub type R = crate::R<ODT_SPEC>;
 #[doc = "Register `ODT` writer"]
 pub type W = crate::W<ODT_SPEC>;
 #[doc = "Port output data\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Odt0r {
     #[doc = "0: Pull-down"]
@@ -39,6 +40,7 @@ impl ODT_R {
     }
 }
 #[doc = "Port output data\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Odt0wWO {
     #[doc = "0: Set output to logic low"]

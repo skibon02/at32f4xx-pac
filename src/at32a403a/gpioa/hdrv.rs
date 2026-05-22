@@ -3,6 +3,7 @@ pub type R = crate::R<HDRV_SPEC>;
 #[doc = "Register `HDRV` writer"]
 pub type W = crate::W<HDRV_SPEC>;
 #[doc = "Port hdrv bit %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HDRV0_A {
     #[doc = "0: GPIO is configured as large or normal sourcing/sinking strength, depending on IOMC"]

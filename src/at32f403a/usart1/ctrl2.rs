@@ -7,6 +7,7 @@ pub type ID_R = crate::FieldReader;
 #[doc = "Field `ID` writer - USART identification"]
 pub type ID_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Break frame bit num\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BFBN_A {
     #[doc = "0: 10-bit break frame"]
@@ -60,6 +61,7 @@ where
     }
 }
 #[doc = "Break frame interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bfienr {
     #[doc = "0: Break frame interrupt is disabled"]
@@ -96,6 +98,7 @@ impl BFIEN_R {
     }
 }
 #[doc = "Break frame interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BfienwWO {
     #[doc = "0: Break frame interrupt disable"]
@@ -127,6 +130,7 @@ where
     }
 }
 #[doc = "Last bit clock pulse\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lbcpr {
     #[doc = "0: The clock pulse of the last data bit is no output on the clock pin"]
@@ -163,6 +167,7 @@ impl LBCP_R {
     }
 }
 #[doc = "Last bit clock pulse\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LbcpwWO {
     #[doc = "0: The clock pulse of the last data bit is no output on the clock pin"]
@@ -194,6 +199,7 @@ where
     }
 }
 #[doc = "Clock phase\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLKPHA_A {
     #[doc = "0: Data capture is done on the first clock edge"]
@@ -247,6 +253,7 @@ where
     }
 }
 #[doc = "Clock polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLKPOL_A {
     #[doc = "0: Clock output low"]
@@ -300,6 +307,7 @@ where
     }
 }
 #[doc = "Clock enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Clkenr {
     #[doc = "0: Clock is disabled"]
@@ -336,6 +344,7 @@ impl CLKEN_R {
     }
 }
 #[doc = "Clock enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ClkenwWO {
     #[doc = "0: Clock disable"]
@@ -367,6 +376,7 @@ where
     }
 }
 #[doc = "STOP bit num\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum STOPBN_A {
@@ -453,6 +463,7 @@ where
     }
 }
 #[doc = "LIN mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Linenr {
     #[doc = "0: LIN mode is disabled"]
@@ -489,6 +500,7 @@ impl LINEN_R {
     }
 }
 #[doc = "LIN mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LinenwWO {
     #[doc = "0: LIN mode disable"]

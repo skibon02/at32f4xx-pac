@@ -3,6 +3,7 @@ pub type R = crate::R<CM2_INPUT_SPEC>;
 #[doc = "Register `CM2_INPUT` writer"]
 pub type W = crate::W<CM2_INPUT_SPEC>;
 #[doc = "Channel 3 configure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C3C_A {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Channel %s input divider\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C3IDIV_A {
@@ -179,6 +181,7 @@ pub type CDF_R = crate::FieldReader;
 #[doc = "Field `CDF(3-4)` writer - Channel %s digital filter"]
 pub type CDF_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Channel 4 configure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C4C_A {

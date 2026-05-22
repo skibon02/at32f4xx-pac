@@ -1,0 +1,80 @@
+SCFG:
+  CFG1:
+    MEM_MAP_SEL:
+      MainFlash: [0, "Main Flash memory mapped at 0x00000000"]
+      Boot: [1, "Boot memory mapped at 0x00000000"]
+      XmcBank1: [2, "XMC BANK1 mapped at 0x00000000"]
+      EmbeddedSram: [3, "Embedded SRAM mapped at 0x00000000"]
+      XmcSdramBank1: [4, "XMC SDRAM BANK1 mapped at 0x00000000"]
+    IR_POL:
+      Normal: [0, "Infrared output (IR_OUT) is not inverted"]
+      Inverted: [1, "Infrared output (IR_OUT) is inverted"]
+    IR_SRC_SEL:
+      Tmr10: [0, "Timer 10 is used to select the infrared modulation envelope signal source"]
+
+    _delete:
+      - SWAP_XMC
+    _add:
+      SWAP_XMC_10:
+        description: XMC address mapping swap bit 0
+        bitOffset: 10
+        bitWidth: 1
+        NoSwap: [0, "No XMC address mapping swap"]
+        SwapSDRAM: [1, "SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000"]
+
+      SWAP_XMC_11:
+        description: XMC address mapping swap bit 1
+        bitOffset: 11
+        bitWidth: 1
+        NoSwap: [0, "No XMC address mapping swap"]
+        SwapQSPI_NAND3: [1, "QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000"]
+  CFG2:
+    MII_RMII_SEL:
+      MII: [0, "MII interface selected"]
+      RMII: [1, "RMII interface selected"]
+
+  EXINTC1:
+    EXINT*:
+      _name: ExintSourcePort
+      GpioA: [0, "GPIOA pin %s is selected as the source input for EXINT%s"]
+      GpioB: [1, "GPIOB pin %s is selected as the source input for EXINT%s"]
+      GpioC: [2, "GPIOC pin %s is selected as the source input for EXINT%s"]
+      GpioD: [3, "GPIOD pin %s is selected as the source input for EXINT%s"]
+      GpioE: [4, "GPIOE pin %s is selected as the source input for EXINT%s"]
+      GpioF: [5, "GPIOF pin %s is selected as the source input for EXINT%s"]
+      GpioG: [6, "GPIOG pin %s is selected as the source input for EXINT%s"]
+      GpioH: [7, "GPIOH pin %s is selected as the source input for EXINT%s"]
+    _array:
+      EXINT*:
+        dimIndex: "0,1,2,3"
+        description: "External interrupt line %s"
+  EXINTC2:
+    EXINT*:
+      _name: ExintSourcePortNoH
+      GpioA: [ 0, "GPIOA pin %s is selected as the source input for EXINT%s" ]
+      GpioB: [ 1, "GPIOB pin %s is selected as the source input for EXINT%s" ]
+      GpioC: [ 2, "GPIOC pin %s is selected as the source input for EXINT%s" ]
+      GpioD: [ 3, "GPIOD pin %s is selected as the source input for EXINT%s" ]
+      GpioE: [ 4, "GPIOE pin %s is selected as the source input for EXINT%s" ]
+      GpioF: [ 5, "GPIOF pin %s is selected as the source input for EXINT%s" ]
+      GpioG: [ 6, "GPIOG pin %s is selected as the source input for EXINT%s" ]
+    _array:
+      EXINT*:
+        dimIndex: "4,5,6,7"
+        description: "External interrupt line %s"
+  EXINTC3:
+    _modify:
+      EXINT*:
+        derivedFrom: SCFG.EXINTC2.EXINT%s
+    _array:
+      EXINT*:
+        dimIndex: "8,9,10,11"
+        description: "External interrupt line %s"
+  EXINTC4:
+    _modify:
+      EXINT*:
+        derivedFrom: SCFG.EXINTC2.EXINT%s
+    _array:
+      EXINT*:
+        dimIndex: "12,13,14,15"
+        description: "External interrupt line %s"

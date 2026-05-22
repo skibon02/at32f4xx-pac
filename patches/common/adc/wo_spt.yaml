@@ -125,11 +125,46 @@ ADC?:
     CSPT*: [0, 7]
   OSQ1:
     OCLEN: [0, 15]
-  OSQ?:
+    OSN*:
+      _name: AdcChannel
+      AdcIn0: [0, "ADC_IN0"]
+      AdcIn1: [1, "ADC_IN1"]
+      AdcIn2: [2, "ADC_IN2"]
+      AdcIn3: [3, "ADC_IN3"]
+      AdcIn4: [4, "ADC_IN4"]
+      AdcIn5: [5, "ADC_IN5"]
+      AdcIn6: [6, "ADC_IN6"]
+      AdcIn7: [7, "ADC_IN7"]
+      AdcIn8: [8, "ADC_IN8"]
+      AdcIn9: [9, "ADC_IN9"]
+      AdcIn10: [10, "ADC_IN10"]
+      AdcIn11: [11, "ADC_IN11"]
+      AdcIn12: [12, "ADC_IN12"]
+      AdcIn13: [13, "ADC_IN13"]
+      AdcIn14: [14, "ADC_IN14"]
+      AdcIn15: [15, "ADC_IN15"]
+      AdcIn16: [16, "ADC_IN16"]
+      AdcIn17: [17, "ADC_IN17"]
     _array:
       OSN*:
+        dimIndex: "13,14,15,16"
         description: "Number of %sth conversion in ordinary sequence"
-    OSN*: [0, 17]
+  OSQ2:
+    _modify:
+      "OSN*":
+        derivedFrom: ADC1.OSQ1.OSN%s
+    _array:
+      OSN*:
+        dimIndex: "7,8,9,10,11,12"
+        description: "Number of %sth conversion in ordinary sequence"
+  OSQ3:
+    _modify:
+      "OSN*":
+        derivedFrom: ADC1.OSQ1.OSN%s
+    _array:
+      OSN*:
+        dimIndex: "1,2,3,4,5,6"
+        description: "Number of %sth conversion in ordinary sequence"
   PSQ:
     _array:
       PSN?:

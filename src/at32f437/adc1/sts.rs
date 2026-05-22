@@ -3,6 +3,7 @@ pub type R = crate::R<STS_SPEC>;
 #[doc = "Register `STS` writer"]
 pub type W = crate::W<STS_SPEC>;
 #[doc = "Voltage monitoring out of range flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Vmorr {
     #[doc = "0: Voltage is within the value programmed"]
@@ -39,6 +40,7 @@ impl VMOR_R {
     }
 }
 #[doc = "Voltage monitoring out of range flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VmorwWO {
     #[doc = "0: Clear flag"]
@@ -63,6 +65,7 @@ where
     }
 }
 #[doc = "Ordinary channels conversion end flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Occer {
     #[doc = "0: Conversion is not complete"]
@@ -99,6 +102,7 @@ impl OCCE_R {
     }
 }
 #[doc = "Ordinary channels conversion end flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OccewWO {
     #[doc = "0: Clear flag"]
@@ -127,6 +131,7 @@ pub use OCCE_R as PCCE_R;
 #[doc = "Field `PCCE` writer - Preempted channels conversion end flag"]
 pub use OCCE_W as PCCE_W;
 #[doc = "Preempted channel conversion start flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pccsr {
     #[doc = "0: No channel conversion started"]
@@ -163,6 +168,7 @@ impl PCCS_R {
     }
 }
 #[doc = "Preempted channel conversion start flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PccswWO {
     #[doc = "0: Clear flag"]

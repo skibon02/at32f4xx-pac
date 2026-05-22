@@ -11,6 +11,7 @@ pub type ST_R = crate::FieldReader;
 #[doc = "Field `ST` writer - Second tens"]
 pub type ST_W<'a, REG> = crate::FieldWriter<'a, REG, 3, u8, crate::Safe>;
 #[doc = "Seconds mask\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MASK1_A {
     #[doc = "0: No second mask"]
@@ -72,6 +73,7 @@ pub type MT_R = crate::FieldReader;
 #[doc = "Field `MT` writer - Minute tens"]
 pub type MT_W<'a, REG> = crate::FieldWriter<'a, REG, 3, u8, crate::Safe>;
 #[doc = "Minutes mask\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MASK2_A {
     #[doc = "0: No minute mask"]
@@ -133,6 +135,7 @@ pub type HT_R = crate::FieldReader;
 #[doc = "Field `HT` writer - Hour tens"]
 pub type HT_W<'a, REG> = crate::FieldWriter<'a, REG, 2, u8, crate::Safe>;
 #[doc = "AM/PM\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AMPM_A {
     #[doc = "0: AM"]
@@ -186,6 +189,7 @@ where
     }
 }
 #[doc = "Hours mask\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MASK3_A {
     #[doc = "0: No hour mask"]
@@ -247,6 +251,7 @@ pub type DT_R = crate::FieldReader;
 #[doc = "Field `DT` writer - Date tens"]
 pub type DT_W<'a, REG> = crate::FieldWriter<'a, REG, 2, u8, crate::Safe>;
 #[doc = "Date/week mode select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WKSEL_A {
     #[doc = "0: Date"]
@@ -300,6 +305,7 @@ where
     }
 }
 #[doc = "Date/week mask\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MASK4_A {
     #[doc = "0: Date/week day is not masked"]

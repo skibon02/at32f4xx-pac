@@ -7,6 +7,7 @@ pub type CLKFREQ_R = crate::FieldReader;
 #[doc = "Field `CLKFREQ` writer - Input clock frequency"]
 pub type CLKFREQ_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Errienr {
     #[doc = "0: Error interrupt is disabled"]
@@ -43,6 +44,7 @@ impl ERRIEN_R {
     }
 }
 #[doc = "Error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ErrienwWO {
     #[doc = "0: Disable Error interrupt"]
@@ -74,6 +76,7 @@ where
     }
 }
 #[doc = "Event interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Evtienr {
     #[doc = "0: Event interrupt is disabled"]
@@ -110,6 +113,7 @@ impl EVTIEN_R {
     }
 }
 #[doc = "Event interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EvtienwWO {
     #[doc = "0: Disable Event interrupt"]
@@ -141,6 +145,7 @@ where
     }
 }
 #[doc = "Data transmission interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dataienr {
     #[doc = "0: Data transfer interrupt is disabled"]
@@ -177,6 +182,7 @@ impl DATAIEN_R {
     }
 }
 #[doc = "Data transmission interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DataienwWO {
     #[doc = "0: Disable Data transfer interrupt"]
@@ -208,6 +214,7 @@ where
     }
 }
 #[doc = "DMA transfer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dmaenr {
     #[doc = "0: DMA transfer is disabled"]
@@ -244,6 +251,7 @@ impl DMAEN_R {
     }
 }
 #[doc = "DMA transfer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DmaenwWO {
     #[doc = "0: Disable DMA transfer"]
@@ -275,6 +283,7 @@ where
     }
 }
 #[doc = "DMA transfer end indication\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMAEND_A {
     #[doc = "0: Next DMA EOT is not the last transfer"]

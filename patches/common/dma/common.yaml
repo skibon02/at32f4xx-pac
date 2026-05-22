@@ -69,22 +69,21 @@ DMA?:
             Enabled: [1, "Peripheral address increment is enabled"]
           _write:
             Disable: [0, "Peripheral address increment disable"]
-            Enable: [1, "Peripheral address increment enable"] 
+            Enable: [1, "Peripheral address increment enable"]
         MINCM:
           _read:
             Disabled: [0, "Memory address increment is disabled"]
             Enabled: [1, "Memory address increment is enabled"]
           _write:
             Disable: [0, "Memory address increment disable"]
-            Enable: [1, "Memory address increment enable"] 
+            Enable: [1, "Memory address increment enable"]
         PWIDTH:
+          _name: BitWidth
           bit8: [0, "8 bits"]
           bit16: [1, "16 bits"]
           bit32: [2, "32 bits"]
         MWIDTH:
-          bit8: [0, "8 bits"]
-          bit16: [1, "16 bits"]
-          bit32: [2, "32 bits"]
+          _derivedFrom: BitWidth
         CHPL:
           Low: [0, "Low"]
           Medium: [1, "Medium"]
@@ -96,7 +95,7 @@ DMA?:
             Enabled: [1, "Memory to memory mode is enabled"]
           _write:
             Disable: [0, "Memory to memory mode disable"]
-            Enable: [1, "Memory to memory mode enable"] 
+            Enable: [1, "Memory to memory mode enable"]
       DTCNT:
         _delete:
           - CNT

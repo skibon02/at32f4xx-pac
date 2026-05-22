@@ -1,0 +1,7 @@
+PWC:
+  LDOOV:
+    LDOOVSEL:
+      _name: LDOOVSelect
+      V1_1: [0, "LDO output voltage is 1.1 V"]
+      V1_2: [1, "LDO output voltage is 1.2 V"]
+      V1_3: [2, "LDO output voltage is 1.3 V"]

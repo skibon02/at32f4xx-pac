@@ -7,6 +7,7 @@ pub type SPI1_MUX0_R = crate::BitReader;
 #[doc = "Field `SPI1_MUX0` writer - SPI1 muxing bit0"]
 pub type SPI1_MUX0_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "I2C1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum I2C1_MUX_A {
     #[doc = "0: SCL/PB6, SDA/PB7 SMBA/PB5"]
@@ -60,6 +61,7 @@ where
     }
 }
 #[doc = "USART1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum USART1_MUX_A {
     #[doc = "0: TX/PA9, RX/PA10"]
@@ -113,6 +115,7 @@ where
     }
 }
 #[doc = "USART3 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum USART3_MUX_A {
@@ -186,6 +189,7 @@ where
     }
 }
 #[doc = "TMR1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR1_MUX_A {
@@ -246,6 +250,7 @@ where
     }
 }
 #[doc = "TMR2 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR2_MUX_A {
@@ -332,6 +337,7 @@ where
     }
 }
 #[doc = "TMR3 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR3_MUX_A {
@@ -405,6 +411,7 @@ where
     }
 }
 #[doc = "CAN1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CAN_MUX_A {
@@ -465,6 +472,7 @@ where
     }
 }
 #[doc = "PD0/PD1 muxing on OSCIN/OSCOUT\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PD01_MUX_A {
     #[doc = "0: Not PD0 and PD1 mapping"]
@@ -518,6 +526,7 @@ where
     }
 }
 #[doc = "TMR5 channel4 internal muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TMR5CH4_MUX_A {
     #[doc = "0: TMR5_CH4 is connected to PA3"]
@@ -571,6 +580,7 @@ where
     }
 }
 #[doc = "ADC1 external trigger preempted conversion muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADC1_ETP_MUX_A {
     #[doc = "0: ADC1 external trigger preempted conversion is connected to EXINT15"]
@@ -624,6 +634,7 @@ where
     }
 }
 #[doc = "ADC1 external trigger ordinary conversion muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADC1_ETO_MUX_A {
     #[doc = "0: ADC1 external trigger ordinary conversion is connected to EXINT11"]
@@ -677,6 +688,7 @@ where
     }
 }
 #[doc = "SWD JTAG muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SWJTAG_MUX_A {
@@ -763,6 +775,7 @@ where
     }
 }
 #[doc = "SPI1 muxing bit1\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPI1_MUX1_A {
     #[doc = "0: CS/PA4, SCK/PA5, MISO/PA6, MOSI/PA7, MCK/PB0"]

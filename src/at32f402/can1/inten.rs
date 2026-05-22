@@ -3,6 +3,7 @@ pub type R = crate::R<INTEN_SPEC>;
 #[doc = "Register `INTEN` writer"]
 pub type W = crate::W<INTEN_SPEC>;
 #[doc = "Transmission complete interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tcienr {
     #[doc = "0: Transmit mailbox empty interrupt is disabled"]
@@ -39,6 +40,7 @@ impl TCIEN_R {
     }
 }
 #[doc = "Transmission complete interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TcienwWO {
     #[doc = "0: Transmit mailbox empty interrupt disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "FIFO %s receive message interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rf0mienr {
     #[doc = "0: FIFO receive message interrupt is disabled"]
@@ -106,6 +109,7 @@ impl RFMIEN_R {
     }
 }
 #[doc = "FIFO %s receive message interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rf0mienwWO {
     #[doc = "0: FIFO receive message interrupt disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "Receive FIFO %s full interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rf0fienr {
     #[doc = "0: Receive FIFO full interrupt is disabled"]
@@ -173,6 +178,7 @@ impl RFFIEN_R {
     }
 }
 #[doc = "Receive FIFO %s full interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rf0fienwWO {
     #[doc = "0: Receive FIFO full interrupt disable"]
@@ -204,6 +210,7 @@ where
     }
 }
 #[doc = "Receive FIFO %s overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rf0oienr {
     #[doc = "0: Receive FIFO overflow interrupt is disabled"]
@@ -240,6 +247,7 @@ impl RFOIEN_R {
     }
 }
 #[doc = "Receive FIFO %s overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rf0oienwWO {
     #[doc = "0: Receive FIFO overflow interrupt disable"]
@@ -271,6 +279,7 @@ where
     }
 }
 #[doc = "Error active interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Eaienr {
     #[doc = "0: Error active interrupt is disabled"]
@@ -307,6 +316,7 @@ impl EAIEN_R {
     }
 }
 #[doc = "Error active interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EaienwWO {
     #[doc = "0: Error active interrupt disable"]
@@ -338,6 +348,7 @@ where
     }
 }
 #[doc = "Error passive interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Epienr {
     #[doc = "0: Error passive interrupt is disabled"]
@@ -374,6 +385,7 @@ impl EPIEN_R {
     }
 }
 #[doc = "Error passive interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EpienwWO {
     #[doc = "0: Error passive interrupt disable"]
@@ -405,6 +417,7 @@ where
     }
 }
 #[doc = "Bus-off interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Boienr {
     #[doc = "0: Bus-off interrupt is disabled"]
@@ -441,6 +454,7 @@ impl BOIEN_R {
     }
 }
 #[doc = "Bus-off interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BoienwWO {
     #[doc = "0: Bus-off interrupt disable"]
@@ -472,6 +486,7 @@ where
     }
 }
 #[doc = "Error type record interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Etrienr {
     #[doc = "0: Error type record interrupt is disabled"]
@@ -508,6 +523,7 @@ impl ETRIEN_R {
     }
 }
 #[doc = "Error type record interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EtrienwWO {
     #[doc = "0: Error type record interrupt disable"]
@@ -539,6 +555,7 @@ where
     }
 }
 #[doc = "Error occur interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Eoienr {
     #[doc = "0: Error occur interrupt is disabled"]
@@ -575,6 +592,7 @@ impl EOIEN_R {
     }
 }
 #[doc = "Error occur interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EoienwWO {
     #[doc = "0: Error occur interrupt disable"]
@@ -606,6 +624,7 @@ where
     }
 }
 #[doc = "Quit doze mode interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Qdzienr {
     #[doc = "0: Quit doze mode interrupt is disabled"]
@@ -642,6 +661,7 @@ impl QDZIEN_R {
     }
 }
 #[doc = "Quit doze mode interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum QdzienwWO {
     #[doc = "0: Quit doze mode interrupt disable"]
@@ -673,6 +693,7 @@ where
     }
 }
 #[doc = "Enter doze mode interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Edzienr {
     #[doc = "0: Enter doze mode interrupt is disabled"]
@@ -709,6 +730,7 @@ impl EDZIEN_R {
     }
 }
 #[doc = "Enter doze mode interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EdzienwWO {
     #[doc = "0: Enter doze mode interrupt disable"]

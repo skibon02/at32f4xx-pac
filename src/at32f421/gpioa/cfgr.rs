@@ -3,6 +3,7 @@ pub type R = crate::R<CFGR_SPEC>;
 #[doc = "Register `CFGR` writer"]
 pub type W = crate::W<CFGR_SPEC>;
 #[doc = "GPIOx pin %s mode configurate\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IOMC0_A {

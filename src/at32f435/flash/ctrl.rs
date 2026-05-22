@@ -2,50 +2,660 @@
 pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
+#[doc = "Flash program\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Fprgmr {
+    #[doc = "0: Flash program not started"]
+    NotStarted = 0,
+    #[doc = "1: Flash program is in progress"]
+    Started = 1,
+}
+impl From<Fprgmr> for bool {
+    #[inline(always)]
+    fn from(variant: Fprgmr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `FPRGM` reader - Flash program"]
-pub type FPRGM_R = crate::BitReader;
+pub type FPRGM_R = crate::BitReader<Fprgmr>;
+impl FPRGM_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Fprgmr {
+        match self.bits {
+            false => Fprgmr::NotStarted,
+            true => Fprgmr::Started,
+        }
+    }
+    #[doc = "Flash program not started"]
+    #[inline(always)]
+    pub fn is_not_started(&self) -> bool {
+        *self == Fprgmr::NotStarted
+    }
+    #[doc = "Flash program is in progress"]
+    #[inline(always)]
+    pub fn is_started(&self) -> bool {
+        *self == Fprgmr::Started
+    }
+}
+#[doc = "Flash program\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FprgmwWO {
+    #[doc = "0: Flash program not started"]
+    NoStart = 0,
+    #[doc = "1: Start of flash program operation"]
+    Start = 1,
+}
+impl From<FprgmwWO> for bool {
+    #[inline(always)]
+    fn from(variant: FprgmwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `FPRGM` writer - Flash program"]
-pub type FPRGM_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type FPRGM_W<'a, REG> = crate::BitWriter<'a, REG, FprgmwWO>;
+impl<'a, REG> FPRGM_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Flash program not started"]
+    #[inline(always)]
+    pub fn no_start(self) -> &'a mut crate::W<REG> {
+        self.variant(FprgmwWO::NoStart)
+    }
+    #[doc = "Start of flash program operation"]
+    #[inline(always)]
+    pub fn start(self) -> &'a mut crate::W<REG> {
+        self.variant(FprgmwWO::Start)
+    }
+}
+#[doc = "Sector erase\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SECERS_A {
+    #[doc = "0: Not sector erase operation"]
+    NotSectorErase = 0,
+    #[doc = "1: Erase operation is sector erase operation"]
+    SectorErase = 1,
+}
+impl From<SECERS_A> for bool {
+    #[inline(always)]
+    fn from(variant: SECERS_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SECERS` reader - Sector erase"]
-pub type SECERS_R = crate::BitReader;
+pub type SECERS_R = crate::BitReader<SECERS_A>;
+impl SECERS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SECERS_A {
+        match self.bits {
+            false => SECERS_A::NotSectorErase,
+            true => SECERS_A::SectorErase,
+        }
+    }
+    #[doc = "Not sector erase operation"]
+    #[inline(always)]
+    pub fn is_not_sector_erase(&self) -> bool {
+        *self == SECERS_A::NotSectorErase
+    }
+    #[doc = "Erase operation is sector erase operation"]
+    #[inline(always)]
+    pub fn is_sector_erase(&self) -> bool {
+        *self == SECERS_A::SectorErase
+    }
+}
 #[doc = "Field `SECERS` writer - Sector erase"]
-pub type SECERS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SECERS_W<'a, REG> = crate::BitWriter<'a, REG, SECERS_A>;
+impl<'a, REG> SECERS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Not sector erase operation"]
+    #[inline(always)]
+    pub fn not_sector_erase(self) -> &'a mut crate::W<REG> {
+        self.variant(SECERS_A::NotSectorErase)
+    }
+    #[doc = "Erase operation is sector erase operation"]
+    #[inline(always)]
+    pub fn sector_erase(self) -> &'a mut crate::W<REG> {
+        self.variant(SECERS_A::SectorErase)
+    }
+}
+#[doc = "Bank erase\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum BANKERS_A {
+    #[doc = "0: Not bank erase operation"]
+    NotBankErase = 0,
+    #[doc = "1: Erase operation is bank erase operation"]
+    BankErase = 1,
+}
+impl From<BANKERS_A> for bool {
+    #[inline(always)]
+    fn from(variant: BANKERS_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `BANKERS` reader - Bank erase"]
-pub type BANKERS_R = crate::BitReader;
+pub type BANKERS_R = crate::BitReader<BANKERS_A>;
+impl BANKERS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> BANKERS_A {
+        match self.bits {
+            false => BANKERS_A::NotBankErase,
+            true => BANKERS_A::BankErase,
+        }
+    }
+    #[doc = "Not bank erase operation"]
+    #[inline(always)]
+    pub fn is_not_bank_erase(&self) -> bool {
+        *self == BANKERS_A::NotBankErase
+    }
+    #[doc = "Erase operation is bank erase operation"]
+    #[inline(always)]
+    pub fn is_bank_erase(&self) -> bool {
+        *self == BANKERS_A::BankErase
+    }
+}
 #[doc = "Field `BANKERS` writer - Bank erase"]
-pub type BANKERS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type BANKERS_W<'a, REG> = crate::BitWriter<'a, REG, BANKERS_A>;
+impl<'a, REG> BANKERS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Not bank erase operation"]
+    #[inline(always)]
+    pub fn not_bank_erase(self) -> &'a mut crate::W<REG> {
+        self.variant(BANKERS_A::NotBankErase)
+    }
+    #[doc = "Erase operation is bank erase operation"]
+    #[inline(always)]
+    pub fn bank_erase(self) -> &'a mut crate::W<REG> {
+        self.variant(BANKERS_A::BankErase)
+    }
+}
+#[doc = "Block erase\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum BLKERS_A {
+    #[doc = "0: Not block erase operation"]
+    NotBlockErase = 0,
+    #[doc = "1: Erase operation is block erase operation"]
+    BlockErase = 1,
+}
+impl From<BLKERS_A> for bool {
+    #[inline(always)]
+    fn from(variant: BLKERS_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `BLKERS` reader - Block erase"]
-pub type BLKERS_R = crate::BitReader;
+pub type BLKERS_R = crate::BitReader<BLKERS_A>;
+impl BLKERS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> BLKERS_A {
+        match self.bits {
+            false => BLKERS_A::NotBlockErase,
+            true => BLKERS_A::BlockErase,
+        }
+    }
+    #[doc = "Not block erase operation"]
+    #[inline(always)]
+    pub fn is_not_block_erase(&self) -> bool {
+        *self == BLKERS_A::NotBlockErase
+    }
+    #[doc = "Erase operation is block erase operation"]
+    #[inline(always)]
+    pub fn is_block_erase(&self) -> bool {
+        *self == BLKERS_A::BlockErase
+    }
+}
 #[doc = "Field `BLKERS` writer - Block erase"]
-pub type BLKERS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type BLKERS_W<'a, REG> = crate::BitWriter<'a, REG, BLKERS_A>;
+impl<'a, REG> BLKERS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Not block erase operation"]
+    #[inline(always)]
+    pub fn not_block_erase(self) -> &'a mut crate::W<REG> {
+        self.variant(BLKERS_A::NotBlockErase)
+    }
+    #[doc = "Erase operation is block erase operation"]
+    #[inline(always)]
+    pub fn block_erase(self) -> &'a mut crate::W<REG> {
+        self.variant(BLKERS_A::BlockErase)
+    }
+}
+#[doc = "User system data program\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Usdprgmr {
+    #[doc = "0: User system data program operation not started"]
+    NotStarted = 0,
+    #[doc = "1: User system data program operation is in progress"]
+    Started = 1,
+}
+impl From<Usdprgmr> for bool {
+    #[inline(always)]
+    fn from(variant: Usdprgmr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `USDPRGM` reader - User system data program"]
-pub type USDPRGM_R = crate::BitReader;
+pub type USDPRGM_R = crate::BitReader<Usdprgmr>;
+impl USDPRGM_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Usdprgmr {
+        match self.bits {
+            false => Usdprgmr::NotStarted,
+            true => Usdprgmr::Started,
+        }
+    }
+    #[doc = "User system data program operation not started"]
+    #[inline(always)]
+    pub fn is_not_started(&self) -> bool {
+        *self == Usdprgmr::NotStarted
+    }
+    #[doc = "User system data program operation is in progress"]
+    #[inline(always)]
+    pub fn is_started(&self) -> bool {
+        *self == Usdprgmr::Started
+    }
+}
+#[doc = "User system data program\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum UsdprgmwWO {
+    #[doc = "0: User system data program operation not started"]
+    NoStart = 0,
+    #[doc = "1: Start of user system data program operation"]
+    Start = 1,
+}
+impl From<UsdprgmwWO> for bool {
+    #[inline(always)]
+    fn from(variant: UsdprgmwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `USDPRGM` writer - User system data program"]
-pub type USDPRGM_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type USDPRGM_W<'a, REG> = crate::BitWriter<'a, REG, UsdprgmwWO>;
+impl<'a, REG> USDPRGM_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "User system data program operation not started"]
+    #[inline(always)]
+    pub fn no_start(self) -> &'a mut crate::W<REG> {
+        self.variant(UsdprgmwWO::NoStart)
+    }
+    #[doc = "Start of user system data program operation"]
+    #[inline(always)]
+    pub fn start(self) -> &'a mut crate::W<REG> {
+        self.variant(UsdprgmwWO::Start)
+    }
+}
+#[doc = "User system data erase\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Usdersr {
+    #[doc = "0: User system data erase operation not started"]
+    NotStarted = 0,
+    #[doc = "1: User system data erase operation is in progress"]
+    Started = 1,
+}
+impl From<Usdersr> for bool {
+    #[inline(always)]
+    fn from(variant: Usdersr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `USDERS` reader - User system data erase"]
-pub type USDERS_R = crate::BitReader;
+pub type USDERS_R = crate::BitReader<Usdersr>;
+impl USDERS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Usdersr {
+        match self.bits {
+            false => Usdersr::NotStarted,
+            true => Usdersr::Started,
+        }
+    }
+    #[doc = "User system data erase operation not started"]
+    #[inline(always)]
+    pub fn is_not_started(&self) -> bool {
+        *self == Usdersr::NotStarted
+    }
+    #[doc = "User system data erase operation is in progress"]
+    #[inline(always)]
+    pub fn is_started(&self) -> bool {
+        *self == Usdersr::Started
+    }
+}
+#[doc = "User system data erase\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum UsderswWO {
+    #[doc = "0: User system data erase operation not started"]
+    NoStart = 0,
+    #[doc = "1: Start of user system data erase operation"]
+    Start = 1,
+}
+impl From<UsderswWO> for bool {
+    #[inline(always)]
+    fn from(variant: UsderswWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `USDERS` writer - User system data erase"]
-pub type USDERS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type USDERS_W<'a, REG> = crate::BitWriter<'a, REG, UsderswWO>;
+impl<'a, REG> USDERS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "User system data erase operation not started"]
+    #[inline(always)]
+    pub fn no_start(self) -> &'a mut crate::W<REG> {
+        self.variant(UsderswWO::NoStart)
+    }
+    #[doc = "Start of user system data erase operation"]
+    #[inline(always)]
+    pub fn start(self) -> &'a mut crate::W<REG> {
+        self.variant(UsderswWO::Start)
+    }
+}
+#[doc = "Erasing start\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Erstrr {
+    #[doc = "0: Erase operation not started"]
+    NotStarted = 0,
+    #[doc = "1: Erase operation is in progress"]
+    Started = 1,
+}
+impl From<Erstrr> for bool {
+    #[inline(always)]
+    fn from(variant: Erstrr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ERSTR` reader - Erasing start"]
-pub type ERSTR_R = crate::BitReader;
+pub type ERSTR_R = crate::BitReader<Erstrr>;
+impl ERSTR_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Erstrr {
+        match self.bits {
+            false => Erstrr::NotStarted,
+            true => Erstrr::Started,
+        }
+    }
+    #[doc = "Erase operation not started"]
+    #[inline(always)]
+    pub fn is_not_started(&self) -> bool {
+        *self == Erstrr::NotStarted
+    }
+    #[doc = "Erase operation is in progress"]
+    #[inline(always)]
+    pub fn is_started(&self) -> bool {
+        *self == Erstrr::Started
+    }
+}
+#[doc = "Erasing start\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ErstrwWO {
+    #[doc = "0: Erase operation not started"]
+    NoStart = 0,
+    #[doc = "1: Start of erase operation"]
+    Start = 1,
+}
+impl From<ErstrwWO> for bool {
+    #[inline(always)]
+    fn from(variant: ErstrwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ERSTR` writer - Erasing start"]
-pub type ERSTR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ERSTR_W<'a, REG> = crate::BitWriter<'a, REG, ErstrwWO>;
+impl<'a, REG> ERSTR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Erase operation not started"]
+    #[inline(always)]
+    pub fn no_start(self) -> &'a mut crate::W<REG> {
+        self.variant(ErstrwWO::NoStart)
+    }
+    #[doc = "Start of erase operation"]
+    #[inline(always)]
+    pub fn start(self) -> &'a mut crate::W<REG> {
+        self.variant(ErstrwWO::Start)
+    }
+}
+#[doc = "Operation lock\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OPLK_A {
+    #[doc = "0: Flash operations unlocked"]
+    Locked = 0,
+    #[doc = "1: Flash operations locked"]
+    Unlocked = 1,
+}
+impl From<OPLK_A> for bool {
+    #[inline(always)]
+    fn from(variant: OPLK_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `OPLK` reader - Operation lock"]
-pub type OPLK_R = crate::BitReader;
+pub type OPLK_R = crate::BitReader<OPLK_A>;
+impl OPLK_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> OPLK_A {
+        match self.bits {
+            false => OPLK_A::Locked,
+            true => OPLK_A::Unlocked,
+        }
+    }
+    #[doc = "Flash operations unlocked"]
+    #[inline(always)]
+    pub fn is_locked(&self) -> bool {
+        *self == OPLK_A::Locked
+    }
+    #[doc = "Flash operations locked"]
+    #[inline(always)]
+    pub fn is_unlocked(&self) -> bool {
+        *self == OPLK_A::Unlocked
+    }
+}
 #[doc = "Field `OPLK` writer - Operation lock"]
-pub type OPLK_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type OPLK_W<'a, REG> = crate::BitWriter<'a, REG, OPLK_A>;
+impl<'a, REG> OPLK_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Flash operations unlocked"]
+    #[inline(always)]
+    pub fn locked(self) -> &'a mut crate::W<REG> {
+        self.variant(OPLK_A::Locked)
+    }
+    #[doc = "Flash operations locked"]
+    #[inline(always)]
+    pub fn unlocked(self) -> &'a mut crate::W<REG> {
+        self.variant(OPLK_A::Unlocked)
+    }
+}
+#[doc = "User system data unlock success\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum USDULKS_A {
+    #[doc = "0: User system data unlocked"]
+    Locked = 0,
+    #[doc = "1: User system data locked"]
+    Unlocked = 1,
+}
+impl From<USDULKS_A> for bool {
+    #[inline(always)]
+    fn from(variant: USDULKS_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `USDULKS` reader - User system data unlock success"]
-pub type USDULKS_R = crate::BitReader;
+pub type USDULKS_R = crate::BitReader<USDULKS_A>;
+impl USDULKS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> USDULKS_A {
+        match self.bits {
+            false => USDULKS_A::Locked,
+            true => USDULKS_A::Unlocked,
+        }
+    }
+    #[doc = "User system data unlocked"]
+    #[inline(always)]
+    pub fn is_locked(&self) -> bool {
+        *self == USDULKS_A::Locked
+    }
+    #[doc = "User system data locked"]
+    #[inline(always)]
+    pub fn is_unlocked(&self) -> bool {
+        *self == USDULKS_A::Unlocked
+    }
+}
 #[doc = "Field `USDULKS` writer - User system data unlock success"]
-pub type USDULKS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type USDULKS_W<'a, REG> = crate::BitWriter<'a, REG, USDULKS_A>;
+impl<'a, REG> USDULKS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "User system data unlocked"]
+    #[inline(always)]
+    pub fn locked(self) -> &'a mut crate::W<REG> {
+        self.variant(USDULKS_A::Locked)
+    }
+    #[doc = "User system data locked"]
+    #[inline(always)]
+    pub fn unlocked(self) -> &'a mut crate::W<REG> {
+        self.variant(USDULKS_A::Unlocked)
+    }
+}
+#[doc = "Error interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ERRIE_A {
+    #[doc = "0: Error interrupt disabled"]
+    Disabled = 0,
+    #[doc = "1: Error interrupt enabled"]
+    Enabled = 1,
+}
+impl From<ERRIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: ERRIE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ERRIE` reader - Error interrupt enable"]
-pub type ERRIE_R = crate::BitReader;
+pub type ERRIE_R = crate::BitReader<ERRIE_A>;
+impl ERRIE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ERRIE_A {
+        match self.bits {
+            false => ERRIE_A::Disabled,
+            true => ERRIE_A::Enabled,
+        }
+    }
+    #[doc = "Error interrupt disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ERRIE_A::Disabled
+    }
+    #[doc = "Error interrupt enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ERRIE_A::Enabled
+    }
+}
 #[doc = "Field `ERRIE` writer - Error interrupt enable"]
-pub type ERRIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ERRIE_W<'a, REG> = crate::BitWriter<'a, REG, ERRIE_A>;
+impl<'a, REG> ERRIE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Error interrupt disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ERRIE_A::Disabled)
+    }
+    #[doc = "Error interrupt enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ERRIE_A::Enabled)
+    }
+}
+#[doc = "Operation done flag interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ODFIE_A {
+    #[doc = "0: Operation done interrupt disabled"]
+    Disabled = 0,
+    #[doc = "1: Operation done interrupt enabled"]
+    Enabled = 1,
+}
+impl From<ODFIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: ODFIE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ODFIE` reader - Operation done flag interrupt enable"]
-pub type ODFIE_R = crate::BitReader;
+pub type ODFIE_R = crate::BitReader<ODFIE_A>;
+impl ODFIE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ODFIE_A {
+        match self.bits {
+            false => ODFIE_A::Disabled,
+            true => ODFIE_A::Enabled,
+        }
+    }
+    #[doc = "Operation done interrupt disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ODFIE_A::Disabled
+    }
+    #[doc = "Operation done interrupt enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ODFIE_A::Enabled
+    }
+}
 #[doc = "Field `ODFIE` writer - Operation done flag interrupt enable"]
-pub type ODFIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ODFIE_W<'a, REG> = crate::BitWriter<'a, REG, ODFIE_A>;
+impl<'a, REG> ODFIE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Operation done interrupt disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ODFIE_A::Disabled)
+    }
+    #[doc = "Operation done interrupt enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ODFIE_A::Enabled)
+    }
+}
 impl R {
     #[doc = "Bit 0 - Flash program"]
     #[inline(always)]

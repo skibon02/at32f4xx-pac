@@ -3,6 +3,7 @@ pub type R = crate::R<CTRLSTS_SPEC>;
 #[doc = "Register `CTRLSTS` writer"]
 pub type W = crate::W<CTRLSTS_SPEC>;
 #[doc = "Tamper event flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TPEFCLRW_A {
     #[doc = "1: Clear the tamper event flag"]
@@ -27,6 +28,7 @@ where
     }
 }
 #[doc = "Tamper interrupt flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TPIFCLRW_A {
     #[doc = "1: Tamper interrupt flag clear"]
@@ -51,6 +53,7 @@ where
     }
 }
 #[doc = "Tamper pin interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tpienr {
     #[doc = "0: Tamper pin interrupt is disabled"]
@@ -87,6 +90,7 @@ impl TPIEN_R {
     }
 }
 #[doc = "Tamper pin interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TpienwWO {
     #[doc = "0: Tamper pin interrupt disable"]
@@ -118,6 +122,7 @@ where
     }
 }
 #[doc = "Tamper event flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TPEFR_A {
     #[doc = "0: No tamper event"]
@@ -171,6 +176,7 @@ where
     }
 }
 #[doc = "Tamper interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TPIFR_A {
     #[doc = "0: No tamper event"]

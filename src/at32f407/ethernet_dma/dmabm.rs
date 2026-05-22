@@ -2,14 +2,129 @@
 pub type R = crate::R<DMABM_SPEC>;
 #[doc = "Register `DMABM` writer"]
 pub type W = crate::W<DMABM_SPEC>;
+#[doc = "Software reset\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Swrr {
+    #[doc = "0: Software reset is not active"]
+    NoReset = 0,
+    #[doc = "1: Software reset is active. This flag will be cleared when valid clocks are detected on appropriate pins"]
+    Resetting = 1,
+}
+impl From<Swrr> for bool {
+    #[inline(always)]
+    fn from(variant: Swrr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SWR` reader - Software reset"]
-pub type SWR_R = crate::BitReader;
+pub type SWR_R = crate::BitReader<Swrr>;
+impl SWR_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Swrr {
+        match self.bits {
+            false => Swrr::NoReset,
+            true => Swrr::Resetting,
+        }
+    }
+    #[doc = "Software reset is not active"]
+    #[inline(always)]
+    pub fn is_no_reset(&self) -> bool {
+        *self == Swrr::NoReset
+    }
+    #[doc = "Software reset is active. This flag will be cleared when valid clocks are detected on appropriate pins"]
+    #[inline(always)]
+    pub fn is_resetting(&self) -> bool {
+        *self == Swrr::Resetting
+    }
+}
+#[doc = "Software reset\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SwrwWO {
+    #[doc = "0: No reset"]
+    NoReset = 0,
+    #[doc = "1: Begin reset. Set this bit to reset the DMA"]
+    StartReset = 1,
+}
+impl From<SwrwWO> for bool {
+    #[inline(always)]
+    fn from(variant: SwrwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SWR` writer - Software reset"]
-pub type SWR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SWR_W<'a, REG> = crate::BitWriter<'a, REG, SwrwWO>;
+impl<'a, REG> SWR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "No reset"]
+    #[inline(always)]
+    pub fn no_reset(self) -> &'a mut crate::W<REG> {
+        self.variant(SwrwWO::NoReset)
+    }
+    #[doc = "Begin reset. Set this bit to reset the DMA"]
+    #[inline(always)]
+    pub fn start_reset(self) -> &'a mut crate::W<REG> {
+        self.variant(SwrwWO::StartReset)
+    }
+}
+#[doc = "DMA Arbitration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DA_A {
+    #[doc = "0: Custom priority ration between RX and TX. Controlled by PR"]
+    CustomPriority = 0,
+    #[doc = "1: Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)"]
+    FixedPriority = 1,
+}
+impl From<DA_A> for bool {
+    #[inline(always)]
+    fn from(variant: DA_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `DA` reader - DMA Arbitration"]
-pub type DA_R = crate::BitReader;
+pub type DA_R = crate::BitReader<DA_A>;
+impl DA_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> DA_A {
+        match self.bits {
+            false => DA_A::CustomPriority,
+            true => DA_A::FixedPriority,
+        }
+    }
+    #[doc = "Custom priority ration between RX and TX. Controlled by PR"]
+    #[inline(always)]
+    pub fn is_custom_priority(&self) -> bool {
+        *self == DA_A::CustomPriority
+    }
+    #[doc = "Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)"]
+    #[inline(always)]
+    pub fn is_fixed_priority(&self) -> bool {
+        *self == DA_A::FixedPriority
+    }
+}
 #[doc = "Field `DA` writer - DMA Arbitration"]
-pub type DA_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type DA_W<'a, REG> = crate::BitWriter<'a, REG, DA_A>;
+impl<'a, REG> DA_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Custom priority ration between RX and TX. Controlled by PR"]
+    #[inline(always)]
+    pub fn custom_priority(self) -> &'a mut crate::W<REG> {
+        self.variant(DA_A::CustomPriority)
+    }
+    #[doc = "Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)"]
+    #[inline(always)]
+    pub fn fixed_priority(self) -> &'a mut crate::W<REG> {
+        self.variant(DA_A::FixedPriority)
+    }
+}
 #[doc = "Field `DSL` reader - Descriptor skip length"]
 pub type DSL_R = crate::FieldReader;
 #[doc = "Field `DSL` writer - Descriptor skip length"]
@@ -18,10 +133,93 @@ pub type DSL_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 pub type PBL_R = crate::FieldReader;
 #[doc = "Field `PBL` writer - Programmable burst length"]
 pub type PBL_W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+#[doc = "Priority ratio\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum PR_A {
+    #[doc = "0: 1:1"]
+    Ratio1_1 = 0,
+    #[doc = "1: 1:2"]
+    Ratio1_2 = 1,
+    #[doc = "2: 1:3"]
+    Ratio1_3 = 2,
+    #[doc = "3: 1:4"]
+    Ratio1_4 = 3,
+}
+impl From<PR_A> for u8 {
+    #[inline(always)]
+    fn from(variant: PR_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for PR_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for PR_A {}
 #[doc = "Field `PR` reader - Priority ratio"]
-pub type PR_R = crate::FieldReader;
+pub type PR_R = crate::FieldReader<PR_A>;
+impl PR_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> PR_A {
+        match self.bits {
+            0 => PR_A::Ratio1_1,
+            1 => PR_A::Ratio1_2,
+            2 => PR_A::Ratio1_3,
+            3 => PR_A::Ratio1_4,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "1:1"]
+    #[inline(always)]
+    pub fn is_ratio1_1(&self) -> bool {
+        *self == PR_A::Ratio1_1
+    }
+    #[doc = "1:2"]
+    #[inline(always)]
+    pub fn is_ratio1_2(&self) -> bool {
+        *self == PR_A::Ratio1_2
+    }
+    #[doc = "1:3"]
+    #[inline(always)]
+    pub fn is_ratio1_3(&self) -> bool {
+        *self == PR_A::Ratio1_3
+    }
+    #[doc = "1:4"]
+    #[inline(always)]
+    pub fn is_ratio1_4(&self) -> bool {
+        *self == PR_A::Ratio1_4
+    }
+}
 #[doc = "Field `PR` writer - Priority ratio"]
-pub type PR_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type PR_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PR_A, crate::Safe>;
+impl<'a, REG> PR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "1:1"]
+    #[inline(always)]
+    pub fn ratio1_1(self) -> &'a mut crate::W<REG> {
+        self.variant(PR_A::Ratio1_1)
+    }
+    #[doc = "1:2"]
+    #[inline(always)]
+    pub fn ratio1_2(self) -> &'a mut crate::W<REG> {
+        self.variant(PR_A::Ratio1_2)
+    }
+    #[doc = "1:3"]
+    #[inline(always)]
+    pub fn ratio1_3(self) -> &'a mut crate::W<REG> {
+        self.variant(PR_A::Ratio1_3)
+    }
+    #[doc = "1:4"]
+    #[inline(always)]
+    pub fn ratio1_4(self) -> &'a mut crate::W<REG> {
+        self.variant(PR_A::Ratio1_4)
+    }
+}
 #[doc = "Field `FB` reader - Fixed burst"]
 pub type FB_R = crate::BitReader;
 #[doc = "Field `FB` writer - Fixed burst"]

@@ -36,7 +36,7 @@ impl crate::RegisterSpec for MACA3L_SPEC {
 impl crate::Readable for MACA3L_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`maca3l::W`](W) writer structure"]
 impl crate::Writable for MACA3L_SPEC {
-    type Safety = crate::Unsafe;
+    type Safety = crate::Safe;
 }
 #[doc = "`reset()` method sets MACA3L to value 0xffff_ffff"]
 impl crate::Resettable for MACA3L_SPEC {

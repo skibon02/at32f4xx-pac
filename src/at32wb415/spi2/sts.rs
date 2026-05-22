@@ -3,6 +3,7 @@ pub type R = crate::R<STS_SPEC>;
 #[doc = "Register `STS` writer"]
 pub type W = crate::W<STS_SPEC>;
 #[doc = "Receive data buffer full\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RDBF_A {
     #[doc = "0: Transmit data buffer is not full"]
@@ -39,6 +40,7 @@ impl RDBF_R {
     }
 }
 #[doc = "Transmit data buffer empty\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TDBE_A {
     #[doc = "0: Transmit data buffer is not empty"]
@@ -75,6 +77,7 @@ impl TDBE_R {
     }
 }
 #[doc = "CRC calculation error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ccerrr {
     #[doc = "0: No CRC error"]
@@ -111,6 +114,7 @@ impl CCERR_R {
     }
 }
 #[doc = "CRC calculation error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CcerrwWO {
     #[doc = "0: Clear CRC error"]
@@ -135,6 +139,7 @@ where
     }
 }
 #[doc = "Master mode error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MMERR_A {
     #[doc = "0: No mode error"]
@@ -171,6 +176,7 @@ impl MMERR_R {
     }
 }
 #[doc = "Receiver overflow error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ROERR_A {
     #[doc = "0: No overflow error"]
@@ -207,6 +213,7 @@ impl ROERR_R {
     }
 }
 #[doc = "Busy flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BF_A {
     #[doc = "0: SPI is not busy"]

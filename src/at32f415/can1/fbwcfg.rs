@@ -3,6 +3,7 @@ pub type R = crate::R<FBWCFG_SPEC>;
 #[doc = "Register `FBWCFG` writer"]
 pub type W = crate::W<FBWCFG_SPEC>;
 #[doc = "Filter bit width select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SEL0_A {
     #[doc = "0: Dual 16-bit"]

@@ -7,6 +7,7 @@ pub type ADDR1_R = crate::FieldReader<u16>;
 #[doc = "Field `ADDR1` writer - Own address 1"]
 pub type ADDR1_W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16, crate::Safe>;
 #[doc = "Address mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADDR1MODE_A {
     #[doc = "0: 7-bit slave address"]

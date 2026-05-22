@@ -2008,6 +2008,24 @@
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>LDOOVSelect</name>
+                <enumeratedValue>
+                  <name>V1_1</name>
+                  <description>LDO output voltage is 1.1 V</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>V1_2</name>
+                  <description>LDO output voltage is 1.2 V</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>V1_3</name>
+                  <description>LDO output voltage is 1.3 V</description>
+                  <value>2</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -2304,25 +2322,60 @@
           <resetValue>0x00033002</resetValue>
           <fields>
             <field>
-              <name>PLL_MS</name>
+              <name>MS</name>
               <description>PLL pre-division</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <writeConstraint>
+                <range>
+                  <minimum>1</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
-              <name>PLL_NS</name>
+              <name>NS</name>
               <description>PLL frequency multiplication factor</description>
               <bitOffset>6</bitOffset>
               <bitWidth>9</bitWidth>
               <access>read-write</access>
+              <writeConstraint>
+                <range>
+                  <minimum>31</minimum>
+                  <maximum>500</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
-              <name>PLL_FR</name>
+              <name>FR</name>
               <description>PLL post-division</description>
               <bitOffset>16</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>PostDivision</name>
+                <enumeratedValue>
+                  <name>Div4</name>
+                  <description>Division by 4</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div8</name>
+                  <description>Division by 8</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div16</name>
+                  <description>Division by 16</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div32</name>
+                  <description>Division by 32</description>
+                  <value>5</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PLLRCS</name>
@@ -2502,6 +2555,29 @@
               <bitOffset>21</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>CLKOUT1_SEL</name>
+                <enumeratedValue>
+                  <name>HICK</name>
+                  <description>HICK clock selected as CLKOUT1</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LEXT</name>
+                  <description>LEXT clock selected as CLKOUT1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HEXT</name>
+                  <description>HEXT clock selected as CLKOUT1</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PLL</name>
+                  <description>PLL clock selected as CLKOUT1</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLKOUT1DIV1</name>
@@ -2509,6 +2585,34 @@
               <bitOffset>24</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>CLKOUT1DIV1</name>
+                <enumeratedValue>
+                  <name>Div2</name>
+                  <description>CLKOUT%s is divided by 2</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div3</name>
+                  <description>CLKOUT%s is divided by 3</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div4</name>
+                  <description>CLKOUT%s is divided by 4</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div5</name>
+                  <description>CLKOUT%s is divided by 5</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div1</name>
+                  <description>CLKOUT%s is divided by 1</description>
+                  <isDefault>true</isDefault>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLKOUT2DIV1</name>
@@ -2516,6 +2620,7 @@
               <bitOffset>27</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="CLKOUT1DIV1"/>
             </field>
             <field>
               <name>CLKOUT2_SEL1</name>
@@ -2523,6 +2628,29 @@
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>CLKOUT2_SEL1</name>
+                <enumeratedValue>
+                  <name>SCLK</name>
+                  <description>SCLK clock selected as CLKOUT2</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Secondary</name>
+                  <description>Secondary clock selected as CLKOUT2 (controlled by CLKOUT2_SEL2 bit in the CRM_MISC1 register)</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HEXT</name>
+                  <description>HEXT clock selected as CLKOUT2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PLL</name>
+                  <description>PLL clock selected as CLKOUT2</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -4124,6 +4252,19 @@
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HICKDIV</name>
+                <enumeratedValue>
+                  <name>Div6</name>
+                  <description>HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div1</name>
+                  <description>HICK is not divided</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HICK_TO_USB</name>
@@ -4131,6 +4272,19 @@
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HICK_TO_USB</name>
+                <enumeratedValue>
+                  <name>PLLDiv</name>
+                  <description>PLL or PLL division</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HICKDiv</name>
+                  <description>48 MHz or 8 MHz, depending on the HICKDIV</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HICK_TO_SCLK</name>
@@ -4138,6 +4292,19 @@
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HICK_TO_SCLK</name>
+                <enumeratedValue>
+                  <name>HICKDiv6</name>
+                  <description>Fixed 8 MHz, that is, HICK/6</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HICKDiv</name>
+                  <description>48 MHz or 8 MHz, depending on the HICKDIV</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLKOUT2_SEL2</name>
@@ -4145,6 +4312,34 @@
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>CLKOUT2_SEL2</name>
+                <enumeratedValue>
+                  <name>Usb</name>
+                  <description>USB clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Adc</name>
+                  <description>ADC clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HICKDiv</name>
+                  <description>HICK (after divider) clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Lick</name>
+                  <description>LICK clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Lext</name>
+                  <description>LEXT clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary</description>
+                  <value>4</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLKOUT1DIV2</name>
@@ -4152,6 +4347,54 @@
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>CLKOUT1DIV2</name>
+                <enumeratedValue>
+                  <name>Div2</name>
+                  <description>CLKOUT%s is divided by 2</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div4</name>
+                  <description>CLKOUT%s is divided by 4</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div8</name>
+                  <description>CLKOUT%s is divided by 8</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div16</name>
+                  <description>CLKOUT%s is divided by 16</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div64</name>
+                  <description>CLKOUT%s is divided by 64</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div128</name>
+                  <description>CLKOUT%s is divided by 128</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div256</name>
+                  <description>CLKOUT%s is divided by 256</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div512</name>
+                  <description>CLKOUT%s is divided by 512</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div1</name>
+                  <description>CLKOUT%s is divided by 1</description>
+                  <isDefault>true</isDefault>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLKOUT2DIV2</name>
@@ -4159,6 +4402,7 @@
               <bitOffset>28</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="CLKOUT1DIV2"/>
             </field>
           </fields>
         </register>
@@ -4176,6 +4420,19 @@
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>AUTO_STEP_EN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Auto step mode disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically.</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLK_TO_TMR</name>
@@ -4183,6 +4440,19 @@
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>CLK_TO_TMR</name>
+                <enumeratedValue>
+                  <name>Disconnected</name>
+                  <description>Disconnected</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Connected</name>
+                  <description>CLKOUT1 internal connected to timer10 channel1</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>USBDIV</name>
@@ -4190,6 +4460,74 @@
               <bitOffset>12</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>USBDIV</name>
+                <enumeratedValue>
+                  <name>Div1_5</name>
+                  <description>USB clock is divided by 1.5</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div1</name>
+                  <description>USB clock is not divided</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div2_5</name>
+                  <description>USB clock is divided by 2.5</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div2</name>
+                  <description>USB clock is divided by 2</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div3_5</name>
+                  <description>USB clock is divided by 3.5</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div3</name>
+                  <description>USB clock is divided by 3</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div4_5</name>
+                  <description>USB clock is divided by 4.5</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div4</name>
+                  <description>USB clock is divided by 4</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div5_5</name>
+                  <description>USB clock is divided by 5.5</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div5</name>
+                  <description>USB clock is divided by 5</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div6_5</name>
+                  <description>USB clock is divided by 6.5</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div6</name>
+                  <description>USB clock is divided by 6</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div7</name>
+                  <description>USB clock is divided by 7</description>
+                  <value>12</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -9267,6 +9605,11 @@
         <description>DMA1 Channel7 global interrupt</description>
         <value>69</value>
       </interrupt>
+      <interrupt>
+        <name>DMAMUX</name>
+        <description>DMAMUX global interrupt</description>
+        <value>94</value>
+      </interrupt>
       <registers>
         <register>
           <name>STS</name>
@@ -9279,171 +9622,39 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>GF1</name>
-              <description>Channel 1 Global event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>GF%s</name>
+              <description>Channel %s global event flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>FDTF1</name>
-              <description>Channel 1 full  data transfer event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>FDTF%s</name>
+              <description>Channel %s data transfer complete event flag</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>HDTF1</name>
-              <description>Channel 1 half data transfer event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>HDTF%s</name>
+              <description>Channel %s half transfer event flag</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>DTERRF1</name>
-              <description>Channel 1 data transfer error event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>DTERRF%s</name>
+              <description>Channel %s data transfer error event flag</description>
               <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF2</name>
-              <description>Channel 2 Global event flag</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF2</name>
-              <description>Channel 2 full  data transfer event flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF2</name>
-              <description>Channel 2 half data transfer event flag</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF2</name>
-              <description>Channel 2 data transfer error event flag</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF3</name>
-              <description>Channel 3 Global event flag</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF3</name>
-              <description>Channel 3 full data transfer event flag</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF3</name>
-              <description>Channel 3 half data transfer event flag</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF3</name>
-              <description>Channel 3 data transfer error event flag</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF4</name>
-              <description>Channel 4 Global event flag</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF4</name>
-              <description>Channel 4 full data transfer event flag</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF4</name>
-              <description>Channel 4 half data transfer event flag</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF4</name>
-              <description>Channel 4 data transfer error event flag</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF5</name>
-              <description>Channel 5 Global event flag</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF5</name>
-              <description>Channel 5 full data transfer event flag</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF5</name>
-              <description>Channel 5 half data transfer event flag</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF5</name>
-              <description>Channel 5 data transfer error event flag</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF6</name>
-              <description>Channel 6 Global event flag</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF6</name>
-              <description>Channel 6 full data transfer event flag</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF6</name>
-              <description>Channel 6 half data transfer event flag</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF6</name>
-              <description>Channel 6 data transfer error event flag</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF7</name>
-              <description>Channel 7 Global event flag</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF7</name>
-              <description>Channel 7 full data transfer event flag</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF7</name>
-              <description>Channel 7 half data transfer event flag</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF7</name>
-              <description>Channel 7 data transfer error event flag</description>
-              <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
           </fields>
@@ -9459,172 +9670,44 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>GFC1</name>
-              <description>Channel 1 Global flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>GFC%s</name>
+              <description>Channel %s global flag clear</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
-              <name>GFC2</name>
-              <description>Channel 2 Global flag clear</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC3</name>
-              <description>Channel 3 Global flag clear</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC4</name>
-              <description>Channel 4 Global flag clear</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC5</name>
-              <description>Channel 5 Global flag clear</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC6</name>
-              <description>Channel 6 Global flag clear</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC7</name>
-              <description>Channel 7 Global flag clear</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC1</name>
-              <description>Channel 1 full data transfer flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>FDTFC%s</name>
+              <description>Channel %s data transfer complete flag clear</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
-              <name>FDTFC2</name>
-              <description>Channel 2 full data transfer flag clear</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC3</name>
-              <description>Channel 3 full data transfer flag clear</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC4</name>
-              <description>Channel 4 full data transfer flag clear</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC5</name>
-              <description>Channel 5 full data transfer flag clear</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC6</name>
-              <description>Channel 6 full data transfer flag clear</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC7</name>
-              <description>Channel 7 full data transfer flag clear</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC1</name>
-              <description>Channel 1 half data transfer flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>HDTFC%s</name>
+              <description>Channel %s half transfer flag clear</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
-              <name>HDTFC2</name>
-              <description>Channel 2 half data transfer flag clear</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC3</name>
-              <description>Channel 3 half data transfer flag clear</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC4</name>
-              <description>Channel 4 half data transfer flag clear</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC5</name>
-              <description>Channel 5 half data transfer flag clear</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC6</name>
-              <description>Channel 6 half data transfer flag clear</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC7</name>
-              <description>Channel 7 half data transfer flag clear</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC1</name>
-              <description>Channel 1 data transfer error flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>DTERRFC%s</name>
+              <description>Channel %s data transfer error flag clear</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC2</name>
-              <description>Channel 2 data transfer error flag clear</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC3</name>
-              <description>Channel 3 data transfer error flag clear</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC4</name>
-              <description>Channel 4 data transfer error flag clear</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC5</name>
-              <description>Channel 5 data transfer error flag clear</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC6</name>
-              <description>Channel 6 data transfer error flag clear</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC7</name>
-              <description>Channel 7 data transfer error flag clear</description>
-              <bitOffset>27</bitOffset>
-              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
           </fields>
         </register>
@@ -9907,7 +9990,7 @@
                 <bitOffset>8</bitOffset>
                 <bitWidth>2</bitWidth>
                 <enumeratedValues>
-                  <name>PWIDTH</name>
+                  <name>BitWidth</name>
                   <enumeratedValue>
                     <name>bit8</name>
                     <description>8 bits</description>
@@ -9930,24 +10013,7 @@
                 <description>Memory data bit width</description>
                 <bitOffset>10</bitOffset>
                 <bitWidth>2</bitWidth>
-                <enumeratedValues>
-                  <name>MWIDTH</name>
-                  <enumeratedValue>
-                    <name>bit8</name>
-                    <description>8 bits</description>
-                    <value>0</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit16</name>
-                    <description>16 bits</description>
-                    <value>1</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit32</name>
-                    <description>32 bits</description>
-                    <value>2</value>
-                  </enumeratedValue>
-                </enumeratedValues>
+                <enumeratedValues derivedFrom="BitWidth"/>
               </field>
               <field>
                 <name>CHPL</name>
@@ -10077,419 +10143,96 @@
             </field>
           </fields>
         </register>
-        <register>
-          <name>MUXC1CTRL</name>
-          <displayName>MUXC1CTRL</displayName>
-          <description>Channel 1 Configuration Register</description>
+        <cluster>
+          <dim>7</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <dimIndex>1-7</dimIndex>
+          <name>ChannelMux%s</name>
+          <description>Channel %s mux</description>
           <addressOffset>0x104</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC2CTRL</name>
-          <displayName>MUXC2CTRL</displayName>
-          <description>Channel 2 Configuration Register</description>
-          <addressOffset>0x108</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC3CTRL</name>
-          <displayName>MUXC3CTRL</displayName>
-          <description>Channel 3 Configuration Register</description>
-          <addressOffset>0x10C</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC4CTRL</name>
-          <displayName>MUXC4CTRL</displayName>
-          <description>Channel 4 Configuration Register</description>
-          <addressOffset>0x110</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC5CTRL</name>
-          <displayName>MUXC5CTRL</displayName>
-          <description>Channel 5 Configuration Register</description>
-          <addressOffset>0x114</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC6CTRL</name>
-          <displayName>MUXC6CTRL</displayName>
-          <description>Channel 6 Configuration Register</description>
-          <addressOffset>0x118</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC7CTRL</name>
-          <displayName>MUXC7CTRL</displayName>
-          <description>Channel 7 Configuration Register</description>
-          <addressOffset>0x11C</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
+          <register>
+            <name>MUXCTRL</name>
+            <displayName>MUXC1CTRL</displayName>
+            <description>DMA channel mux control register</description>
+            <addressOffset>0x0</addressOffset>
+            <size>0x20</size>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+              <field>
+                <name>REQSEL</name>
+                <description>DMA request select</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>7</bitWidth>
+                <access>read-write</access>
+              </field>
+              <field>
+                <name>SYNCOVIEN</name>
+                <description>Synchronization overrun interrupt enable</description>
+                <bitOffset>8</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+              </field>
+              <field>
+                <name>EVTGEN</name>
+                <description>Event generation enable</description>
+                <bitOffset>9</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+              </field>
+              <field>
+                <name>SYNCEN</name>
+                <description>Synchroniztion enable</description>
+                <bitOffset>16</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+              </field>
+              <field>
+                <name>SYNCPOL</name>
+                <description>Synchronization polarity</description>
+                <bitOffset>17</bitOffset>
+                <bitWidth>2</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>SYNCPOL</name>
+                  <enumeratedValue>
+                    <name>NoEvents</name>
+                    <description>No events</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>RisingEdge</name>
+                    <description>Rising edge</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>FallingEdge</name>
+                    <description>Falling edge</description>
+                    <value>2</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>BothEdges</name>
+                    <description>Rising and falling edges</description>
+                    <value>3</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>REQCNT</name>
+                <description>Number of DMA requests</description>
+                <bitOffset>19</bitOffset>
+                <bitWidth>5</bitWidth>
+                <access>read-write</access>
+              </field>
+              <field>
+                <name>SYNCSEL</name>
+                <description>Synchronization Identification</description>
+                <bitOffset>24</bitOffset>
+                <bitWidth>5</bitWidth>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+        </cluster>
         <register>
           <name>MUXG1CTRL</name>
           <displayName>MUXG1CTRL</displayName>
@@ -10870,37 +10613,37 @@
       <name>DMA2</name>
       <baseAddress>0x40026600</baseAddress>
       <interrupt>
-        <name>DMA2_CHANNEL1</name>
+        <name>DMA2_Channel1</name>
         <description>DMA2 Channel1 global interrupt</description>
         <value>108</value>
       </interrupt>
       <interrupt>
-        <name>DMA2_CHANNEL2</name>
+        <name>DMA2_Channel2</name>
         <description>DMA2 Channel2 global interrupt</description>
         <value>109</value>
       </interrupt>
       <interrupt>
-        <name>DMA2_CHANNEL3</name>
+        <name>DMA2_Channel3</name>
         <description>DMA2 Channel3 global interrupt</description>
         <value>110</value>
       </interrupt>
       <interrupt>
-        <name>DMA2_CHANNEL4</name>
+        <name>DMA2_Channel4</name>
         <description>DMA2 Channel4 global interrupt</description>
         <value>111</value>
       </interrupt>
       <interrupt>
-        <name>DMA2_CHANNEL5</name>
+        <name>DMA2_Channel5</name>
         <description>DMA2 Channel5 global interrupt</description>
         <value>112</value>
       </interrupt>
       <interrupt>
-        <name>DMA2_CHANNEL6</name>
+        <name>DMA2_Channel6</name>
         <description>DMA2 Channel6 global interrupt</description>
         <value>113</value>
       </interrupt>
       <interrupt>
-        <name>DMA2_CHANNEL7</name>
+        <name>DMA2_Channel7</name>
         <description>DMA2 Channel7 global interrupt</description>
         <value>114</value>
       </interrupt>
@@ -21809,8 +21552,8 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>TMR6</name>
-        <description>TMR6 global interrupt</description>
+        <name>TMR6_DAC</name>
+        <description>TMR6 and DAC interrupt</description>
         <value>54</value>
       </interrupt>
       <registers>
@@ -22238,6 +21981,11 @@
         <size>0x400</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>ACC</name>
+        <description>ACC interrupt</description>
+        <value>103</value>
+      </interrupt>
       <registers>
         <register>
           <name>STS</name>
@@ -25865,8 +25613,8 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>ADC</name>
-        <description>ADC1 global interrupt</description>
+        <name>ADC1_2_3</name>
+        <description>ADC1,2,3 global interrupt</description>
         <value>18</value>
       </interrupt>
       <registers>
@@ -26691,12 +26439,99 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -26709,7 +26544,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -26717,12 +26552,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -26735,7 +26564,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -26743,12 +26572,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -26908,20 +26731,10 @@
     <peripheral derivedFrom="ADC1">
       <name>ADC2</name>
       <baseAddress>0x40012100</baseAddress>
-      <interrupt>
-        <name>ADC</name>
-        <description>ADC2 global interrupts</description>
-        <value>18</value>
-      </interrupt>
     </peripheral>
     <peripheral derivedFrom="ADC1">
       <name>ADC3</name>
       <baseAddress>0x40012200</baseAddress>
-      <interrupt>
-        <name>ADC</name>
-        <description>ADC3 global interrupts</description>
-        <value>18</value>
-      </interrupt>
     </peripheral>
     <peripheral>
       <name>ADCCOM</name>
@@ -27176,12 +26989,12 @@
         <value>20</value>
       </interrupt>
       <interrupt>
-        <name>CAN_RX1</name>
+        <name>CAN1_RX1</name>
         <description>CAN1 RX1 interrupt</description>
         <value>21</value>
       </interrupt>
       <interrupt>
-        <name>CAN_SE</name>
+        <name>CAN1_SE</name>
         <description>CAN1 SE interrupt</description>
         <value>22</value>
       </interrupt>
@@ -30338,6 +30151,19 @@
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>NZW_BST</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>NZW_BST disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>NZW_BST enabled. Flash read access is faster for NZW flash range, frequency is limited: 108/160/192MHZ at 1.1/1.2/1.3 LDO voltage</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -30355,6 +30181,19 @@
               <description>Unlock key value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
+              <enumeratedValues>
+                <name>UKVALW</name>
+                <enumeratedValue>
+                  <name>Key1</name>
+                  <description>Unlock key 1</description>
+                  <value>1164378403</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Key2</name>
+                  <description>Unlock key 2</description>
+                  <value>3455027627</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -30389,6 +30228,7 @@
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>EPPERR</name>
@@ -30396,6 +30236,7 @@
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>PRGMERR</name>
@@ -30403,6 +30244,7 @@
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>OBF</name>
@@ -30427,66 +30269,269 @@
               <description>Flash program</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FPRGMR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotStarted</name>
+                  <description>Flash program not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Started</name>
+                  <description>Flash program is in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>FPRGMW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoStart</name>
+                  <description>Flash program not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Start of flash program operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SECERS</name>
               <description>Sector erase</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SECERS</name>
+                <enumeratedValue>
+                  <name>NotSectorErase</name>
+                  <description>Not sector erase operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SectorErase</name>
+                  <description>Erase operation is sector erase operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>BANKERS</name>
               <description>Bank erase</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>BANKERS</name>
+                <enumeratedValue>
+                  <name>NotBankErase</name>
+                  <description>Not bank erase operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>BankErase</name>
+                  <description>Erase operation is bank erase operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>BLKERS</name>
               <description>Block erase</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>BLKERS</name>
+                <enumeratedValue>
+                  <name>NotBlockErase</name>
+                  <description>Not block erase operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>BlockErase</name>
+                  <description>Erase operation is block erase operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>USDPRGM</name>
               <description>User system data program</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>USDPRGMR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotStarted</name>
+                  <description>User system data program operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Started</name>
+                  <description>User system data program operation is in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>USDPRGMW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoStart</name>
+                  <description>User system data program operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Start of user system data program operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>USDERS</name>
               <description>User system data erase</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>USDERSR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotStarted</name>
+                  <description>User system data erase operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Started</name>
+                  <description>User system data erase operation is in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>USDERSW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoStart</name>
+                  <description>User system data erase operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Start of user system data erase operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ERSTR</name>
               <description>Erasing start</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ERSTRR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotStarted</name>
+                  <description>Erase operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Started</name>
+                  <description>Erase operation is in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>ERSTRW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoStart</name>
+                  <description>Erase operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Start of erase operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OPLK</name>
               <description>Operation lock</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>OPLK</name>
+                <enumeratedValue>
+                  <name>Locked</name>
+                  <description>Flash operations unlocked</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Unlocked</name>
+                  <description>Flash operations locked</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>USDULKS</name>
               <description>User system data unlock success</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>USDULKS</name>
+                <enumeratedValue>
+                  <name>Locked</name>
+                  <description>User system data unlocked</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Unlocked</name>
+                  <description>User system data locked</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ERRIE</name>
               <description>Error interrupt enable</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ERRIE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Error interrupt disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Error interrupt enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ODFIE</name>
               <description>Operation done flag interrupt enable</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ODFIE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Operation done interrupt disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Operation done interrupt enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -30498,14 +30543,12 @@
           <size>0x20</size>
           <access>write-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>FA</name>
-              <description>Flash Address</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>USD</name>
@@ -30624,136 +30667,29 @@
             </field>
           </fields>
         </register>
-        <register>
+        <register derivedFrom="UNLOCK">
           <name>UNLOCK2</name>
           <displayName>UNLOCK2</displayName>
           <description>Unlock 2 register</description>
           <addressOffset>0x44</addressOffset>
-          <size>0x20</size>
-          <access>write-only</access>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>UKVAL</name>
-              <description>Unlock key value</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
-        <register>
+        <register derivedFrom="STS">
           <name>STS2</name>
           <displayName>STS2</displayName>
           <description>Status 2 register</description>
           <addressOffset>0x4C</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>OBF</name>
-              <description>Operate busy flag</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>PRGMERR</name>
-              <description>program error</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EPPERR</name>
-              <description>Erase/program protection error</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>ODF</name>
-              <description>Operate done flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
         </register>
-        <register>
+        <register derivedFrom="CTRL">
           <name>CTRL2</name>
           <displayName>CTRL2</displayName>
           <description>Control 2 register</description>
           <addressOffset>0x50</addressOffset>
-          <size>0x20</size>
-          <access>read-write</access>
-          <resetValue>0x00000080</resetValue>
-          <fields>
-            <field>
-              <name>FPRGM</name>
-              <description>Flash program</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SECERS</name>
-              <description>Sector erase</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>BANKERS</name>
-              <description>Bank erase</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>BLKERS</name>
-              <description>Block erase</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>ERSTR</name>
-              <description>Erasing start</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>OPLK</name>
-              <description>Operation lock</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>ERRIE</name>
-              <description>Error interrupt enable</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>ODFIE</name>
-              <description>Operation done flag interrupt enable</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-          </fields>
         </register>
-        <register>
+        <register derivedFrom="ADDR">
           <name>ADDR2</name>
           <displayName>ADDR2</displayName>
           <description>Address 2 register</description>
           <addressOffset>0x54</addressOffset>
-          <size>0x20</size>
-          <access>write-only</access>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>FA</name>
-              <description>Flash Address</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>CONTR</name>
@@ -30769,6 +30705,19 @@
               <description>Flash continue read enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FCONTR_EN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Flash continue read disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Flash continue read enabled. Faster reads, but more power consumption</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -30786,6 +30735,24 @@
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>FlashDiv</name>
+                <enumeratedValue>
+                  <name>Div2</name>
+                  <description>Flash clock frequency = HCLK/2</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div3</name>
+                  <description>Flash clock frequency = HCLK/3</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div4</name>
+                  <description>Flash clock frequency = HCLK/4</description>
+                  <isDefault>true</isDefault>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FDIV_STS</name>
@@ -30793,6 +30760,7 @@
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
+              <enumeratedValues derivedFrom="FlashDiv"/>
             </field>
           </fields>
         </register>
@@ -49330,24 +49298,79 @@
               <description>Memory address mapping selection bits</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>MEM_MAP_SEL</name>
+                <enumeratedValue>
+                  <name>MainFlash</name>
+                  <description>Main Flash memory mapped at 0x00000000</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Boot</name>
+                  <description>Boot memory mapped at 0x00000000</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>XmcBank1</name>
+                  <description>XMC BANK1 mapped at 0x00000000</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>EmbeddedSram</name>
+                  <description>Embedded SRAM mapped at 0x00000000</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>XmcSdramBank1</name>
+                  <description>XMC SDRAM BANK1 mapped at 0x00000000</description>
+                  <value>4</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>IR_POL</name>
               <description>IR output polarity selection</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>IR_POL</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Infrared output (IR_OUT) is not inverted</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Inverted</name>
+                  <description>Infrared output (IR_OUT) is inverted</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>IR_SRC_SEL</name>
               <description>IR signal source selection</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>IR_SRC_SEL</name>
+                <enumeratedValue>
+                  <name>Tmr10</name>
+                  <description>Timer 10 is used to select the infrared modulation envelope signal source</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>SWAP_XMC</name>
-              <description>XMC address mapping swap</description>
+              <name>SWAP_XMC_10</name>
+              <description>XMC address mapping swap bit 0</description>
               <bitOffset>10</bitOffset>
-              <bitWidth>2</bitWidth>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>SWAP_XMC_11</name>
+              <description>XMC address mapping swap bit 1</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
             </field>
           </fields>
         </register>
@@ -49366,6 +49389,19 @@
               bits</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>MII_RMII_SEL</name>
+                <enumeratedValue>
+                  <name>MII</name>
+                  <description>MII interface selected</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RMII</name>
+                  <description>RMII interface selected</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -49379,28 +49415,56 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>EXINT3</name>
-              <description>EXINT 3 configuration bits</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT2</name>
-              <description>EXINT 2 configuration bits</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT1</name>
-              <description>EXINT 1 configuration bits</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT0</name>
-              <description>EXINT 0 configuration bits</description>
+              <dim>4</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>0-3</dimIndex>
+              <name>EXINT%s</name>
+              <description>External interrupt line %s</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
+              <enumeratedValues>
+                <name>ExintSourcePort</name>
+                <enumeratedValue>
+                  <name>GpioA</name>
+                  <description>GPIOA pin %s is selected as the source input for EXINT%s</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioB</name>
+                  <description>GPIOB pin %s is selected as the source input for EXINT%s</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioC</name>
+                  <description>GPIOC pin %s is selected as the source input for EXINT%s</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioD</name>
+                  <description>GPIOD pin %s is selected as the source input for EXINT%s</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioE</name>
+                  <description>GPIOE pin %s is selected as the source input for EXINT%s</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioF</name>
+                  <description>GPIOF pin %s is selected as the source input for EXINT%s</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioG</name>
+                  <description>GPIOG pin %s is selected as the source input for EXINT%s</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioH</name>
+                  <description>GPIOH pin %s is selected as the source input for EXINT%s</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -49414,28 +49478,51 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>EXINT7</name>
-              <description>EXINT 7 configuration bits</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT6</name>
-              <description>EXINT 6 configuration bits</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT5</name>
-              <description>EXINT 5 configuration bits</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT4</name>
-              <description>EXINT 4 configuration bits</description>
+              <dim>4</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>4-7</dimIndex>
+              <name>EXINT%s</name>
+              <description>External interrupt line %s</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
+              <enumeratedValues>
+                <name>ExintSourcePortNoH</name>
+                <enumeratedValue>
+                  <name>GpioA</name>
+                  <description>GPIOA pin %s is selected as the source input for EXINT%s</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioB</name>
+                  <description>GPIOB pin %s is selected as the source input for EXINT%s</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioC</name>
+                  <description>GPIOC pin %s is selected as the source input for EXINT%s</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioD</name>
+                  <description>GPIOD pin %s is selected as the source input for EXINT%s</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioE</name>
+                  <description>GPIOE pin %s is selected as the source input for EXINT%s</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioF</name>
+                  <description>GPIOF pin %s is selected as the source input for EXINT%s</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GpioG</name>
+                  <description>GPIOG pin %s is selected as the source input for EXINT%s</description>
+                  <value>6</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -49448,27 +49535,12 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
-              <name>EXINT11</name>
-              <description>EXINT 11 configuration bits</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT10</name>
-              <description>EXINT 10 configuration bits</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT9</name>
-              <description>EXINT 9 configuration bits</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT8</name>
-              <description>EXINT 8 configuration bits</description>
+            <field derivedFrom="SCFG.EXINTC2.EXINT%s">
+              <dim>4</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>8-11</dimIndex>
+              <name>EXINT%s</name>
+              <description>External interrupt line %s</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
@@ -49484,27 +49556,12 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
-              <name>EXINT15</name>
-              <description>EXINT 15 configuration bits</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT14</name>
-              <description>EXINT 14 configuration bits</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT13</name>
-              <description>EXINT 13 configuration bits</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>4</bitWidth>
-            </field>
-            <field>
-              <name>EXINT12</name>
-              <description>EXINT 12 configuration bits</description>
+            <field derivedFrom="SCFG.EXINTC2.EXINT%s">
+              <dim>4</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>12-15</dimIndex>
+              <name>EXINT%s</name>
+              <description>External interrupt line %s</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
@@ -49960,7 +50017,7 @@
               <name>XIPR_DCNT</name>
               <description>XIP read data counter</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
+              <bitWidth>6</bitWidth>
             </field>
             <field>
               <name>XIPR_TCNT</name>
@@ -50101,22 +50158,48 @@
               <description>Receiver enable</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>RE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Receive disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Receive enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TE</name>
               <description>Transmitter enable</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Transmit disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Transmit enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DC</name>
-              <description>Deferral check</description>
+              <description>Only in half-duplex mode! Deferral check</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>BL</name>
-              <description>Back-off limit</description>
+              <description>Only in half-duplex mode! Back-off Limit</description>
               <bitOffset>5</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
@@ -50126,10 +50209,23 @@
               stripping</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ACS</name>
+                <enumeratedValue>
+                  <name>NoPadCrcStripping</name>
+                  <description>The MAC will forward all received frames to the master without changing its contents</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AutomaticPadCrcStripping</name>
+                  <description>The MAC strips the pad/FCS field on received frames only when the frame length is shorter than 1536 bytes. All received frame with length field greater than or equal to 1536 bytes are passed on to the application without stripping the Pad or FCS field</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DR</name>
-              <description>Disable retry</description>
+              <description>Only in half-duplex mode! Disable Retry</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -50138,22 +50234,61 @@
               <description>IPv4 checksum offload</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>IPC</name>
+                <enumeratedValue>
+                  <name>NoIpv4Checksum</name>
+                  <description>IPv4 checksum calculation disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ipv4ChecksumEnabled</name>
+                  <description>IPv4 checksum calculation enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DM</name>
               <description>Duplex mode</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DM</name>
+                <enumeratedValue>
+                  <name>HalfDuplex</name>
+                  <description>Half-duplex mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>FullDuplex</name>
+                  <description>Full-duplex mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>LM</name>
               <description>Loopback mode</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>LM</name>
+                <enumeratedValue>
+                  <name>NoLoopback</name>
+                  <description>Loopback mode disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Loopback</name>
+                  <description>Loopback mode. The MII receive clock input (clk_rx_i) is required for the loopback mode to work normally, for the transmit clock is not looped-back internally</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DRO</name>
-              <description>Disable receive own</description>
+              <description>Only in half-duplex mode! Disable Receive Own.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -50162,10 +50297,23 @@
               <description>Fast EMAC speed</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FES</name>
+                <enumeratedValue>
+                  <name>Speed10Mbps</name>
+                  <description>The MAC operates at 10 Mbps</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Speed100Mbps</name>
+                  <description>The MAC operates at 100 Mbps</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DCS</name>
-              <description>Disable carrier sense</description>
+              <description>Only in half-duplex mode! Disable Carrier Sense</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -50174,18 +50322,106 @@
               <description>Interframe gap</description>
               <bitOffset>17</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>IFG</name>
+                <enumeratedValue>
+                  <name>Ifg96Bit</name>
+                  <description>Minimum interframe gap is 96 bits (12 bytes) during transmission</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg88Bit</name>
+                  <description>Minimum interframe gap is 88 bits (11 bytes) during transmission</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg80Bit</name>
+                  <description>Minimum interframe gap is 80 bits (10 bytes) during transmission</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg72Bit</name>
+                  <description>Minimum interframe gap is 72 bits (9 bytes) during transmission</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg64Bit</name>
+                  <description>Minimum interframe gap is 64 bits (8 bytes) during transmission</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg56Bit</name>
+                  <description>Minimum interframe gap is 56 bits (7 bytes) during transmission</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg48Bit</name>
+                  <description>Minimum interframe gap is 48 bits (6 bytes) during transmission</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ifg40Bit</name>
+                  <description>Minimum interframe gap is 40 bits (5 bytes) during transmission</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>JD</name>
               <description>Jabber disable</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>JD</name>
+                <enumeratedValue>
+                  <name>NoDisable</name>
+                  <description>The MAC disables the Jabber timer on the transmitter, and can transfer frames of up to 16,384 bytes</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>JabberDisabled</name>
+                  <description>Jabber disabled. The MAC allows the application to send out more than 2048 bytes of data during transmission. The MAC does not cut off the transmitter if the application sends out more than 2048 bytes of data during transmission</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>WD</name>
               <description>Watchdog disable</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>WD</name>
+                <enumeratedValue>
+                  <name>NoDisable</name>
+                  <description>The MAC allows no more than 2048 bytes of the frames being received</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>WatchdogDisabled</name>
+                  <description>Watchdog disabled. The MAC disables the watchdog timer on the receiver, and can receive frames of up to 16,384 bytes</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>CST</name>
+              <description>When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application.</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>CST</name>
+                <enumeratedValue>
+                  <name>NoStrip</name>
+                  <description>CRC stripping disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>StrippingEnabled</name>
+                  <description>CRC stripping enabled. The last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -50316,18 +50552,92 @@
               <description>MII busy</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>MBR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoBusy</name>
+                  <description>The MII is not busy, new operation can be started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Busy</name>
+                  <description>The MII is busy, operation in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>MBW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoBusy</name>
+                  <description>The MII is not busy, new operation can be started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>StartOperation</name>
+                  <description>Start an MII operation by writing 1 to this bit. This bit is automatically cleared by hardware when the operation is completed</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MW</name>
               <description>MII write</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>MW</name>
+                <enumeratedValue>
+                  <name>Write</name>
+                  <description>Write operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Read</name>
+                  <description>Read operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CR</name>
               <description>Clock range</description>
               <bitOffset>2</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>CR</name>
+                <enumeratedValue>
+                  <name>CsrFreq60_100</name>
+                  <description>CSR clock frequency is 60-100 MHz and MDC clock frequency is CSR/42 MHz</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq100_150</name>
+                  <description>CSR clock frequency is 100-150 MHz and MDC clock frequency is CSR/62 MHz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq20_35</name>
+                  <description>CSR clock frequency is 20-35 MHz and MDC clock frequency is CSR/16 MHz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq35_60</name>
+                  <description>CSR clock frequency is 35-60 MHz and MDC clock frequency is CSR/26 MHz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq150_250</name>
+                  <description>CSR clock frequency is 150-250 MHz and MDC clock frequency is CSR/102 MHz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CsrFreq250_288</name>
+                  <description>CSR clock frequency is 250-288 MHz and MDC clock frequency is CSR/124 MHz</description>
+                  <value>5</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MII</name>
@@ -50348,17 +50658,15 @@
           <displayName>MACMIIDT</displayName>
           <description>Ethernet MAC MII data register</description>
           <addressOffset>0x14</addressOffset>
-          <size>0x20</size>
+          <size>0x10</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>MD</name>
-              <description>MII data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>65535</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACFCTRL</name>
@@ -50482,7 +50790,7 @@
             </field>
             <field>
               <name>RRWF</name>
-              <description>Recevied remote wakeup frame</description>
+              <description>Received remote wakeup frame</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -50556,12 +50864,38 @@
               <description>PMT interrupt mask</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PIM</name>
+                <enumeratedValue>
+                  <name>InterruptDisabled</name>
+                  <description>PMT interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>InterruptEnabled</name>
+                  <description>PMT interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TIM</name>
               <description>Timestamp interrupt mask</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TIM</name>
+                <enumeratedValue>
+                  <name>InterruptDisabled</name>
+                  <description>Timestamp interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>InterruptEnabled</name>
+                  <description>Timestamp interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -50570,24 +50904,14 @@
           <displayName>MACA0H</displayName>
           <description>Ethernet MAC address 0 high register</description>
           <addressOffset>0x40</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x0010FFFF</resetValue>
-          <fields>
-            <field>
-              <name>MA0H</name>
-              <description>MAC address0 high</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>AE</name>
-              <description>Address enable</description>
-              <bitOffset>31</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
+          <size>0x10</size>
+          <resetValue>0x0000FFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>65535</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACA0L</name>
@@ -50597,14 +50921,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
-          <fields>
-            <field>
-              <name>MA0L</name>
-              <description>MAC address0 low</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACA1H</name>
@@ -50632,12 +50954,38 @@
               <description>Source address</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SA</name>
+                <enumeratedValue>
+                  <name>Source</name>
+                  <description>Second MAC address filter is used for source address filtering</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Destination</name>
+                  <description>Second MAC address filter is used for destination address filtering</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>AE</name>
               <description>Address enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Second MAC address filter is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Second MAC address filter is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -50649,6 +50997,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
           <fields>
             <field>
               <name>MA1L</name>
@@ -50684,12 +51038,38 @@
               <description>Source address</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SA</name>
+                <enumeratedValue>
+                  <name>Source</name>
+                  <description>Second MAC address filter is used for source address filtering</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Destination</name>
+                  <description>Second MAC address filter is used for destination address filtering</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>AE</name>
               <description>Address enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Second MAC address filter is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Second MAC address filter is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -50701,6 +51081,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
           <fields>
             <field>
               <name>MA2L</name>
@@ -50736,12 +51122,38 @@
               <description>Source address</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SA</name>
+                <enumeratedValue>
+                  <name>Source</name>
+                  <description>Second MAC address filter is used for source address filtering</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Destination</name>
+                  <description>Second MAC address filter is used for destination address filtering</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>AE</name>
               <description>Address enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Second MAC address filter is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Second MAC address filter is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -50753,6 +51165,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
           <fields>
             <field>
               <name>MA3L</name>
@@ -51390,12 +51808,53 @@
               <description>Software reset</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SWRR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoReset</name>
+                  <description>Software reset is not active</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Resetting</name>
+                  <description>Software reset is active. This flag will be cleared when valid clocks are detected on appropriate pins</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>SWRW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoReset</name>
+                  <description>No reset</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>StartReset</name>
+                  <description>Begin reset. Set this bit to reset the DMA</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DA</name>
               <description>DMA Arbitration</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DA</name>
+                <enumeratedValue>
+                  <name>CustomPriority</name>
+                  <description>Custom priority ration between RX and TX. Controlled by PR</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>FixedPriority</name>
+                  <description>Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DSL</name>
@@ -51414,6 +51873,29 @@
               <description>Priority ratio</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>PR</name>
+                <enumeratedValue>
+                  <name>Ratio1_1</name>
+                  <description>1:1</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ratio1_2</name>
+                  <description>1:2</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ratio1_3</name>
+                  <description>1:3</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ratio1_4</name>
+                  <description>1:4</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FB</name>
@@ -51455,14 +51937,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>TPD</name>
-              <description>Transmit poll demand</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMARPD</name>
@@ -51472,14 +51952,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>RPD</name>
-              <description>Receive poll demand</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMARDLADDR</name>
@@ -51489,14 +51967,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>SRL</name>
-              <description>Start of receive list</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMATDLADDR</name>
@@ -51506,14 +51982,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>STL</name>
-              <description>Start of transmit list</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DMASTS</name>
@@ -51529,6 +52003,7 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TPS</name>
@@ -51536,6 +52011,7 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TBU</name>
@@ -51543,6 +52019,7 @@
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TJT</name>
@@ -51550,6 +52027,7 @@
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>OVF</name>
@@ -51557,6 +52035,7 @@
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>UNF</name>
@@ -51564,6 +52043,7 @@
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RI</name>
@@ -51571,6 +52051,7 @@
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RBU</name>
@@ -51578,6 +52059,7 @@
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RPS</name>
@@ -51585,6 +52067,7 @@
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RWT</name>
@@ -51592,6 +52075,7 @@
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ETI</name>
@@ -51599,6 +52083,7 @@
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>FBEI</name>
@@ -51606,6 +52091,7 @@
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ERI</name>
@@ -51613,6 +52099,7 @@
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>AIS</name>
@@ -51620,6 +52107,7 @@
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>NIS</name>
@@ -51627,6 +52115,7 @@
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>RS</name>
@@ -51634,6 +52123,44 @@
               <bitOffset>17</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>RS</name>
+                <enumeratedValue>
+                  <name>Stopped</name>
+                  <description>Stopped. Rest or Stop transmit command issued</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningFetching</name>
+                  <description>Running. Fetching receive descriptor</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningWaiting</name>
+                  <description>Running. Waiting for receive packet</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Suspended</name>
+                  <description>Suspended. Receive descriptor unavailable</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningClosing</name>
+                  <description>Running. Closing receive descriptor</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Timestamp</name>
+                  <description>Time stamp write status</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningTransferring</name>
+                  <description>Running. Transferring the receive buffer data to host memory</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TS</name>
@@ -51641,6 +52168,44 @@
               <bitOffset>20</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>TS</name>
+                <enumeratedValue>
+                  <name>Stopped</name>
+                  <description>Stopped. Rest or Stop transmit command issued</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningFetching</name>
+                  <description>Running. Fetching receive descriptor</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningWaiting</name>
+                  <description>Running. Waiting for status</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningReading</name>
+                  <description>Running. Reading data from host memory buffer and queuing it to Tx FIFO</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Timestamp</name>
+                  <description>Time stamp write status</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Suspended</name>
+                  <description>Suspended. Transmit descriptor unavailable or transmit buffer underflow</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RunningClosing</name>
+                  <description>Running. Closing transmit descriptor</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>EB</name>
@@ -51648,6 +52213,39 @@
               <bitOffset>23</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>EB</name>
+                <enumeratedValue>
+                  <name>RxDmaTransfer</name>
+                  <description>Error during Rx DMA transfer</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TxDmaTransfer</name>
+                  <description>Error during Tx DMA transfer</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RxDmaDescriptorWriteAccess</name>
+                  <description>Error during write access to Rx DMA descriptor</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TxDmaDescriptorWriteAccess</name>
+                  <description>Error during write access to Tx DMA descriptor</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RxDmaDescriptorReadAccess</name>
+                  <description>Error during read access to Rx DMA descriptor</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TxDmaDescriptorReadAccess</name>
+                  <description>Error during read access to Tx DMA descriptor</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MMI</name>
@@ -51771,72 +52369,96 @@
               <description>Transmit interrupt enable</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TIE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Interrupt disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Interrupt enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TSE</name>
               <description>Transmit stopped enable</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>TUE</name>
               <description>Transmit buffer unavailable enable</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>TJE</name>
               <description>Transmit jabber timeout enable</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>OVE</name>
               <description>Overflow interrupt enable</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>UNE</name>
               <description>Underflow interrupt enable</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RIE</name>
               <description>Receive interrupt enable</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RBUE</name>
               <description>Receive buffer unavailable enable</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RSE</name>
               <description>Receive stopped enable</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>RWTE</name>
               <description>receive watchdog timeout enable</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>EIE</name>
               <description>Early transmit interrupt enable</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>FBEE</name>
               <description>Fatal bus error enable</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>ERE</name>
@@ -51844,18 +52466,21 @@
               enable</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>AIE</name>
               <description>Abnormal interrupt enable</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
             <field>
               <name>NIE</name>
               <description>Normal interrupt enable</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TIE"/>
             </field>
           </fields>
         </register>
@@ -51961,6 +52586,201 @@
               <description>Host receive buffer address pointer</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
+            </field>
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>FPU</name>
+      <description>Floting point unit</description>
+      <groupName>FPU</groupName>
+      <baseAddress>0xE000EF34</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xD</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>FPU</name>
+        <description>Floating point unit interrupt</description>
+        <value>81</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>FPCCR</name>
+          <displayName>FPCCR</displayName>
+          <description>Floating-point context control register</description>
+          <addressOffset>0x0</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>LSPACT</name>
+              <description>LSPACT</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>USER</name>
+              <description>USER</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>THREAD</name>
+              <description>THREAD</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>HFRDY</name>
+              <description>HFRDY</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>MMRDY</name>
+              <description>MMRDY</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>BFRDY</name>
+              <description>BFRDY</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>MONRDY</name>
+              <description>MONRDY</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>LSPEN</name>
+              <description>LSPEN</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ASPEN</name>
+              <description>ASPEN</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>FPCAR</name>
+          <displayName>FPCAR</displayName>
+          <description>Floating-point context address register</description>
+          <addressOffset>0x4</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>ADDRESS</name>
+              <description>Location of unpopulated floating-point</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>29</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>FPSCR</name>
+          <displayName>FPSCR</displayName>
+          <description>Floating-point status control register</description>
+          <addressOffset>0x8</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>IOC</name>
+              <description>Invalid operation cumulative exception bit</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DZC</name>
+              <description>Division by zero cumulative exception bit.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>OFC</name>
+              <description>Overflow cumulative exception bit</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>UFC</name>
+              <description>Underflow cumulative exception bit</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>IXC</name>
+              <description>Inexact cumulative exception bit</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>IDC</name>
+              <description>Input denormal cumulative exception bit.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RMode</name>
+              <description>Rounding Mode control field</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
+              <name>FZ</name>
+              <description>Flush-to-zero mode control bit:</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DN</name>
+              <description>Default NaN mode control bit</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>AHP</name>
+              <description>Alternative half-precision control bit</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>V</name>
+              <description>Overflow condition code flag</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>C</name>
+              <description>Carry condition code flag</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>Z</name>
+              <description>Zero condition code flag</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>N</name>
+              <description>Negative condition code flag</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
             </field>
           </fields>
         </register>

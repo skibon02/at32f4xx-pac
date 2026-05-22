@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
 #[doc = "Tamper pin enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tpenr {
     #[doc = "0: TAMPER pin is disabled"]
@@ -39,6 +40,7 @@ impl TPEN_R {
     }
 }
 #[doc = "Tamper pin enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TpenwWO {
     #[doc = "0: TAMPER pin disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "TAMPER pin polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TPP_A {
     #[doc = "0: Active high"]

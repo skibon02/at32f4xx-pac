@@ -3,6 +3,7 @@ pub type R = crate::R<SWTRG_SPEC>;
 #[doc = "Register `SWTRG` writer"]
 pub type W = crate::W<SWTRG_SPEC>;
 #[doc = "Software trigger on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Swt0r {
     #[doc = "0: Default value"]
@@ -39,6 +40,7 @@ impl SWT_R {
     }
 }
 #[doc = "Software trigger on line %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Swt0wWO {
     #[doc = "1: Generate trigger"]

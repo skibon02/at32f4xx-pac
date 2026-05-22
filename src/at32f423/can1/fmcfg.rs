@@ -3,6 +3,7 @@ pub type R = crate::R<FMCFG_SPEC>;
 #[doc = "Register `FMCFG` writer"]
 pub type W = crate::W<FMCFG_SPEC>;
 #[doc = "Filter mode select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SEL0_A {
     #[doc = "0: Identifier mask mode"]

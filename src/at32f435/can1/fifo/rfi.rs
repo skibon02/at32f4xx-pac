@@ -1,6 +1,7 @@
 #[doc = "Register `RFI` reader"]
 pub type R = crate::R<RFI_SPEC>;
 #[doc = "Receive FIFO frame type indication\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FRI_A {
     #[doc = "0: Data frame"]
@@ -37,6 +38,7 @@ impl FRI_R {
     }
 }
 #[doc = "Receive FIFO identifier type indication\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IDI_A {
     #[doc = "0: Standard identifier"]

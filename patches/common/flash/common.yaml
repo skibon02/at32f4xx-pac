@@ -1,3 +1,14 @@
 FLASH:
+  UNLOCK:
+    UKVAL:
+      _write:
+        Key1: [ 0x45670123, "Unlock key 1" ]
+        Key2: [ 0xCDEF89AB, "Unlock key 2" ]
   "EPPS,EPPS?":
     EPPS: [0, 0xffffffff]
+  _modify:
+    ADDR:
+      size: 32
+      writeConstraint: [ 0, 0xFFFFFFFF ]
+  ADDR:
+    _delete: [FA]

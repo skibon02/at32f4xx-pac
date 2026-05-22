@@ -3,6 +3,7 @@ pub type R = crate::R<ISTS_SPEC>;
 #[doc = "Register `ISTS` writer"]
 pub type W = crate::W<ISTS_SPEC>;
 #[doc = "Overflow interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovfifr {
     #[doc = "0: No overflow event occurs"]
@@ -39,6 +40,7 @@ impl OVFIF_R {
     }
 }
 #[doc = "Overflow interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OvfifwWO {
     #[doc = "0: Overflow interrupt flag clear"]

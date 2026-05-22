@@ -17,6 +17,8 @@ pub struct RegisterBlock {
     pr: PR,
     _reserved9: [u8; 0x06],
     cdt: [CDT; 1],
+    _reserved10: [u8; 0x1a],
+    rmp: RMP,
 }
 impl RegisterBlock {
     #[doc = "0x00 - Control register 1"]
@@ -87,6 +89,11 @@ impl RegisterBlock {
     pub const fn c1dt(&self) -> &CDT {
         self.cdt(0)
     }
+    #[doc = "0x50 - TMR14 channel 1 input remap"]
+    #[inline(always)]
+    pub const fn rmp(&self) -> &RMP {
+        &self.rmp
+    }
 }
 #[doc = "CTRL1 (rw) register accessor: Control register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ctrl1`] module"]
 pub type CTRL1 = crate::Reg<ctrl1::CTRL1_SPEC>;
@@ -132,3 +139,7 @@ pub mod pr;
 pub type CDT = crate::Reg<cdt::CDT_SPEC>;
 #[doc = "Channel data register"]
 pub mod cdt;
+#[doc = "RMP (rw) register accessor: TMR14 channel 1 input remap\n\nYou can [`read`](crate::Reg::read) this register and get [`rmp::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rmp::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rmp`] module"]
+pub type RMP = crate::Reg<rmp::RMP_SPEC>;
+#[doc = "TMR14 channel 1 input remap"]
+pub mod rmp;

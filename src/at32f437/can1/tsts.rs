@@ -3,6 +3,7 @@ pub type R = crate::R<TSTS_SPEC>;
 #[doc = "Register `TSTS` writer"]
 pub type W = crate::W<TSTS_SPEC>;
 #[doc = "Transmit mailbox %s transmission complete flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0tcfr {
     #[doc = "0: Transmission in progress"]
@@ -39,6 +40,7 @@ impl TMTCF_R {
     }
 }
 #[doc = "Transmit mailbox %s transmission complete flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0tcfwWO {
     #[doc = "1: Clear transmission completed flag"]
@@ -63,6 +65,7 @@ where
     }
 }
 #[doc = "Transmit mailbox %s transmission success flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0tsfr {
     #[doc = "0: Transmission in progress"]
@@ -99,6 +102,7 @@ impl TMTSF_R {
     }
 }
 #[doc = "Transmit mailbox %s transmission success flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0tsfwWO {
     #[doc = "1: Clear transmission success flag"]
@@ -123,6 +127,7 @@ where
     }
 }
 #[doc = "Transmit mailbox %s arbitration lost flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0alfr {
     #[doc = "0: No arbitration lost"]
@@ -159,6 +164,7 @@ impl TMALF_R {
     }
 }
 #[doc = "Transmit mailbox %s arbitration lost flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0alfwWO {
     #[doc = "1: Clear arbitration lost flag"]
@@ -183,6 +189,7 @@ where
     }
 }
 #[doc = "Transmit mailbox %s transmission error flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0tefr {
     #[doc = "0: No error"]
@@ -219,6 +226,7 @@ impl TMTEF_R {
     }
 }
 #[doc = "Transmit mailbox %s transmission error flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0tefwWO {
     #[doc = "1: Clear transmission error flag"]
@@ -243,6 +251,7 @@ where
     }
 }
 #[doc = "Transmit mailbox %s cancel transmission\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0ctr {
     #[doc = "0: No effect"]
@@ -279,6 +288,7 @@ impl TMCT_R {
     }
 }
 #[doc = "Transmit mailbox %s cancel transmission\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tm0ctwWO {
     #[doc = "1: Mailbox cancel transmit"]
@@ -305,6 +315,7 @@ where
 #[doc = "Field `TMNR` reader - Transmit Mailbox number record"]
 pub type TMNR_R = crate::FieldReader;
 #[doc = "Transmit mailbox %s empty flag\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TM0EF_A {
     #[doc = "0: Transmission is pending in the mailbox"]
@@ -341,6 +352,7 @@ impl TMEF_R {
     }
 }
 #[doc = "Transmit mailbox %s lowest priority flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TM0LPF_A {
     #[doc = "0: Mailbox is not given the lowest priority"]

@@ -3,6 +3,7 @@ pub type R = crate::R<CCTRL_SPEC>;
 #[doc = "Register `CCTRL` writer"]
 pub type W = crate::W<CCTRL_SPEC>;
 #[doc = "Channel %s enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1enr {
     #[doc = "0: Channel is disabled"]
@@ -39,6 +40,7 @@ impl CEN_R {
     }
 }
 #[doc = "Channel %s enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1enwWO {
     #[doc = "0: Channel disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Channel %s polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1P_A {
     #[doc = "0: Output active high or Input active rising edge"]

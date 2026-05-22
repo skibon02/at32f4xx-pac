@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
 #[doc = "High speed internal clock enable\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hickenr {
     #[doc = "0: High speed internal clock is disabled"]
@@ -39,6 +40,7 @@ impl HICKEN_R {
     }
 }
 #[doc = "High speed internal clock enable\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HickenwWO {
     #[doc = "0: High speed internal clock disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "High speed internal clock ready flag\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HICKSTBLR_A {
     #[doc = "0: Not ready"]
@@ -112,6 +115,7 @@ pub type HICKTRIM_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `HICKCAL` reader - High speed internal clock calibration"]
 pub type HICKCAL_R = crate::FieldReader;
 #[doc = "High speed exernal crystal enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hextenr {
     #[doc = "0: High speed external crystal is disabled"]
@@ -148,6 +152,7 @@ impl HEXTEN_R {
     }
 }
 #[doc = "High speed exernal crystal enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HextenwWO {
     #[doc = "0: High speed external crystal disable"]
@@ -179,6 +184,7 @@ where
     }
 }
 #[doc = "High speed exernal crystal ready flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HEXTSTBLR_A {
     #[doc = "0: Not ready"]
@@ -215,6 +221,7 @@ impl HEXTSTBL_R {
     }
 }
 #[doc = "High speed exernal crystal bypass\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hextbypsr {
     #[doc = "0: High speed external crystal bypass is disabled"]
@@ -251,6 +258,7 @@ impl HEXTBYPS_R {
     }
 }
 #[doc = "High speed exernal crystal bypass\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HextbypswWO {
     #[doc = "0: High speed external crystal bypass disable"]
@@ -282,6 +290,7 @@ where
     }
 }
 #[doc = "Clock failure detection enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cfdenr {
     #[doc = "0: Clock failure detector is disabled"]
@@ -318,6 +327,7 @@ impl CFDEN_R {
     }
 }
 #[doc = "Clock failure detection enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CfdenwWO {
     #[doc = "0: Clock failure detector disable"]
@@ -349,6 +359,7 @@ where
     }
 }
 #[doc = "PLL enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pllenr {
     #[doc = "0: PLL is disabled"]
@@ -385,6 +396,7 @@ impl PLLEN_R {
     }
 }
 #[doc = "PLL enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PllenwWO {
     #[doc = "0: PLL disable"]
@@ -416,6 +428,7 @@ where
     }
 }
 #[doc = "PLL clock ready flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PLLSTBLR_A {
     #[doc = "0: Not ready"]

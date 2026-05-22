@@ -3,6 +3,7 @@ pub type R = crate::R<REMAP4_SPEC>;
 #[doc = "Register `REMAP4` writer"]
 pub type W = crate::W<REMAP4_SPEC>;
 #[doc = "TMR1 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR1_GMUX_A {
@@ -76,6 +77,7 @@ where
     }
 }
 #[doc = "TMR2 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR2_GMUX_A {
@@ -162,6 +164,7 @@ where
     }
 }
 #[doc = "TMR3 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR3_GMUX_A {
@@ -222,6 +225,7 @@ where
     }
 }
 #[doc = "TMR5 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR5_GMUX_A {
@@ -282,6 +286,7 @@ where
     }
 }
 #[doc = "TMR5CH4 muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TMR5CH4_GMUX_A {
     #[doc = "0: TMR5_CH4 is connected to PA3"]

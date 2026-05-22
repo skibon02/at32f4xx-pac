@@ -3,6 +3,7 @@ pub type R = crate::R<CM1_OUTPUT_SPEC>;
 #[doc = "Register `CM1_OUTPUT` writer"]
 pub type W = crate::W<CM1_OUTPUT_SPEC>;
 #[doc = "Channel 1 configure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C1C_A {
@@ -63,6 +64,7 @@ where
     }
 }
 #[doc = "Channel %s output immediately enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1OIEN_A {
     #[doc = "0: Need to compare the CVAL with CxDT before generating an output"]
@@ -116,6 +118,7 @@ where
     }
 }
 #[doc = "Channel %s output buffer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1obenr {
     #[doc = "0: Channel output buffer is disabled"]
@@ -152,6 +155,7 @@ impl COBEN_R {
     }
 }
 #[doc = "Channel %s output buffer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1obenwWO {
     #[doc = "0: Channel output buffer disable"]

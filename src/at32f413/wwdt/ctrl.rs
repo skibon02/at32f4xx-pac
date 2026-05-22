@@ -7,6 +7,7 @@ pub type CNT_R = crate::FieldReader;
 #[doc = "Field `CNT` writer - Decrement counter"]
 pub type CNT_W<'a, REG> = crate::FieldWriter<'a, REG, 7, u8, crate::Safe>;
 #[doc = "Window watchdog enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wwdtenr {
     #[doc = "0: Disabled"]
@@ -43,6 +44,7 @@ impl WWDTEN_R {
     }
 }
 #[doc = "Window watchdog enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WwdtenwWO {
     #[doc = "1: Enable"]

@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
 #[doc = "Debug Sleep mode control bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SleepDebugr {
     #[doc = "0: When entering Sleep mode, CPU HCLK clock is disabled, but other clocks remain active"]
@@ -39,6 +40,7 @@ impl SLEEP_DEBUG_R {
     }
 }
 #[doc = "Debug Sleep mode control bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SleepDebugwWO {
     #[doc = "0: When entering Sleep mode, CPU HCLK clock is disabled, but other clocks remain active"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Debug Deepsleep mode control bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DeepsleepDebugr {
     #[doc = "0: In Deepsleep mode, all clocks in the 1.2V domain are disabled"]
@@ -106,6 +109,7 @@ impl DEEPSLEEP_DEBUG_R {
     }
 }
 #[doc = "Debug Deepsleep mode control bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DeepsleepDebugwWO {
     #[doc = "0: In Deepsleep mode, all clocks in the 1.2V domain are disabled"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "Debug Standby mode control bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum StandbyDebugr {
     #[doc = "0: The whole 1.2V digital circuit is unpowered in Standby mode"]
@@ -173,6 +178,7 @@ impl STANDBY_DEBUG_R {
     }
 }
 #[doc = "Debug Standby mode control bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum StandbyDebugwWO {
     #[doc = "0: The whole 1.2V digital circuit is unpowered in Standby mode"]
@@ -212,6 +218,7 @@ pub type TRACE_MODE_R = crate::FieldReader;
 #[doc = "Field `TRACE_MODE` writer - TRACE_MODE"]
 pub type TRACE_MODE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "WDT_PAUSE\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WDT_PAUSE_A {
     #[doc = "0: The counter clock of TMRx is fed even if the core is halted"]
@@ -265,6 +272,7 @@ where
     }
 }
 #[doc = "WWDT_PAUSE\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WWDT_PAUSE_A {
     #[doc = "0: The counter clock of TMRx is fed even if the core is halted"]
@@ -318,6 +326,7 @@ where
     }
 }
 #[doc = "Timer pause control bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TMR1_PAUSE_A {
     #[doc = "0: The counter clock of TMRx is fed even if the core is halted"]

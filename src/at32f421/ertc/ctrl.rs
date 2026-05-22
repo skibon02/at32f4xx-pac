@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
 #[doc = "Timestamp trigger edge\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TSEDG_A {
     #[doc = "0: Rising edge"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Reference clock detection enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rcdenr {
     #[doc = "0: Reference clock detection is disabled"]
@@ -92,6 +94,7 @@ impl RCDEN_R {
     }
 }
 #[doc = "Reference clock detection enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RcdenwWO {
     #[doc = "0: Reference clock detection disable"]
@@ -123,6 +126,7 @@ where
     }
 }
 #[doc = "Date/time register direct read enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Drenr {
     #[doc = "0: Date/time register direct read is disabled"]
@@ -159,6 +163,7 @@ impl DREN_R {
     }
 }
 #[doc = "Date/time register direct read enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DrenwWO {
     #[doc = "0: Date/time register direct read disable"]
@@ -190,6 +195,7 @@ where
     }
 }
 #[doc = "Hour mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HM_A {
     #[doc = "0: 24-hour format"]
@@ -243,6 +249,7 @@ where
     }
 }
 #[doc = "Alarm A enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Alaenr {
     #[doc = "0: Alarm is disabled"]
@@ -279,6 +286,7 @@ impl ALAEN_R {
     }
 }
 #[doc = "Alarm A enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AlaenwWO {
     #[doc = "0: Alarm disable"]
@@ -310,6 +318,7 @@ where
     }
 }
 #[doc = "Timestamp enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tsenr {
     #[doc = "0: Timestamp is disabled"]
@@ -346,6 +355,7 @@ impl TSEN_R {
     }
 }
 #[doc = "Timestamp enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TsenwWO {
     #[doc = "0: Timestamp disable"]
@@ -377,6 +387,7 @@ where
     }
 }
 #[doc = "Alarm A interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Alaienr {
     #[doc = "0: Alarm interrupt is disabled"]
@@ -413,6 +424,7 @@ impl ALAIEN_R {
     }
 }
 #[doc = "Alarm A interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AlaienwWO {
     #[doc = "0: Alarm interrupt disable"]
@@ -444,6 +456,7 @@ where
     }
 }
 #[doc = "Timestamp interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tsienr {
     #[doc = "0: Timestamp interrupt is disabled"]
@@ -480,6 +493,7 @@ impl TSIEN_R {
     }
 }
 #[doc = "Timestamp interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TsienwWO {
     #[doc = "0: Timestamp interrupt disable"]
@@ -511,6 +525,7 @@ where
     }
 }
 #[doc = "Add 1 hour\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADD1HW_A {
     #[doc = "1: Add 1 hour"]
@@ -552,6 +567,7 @@ where
     }
 }
 #[doc = "Decrease 1 hour\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DEC1HW_A {
     #[doc = "1: Subtract 1 hour"]
@@ -597,6 +613,7 @@ pub type BPR_R = crate::BitReader;
 #[doc = "Field `BPR` writer - Battery power domain data register"]
 pub type BPR_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Calibration output selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CALOSEL_A {
     #[doc = "0: 512Hz"]
@@ -650,6 +667,7 @@ where
     }
 }
 #[doc = "Output polarity\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OUTP_A {
     #[doc = "0: High"]
@@ -703,6 +721,7 @@ where
     }
 }
 #[doc = "Output source selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OUTSEL_A {
@@ -776,6 +795,7 @@ where
     }
 }
 #[doc = "Calibration output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Caloenr {
     #[doc = "0: Calibration output is disabled"]
@@ -812,6 +832,7 @@ impl CALOEN_R {
     }
 }
 #[doc = "Calibration output enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CaloenwWO {
     #[doc = "0: Calibration output disable"]

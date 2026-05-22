@@ -3,6 +3,7 @@ pub type R = crate::R<CTRL1_SPEC>;
 #[doc = "Register `CTRL1` writer"]
 pub type W = crate::W<CTRL1_SPEC>;
 #[doc = "I2C peripheral enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum I2cenr {
     #[doc = "0: I2C peripheral is disabled"]
@@ -39,6 +40,7 @@ impl I2CEN_R {
     }
 }
 #[doc = "I2C peripheral enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum I2cenwWO {
     #[doc = "0: Disable I2C peripheral"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Transmit data interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tdienr {
     #[doc = "0: Data transmit data interrupt is disabled"]
@@ -106,6 +109,7 @@ impl TDIEN_R {
     }
 }
 #[doc = "Transmit data interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TdienwWO {
     #[doc = "0: Disable Data transmit data interrupt"]

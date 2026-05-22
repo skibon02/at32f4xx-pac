@@ -1,6 +1,7 @@
 #[doc = "Register `CLR` writer"]
 pub type W = crate::W<CLR_SPEC>;
 #[doc = "Clear bit %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IOCB0W_A {
     #[doc = "1: Clear the corresponding ODT bit"]

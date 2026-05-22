@@ -3,6 +3,7 @@ pub type R = crate::R<CM1_INPUT_SPEC>;
 #[doc = "Register `CM1_INPUT` writer"]
 pub type W = crate::W<CM1_INPUT_SPEC>;
 #[doc = "Channel 1 configure\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C1C_A {
@@ -63,6 +64,7 @@ where
     }
 }
 #[doc = "Channel %s input divider\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum C1IDIV_A {

@@ -3,6 +3,7 @@ pub type R = crate::R<IDEN_SPEC>;
 #[doc = "Register `IDEN` writer"]
 pub type W = crate::W<IDEN_SPEC>;
 #[doc = "Overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovfienr {
     #[doc = "0: Overflow interrupt is disabled"]
@@ -39,6 +40,7 @@ impl OVFIEN_R {
     }
 }
 #[doc = "Overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OvfienwWO {
     #[doc = "0: Overflow interrupt disable"]
@@ -70,6 +72,7 @@ where
     }
 }
 #[doc = "Channel %s interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1ienr {
     #[doc = "0: Channel interrupt is disabled"]
@@ -106,6 +109,7 @@ impl CIEN_R {
     }
 }
 #[doc = "Channel %s interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1ienwWO {
     #[doc = "0: Channel interrupt disable"]
@@ -137,6 +141,7 @@ where
     }
 }
 #[doc = "Trigger interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tienr {
     #[doc = "0: Trigger interrupt is disabled"]
@@ -173,6 +178,7 @@ impl TIEN_R {
     }
 }
 #[doc = "Trigger interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TienwWO {
     #[doc = "0: Trigger interrupt disable"]
@@ -204,6 +210,7 @@ where
     }
 }
 #[doc = "Overflow DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovfdenr {
     #[doc = "0: Overflow event DMA request is disabled"]
@@ -240,6 +247,7 @@ impl OVFDEN_R {
     }
 }
 #[doc = "Overflow DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OvfdenwWO {
     #[doc = "0: Overflow event DMA request disable"]
@@ -271,6 +279,7 @@ where
     }
 }
 #[doc = "Channel %s DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1denr {
     #[doc = "0: Channel DMA request is disabled"]
@@ -307,6 +316,7 @@ impl CDEN_R {
     }
 }
 #[doc = "Channel %s DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1denwWO {
     #[doc = "0: Channel DMA request disable"]

@@ -1,34 +1,10 @@
 _derive: 
   TMR5: TMR2
 
-DMA2:
-  _add:
-    _interrupts:
-      DMA2_CHANNEL1:
-        description: DMA2 Channel1 global interrupt
-        value: 108
-      DMA2_CHANNEL2:
-        description: DMA2 Channel2 global interrupt
-        value: 109
-      DMA2_CHANNEL3:
-        description: DMA2 Channel3 global interrupt
-        value: 110
-      DMA2_CHANNEL4:
-        description: DMA2 Channel4 global interrupt
-        value: 111
-      DMA2_CHANNEL5:
-        description: DMA2 Channel5 global interrupt
-        value: 112
-      DMA2_CHANNEL6:
-        description: DMA2 Channel6 global interrupt
-        value: 113
-      DMA2_CHANNEL7:
-        description: DMA2 Channel7 global interrupt
-        value: 114
-
 _include:
   - crm/common.yaml
   - crm/crm_pllcfg.yaml
+  - crm/f435_437.yaml
   - ertc/common.yaml
   - ertc/alarmb.yaml
   - ertc/wat.yaml
@@ -36,15 +12,20 @@ _include:
   - adc/common.yaml
   - adc/odt.yaml
   - flash/common.yaml
+  - flash/f435_437.yaml
+  - flash/unlock.yaml
   - can/common.yaml
   - exint/common.yaml
   - dma/common.yaml
+  - dma/extended.yaml
   - crc/common.yaml
   - crc/poly.yaml
   - usart/common.yaml
   - spi/common.yaml
   - i2c/common.yaml
   - i2c/v2.yaml
+  - pwc/ldoov.yaml
+  - scfg/f435_437.yaml
   - tmr/common.yaml
   - tmr/tmr2_32.yaml
   - tmr/tmr10.yaml

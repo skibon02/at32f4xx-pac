@@ -7,6 +7,7 @@ pub type VMCSEL_R = crate::FieldReader;
 #[doc = "Field `VMCSEL` writer - Voltage monitoring channel select"]
 pub type VMCSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Channel conversion end interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cceienr {
     #[doc = "0: Channel conversion end interrupt is disabled"]
@@ -43,6 +44,7 @@ impl CCEIEN_R {
     }
 }
 #[doc = "Channel conversion end interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CceienwWO {
     #[doc = "0: Channel conversion end interrupt disable"]
@@ -74,6 +76,7 @@ where
     }
 }
 #[doc = "Voltage monitoring out of range interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Vmorienr {
     #[doc = "0: Voltage monitoring out of range interrupt is disabled"]
@@ -110,6 +113,7 @@ impl VMORIEN_R {
     }
 }
 #[doc = "Voltage monitoring out of range interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VmorienwWO {
     #[doc = "0: Voltage monitoring out of range interrupt disable"]
@@ -145,6 +149,7 @@ pub use CCEIEN_R as PCCEIEN_R;
 #[doc = "Field `PCCEIEN` writer - Conversion end interrupt enable for preempted channels"]
 pub use CCEIEN_W as PCCEIEN_W;
 #[doc = "Sequence mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sqenr {
     #[doc = "0: Sequence mode is disabled"]
@@ -181,6 +186,7 @@ impl SQEN_R {
     }
 }
 #[doc = "Sequence mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SqenwWO {
     #[doc = "0: Sequence mode disable"]
@@ -212,6 +218,7 @@ where
     }
 }
 #[doc = "Voltage monitoring enable on a single channel\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VMSGEN_A {
     #[doc = "0: Voltage monitoring enabled on all channels"]
@@ -265,6 +272,7 @@ where
     }
 }
 #[doc = "Preempted group automatic conversion enable after ordinary group\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pcautoenr {
     #[doc = "0: Preempted group automatic conversion is disabled"]
@@ -301,6 +309,7 @@ impl PCAUTOEN_R {
     }
 }
 #[doc = "Preempted group automatic conversion enable after ordinary group\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PcautoenwWO {
     #[doc = "0: Preempted group automatic conversion disable"]
@@ -332,6 +341,7 @@ where
     }
 }
 #[doc = "Partitioned mode enable on ordinary channels\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ocpenr {
     #[doc = "0: Partitioned mode on channels is disabled"]
@@ -368,6 +378,7 @@ impl OCPEN_R {
     }
 }
 #[doc = "Partitioned mode enable on ordinary channels\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OcpenwWO {
     #[doc = "0: Partitioned mode on channels disable"]
@@ -407,6 +418,7 @@ pub type OCPCNT_R = crate::FieldReader;
 #[doc = "Field `OCPCNT` writer - Partitioned mode conversion count of ordinary channels"]
 pub type OCPCNT_W<'a, REG> = crate::FieldWriter<'a, REG, 3, u8, crate::Safe>;
 #[doc = "Voltage monitoring enable on preempted channels\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pcvmenr {
     #[doc = "0: Voltage monitoring is disabled"]
@@ -443,6 +455,7 @@ impl PCVMEN_R {
     }
 }
 #[doc = "Voltage monitoring enable on preempted channels\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PcvmenwWO {
     #[doc = "0: Voltage monitoring disable"]

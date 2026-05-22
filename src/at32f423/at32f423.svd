@@ -5166,7 +5166,7 @@
                 <bitOffset>8</bitOffset>
                 <bitWidth>2</bitWidth>
                 <enumeratedValues>
-                  <name>PWIDTH</name>
+                  <name>BitWidth</name>
                   <enumeratedValue>
                     <name>bit8</name>
                     <description>8 bits</description>
@@ -5189,24 +5189,7 @@
                 <description>Memory data bit width</description>
                 <bitOffset>10</bitOffset>
                 <bitWidth>2</bitWidth>
-                <enumeratedValues>
-                  <name>MWIDTH</name>
-                  <enumeratedValue>
-                    <name>bit8</name>
-                    <description>8 bits</description>
-                    <value>0</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit16</name>
-                    <description>16 bits</description>
-                    <value>1</value>
-                  </enumeratedValue>
-                  <enumeratedValue>
-                    <name>bit32</name>
-                    <description>32 bits</description>
-                    <value>2</value>
-                  </enumeratedValue>
-                </enumeratedValues>
+                <enumeratedValues derivedFrom="BitWidth"/>
               </field>
               <field>
                 <name>CHPL</name>
@@ -16716,7 +16699,14 @@
     </peripheral>
     <peripheral derivedFrom="TMR13">
       <name>TMR14</name>
+      <description>General purpose timer</description>
+      <groupName>TIMER</groupName>
       <baseAddress>0x40002000</baseAddress>
+      <interrupt>
+        <name>TMR14</name>
+        <description>TMR14 global interrupt</description>
+        <value>45</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>TMR6</name>
@@ -21749,12 +21739,99 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -21767,7 +21844,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -21775,12 +21852,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -21793,7 +21864,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="ADC1.OSQ1.OSN%s">
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -21801,12 +21872,6 @@
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -21820,19 +21885,40 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <dim>6</dim>
-              <dimIncrement>0x5</dimIncrement>
-              <dimIndex>17-22</dimIndex>
-              <name>OSN%s</name>
-              <description>Number of %sth conversion in ordinary sequence</description>
+              <name>OSN22</name>
+              <description>Number of 22th conversion in ordinary sequence</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN21</name>
+              <description>Number of 21th conversion in ordinary sequence</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN20</name>
+              <description>Number of 20th conversion in ordinary sequence</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN19</name>
+              <description>number of 19rd conversion in ordinary sequence</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN18</name>
+              <description>Number of 18nd conversion in ordinary sequence</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN17</name>
+              <description>Number of 17st conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -21846,19 +21932,40 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <dim>6</dim>
-              <dimIncrement>0x5</dimIncrement>
-              <dimIndex>23-28</dimIndex>
-              <name>OSN%s</name>
-              <description>Number of %sth conversion in ordinary sequence</description>
+              <name>OSN28</name>
+              <description>Number of 28th conversion in ordinary sequence</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN27</name>
+              <description>Number of 27th conversion in ordinary sequence</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN26</name>
+              <description>Number of 26th conversion in ordinary sequence</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN25</name>
+              <description>number of 25rd conversion in ordinary sequence</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN24</name>
+              <description>Number of 24nd conversion in ordinary sequence</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN23</name>
+              <description>Number of 23st conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -21872,19 +21979,28 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <dim>4</dim>
-              <dimIncrement>0x5</dimIncrement>
-              <dimIndex>29-32</dimIndex>
-              <name>OSN%s</name>
-              <description>Number of %sth conversion in ordinary sequence</description>
+              <name>OSN32</name>
+              <description>Number of 32th conversion in ordinary sequence</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN31</name>
+              <description>number of 31rd conversion in ordinary sequence</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN30</name>
+              <description>Number of 30nd conversion in ordinary sequence</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>OSN29</name>
+              <description>Number of 29st conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>17</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -25293,6 +25409,19 @@
               <description>Unlock key value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
+              <enumeratedValues>
+                <name>UKVALW</name>
+                <enumeratedValue>
+                  <name>Key1</name>
+                  <description>Unlock key 1</description>
+                  <value>1164378403</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Key2</name>
+                  <description>Unlock key 2</description>
+                  <value>3455027627</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -25430,14 +25559,12 @@
           <size>0x20</size>
           <access>write-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>FA</name>
-              <description>Flash Address</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>USD</name>
@@ -35740,6 +35867,201 @@
         <description>QSPI2 global interrupt</description>
         <value>91</value>
       </interrupt>
+    </peripheral>
+    <peripheral>
+      <name>FPU</name>
+      <description>Floting point unit</description>
+      <groupName>FPU</groupName>
+      <baseAddress>0xE000EF34</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xD</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>FPU</name>
+        <description>Floating point unit interrupt</description>
+        <value>81</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>FPCCR</name>
+          <displayName>FPCCR</displayName>
+          <description>Floating-point context control register</description>
+          <addressOffset>0x0</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>LSPACT</name>
+              <description>LSPACT</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>USER</name>
+              <description>USER</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>THREAD</name>
+              <description>THREAD</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>HFRDY</name>
+              <description>HFRDY</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>MMRDY</name>
+              <description>MMRDY</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>BFRDY</name>
+              <description>BFRDY</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>MONRDY</name>
+              <description>MONRDY</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>LSPEN</name>
+              <description>LSPEN</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ASPEN</name>
+              <description>ASPEN</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>FPCAR</name>
+          <displayName>FPCAR</displayName>
+          <description>Floating-point context address register</description>
+          <addressOffset>0x4</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>ADDRESS</name>
+              <description>Location of unpopulated floating-point</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>29</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>FPSCR</name>
+          <displayName>FPSCR</displayName>
+          <description>Floating-point status control register</description>
+          <addressOffset>0x8</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>IOC</name>
+              <description>Invalid operation cumulative exception bit</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DZC</name>
+              <description>Division by zero cumulative exception bit.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>OFC</name>
+              <description>Overflow cumulative exception bit</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>UFC</name>
+              <description>Underflow cumulative exception bit</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>IXC</name>
+              <description>Inexact cumulative exception bit</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>IDC</name>
+              <description>Input denormal cumulative exception bit.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RMode</name>
+              <description>Rounding Mode control field</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
+              <name>FZ</name>
+              <description>Flush-to-zero mode control bit:</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DN</name>
+              <description>Default NaN mode control bit</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>AHP</name>
+              <description>Alternative half-precision control bit</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>V</name>
+              <description>Overflow condition code flag</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>C</name>
+              <description>Carry condition code flag</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>Z</name>
+              <description>Zero condition code flag</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>N</name>
+              <description>Negative condition code flag</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+      </registers>
     </peripheral>
   </peripherals>
 </device>

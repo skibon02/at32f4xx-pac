@@ -3,6 +3,7 @@ pub type R = crate::R<REMAP8_SPEC>;
 #[doc = "Register `REMAP8` writer"]
 pub type W = crate::W<REMAP8_SPEC>;
 #[doc = "TMR1 BK1 CMP muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR1_BK1_CMP_GMUX_A {
@@ -90,6 +91,7 @@ where
     }
 }
 #[doc = "TMR1 CH1 CMP muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR1_CH1_CMP_GMUX_A {
@@ -177,6 +179,7 @@ where
     }
 }
 #[doc = "TMR2 CH4 CMP muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR2_CH4_CMP_GMUX_A {
@@ -264,6 +267,7 @@ where
     }
 }
 #[doc = "TMR3 CH1 CMP muxing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TMR3_CH1_CMP_GMUX_A {
