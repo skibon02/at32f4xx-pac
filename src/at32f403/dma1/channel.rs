@@ -4,7 +4,6 @@
 pub struct Channel {
     ctrl: CTRL,
     dtcnt: DTCNT,
-    _reserved2: [u8; 0x02],
     paddr: PADDR,
     maddr: MADDR,
     _reserved_end: [u8; 0x04],

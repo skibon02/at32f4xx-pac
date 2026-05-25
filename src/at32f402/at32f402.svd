@@ -3714,15 +3714,17 @@
             <displayName>C1DTCNT</displayName>
             <description>DMA channel number of data to transfer register</description>
             <addressOffset>0x4</addressOffset>
-            <size>0x10</size>
+            <size>0x20</size>
             <access>read-write</access>
             <resetValue>0x00000000</resetValue>
-            <writeConstraint>
-              <range>
-                <minimum>0</minimum>
-                <maximum>65535</maximum>
-              </range>
-            </writeConstraint>
+            <fields>
+              <field>
+                <name>CNT</name>
+                <description>Number of data to transfer</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>16</bitWidth>
+              </field>
+            </fields>
           </register>
           <register>
             <name>PADDR</name>
@@ -24217,7 +24219,6 @@
               <description>Reverse output data</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-only</access>
               <enumeratedValues>
                 <name>REVOD</name>
                 <enumeratedValue>

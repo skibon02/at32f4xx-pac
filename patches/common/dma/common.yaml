@@ -1,8 +1,5 @@
 DMA?:
   _modify:
-    C?DTCNT:
-      size: 16
-      writeConstraint: [0, 0xFFFF]
     C?PADDR:
       writeConstraint: [0, 0xFFFFFFFF]
     C?MADDR:
@@ -96,9 +93,6 @@ DMA?:
           _write:
             Disable: [0, "Memory to memory mode disable"]
             Enable: [1, "Memory to memory mode enable"]
-      DTCNT:
-        _delete:
-          - CNT
       PADDR:
         _delete:
           - PADDR

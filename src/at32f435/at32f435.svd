@@ -9918,15 +9918,17 @@
             <displayName>C1DTCNT</displayName>
             <description>DMA channel number of data to transfer register</description>
             <addressOffset>0x4</addressOffset>
-            <size>0x10</size>
+            <size>0x20</size>
             <access>read-write</access>
             <resetValue>0x00000000</resetValue>
-            <writeConstraint>
-              <range>
-                <minimum>0</minimum>
-                <maximum>65535</maximum>
-              </range>
-            </writeConstraint>
+            <fields>
+              <field>
+                <name>CNT</name>
+                <description>Number of data to transfer</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>16</bitWidth>
+              </field>
+            </fields>
           </register>
           <register>
             <name>PADDR</name>
@@ -10255,51 +10257,12 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>SYNCOVF1</name>
-              <description>Synchronizaton overrun interrupt flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>SYNCOVF%s</name>
+              <description>Channel %s synchronization overrun flag</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF2</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF3</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF4</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF5</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF6</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF7</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
@@ -10314,53 +10277,15 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>SYNCOVFC1</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>SYNCOVFC%s</name>
+              <description>Channel %s synchronization overrun flag clear</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC2</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC3</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC4</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC5</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC6</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC7</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
           </fields>
         </register>
@@ -10373,32 +10298,14 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>TRGOVF1</name>
-              <description>Trigger overrun interrupt flag</description>
+              <dim>4</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-4</dimIndex>
+              <name>TRGOVF%s</name>
+              <description>Channel %s trigger overrun flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVF2</name>
-              <description>Trigger overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVF3</name>
-              <description>Trigger overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVF4</name>
-              <description>Trigger overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -10411,32 +10318,15 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>TRGOVFC1</name>
-              <description>Clear trigger overrun interrupt flag</description>
+              <dim>4</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-4</dimIndex>
+              <name>TRGOVFC%s</name>
+              <description>Channel %s trigger overrun flag clear</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVFC2</name>
-              <description>Clear trigger overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVFC3</name>
-              <description>Clear trigger overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVFC4</name>
-              <description>Clear trigger overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
           </fields>
         </register>
@@ -29953,7 +29843,6 @@
               <description>Reverse output data</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-only</access>
               <enumeratedValues>
                 <name>REVOD</name>
                 <enumeratedValue>

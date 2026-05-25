@@ -172,6 +172,23 @@ impl REVOD_R {
         *self == REVOD_A::WordReverse
     }
 }
+#[doc = "Field `REVOD` writer - Reverse output data"]
+pub type REVOD_W<'a, REG> = crate::BitWriter<'a, REG, REVOD_A>;
+impl<'a, REG> REVOD_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "No effect"]
+    #[inline(always)]
+    pub fn no_effect(self) -> &'a mut crate::W<REG> {
+        self.variant(REVOD_A::NoEffect)
+    }
+    #[doc = "Word reverse"]
+    #[inline(always)]
+    pub fn word_reverse(self) -> &'a mut crate::W<REG> {
+        self.variant(REVOD_A::WordReverse)
+    }
+}
 impl R {
     #[doc = "Bit 0 - Reset bit"]
     #[inline(always)]
@@ -219,6 +236,11 @@ impl W {
     #[inline(always)]
     pub fn revid(&mut self) -> REVID_W<'_, CTRL_SPEC> {
         REVID_W::new(self, 5)
+    }
+    #[doc = "Bit 7 - Reverse output data"]
+    #[inline(always)]
+    pub fn revod(&mut self) -> REVOD_W<'_, CTRL_SPEC> {
+        REVOD_W::new(self, 7)
     }
 }
 #[doc = "Control register\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
