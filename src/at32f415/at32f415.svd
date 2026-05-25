@@ -17345,7 +17345,7 @@
           <addressOffset>0x20</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
-          <resetValue>0x0000000A</resetValue>
+          <resetValue>0x00000002</resetValue>
           <fields>
             <field>
               <name>DIV9_8</name>

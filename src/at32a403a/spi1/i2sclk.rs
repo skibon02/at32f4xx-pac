@@ -198,7 +198,7 @@ impl crate::Readable for I2SCLK_SPEC {}
 impl crate::Writable for I2SCLK_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets I2SCLK to value 0x0a"]
+#[doc = "`reset()` method sets I2SCLK to value 0x02"]
 impl crate::Resettable for I2SCLK_SPEC {
-    const RESET_VALUE: u32 = 0x0a;
+    const RESET_VALUE: u32 = 0x02;
 }

@@ -65,4 +65,7 @@ SPI?:
         Disable: [0, "Master clock output disable"]
         Enable: [1, "Master clock output enable"]
     DIV9_8: [0, 3]
-    
+
+  _modify:
+    I2SCLK:
+      resetValue: 0x0002
