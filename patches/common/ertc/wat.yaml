@@ -6,3 +6,9 @@ ERTC:
   WAT:
     _delete:
       - VAL
+  STS:
+    _modify:
+      TADJF:
+        access: "read-only"
+    WATF:
+      _W0C: {}

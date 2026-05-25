@@ -5401,7 +5401,7 @@
               <description>Time adjustment flag</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
             <field>
               <name>INITF</name>
@@ -5416,6 +5416,7 @@
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>IMF</name>
@@ -5437,6 +5438,7 @@
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ALBF</name>
@@ -5444,6 +5446,7 @@
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>WATF</name>
@@ -5451,6 +5454,7 @@
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TSF</name>
@@ -5458,6 +5462,7 @@
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TSOF</name>
@@ -5465,6 +5470,7 @@
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TP1F</name>
@@ -5472,6 +5478,7 @@
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TP2F</name>
@@ -5479,6 +5486,7 @@
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>CALUPDF</name>

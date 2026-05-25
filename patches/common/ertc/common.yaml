@@ -114,6 +114,10 @@ ERTC:
       _write:
         Disable: [0, "Calibration output disable"]
         Enable: [1, "Calibration output enable"]
+  STS:
+    UPDF,AL?F,TSF,TSOF,TP?F:
+      _W0C: {}
+
   DIV:
     _modify:
       DIVA:

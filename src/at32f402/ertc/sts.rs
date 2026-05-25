@@ -10,14 +10,12 @@ pub type ALBWF_R = crate::BitReader;
 pub type WATWF_R = crate::BitReader;
 #[doc = "Field `TADJF` reader - Time adjustment flag"]
 pub type TADJF_R = crate::BitReader;
-#[doc = "Field `TADJF` writer - Time adjustment flag"]
-pub type TADJF_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `INITF` reader - Calendar initialization flag"]
 pub type INITF_R = crate::BitReader;
 #[doc = "Field `UPDF` reader - Calendar update flag"]
 pub type UPDF_R = crate::BitReader;
 #[doc = "Field `UPDF` writer - Calendar update flag"]
-pub type UPDF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type UPDF_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `IMF` reader - Enter initialization mode flag"]
 pub type IMF_R = crate::BitReader;
 #[doc = "Field `IMEN` reader - Initialization mode enable"]
@@ -27,31 +25,31 @@ pub type IMEN_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ALAF` reader - Alarm A flag"]
 pub type ALAF_R = crate::BitReader;
 #[doc = "Field `ALAF` writer - Alarm A flag"]
-pub type ALAF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ALAF_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `ALBF` reader - Alarm B flag"]
 pub type ALBF_R = crate::BitReader;
 #[doc = "Field `ALBF` writer - Alarm B flag"]
-pub type ALBF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ALBF_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `WATF` reader - Wakeup timer flag"]
 pub type WATF_R = crate::BitReader;
 #[doc = "Field `WATF` writer - Wakeup timer flag"]
-pub type WATF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type WATF_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `TSF` reader - Timestamp flag"]
 pub type TSF_R = crate::BitReader;
 #[doc = "Field `TSF` writer - Timestamp flag"]
-pub type TSF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TSF_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `TSOF` reader - Timestamp overflow flag"]
 pub type TSOF_R = crate::BitReader;
 #[doc = "Field `TSOF` writer - Timestamp overflow flag"]
-pub type TSOF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TSOF_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `TP1F` reader - Tamper detection 1 flag"]
 pub type TP1F_R = crate::BitReader;
 #[doc = "Field `TP1F` writer - Tamper detection 1 flag"]
-pub type TP1F_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TP1F_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `TP2F` reader - Tamper detection 2 flag"]
 pub type TP2F_R = crate::BitReader;
 #[doc = "Field `TP2F` writer - Tamper detection 2 flag"]
-pub type TP2F_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TP2F_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `CALUPDF` reader - Calibration value update completed flag"]
 pub type CALUPDF_R = crate::BitReader;
 impl R {
@@ -159,11 +157,6 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 3 - Time adjustment flag"]
-    #[inline(always)]
-    pub fn tadjf(&mut self) -> TADJF_W<'_, STS_SPEC> {
-        TADJF_W::new(self, 3)
-    }
     #[doc = "Bit 5 - Calendar update flag"]
     #[inline(always)]
     pub fn updf(&mut self) -> UPDF_W<'_, STS_SPEC> {
@@ -220,6 +213,7 @@ impl crate::Readable for STS_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`sts::W`](W) writer structure"]
 impl crate::Writable for STS_SPEC {
     type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0x7f20;
 }
 #[doc = "`reset()` method sets STS to value 0x07"]
 impl crate::Resettable for STS_SPEC {
