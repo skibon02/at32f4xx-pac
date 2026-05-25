@@ -17,7 +17,7 @@ impl crate::RegisterSpec for DMARDLADDR_SPEC {
 impl crate::Readable for DMARDLADDR_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`dmardladdr::W`](W) writer structure"]
 impl crate::Writable for DMARDLADDR_SPEC {
-    type Safety = crate::Safe;
+    type Safety = crate::Unsafe;
 }
 #[doc = "`reset()` method sets DMARDLADDR to value 0"]
 impl crate::Resettable for DMARDLADDR_SPEC {}

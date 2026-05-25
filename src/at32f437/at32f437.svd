@@ -51759,12 +51759,6 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>4294967295</maximum>
-            </range>
-          </writeConstraint>
         </register>
         <register>
           <name>DMATDLADDR</name>
@@ -51774,12 +51768,6 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>4294967295</maximum>
-            </range>
-          </writeConstraint>
         </register>
         <register>
           <name>DMASTS</name>
@@ -52290,6 +52278,7 @@
               <description>Missed frames control</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <readAction>clear</readAction>
             </field>
             <field>
               <name>OBMFC</name>
@@ -52297,12 +52286,14 @@
               counter</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <readAction>clear</readAction>
             </field>
             <field>
               <name>OFC</name>
               <description>Overflow frame counter</description>
               <bitOffset>17</bitOffset>
               <bitWidth>11</bitWidth>
+              <readAction>clear</readAction>
             </field>
             <field>
               <name>OBFOC</name>
@@ -52310,6 +52301,7 @@
               counter</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
+              <readAction>clear</readAction>
             </field>
           </fields>
         </register>
@@ -52321,14 +52313,6 @@
           <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>HTDAP</name>
-              <description>Host transmit descriptor address pointer</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>DMACRD</name>
@@ -52338,14 +52322,6 @@
           <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>HRDAP</name>
-              <description>Host receive descriptor address pointer</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>DMACTBADDR</name>
@@ -52355,14 +52331,6 @@
           <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>HTBAP</name>
-              <description>Host transmit buffer address pointer</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>DMACRBADDR</name>
@@ -52372,14 +52340,6 @@
           <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>HRBAP</name>
-              <description>Host receive buffer address pointer</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
       </registers>
     </peripheral>

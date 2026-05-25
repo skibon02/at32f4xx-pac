@@ -1,12 +1,12 @@
 #[doc = "Register `DMAMFBOCNT` reader"]
 pub type R = crate::R<DMAMFBOCNT_SPEC>;
-#[doc = "Field `MFC` reader - Missed frames control"]
+#[doc = "Field `MFC` reader - Missed frames control\n\n<div class=\"warning\">The field is <b>cleared</b> (set to zero) following a read operation.</div>"]
 pub type MFC_R = crate::FieldReader<u16>;
-#[doc = "Field `OBMFC` reader - Overflow bit for missed frame counter"]
+#[doc = "Field `OBMFC` reader - Overflow bit for missed frame counter\n\n<div class=\"warning\">The field is <b>cleared</b> (set to zero) following a read operation.</div>"]
 pub type OBMFC_R = crate::BitReader;
-#[doc = "Field `OFC` reader - Overflow frame counter"]
+#[doc = "Field `OFC` reader - Overflow frame counter\n\n<div class=\"warning\">The field is <b>cleared</b> (set to zero) following a read operation.</div>"]
 pub type OFC_R = crate::FieldReader<u16>;
-#[doc = "Field `OBFOC` reader - Overflow bit for FIFO overflow counter"]
+#[doc = "Field `OBFOC` reader - Overflow bit for FIFO overflow counter\n\n<div class=\"warning\">The field is <b>cleared</b> (set to zero) following a read operation.</div>"]
 pub type OBFOC_R = crate::BitReader;
 impl R {
     #[doc = "Bits 0:15 - Missed frames control"]
@@ -32,12 +32,7 @@ impl R {
 }
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("DMAMFBOCNT")
-            .field("mfc", &self.mfc())
-            .field("obmfc", &self.obmfc())
-            .field("ofc", &self.ofc())
-            .field("obfoc", &self.obfoc())
-            .finish()
+        f.debug_struct("DMAMFBOCNT").finish()
     }
 }
 #[doc = "Ethernet DMA missed frame and buffer overflow counter register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmamfbocnt::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
