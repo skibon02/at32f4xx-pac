@@ -4089,15 +4089,35 @@
           <displayName>WP</displayName>
           <description>write protection register</description>
           <addressOffset>0x24</addressOffset>
-          <size>0x8</size>
+          <size>0x20</size>
           <access>write-only</access>
           <resetValue>0x00000000</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>255</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>CMD</name>
+              <description>Command register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <enumeratedValues>
+                <name>CMDW</name>
+                <enumeratedValue>
+                  <name>Invalid</name>
+                  <description>Write value 0x00 which is considered invalid and will activate write protection back</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Key2</name>
+                  <description>Unlock key 2</description>
+                  <value>83</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Key1</name>
+                  <description>Unlock key 1</description>
+                  <value>202</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
         </register>
         <register>
           <name>SBS</name>

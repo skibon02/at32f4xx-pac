@@ -11,7 +11,6 @@ pub struct RegisterBlock {
     ala: ALA,
     _reserved6: [u8; 0x04],
     wp: WP,
-    _reserved7: [u8; 0x03],
     sbs: SBS,
     _reserved8: [u8; 0x02],
     tadj: TADJ,
