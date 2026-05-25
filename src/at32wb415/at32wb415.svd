@@ -15271,48 +15271,68 @@
           <displayName>DT</displayName>
           <description>data register</description>
           <addressOffset>0xC</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>65535</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>DT</name>
+              <description>Data value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>CPOLY</name>
           <displayName>CPOLY</displayName>
           <description>CRC polynomial register</description>
           <addressOffset>0x10</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000007</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>65535</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>CPOLY</name>
+              <description>CRC polynomial</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>RCRC</name>
           <displayName>RCRC</displayName>
           <description>Receive CRC register</description>
           <addressOffset>0x14</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>RCRC</name>
+              <description>Receive CRC</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>TCRC</name>
           <displayName>TCRC</displayName>
           <description>Transmit CRC register</description>
           <addressOffset>0x18</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>TCRC</name>
+              <description>Transmit CRC</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
       </registers>
     </peripheral>

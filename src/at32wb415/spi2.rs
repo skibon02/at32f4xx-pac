@@ -6,11 +6,8 @@ pub struct RegisterBlock {
     ctrl2: CTRL2,
     sts: STS,
     dt: DT,
-    _reserved4: [u8; 0x02],
     cpoly: CPOLY,
-    _reserved5: [u8; 0x02],
     rcrc: RCRC,
-    _reserved6: [u8; 0x02],
     tcrc: TCRC,
 }
 impl RegisterBlock {
