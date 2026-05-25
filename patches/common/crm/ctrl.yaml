@@ -10,6 +10,10 @@ CTRL:
     _read:
       NotReady: [0, "Not ready"]
       Ready: [1, "Ready"]
+  _modify:
+    HICKCAL:
+      description: "High speed internal clock calibration. Note: This bit can be written only if the HICKCAL_KEY[7: 0] is set as 0x5A"
+      access: "read-write"
   HICKCAL: [0, 0xFF]
   HEXTEN:
     _read:

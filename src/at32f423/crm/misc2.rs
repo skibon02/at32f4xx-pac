@@ -2,14 +2,271 @@
 pub type R = crate::R<MISC2_SPEC>;
 #[doc = "Register `MISC2` writer"]
 pub type W = crate::W<MISC2_SPEC>;
+#[doc = "AUTO_STEP_EN\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum AUTO_STEP_EN_A {
+    #[doc = "0: Auto step mode disabled"]
+    Disabled = 0,
+    #[doc = "3: Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically."]
+    Enabled = 3,
+}
+impl From<AUTO_STEP_EN_A> for u8 {
+    #[inline(always)]
+    fn from(variant: AUTO_STEP_EN_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for AUTO_STEP_EN_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for AUTO_STEP_EN_A {}
 #[doc = "Field `AUTO_STEP_EN` reader - AUTO_STEP_EN"]
-pub type AUTO_STEP_EN_R = crate::FieldReader;
+pub type AUTO_STEP_EN_R = crate::FieldReader<AUTO_STEP_EN_A>;
+impl AUTO_STEP_EN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<AUTO_STEP_EN_A> {
+        match self.bits {
+            0 => Some(AUTO_STEP_EN_A::Disabled),
+            3 => Some(AUTO_STEP_EN_A::Enabled),
+            _ => None,
+        }
+    }
+    #[doc = "Auto step mode disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == AUTO_STEP_EN_A::Disabled
+    }
+    #[doc = "Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically."]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == AUTO_STEP_EN_A::Enabled
+    }
+}
 #[doc = "Field `AUTO_STEP_EN` writer - AUTO_STEP_EN"]
-pub type AUTO_STEP_EN_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type AUTO_STEP_EN_W<'a, REG> = crate::FieldWriter<'a, REG, 2, AUTO_STEP_EN_A>;
+impl<'a, REG> AUTO_STEP_EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Auto step mode disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AUTO_STEP_EN_A::Disabled)
+    }
+    #[doc = "Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically."]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AUTO_STEP_EN_A::Enabled)
+    }
+}
+#[doc = "USB division\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum USBDIV_A {
+    #[doc = "0: USB clock is divided by 1.5"]
+    Div1_5 = 0,
+    #[doc = "1: USB clock is not divided"]
+    Div1 = 1,
+    #[doc = "2: USB clock is divided by 2.5"]
+    Div2_5 = 2,
+    #[doc = "3: USB clock is divided by 2"]
+    Div2 = 3,
+    #[doc = "4: USB clock is divided by 3.5"]
+    Div3_5 = 4,
+    #[doc = "5: USB clock is divided by 3"]
+    Div3 = 5,
+    #[doc = "6: USB clock is divided by 4.5"]
+    Div4_5 = 6,
+    #[doc = "7: USB clock is divided by 4"]
+    Div4 = 7,
+    #[doc = "8: USB clock is divided by 5.5"]
+    Div5_5 = 8,
+    #[doc = "9: USB clock is divided by 5"]
+    Div5 = 9,
+    #[doc = "10: USB clock is divided by 6.5"]
+    Div6_5 = 10,
+    #[doc = "11: USB clock is divided by 6"]
+    Div6 = 11,
+    #[doc = "12: USB clock is divided by 7"]
+    Div7 = 12,
+}
+impl From<USBDIV_A> for u8 {
+    #[inline(always)]
+    fn from(variant: USBDIV_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for USBDIV_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for USBDIV_A {}
 #[doc = "Field `USBDIV` reader - USB division"]
-pub type USBDIV_R = crate::FieldReader;
+pub type USBDIV_R = crate::FieldReader<USBDIV_A>;
+impl USBDIV_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<USBDIV_A> {
+        match self.bits {
+            0 => Some(USBDIV_A::Div1_5),
+            1 => Some(USBDIV_A::Div1),
+            2 => Some(USBDIV_A::Div2_5),
+            3 => Some(USBDIV_A::Div2),
+            4 => Some(USBDIV_A::Div3_5),
+            5 => Some(USBDIV_A::Div3),
+            6 => Some(USBDIV_A::Div4_5),
+            7 => Some(USBDIV_A::Div4),
+            8 => Some(USBDIV_A::Div5_5),
+            9 => Some(USBDIV_A::Div5),
+            10 => Some(USBDIV_A::Div6_5),
+            11 => Some(USBDIV_A::Div6),
+            12 => Some(USBDIV_A::Div7),
+            _ => None,
+        }
+    }
+    #[doc = "USB clock is divided by 1.5"]
+    #[inline(always)]
+    pub fn is_div1_5(&self) -> bool {
+        *self == USBDIV_A::Div1_5
+    }
+    #[doc = "USB clock is not divided"]
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        *self == USBDIV_A::Div1
+    }
+    #[doc = "USB clock is divided by 2.5"]
+    #[inline(always)]
+    pub fn is_div2_5(&self) -> bool {
+        *self == USBDIV_A::Div2_5
+    }
+    #[doc = "USB clock is divided by 2"]
+    #[inline(always)]
+    pub fn is_div2(&self) -> bool {
+        *self == USBDIV_A::Div2
+    }
+    #[doc = "USB clock is divided by 3.5"]
+    #[inline(always)]
+    pub fn is_div3_5(&self) -> bool {
+        *self == USBDIV_A::Div3_5
+    }
+    #[doc = "USB clock is divided by 3"]
+    #[inline(always)]
+    pub fn is_div3(&self) -> bool {
+        *self == USBDIV_A::Div3
+    }
+    #[doc = "USB clock is divided by 4.5"]
+    #[inline(always)]
+    pub fn is_div4_5(&self) -> bool {
+        *self == USBDIV_A::Div4_5
+    }
+    #[doc = "USB clock is divided by 4"]
+    #[inline(always)]
+    pub fn is_div4(&self) -> bool {
+        *self == USBDIV_A::Div4
+    }
+    #[doc = "USB clock is divided by 5.5"]
+    #[inline(always)]
+    pub fn is_div5_5(&self) -> bool {
+        *self == USBDIV_A::Div5_5
+    }
+    #[doc = "USB clock is divided by 5"]
+    #[inline(always)]
+    pub fn is_div5(&self) -> bool {
+        *self == USBDIV_A::Div5
+    }
+    #[doc = "USB clock is divided by 6.5"]
+    #[inline(always)]
+    pub fn is_div6_5(&self) -> bool {
+        *self == USBDIV_A::Div6_5
+    }
+    #[doc = "USB clock is divided by 6"]
+    #[inline(always)]
+    pub fn is_div6(&self) -> bool {
+        *self == USBDIV_A::Div6
+    }
+    #[doc = "USB clock is divided by 7"]
+    #[inline(always)]
+    pub fn is_div7(&self) -> bool {
+        *self == USBDIV_A::Div7
+    }
+}
 #[doc = "Field `USBDIV` writer - USB division"]
-pub type USBDIV_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub type USBDIV_W<'a, REG> = crate::FieldWriter<'a, REG, 4, USBDIV_A>;
+impl<'a, REG> USBDIV_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "USB clock is divided by 1.5"]
+    #[inline(always)]
+    pub fn div1_5(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div1_5)
+    }
+    #[doc = "USB clock is not divided"]
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div1)
+    }
+    #[doc = "USB clock is divided by 2.5"]
+    #[inline(always)]
+    pub fn div2_5(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div2_5)
+    }
+    #[doc = "USB clock is divided by 2"]
+    #[inline(always)]
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div2)
+    }
+    #[doc = "USB clock is divided by 3.5"]
+    #[inline(always)]
+    pub fn div3_5(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div3_5)
+    }
+    #[doc = "USB clock is divided by 3"]
+    #[inline(always)]
+    pub fn div3(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div3)
+    }
+    #[doc = "USB clock is divided by 4.5"]
+    #[inline(always)]
+    pub fn div4_5(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div4_5)
+    }
+    #[doc = "USB clock is divided by 4"]
+    #[inline(always)]
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div4)
+    }
+    #[doc = "USB clock is divided by 5.5"]
+    #[inline(always)]
+    pub fn div5_5(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div5_5)
+    }
+    #[doc = "USB clock is divided by 5"]
+    #[inline(always)]
+    pub fn div5(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div5)
+    }
+    #[doc = "USB clock is divided by 6.5"]
+    #[inline(always)]
+    pub fn div6_5(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div6_5)
+    }
+    #[doc = "USB clock is divided by 6"]
+    #[inline(always)]
+    pub fn div6(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div6)
+    }
+    #[doc = "USB clock is divided by 7"]
+    #[inline(always)]
+    pub fn div7(self) -> &'a mut crate::W<REG> {
+        self.variant(USBDIV_A::Div7)
+    }
+}
 #[doc = "Field `HICK_TO_SCLK_DIV` reader - HICK as system clock frequency division"]
 pub type HICK_TO_SCLK_DIV_R = crate::FieldReader;
 #[doc = "Field `HICK_TO_SCLK_DIV` writer - HICK as system clock frequency division"]

@@ -6,14 +6,114 @@ pub type W = crate::W<MISC1_SPEC>;
 pub type HICKCAL_KEY_R = crate::FieldReader;
 #[doc = "Field `HICKCAL_KEY` writer - HICKCAL write key value"]
 pub type HICKCAL_KEY_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+#[doc = "HICK 6 divider selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HICKDIV_A {
+    #[doc = "0: HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
+    Div6 = 0,
+    #[doc = "1: HICK is not divided"]
+    Div1 = 1,
+}
+impl From<HICKDIV_A> for bool {
+    #[inline(always)]
+    fn from(variant: HICKDIV_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `HICKDIV` reader - HICK 6 divider selection"]
-pub type HICKDIV_R = crate::BitReader;
+pub type HICKDIV_R = crate::BitReader<HICKDIV_A>;
+impl HICKDIV_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> HICKDIV_A {
+        match self.bits {
+            false => HICKDIV_A::Div6,
+            true => HICKDIV_A::Div1,
+        }
+    }
+    #[doc = "HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
+    #[inline(always)]
+    pub fn is_div6(&self) -> bool {
+        *self == HICKDIV_A::Div6
+    }
+    #[doc = "HICK is not divided"]
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        *self == HICKDIV_A::Div1
+    }
+}
 #[doc = "Field `HICKDIV` writer - HICK 6 divider selection"]
-pub type HICKDIV_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type HICKDIV_W<'a, REG> = crate::BitWriter<'a, REG, HICKDIV_A>;
+impl<'a, REG> HICKDIV_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
+    #[inline(always)]
+    pub fn div6(self) -> &'a mut crate::W<REG> {
+        self.variant(HICKDIV_A::Div6)
+    }
+    #[doc = "HICK is not divided"]
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(HICKDIV_A::Div1)
+    }
+}
+#[doc = "HICK to system clock\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HICK_TO_SCLK_A {
+    #[doc = "0: Fixed 8 MHz, that is, HICK/6"]
+    Hickdiv6 = 0,
+    #[doc = "1: 48 MHz or 8 MHz, depending on the HICKDIV"]
+    Hickdiv = 1,
+}
+impl From<HICK_TO_SCLK_A> for bool {
+    #[inline(always)]
+    fn from(variant: HICK_TO_SCLK_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `HICK_TO_SCLK` reader - HICK to system clock"]
-pub type HICK_TO_SCLK_R = crate::BitReader;
+pub type HICK_TO_SCLK_R = crate::BitReader<HICK_TO_SCLK_A>;
+impl HICK_TO_SCLK_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> HICK_TO_SCLK_A {
+        match self.bits {
+            false => HICK_TO_SCLK_A::Hickdiv6,
+            true => HICK_TO_SCLK_A::Hickdiv,
+        }
+    }
+    #[doc = "Fixed 8 MHz, that is, HICK/6"]
+    #[inline(always)]
+    pub fn is_hickdiv6(&self) -> bool {
+        *self == HICK_TO_SCLK_A::Hickdiv6
+    }
+    #[doc = "48 MHz or 8 MHz, depending on the HICKDIV"]
+    #[inline(always)]
+    pub fn is_hickdiv(&self) -> bool {
+        *self == HICK_TO_SCLK_A::Hickdiv
+    }
+}
 #[doc = "Field `HICK_TO_SCLK` writer - HICK to system clock"]
-pub type HICK_TO_SCLK_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type HICK_TO_SCLK_W<'a, REG> = crate::BitWriter<'a, REG, HICK_TO_SCLK_A>;
+impl<'a, REG> HICK_TO_SCLK_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Fixed 8 MHz, that is, HICK/6"]
+    #[inline(always)]
+    pub fn hickdiv6(self) -> &'a mut crate::W<REG> {
+        self.variant(HICK_TO_SCLK_A::Hickdiv6)
+    }
+    #[doc = "48 MHz or 8 MHz, depending on the HICKDIV"]
+    #[inline(always)]
+    pub fn hickdiv(self) -> &'a mut crate::W<REG> {
+        self.variant(HICK_TO_SCLK_A::Hickdiv)
+    }
+}
 #[doc = "Field `CLKOUT_SEL2` reader - Clock output select2"]
 pub type CLKOUT_SEL2_R = crate::FieldReader;
 #[doc = "Field `CLKOUT_SEL2` writer - Clock output select2"]

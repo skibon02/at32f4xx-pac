@@ -2,10 +2,67 @@
 pub type R = crate::R<MISC2_SPEC>;
 #[doc = "Register `MISC2` writer"]
 pub type W = crate::W<MISC2_SPEC>;
+#[doc = "AUTO_STEP_EN\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum AUTO_STEP_EN_A {
+    #[doc = "0: Auto step mode disabled"]
+    Disabled = 0,
+    #[doc = "3: Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically."]
+    Enabled = 3,
+}
+impl From<AUTO_STEP_EN_A> for u8 {
+    #[inline(always)]
+    fn from(variant: AUTO_STEP_EN_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for AUTO_STEP_EN_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for AUTO_STEP_EN_A {}
 #[doc = "Field `AUTO_STEP_EN` reader - AUTO_STEP_EN"]
-pub type AUTO_STEP_EN_R = crate::FieldReader;
+pub type AUTO_STEP_EN_R = crate::FieldReader<AUTO_STEP_EN_A>;
+impl AUTO_STEP_EN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<AUTO_STEP_EN_A> {
+        match self.bits {
+            0 => Some(AUTO_STEP_EN_A::Disabled),
+            3 => Some(AUTO_STEP_EN_A::Enabled),
+            _ => None,
+        }
+    }
+    #[doc = "Auto step mode disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == AUTO_STEP_EN_A::Disabled
+    }
+    #[doc = "Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically."]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == AUTO_STEP_EN_A::Enabled
+    }
+}
 #[doc = "Field `AUTO_STEP_EN` writer - AUTO_STEP_EN"]
-pub type AUTO_STEP_EN_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type AUTO_STEP_EN_W<'a, REG> = crate::FieldWriter<'a, REG, 2, AUTO_STEP_EN_A>;
+impl<'a, REG> AUTO_STEP_EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Auto step mode disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AUTO_STEP_EN_A::Disabled)
+    }
+    #[doc = "Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically."]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AUTO_STEP_EN_A::Enabled)
+    }
+}
 #[doc = "Field `PLLU_USB48_SEL` reader - USB clock source select"]
 pub type PLLU_USB48_SEL_R = crate::BitReader;
 #[doc = "Field `PLLU_USB48_SEL` writer - USB clock source select"]

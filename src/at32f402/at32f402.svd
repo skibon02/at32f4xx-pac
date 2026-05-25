@@ -197,34 +197,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-              <enumeratedValues>
-                <name>HICKENR</name>
-                <usage>read</usage>
-                <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>High speed internal clock is disabled</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>High speed internal clock is enabled</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-              <enumeratedValues>
-                <name>HICKENW</name>
-                <usage>write</usage>
-                <enumeratedValue>
-                  <name>Disable</name>
-                  <description>High speed internal clock disable</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enable</name>
-                  <description>High speed internal clock enable</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>HICKSTBL</name>
@@ -232,19 +204,6 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
-              <enumeratedValues>
-                <name>HICKSTBLR</name>
-                <enumeratedValue>
-                  <name>NotReady</name>
-                  <description>Not ready</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Ready</name>
-                  <description>Ready</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>HICKTRIM</name>
@@ -259,12 +218,6 @@
               <bitOffset>8</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-only</access>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>255</maximum>
-                </range>
-              </writeConstraint>
             </field>
             <field>
               <name>HEXTEN</name>
@@ -272,34 +225,6 @@
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-              <enumeratedValues>
-                <name>HEXTENR</name>
-                <usage>read</usage>
-                <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>High speed external crystal is disabled</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>High speed external crystal is enabled</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-              <enumeratedValues>
-                <name>HEXTENW</name>
-                <usage>write</usage>
-                <enumeratedValue>
-                  <name>Disable</name>
-                  <description>High speed external crystal disable</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enable</name>
-                  <description>High speed external crystal enable</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>HEXTSTBL</name>
@@ -307,19 +232,6 @@
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
-              <enumeratedValues>
-                <name>HEXTSTBLR</name>
-                <enumeratedValue>
-                  <name>NotReady</name>
-                  <description>Not ready</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Ready</name>
-                  <description>Ready</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>HEXTBYPS</name>
@@ -327,34 +239,6 @@
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-              <enumeratedValues>
-                <name>HEXTBYPSR</name>
-                <usage>read</usage>
-                <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>High speed external crystal bypass is disabled</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>High speed external crystal bypass is enabled</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-              <enumeratedValues>
-                <name>HEXTBYPSW</name>
-                <usage>write</usage>
-                <enumeratedValue>
-                  <name>Disable</name>
-                  <description>High speed external crystal bypass disable</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enable</name>
-                  <description>High speed external crystal bypass enable</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>CFDEN</name>
@@ -362,34 +246,6 @@
               <bitOffset>19</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-              <enumeratedValues>
-                <name>CFDENR</name>
-                <usage>read</usage>
-                <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>Clock failure detector is disabled</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>Clock failure detector is enabled</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-              <enumeratedValues>
-                <name>CFDENW</name>
-                <usage>write</usage>
-                <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Clock failure detector disable</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Clock failure detector enable</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>PLLEN</name>
@@ -397,34 +253,6 @@
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-              <enumeratedValues>
-                <name>PLLENR</name>
-                <usage>read</usage>
-                <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>PLL is disabled</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>PLL is enabled</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-              <enumeratedValues>
-                <name>PLLENW</name>
-                <usage>write</usage>
-                <enumeratedValue>
-                  <name>Disable</name>
-                  <description>PLL disable</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Enable</name>
-                  <description>PLL enable</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>PLLSTBL</name>
@@ -432,19 +260,6 @@
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
-              <enumeratedValues>
-                <name>PLLSTBLR</name>
-                <enumeratedValue>
-                  <name>NotReady</name>
-                  <description>Not ready</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>Ready</name>
-                  <description>Ready</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
             </field>
             <field>
               <name>PLLUSTBL</name>
@@ -465,18 +280,30 @@
           <resetValue>0x00033002</resetValue>
           <fields>
             <field>
-              <name>PLL_MS</name>
+              <name>MS</name>
               <description>PLL pre-division</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <writeConstraint>
+                <range>
+                  <minimum>1</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
-              <name>PLL_NS</name>
+              <name>NS</name>
               <description>PLL frequency multiplication factor</description>
               <bitOffset>6</bitOffset>
               <bitWidth>9</bitWidth>
               <access>read-write</access>
+              <writeConstraint>
+                <range>
+                  <minimum>31</minimum>
+                  <maximum>500</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>PLL_FP</name>
@@ -505,6 +332,19 @@
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>PLLRCS</name>
+                <enumeratedValue>
+                  <name>HICK</name>
+                  <description>HICK-divided clock</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HEXT</name>
+                  <description>HEXT clock</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -1878,48 +1718,49 @@
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>NRSTF</name>
               <description>PIN reset flag</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
             <field>
               <name>PORRSTF</name>
               <description>POR/LVR reset flag</description>
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
             <field>
               <name>SWRSTF</name>
               <description>Software reset flag</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
             <field>
               <name>WDTRSTF</name>
               <description>Watchdog timer reset flag</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
             <field>
               <name>WWDTRSTF</name>
               <description>Window watchdog timer reset flag</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
             <field>
               <name>LPRSTF</name>
               <description>Low-power reset flag</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -1961,6 +1802,19 @@
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HICKDIV</name>
+                <enumeratedValue>
+                  <name>Div6</name>
+                  <description>HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div1</name>
+                  <description>HICK is not divided</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HICK_TO_SCLK</name>
@@ -1968,6 +1822,19 @@
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HICK_TO_SCLK</name>
+                <enumeratedValue>
+                  <name>HICKDiv6</name>
+                  <description>Fixed 8 MHz, that is, HICK/6</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HICKDiv</name>
+                  <description>48 MHz or 8 MHz, depending on the HICKDIV</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLKOUT_SEL2</name>
@@ -1999,6 +1866,19 @@
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>AUTO_STEP_EN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Auto step mode disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically.</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PLLU_USB48_SEL</name>

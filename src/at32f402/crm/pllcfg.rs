@@ -2,14 +2,14 @@
 pub type R = crate::R<PLLCFG_SPEC>;
 #[doc = "Register `PLLCFG` writer"]
 pub type W = crate::W<PLLCFG_SPEC>;
-#[doc = "Field `PLL_MS` reader - PLL pre-division"]
-pub type PLL_MS_R = crate::FieldReader;
-#[doc = "Field `PLL_MS` writer - PLL pre-division"]
-pub type PLL_MS_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
-#[doc = "Field `PLL_NS` reader - PLL frequency multiplication factor"]
-pub type PLL_NS_R = crate::FieldReader<u16>;
-#[doc = "Field `PLL_NS` writer - PLL frequency multiplication factor"]
-pub type PLL_NS_W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
+#[doc = "Field `MS` reader - PLL pre-division"]
+pub type MS_R = crate::FieldReader;
+#[doc = "Field `MS` writer - PLL pre-division"]
+pub type MS_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+#[doc = "Field `NS` reader - PLL frequency multiplication factor"]
+pub type NS_R = crate::FieldReader<u16>;
+#[doc = "Field `NS` writer - PLL frequency multiplication factor"]
+pub type NS_W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `PLL_FP` reader - PLLP post-division"]
 pub type PLL_FP_R = crate::FieldReader;
 #[doc = "Field `PLL_FP` writer - PLLP post-division"]
@@ -22,20 +22,70 @@ pub type PLL_FU_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 pub type PLLU_EN_R = crate::BitReader;
 #[doc = "Field `PLLU_EN` writer - PLLU enable"]
 pub type PLLU_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "PLL reference clock select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PLLRCS_A {
+    #[doc = "0: HICK-divided clock"]
+    Hick = 0,
+    #[doc = "1: HEXT clock"]
+    Hext = 1,
+}
+impl From<PLLRCS_A> for bool {
+    #[inline(always)]
+    fn from(variant: PLLRCS_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `PLLRCS` reader - PLL reference clock select"]
-pub type PLLRCS_R = crate::BitReader;
+pub type PLLRCS_R = crate::BitReader<PLLRCS_A>;
+impl PLLRCS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> PLLRCS_A {
+        match self.bits {
+            false => PLLRCS_A::Hick,
+            true => PLLRCS_A::Hext,
+        }
+    }
+    #[doc = "HICK-divided clock"]
+    #[inline(always)]
+    pub fn is_hick(&self) -> bool {
+        *self == PLLRCS_A::Hick
+    }
+    #[doc = "HEXT clock"]
+    #[inline(always)]
+    pub fn is_hext(&self) -> bool {
+        *self == PLLRCS_A::Hext
+    }
+}
 #[doc = "Field `PLLRCS` writer - PLL reference clock select"]
-pub type PLLRCS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PLLRCS_W<'a, REG> = crate::BitWriter<'a, REG, PLLRCS_A>;
+impl<'a, REG> PLLRCS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "HICK-divided clock"]
+    #[inline(always)]
+    pub fn hick(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLRCS_A::Hick)
+    }
+    #[doc = "HEXT clock"]
+    #[inline(always)]
+    pub fn hext(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLRCS_A::Hext)
+    }
+}
 impl R {
     #[doc = "Bits 0:3 - PLL pre-division"]
     #[inline(always)]
-    pub fn pll_ms(&self) -> PLL_MS_R {
-        PLL_MS_R::new((self.bits & 0x0f) as u8)
+    pub fn ms(&self) -> MS_R {
+        MS_R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 6:14 - PLL frequency multiplication factor"]
     #[inline(always)]
-    pub fn pll_ns(&self) -> PLL_NS_R {
-        PLL_NS_R::new(((self.bits >> 6) & 0x01ff) as u16)
+    pub fn ns(&self) -> NS_R {
+        NS_R::new(((self.bits >> 6) & 0x01ff) as u16)
     }
     #[doc = "Bits 16:19 - PLLP post-division"]
     #[inline(always)]
@@ -61,8 +111,8 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("PLLCFG")
-            .field("pll_ms", &self.pll_ms())
-            .field("pll_ns", &self.pll_ns())
+            .field("ms", &self.ms())
+            .field("ns", &self.ns())
             .field("pll_fp", &self.pll_fp())
             .field("pll_fu", &self.pll_fu())
             .field("pllu_en", &self.pllu_en())
@@ -73,13 +123,13 @@ impl core::fmt::Debug for R {
 impl W {
     #[doc = "Bits 0:3 - PLL pre-division"]
     #[inline(always)]
-    pub fn pll_ms(&mut self) -> PLL_MS_W<'_, PLLCFG_SPEC> {
-        PLL_MS_W::new(self, 0)
+    pub fn ms(&mut self) -> MS_W<'_, PLLCFG_SPEC> {
+        MS_W::new(self, 0)
     }
     #[doc = "Bits 6:14 - PLL frequency multiplication factor"]
     #[inline(always)]
-    pub fn pll_ns(&mut self) -> PLL_NS_W<'_, PLLCFG_SPEC> {
-        PLL_NS_W::new(self, 6)
+    pub fn ns(&mut self) -> NS_W<'_, PLLCFG_SPEC> {
+        NS_W::new(self, 6)
     }
     #[doc = "Bits 16:19 - PLLP post-division"]
     #[inline(always)]

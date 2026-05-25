@@ -1,0 +1,29 @@
+CRM:
+  PLLCFG:
+    _modify:
+      PLL_NS:
+        name: NS
+      PLL_MS:
+        name: MS
+    NS: [31, 500]
+    MS: [1, 15]
+    PLLRCS:
+      HICK: [0, "HICK-divided clock"]
+      HEXT: [1, "HEXT clock"]
+  CTRLSTS:
+    _modify:
+      LPRSTF,WWDTRSTF,WDTRSTF,SWRSTF,PORRSTF,NRSTF:
+        access: "read-only"
+    RSTFC:
+      _W1C: {}
+  MISC1:
+    HICK_TO_SCLK:
+      HICKDiv6: [0, "Fixed 8 MHz, that is, HICK/6"]
+      HICKDiv: [1, "48 MHz or 8 MHz, depending on the HICKDIV"]
+    HICKDIV:
+      Div6: [0, "HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
+      Div1: [1, "HICK is not divided"]
+  MISC2:
+    AUTO_STEP_EN:
+      Disabled: [0, "Auto step mode disabled"]
+      Enabled: [3, "Auto step mode enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically."]

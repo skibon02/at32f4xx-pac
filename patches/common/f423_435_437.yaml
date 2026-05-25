@@ -1,0 +1,34 @@
+CRM:
+  PLLCFG:
+    _modify:
+      PLL_FR:
+        name: FR
+    FR:
+      _name: PostDivision
+      Div4: [2, "Division by 4"]
+      Div8: [3, "Division by 8"]
+      Div16: [4, "Division by 16"]
+      Div32: [5, "Division by 32"]
+    PLLRCS:
+      _name: PllReferenceClockSelect
+      HICK: [0, "HICK clock selected as PLL reference clock"]
+      HEXT: [1, "HEXT clock selected as PLL reference clock"]
+  MISC1:
+    HICK_TO_USB:
+      PLLDiv: [0, "PLL or PLL division"]
+      HICKDiv: [1, "48 MHz or 8 MHz, depending on the HICKDIV"]
+  MISC2:
+    USBDIV:
+      Div1_5: [0, "USB clock is divided by 1.5"]
+      Div1: [1, "USB clock is not divided"]
+      Div2_5: [2, "USB clock is divided by 2.5"]
+      Div2: [3, "USB clock is divided by 2"]
+      Div3_5: [4, "USB clock is divided by 3.5"]
+      Div3: [5, "USB clock is divided by 3"]
+      Div4_5: [6, "USB clock is divided by 4.5"]
+      Div4: [7, "USB clock is divided by 4"]
+      Div5_5: [8, "USB clock is divided by 5.5"]
+      Div5: [9, "USB clock is divided by 5"]
+      Div6_5: [10, "USB clock is divided by 6.5"]
+      Div6: [11, "USB clock is divided by 6"]
+      Div7: [12, "USB clock is divided by 7"]

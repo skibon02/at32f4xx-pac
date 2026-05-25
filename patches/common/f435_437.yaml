@@ -3,8 +3,8 @@ _derive:
 
 _include:
   - crm/common.yaml
-  - crm/crm_pllcfg.yaml
-  - crm/f435_437.yaml
+  - crm/crm_v2.yaml
+  - f423_435_437.yaml
   - ertc/common.yaml
   - ertc/alarmb.yaml
   - ertc/wat.yaml
@@ -34,3 +34,44 @@ _include:
   - wdt/with_win.yaml
   - acc/common.yaml
   - debug/common.yaml
+
+CRM:
+  CFG:
+    CLKOUT1_SEL:
+      HICK: [0, "HICK clock selected as CLKOUT1"]
+      LEXT: [1, "LEXT clock selected as CLKOUT1"]
+      HEXT: [2, "HEXT clock selected as CLKOUT1"]
+      PLL: [3, "PLL clock selected as CLKOUT1"]
+    CLKOUT2_SEL1:
+      SCLK: [0, "SCLK clock selected as CLKOUT2"]
+      Secondary: [1, "Secondary clock selected as CLKOUT2 (controlled by CLKOUT2_SEL2 bit in the CRM_MISC1 register)"]
+      HEXT: [2, "HEXT clock selected as CLKOUT2"]
+      PLL: [3, "PLL clock selected as CLKOUT2"]
+    CLKOUT?DIV1:
+      Div1: [-1, "CLKOUT%s is divided by 1"]
+      Div2: [4, "CLKOUT%s is divided by 2"]
+      Div3: [5, "CLKOUT%s is divided by 3"]
+      Div4: [6, "CLKOUT%s is divided by 4"]
+      Div5: [7, "CLKOUT%s is divided by 5"]
+  MISC1:
+    CLKOUT2_SEL2:
+      Usb: [0, "USB clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+      Adc: [1, "ADC clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+      HICKDiv: [2, "HICK (after divider) clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+      Lick: [3, "LICK clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+      Lext: [4, "LEXT clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
+
+    CLKOUT?DIV2:
+      Div1: [-1, "CLKOUT%s is divided by 1"]
+      Div2: [8, "CLKOUT%s is divided by 2"]
+      Div4: [9, "CLKOUT%s is divided by 4"]
+      Div8: [10, "CLKOUT%s is divided by 8"]
+      Div16: [11, "CLKOUT%s is divided by 16"]
+      Div64: [12, "CLKOUT%s is divided by 64"]
+      Div128: [13, "CLKOUT%s is divided by 128"]
+      Div256: [14, "CLKOUT%s is divided by 256"]
+      Div512: [15, "CLKOUT%s is divided by 512"]
+  MISC2:
+    CLK_TO_TMR:
+      Disconnected: [0, "Disconnected"]
+      Connected: [1, "CLKOUT1 internal connected to timer10 channel1"]

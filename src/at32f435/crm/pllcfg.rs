@@ -97,10 +97,60 @@ where
         self.variant(POST_DIVISION_A::Div32)
     }
 }
+#[doc = "PLL reference clock select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PLL_REFERENCE_CLOCK_SELECT_A {
+    #[doc = "0: HICK-divided clock"]
+    Hick = 0,
+    #[doc = "1: HEXT clock"]
+    Hext = 1,
+}
+impl From<PLL_REFERENCE_CLOCK_SELECT_A> for bool {
+    #[inline(always)]
+    fn from(variant: PLL_REFERENCE_CLOCK_SELECT_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `PLLRCS` reader - PLL reference clock select"]
-pub type PLLRCS_R = crate::BitReader;
+pub type PLLRCS_R = crate::BitReader<PLL_REFERENCE_CLOCK_SELECT_A>;
+impl PLLRCS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> PLL_REFERENCE_CLOCK_SELECT_A {
+        match self.bits {
+            false => PLL_REFERENCE_CLOCK_SELECT_A::Hick,
+            true => PLL_REFERENCE_CLOCK_SELECT_A::Hext,
+        }
+    }
+    #[doc = "HICK-divided clock"]
+    #[inline(always)]
+    pub fn is_hick(&self) -> bool {
+        *self == PLL_REFERENCE_CLOCK_SELECT_A::Hick
+    }
+    #[doc = "HEXT clock"]
+    #[inline(always)]
+    pub fn is_hext(&self) -> bool {
+        *self == PLL_REFERENCE_CLOCK_SELECT_A::Hext
+    }
+}
 #[doc = "Field `PLLRCS` writer - PLL reference clock select"]
-pub type PLLRCS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PLLRCS_W<'a, REG> = crate::BitWriter<'a, REG, PLL_REFERENCE_CLOCK_SELECT_A>;
+impl<'a, REG> PLLRCS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "HICK-divided clock"]
+    #[inline(always)]
+    pub fn hick(self) -> &'a mut crate::W<REG> {
+        self.variant(PLL_REFERENCE_CLOCK_SELECT_A::Hick)
+    }
+    #[doc = "HEXT clock"]
+    #[inline(always)]
+    pub fn hext(self) -> &'a mut crate::W<REG> {
+        self.variant(PLL_REFERENCE_CLOCK_SELECT_A::Hext)
+    }
+}
 impl R {
     #[doc = "Bits 0:3 - PLL pre-division"]
     #[inline(always)]
