@@ -24,9 +24,6 @@ CRC:
       ByteReverse: [1, "Byte reverse"]
       HalfWordReverse: [2, "Half-word reverse"]
       WordReverse: [3, "Word reverse"]
-    _modify:
-      REVOD:
-        access: read-only
     REVOD:
       NoEffect: [0, "No effect"]
       WordReverse: [1, "Word reverse"]
