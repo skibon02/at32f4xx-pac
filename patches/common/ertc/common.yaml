@@ -4,8 +4,6 @@ ERTC:
   _modify:
     DIV:
       description: "Divider register"
-    SBS:
-      size: 16
     BPR*DT:
       writeConstraint: [0, 0xffffffff]
   TIME:
@@ -129,9 +127,6 @@ ERTC:
         Key1: [0xCA, "Unlock key 1"]
         Key2: [0x53, "Unlock key 2"]
         Invalid: [0x00, "Write value 0x00 which is considered invalid and will activate write protection back"]
-  SBS,TSSBS:
-    _delete:
-      - SBS
   BPR*DT:
     _delete:
       - DT

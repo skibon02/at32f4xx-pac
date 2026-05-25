@@ -4124,9 +4124,17 @@
           <displayName>SBS</displayName>
           <description>sub second register</description>
           <addressOffset>0x28</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>SBS</name>
+              <description>Sub second value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>TADJ</name>
@@ -4253,6 +4261,14 @@
           <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>SBS</name>
+              <description>Sub second value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>SCAL</name>

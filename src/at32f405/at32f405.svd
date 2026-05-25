@@ -5537,15 +5537,17 @@
           <displayName>WAT</displayName>
           <description>Wakeup timer register</description>
           <addressOffset>0x14</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x0000FFFF</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>65535</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>VAL</name>
+              <description>Wakeup timer reload value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>CCAL</name>
@@ -5837,9 +5839,17 @@
           <displayName>SBS</displayName>
           <description>sub second register</description>
           <addressOffset>0x28</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>SBS</name>
+              <description>Sub second value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>TADJ</name>
@@ -5966,6 +5976,14 @@
           <size>0x20</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>SBS</name>
+              <description>Sub second value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>SCAL</name>
