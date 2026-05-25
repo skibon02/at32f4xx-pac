@@ -3649,10 +3649,10 @@
               <description>Decrease 1 hour</description>
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>write-only</access>
               <modifiedWriteValues>oneToSet</modifiedWriteValues>
               <enumeratedValues>
                 <name>DEC1HW</name>
-                <usage>write</usage>
                 <enumeratedValue>
                   <name>Sub</name>
                   <description>Subtract 1 hour</description>
@@ -3665,10 +3665,10 @@
               <description>Add 1 hour</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>write-only</access>
               <modifiedWriteValues>oneToSet</modifiedWriteValues>
               <enumeratedValues>
                 <name>ADD1HW</name>
-                <usage>write</usage>
                 <enumeratedValue>
                   <name>Add</name>
                   <description>Add 1 hour</description>

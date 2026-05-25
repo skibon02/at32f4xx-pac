@@ -549,23 +549,6 @@ impl From<ADD1HW_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `ADD1H` reader - Add 1 hour"]
-pub type ADD1H_R = crate::BitReader<ADD1HW_A>;
-impl ADD1H_R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<ADD1HW_A> {
-        match self.bits {
-            true => Some(ADD1HW_A::Add),
-            _ => None,
-        }
-    }
-    #[doc = "Add 1 hour"]
-    #[inline(always)]
-    pub fn is_add(&self) -> bool {
-        *self == ADD1HW_A::Add
-    }
-}
 #[doc = "Field `ADD1H` writer - Add 1 hour"]
 pub type ADD1H_W<'a, REG> = crate::BitWriter1S<'a, REG, ADD1HW_A>;
 impl<'a, REG> ADD1H_W<'a, REG>
@@ -589,23 +572,6 @@ impl From<DEC1HW_A> for bool {
     #[inline(always)]
     fn from(variant: DEC1HW_A) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `DEC1H` reader - Decrease 1 hour"]
-pub type DEC1H_R = crate::BitReader<DEC1HW_A>;
-impl DEC1H_R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<DEC1HW_A> {
-        match self.bits {
-            true => Some(DEC1HW_A::Sub),
-            _ => None,
-        }
-    }
-    #[doc = "Subtract 1 hour"]
-    #[inline(always)]
-    pub fn is_sub(&self) -> bool {
-        *self == DEC1HW_A::Sub
     }
 }
 #[doc = "Field `DEC1H` writer - Decrease 1 hour"]
@@ -931,16 +897,6 @@ impl R {
     pub fn tsien(&self) -> TSIEN_R {
         TSIEN_R::new(((self.bits >> 15) & 1) != 0)
     }
-    #[doc = "Bit 16 - Add 1 hour"]
-    #[inline(always)]
-    pub fn add1h(&self) -> ADD1H_R {
-        ADD1H_R::new(((self.bits >> 16) & 1) != 0)
-    }
-    #[doc = "Bit 17 - Decrease 1 hour"]
-    #[inline(always)]
-    pub fn dec1h(&self) -> DEC1H_R {
-        DEC1H_R::new(((self.bits >> 17) & 1) != 0)
-    }
     #[doc = "Bit 18 - Battery power domain data register"]
     #[inline(always)]
     pub fn bpr(&self) -> BPR_R {
@@ -975,8 +931,6 @@ impl core::fmt::Debug for R {
             .field("outp", &self.outp())
             .field("calosel", &self.calosel())
             .field("bpr", &self.bpr())
-            .field("dec1h", &self.dec1h())
-            .field("add1h", &self.add1h())
             .field("tsien", &self.tsien())
             .field("watien", &self.watien())
             .field("alaien", &self.alaien())

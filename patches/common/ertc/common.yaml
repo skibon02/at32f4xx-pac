@@ -85,6 +85,11 @@ ERTC:
       _write:
         Disable: [0, "Timestamp interrupt disable"]
         Enable: [1, "Timestamp interrupt enable"]
+    _modify:
+      ADD1H:
+        access: "write-only"
+      DEC1H:
+        access: "write-only"
     ADD1H:
       _W1S:
         Add: [1, "Add 1 hour"]
