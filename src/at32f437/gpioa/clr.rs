@@ -1,0 +1,135 @@
+#[doc = "Register `CLR` writer"]
+pub type W = crate::W<CLR_SPEC>;
+#[doc = "Clear bit %s\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum IOCB0W_A {
+    #[doc = "1: Clear the corresponding ODT bit"]
+    Clear = 1,
+}
+impl From<IOCB0W_A> for bool {
+    #[inline(always)]
+    fn from(variant: IOCB0W_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `IOCB(0-15)` writer - Clear bit %s"]
+pub type IOCB_W<'a, REG> = crate::BitWriter1C<'a, REG, IOCB0W_A>;
+impl<'a, REG> IOCB_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear the corresponding ODT bit"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(IOCB0W_A::Clear)
+    }
+}
+impl core::fmt::Debug for crate::generic::Reg<CLR_SPEC> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
+impl W {
+    #[doc = "Clear bit (0-15)"]
+    #[doc = ""]
+    #[doc = "<div class=\"warning\">`n` is number of field in register. `n == 0` corresponds to `IOCB0` field.</div>"]
+    #[inline(always)]
+    pub fn iocb(&mut self, n: u8) -> IOCB_W<'_, CLR_SPEC> {
+        #[allow(clippy::no_effect)]
+        [(); 16][n as usize];
+        IOCB_W::new(self, n)
+    }
+    #[doc = "Bit 0 - Clear bit 0"]
+    #[inline(always)]
+    pub fn iocb0(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 0)
+    }
+    #[doc = "Bit 1 - Clear bit 1"]
+    #[inline(always)]
+    pub fn iocb1(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 1)
+    }
+    #[doc = "Bit 2 - Clear bit 2"]
+    #[inline(always)]
+    pub fn iocb2(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 2)
+    }
+    #[doc = "Bit 3 - Clear bit 3"]
+    #[inline(always)]
+    pub fn iocb3(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 3)
+    }
+    #[doc = "Bit 4 - Clear bit 4"]
+    #[inline(always)]
+    pub fn iocb4(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 4)
+    }
+    #[doc = "Bit 5 - Clear bit 5"]
+    #[inline(always)]
+    pub fn iocb5(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 5)
+    }
+    #[doc = "Bit 6 - Clear bit 6"]
+    #[inline(always)]
+    pub fn iocb6(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 6)
+    }
+    #[doc = "Bit 7 - Clear bit 7"]
+    #[inline(always)]
+    pub fn iocb7(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 7)
+    }
+    #[doc = "Bit 8 - Clear bit 8"]
+    #[inline(always)]
+    pub fn iocb8(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 8)
+    }
+    #[doc = "Bit 9 - Clear bit 9"]
+    #[inline(always)]
+    pub fn iocb9(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 9)
+    }
+    #[doc = "Bit 10 - Clear bit 10"]
+    #[inline(always)]
+    pub fn iocb10(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 10)
+    }
+    #[doc = "Bit 11 - Clear bit 11"]
+    #[inline(always)]
+    pub fn iocb11(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 11)
+    }
+    #[doc = "Bit 12 - Clear bit 12"]
+    #[inline(always)]
+    pub fn iocb12(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 12)
+    }
+    #[doc = "Bit 13 - Clear bit 13"]
+    #[inline(always)]
+    pub fn iocb13(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 13)
+    }
+    #[doc = "Bit 14 - Clear bit 14"]
+    #[inline(always)]
+    pub fn iocb14(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 14)
+    }
+    #[doc = "Bit 15 - Clear bit 15"]
+    #[inline(always)]
+    pub fn iocb15(&mut self) -> IOCB_W<'_, CLR_SPEC> {
+        IOCB_W::new(self, 15)
+    }
+}
+#[doc = "GPIO bit reset register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`clr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CLR_SPEC;
+impl crate::RegisterSpec for CLR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`clr::W`](W) writer structure"]
+impl crate::Writable for CLR_SPEC {
+    type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0xffff;
+}
+#[doc = "`reset()` method sets CLR to value 0"]
+impl crate::Resettable for CLR_SPEC {}
