@@ -5,6 +5,7 @@ _modify:
   PR:
     size: 32
     writeConstraint: [0, 0xFFFFFFFF]
+    resetValue: 0x0000FFFF
 CVAL:
   _delete:
     - CVAL

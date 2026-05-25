@@ -7358,7 +7358,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
@@ -9424,7 +9424,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
@@ -11232,7 +11232,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
@@ -11729,7 +11729,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
@@ -12436,7 +12436,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
@@ -13133,7 +13133,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
@@ -14362,7 +14362,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
@@ -15552,7 +15552,7 @@
           <addressOffset>0x2C</addressOffset>
           <size>0x10</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <writeConstraint>
             <range>
               <minimum>0</minimum>
