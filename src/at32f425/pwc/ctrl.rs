@@ -11,9 +11,9 @@ pub type LPSEL_R = crate::BitReader;
 #[doc = "Field `LPSEL` writer - Low power mode select when Cortex-M4 sleepdeep"]
 pub type LPSEL_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CLSWEF` writer - Clear SWEF flag"]
-pub type CLSWEF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type CLSWEF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `CLSEF` writer - Clear SEF flag"]
-pub type CLSEF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type CLSEF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `PVMEN` reader - Power voltage monitoring enable"]
 pub type PVMEN_R = crate::BitReader;
 #[doc = "Field `PVMEN` writer - Power voltage monitoring enable"]
@@ -111,6 +111,7 @@ impl crate::Readable for CTRL_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`ctrl::W`](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x0c;
 }
 #[doc = "`reset()` method sets CTRL to value 0"]
 impl crate::Resettable for CTRL_SPEC {}

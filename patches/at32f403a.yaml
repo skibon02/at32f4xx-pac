@@ -4,4 +4,5 @@ _modify:
   name: AT32F403A
 
 _include:
+  - common/common.yaml
   - common/f403a_407.yaml

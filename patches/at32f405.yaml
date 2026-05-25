@@ -4,4 +4,5 @@ _modify:
   name: AT32F405
 
 _include:
+  - common/common.yaml
   - common/f402_405.yaml

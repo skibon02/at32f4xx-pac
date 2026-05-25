@@ -69,6 +69,7 @@
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>write-only</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>CLSEF</name>
@@ -76,6 +77,7 @@
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>write-only</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>PVMEN</name>

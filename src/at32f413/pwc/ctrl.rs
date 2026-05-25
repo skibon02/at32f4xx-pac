@@ -6,14 +6,10 @@ pub type W = crate::W<CTRL_SPEC>;
 pub type LPSEL_R = crate::BitReader;
 #[doc = "Field `LPSEL` writer - Low power mode select when Cortex-M4F sleepdeep"]
 pub type LPSEL_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CLSWEF` reader - Clear SWEF flag"]
-pub type CLSWEF_R = crate::BitReader;
 #[doc = "Field `CLSWEF` writer - Clear SWEF flag"]
-pub type CLSWEF_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CLSEF` reader - Clear SEF flag"]
-pub type CLSEF_R = crate::BitReader;
+pub type CLSWEF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `CLSEF` writer - Clear SEF flag"]
-pub type CLSEF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type CLSEF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `PVMEN` reader - Power voltage monitoring enable"]
 pub type PVMEN_R = crate::BitReader;
 #[doc = "Field `PVMEN` writer - Power voltage monitoring enable"]
@@ -31,16 +27,6 @@ impl R {
     #[inline(always)]
     pub fn lpsel(&self) -> LPSEL_R {
         LPSEL_R::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - Clear SWEF flag"]
-    #[inline(always)]
-    pub fn clswef(&self) -> CLSWEF_R {
-        CLSWEF_R::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - Clear SEF flag"]
-    #[inline(always)]
-    pub fn clsef(&self) -> CLSEF_R {
-        CLSEF_R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Power voltage monitoring enable"]
     #[inline(always)]
@@ -62,8 +48,6 @@ impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CTRL")
             .field("lpsel", &self.lpsel())
-            .field("clswef", &self.clswef())
-            .field("clsef", &self.clsef())
             .field("pvmen", &self.pvmen())
             .field("pvmsel", &self.pvmsel())
             .field("bpwen", &self.bpwen())
@@ -112,6 +96,7 @@ impl crate::Readable for CTRL_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`ctrl::W`](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x0c;
 }
 #[doc = "`reset()` method sets CTRL to value 0"]
 impl crate::Resettable for CTRL_SPEC {}

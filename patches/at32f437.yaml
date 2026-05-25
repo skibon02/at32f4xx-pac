@@ -4,5 +4,6 @@ _modify:
   name: AT32F437
 
 _include:
+  - common/common.yaml
   - common/f435_437.yaml
   - common/emac.yaml

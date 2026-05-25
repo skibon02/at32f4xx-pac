@@ -4,4 +4,5 @@ _modify:
   name: AT32F435
 
 _include:
+  - common/common.yaml
   - common/f435_437.yaml

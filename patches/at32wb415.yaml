@@ -8,6 +8,7 @@ DEBUG:
     - "DEBUG_"
 
 _include:
+  - common/common.yaml
   - common/crm/common.yaml
   - common/exint/common.yaml
   - common/dma/common.yaml

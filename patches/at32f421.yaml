@@ -3,28 +3,8 @@ _svd: "../svd/at32f421.svd"
 _modify:
   name: AT32F421
 
-CRM:
-  AHBEN:
-    _modify:
-      DMAEN:
-        name: DMA1EN
-  APB2EN:
-    _modify:
-      SCFGCMPEN:
-        name: SCFGEN
-      ADCEN:
-        name: ADC1EN
-
-ADC1:
-  _delete:
-    _interrupts:
-      - ADC1_2
-  _add:
-    _interrupts:
-      ADC_CMP:
-        value: 12
-
 _include:
+  - common/common.yaml
   - common/crm/common.yaml
   - common/crm/pllhextdiv.yaml
   - common/ertc/common.yaml
@@ -48,3 +28,25 @@ _include:
   - common/wdt/common.yaml
   - common/debug/common.yaml
   - common/debug/timers.yaml
+
+CRM:
+  AHBEN:
+    _modify:
+      DMAEN:
+        name: DMA1EN
+  APB2EN:
+    _modify:
+      SCFGCMPEN:
+        name: SCFGEN
+      ADCEN:
+        name: ADC1EN
+
+ADC1:
+  _delete:
+    _interrupts:
+      - ADC1_2
+  _add:
+    _interrupts:
+      ADC_CMP:
+        value: 12
+

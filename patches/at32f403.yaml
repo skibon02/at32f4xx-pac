@@ -4,6 +4,7 @@ _modify:
   name: AT32F403
 
 _include:
+  - common/common.yaml
   - common/crm/common.yaml
   - common/crm/pllhextdiv.yaml
   - common/flash/common.yaml

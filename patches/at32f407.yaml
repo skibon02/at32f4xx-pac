@@ -4,5 +4,6 @@ _modify:
   name: AT32F407
 
 _include:
+  - common/common.yaml
   - common/f403a_407.yaml
   - common/emac.yaml

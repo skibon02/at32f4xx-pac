@@ -11,6 +11,7 @@ TMR9,TMR10:
     - common/tmr/dir.yaml
 
 _include:
+  - common/common.yaml
   - common/f423_435_437.yaml
   - common/f423_402_405.yaml
   - common/crm/common.yaml

@@ -199,7 +199,7 @@ pub use PCCS_W as OCCS_W;
 #[doc = "Field `OCCO` reader - Ordinary channel conversion overflow flag"]
 pub type OCCO_R = crate::BitReader;
 #[doc = "Field `OCCO` writer - Ordinary channel conversion overflow flag"]
-pub type OCCO_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type OCCO_W<'a, REG> = crate::BitWriter0C<'a, REG>;
 #[doc = "Field `RDY` reader - ADC ready to conversion flag"]
 pub type RDY_R = crate::BitReader;
 impl R {
@@ -294,7 +294,7 @@ impl crate::Readable for STS_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`sts::W`](W) writer structure"]
 impl crate::Writable for STS_SPEC {
     type Safety = crate::Unsafe;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0x1f;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0x3f;
 }
 #[doc = "`reset()` method sets STS to value 0"]
 impl crate::Resettable for STS_SPEC {}

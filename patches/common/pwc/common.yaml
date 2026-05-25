@@ -1,0 +1,7 @@
+PWC:
+  CTRL:
+    _modify:
+      CLSWEF,CLSEF:
+        access: "write-only"
+    CLSWEF,CLSEF:
+      _W1C: {}

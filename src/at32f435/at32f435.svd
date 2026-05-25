@@ -1921,12 +1921,16 @@
               <description>Clear SWEF flag</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>write-only</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>CLSEF</name>
               <description>Clear SEF flag</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>write-only</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>PVMEN</name>
@@ -2009,7 +2013,7 @@
               <bitWidth>3</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
-                <name>LDOOVSelect</name>
+                <name>LdoOutputVSelect</name>
                 <enumeratedValue>
                   <name>V1_1</name>
                   <description>LDO output voltage is 1.1 V</description>
@@ -25514,6 +25518,7 @@
               <description>Ordinary channel conversion overflow flag</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>zeroToClear</modifiedWriteValues>
             </field>
             <field>
               <name>PCCS</name>

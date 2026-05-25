@@ -32,3 +32,7 @@ CRM:
       Div6_5: [10, "USB clock is divided by 6.5"]
       Div6: [11, "USB clock is divided by 6"]
       Div7: [12, "USB clock is divided by 7"]
+ADC?:
+  STS:
+    OCCO:
+      _W0C: {}
