@@ -2,22 +2,39 @@
 pub type R = crate::R<RPR_SPEC>;
 #[doc = "Register `RPR` writer"]
 pub type W = crate::W<RPR_SPEC>;
-impl core::fmt::Debug for R {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "{}", self.bits())
+#[doc = "Field `RPR` reader - Repetition of period value"]
+pub type RPR_R = crate::FieldReader<u16>;
+#[doc = "Field `RPR` writer - Repetition of period value"]
+pub type RPR_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+impl R {
+    #[doc = "Bits 0:15 - Repetition of period value"]
+    #[inline(always)]
+    pub fn rpr(&self) -> RPR_R {
+        RPR_R::new((self.bits & 0xffff) as u16)
     }
 }
-impl W {}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RPR").field("rpr", &self.rpr()).finish()
+    }
+}
+impl W {
+    #[doc = "Bits 0:15 - Repetition of period value"]
+    #[inline(always)]
+    pub fn rpr(&mut self) -> RPR_W<'_, RPR_SPEC> {
+        RPR_W::new(self, 0)
+    }
+}
 #[doc = "Repetition of period value\n\nYou can [`read`](crate::Reg::read) this register and get [`rpr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RPR_SPEC;
 impl crate::RegisterSpec for RPR_SPEC {
-    type Ux = u8;
+    type Ux = u32;
 }
 #[doc = "`read()` method returns [`rpr::R`](R) reader structure"]
 impl crate::Readable for RPR_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`rpr::W`](W) writer structure"]
 impl crate::Writable for RPR_SPEC {
-    type Safety = crate::Safe;
+    type Safety = crate::Unsafe;
 }
 #[doc = "`reset()` method sets RPR to value 0"]
 impl crate::Resettable for RPR_SPEC {}
