@@ -1,23 +1,23 @@
 #[doc = "Register `CLR` writer"]
 pub type W = crate::W<CLR_SPEC>;
 #[doc = "Field `ADDRC` writer - Clear 0~7 bit address match flag"]
-pub type ADDRC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ADDRC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `ACKFAILC` writer - Clear acknowledge failure flag"]
-pub type ACKFAILC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ACKFAILC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `STOPC` writer - Clear stop condition generation complete flag"]
-pub type STOPC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type STOPC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `BUSERRC` writer - Clear bus error flag"]
-pub type BUSERRC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type BUSERRC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `ARLOSTC` writer - Clear arbitration lost flag"]
-pub type ARLOSTC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ARLOSTC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `OUFC` writer - Clear overload / underload flag"]
-pub type OUFC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type OUFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `PECERRC` writer - Clear PEC receive error flag"]
-pub type PECERRC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PECERRC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `TMOUTC` writer - Clear SMBus timeout flag"]
-pub type TMOUTC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TMOUTC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `ALERTC` writer - Clear SMBus alert flag"]
-pub type ALERTC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ALERTC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 impl core::fmt::Debug for crate::generic::Reg<CLR_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "(not readable)")
@@ -78,6 +78,7 @@ impl crate::RegisterSpec for CLR_SPEC {
 #[doc = "`write(|w| ..)` method takes [`clr::W`](W) writer structure"]
 impl crate::Writable for CLR_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x3f38;
 }
 #[doc = "`reset()` method sets CLR to value 0"]
 impl crate::Resettable for CLR_SPEC {}

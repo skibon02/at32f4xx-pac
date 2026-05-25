@@ -5,11 +5,11 @@ pub type W = crate::W<STS_SPEC>;
 #[doc = "Field `TDBE` reader - Transmit data buffer empty flag"]
 pub type TDBE_R = crate::BitReader;
 #[doc = "Field `TDBE` writer - Transmit data buffer empty flag"]
-pub type TDBE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TDBE_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `TDIS` reader - Send interrupt status"]
 pub type TDIS_R = crate::BitReader;
 #[doc = "Field `TDIS` writer - Send interrupt status"]
-pub type TDIS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TDIS_W<'a, REG> = crate::BitWriter1S<'a, REG>;
 #[doc = "Field `RDBF` reader - Receive data buffer full flag"]
 pub type RDBF_R = crate::BitReader;
 #[doc = "Field `ADDRF` reader - 0~7 bit address match flag"]
@@ -172,6 +172,7 @@ impl crate::Readable for STS_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`sts::W`](W) writer structure"]
 impl crate::Writable for STS_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x03;
 }
 #[doc = "`reset()` method sets STS to value 0x01"]
 impl crate::Resettable for STS_SPEC {

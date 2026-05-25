@@ -9,3 +9,12 @@ I2C?:
         Enable: [1, "Enable Data transmit data interrupt"]
   RXDT, TXDT:
     DT: [0, 0xFF]
+
+  STS:
+    TDIS:
+      _W1S: {}
+    TDBE:
+      _W1C: {}
+  CLR:
+    "*":
+      _W1C: {}

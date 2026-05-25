@@ -17380,6 +17380,7 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToSet</modifiedWriteValues>
             </field>
             <field>
               <name>TDBE</name>
@@ -17387,6 +17388,7 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
           </fields>
         </register>
@@ -17404,54 +17406,63 @@
               <description>Clear SMBus alert flag</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>TMOUTC</name>
               <description>Clear SMBus timeout flag</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>PECERRC</name>
               <description>Clear PEC receive error flag</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>OUFC</name>
               <description>Clear overload / underload flag</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ARLOSTC</name>
               <description>Clear arbitration lost flag</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>BUSERRC</name>
               <description>Clear bus error flag</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>STOPC</name>
               <description>Clear stop condition generation complete flag</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ACKFAILC</name>
               <description>Clear acknowledge failure flag</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>ADDRC</name>
               <description>Clear 0~7 bit address match flag</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
           </fields>
         </register>
