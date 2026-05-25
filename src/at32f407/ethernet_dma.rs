@@ -88,11 +88,11 @@ impl RegisterBlock {
 pub type DMABM = crate::Reg<dmabm::DMABM_SPEC>;
 #[doc = "Ethernet DMA bus mode register"]
 pub mod dmabm;
-#[doc = "DMATPD (rw) register accessor: Ethernet DMA transmit poll demand register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmatpd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmatpd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmatpd`] module"]
+#[doc = "DMATPD (w) register accessor: Ethernet DMA transmit poll demand register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmatpd::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmatpd`] module"]
 pub type DMATPD = crate::Reg<dmatpd::DMATPD_SPEC>;
 #[doc = "Ethernet DMA transmit poll demand register"]
 pub mod dmatpd;
-#[doc = "DMARPD (rw) register accessor: EHERNET DMA receive poll demand register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmarpd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmarpd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmarpd`] module"]
+#[doc = "DMARPD (w) register accessor: EHERNET DMA receive poll demand register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmarpd::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmarpd`] module"]
 pub type DMARPD = crate::Reg<dmarpd::DMARPD_SPEC>;
 #[doc = "EHERNET DMA receive poll demand register"]
 pub mod dmarpd;

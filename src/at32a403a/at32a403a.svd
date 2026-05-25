@@ -28187,15 +28187,17 @@
           <displayName>MACMIIDT</displayName>
           <description>Ethernet MAC MII data register</description>
           <addressOffset>0x14</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>65535</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>MD</name>
+              <description>MII data</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>MACFCTRL</name>
@@ -28298,6 +28300,7 @@
               <description>Power down</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToSet</modifiedWriteValues>
             </field>
             <field>
               <name>EMP</name>
@@ -28316,12 +28319,16 @@
               <description>Received magic packet</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>read-only</access>
+              <readAction>clear</readAction>
             </field>
             <field>
               <name>RRWF</name>
               <description>Received remote wakeup frame</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>read-only</access>
+              <readAction>clear</readAction>
             </field>
             <field>
               <name>GUC</name>
@@ -28335,6 +28342,7 @@
               reset</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToSet</modifiedWriteValues>
             </field>
           </fields>
         </register>
@@ -28352,30 +28360,36 @@
               <description>PMT interrupt status</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>read-only</access>
             </field>
             <field>
               <name>MIS</name>
               <description>MMC interrupt status</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>read-only</access>
             </field>
             <field>
               <name>MRIS</name>
               <description>MMC receive interrupt status</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>read-only</access>
             </field>
             <field>
               <name>MTIS</name>
               <description>MMC transmit interrupt status</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>read-only</access>
             </field>
             <field>
               <name>TIS</name>
               <description>Timestamp interrupt status</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <access>read-only</access>
+              <readAction>clear</readAction>
             </field>
           </fields>
         </register>
@@ -28433,14 +28447,17 @@
           <displayName>MACA0H</displayName>
           <description>Ethernet MAC address 0 high register. This register changed to 16 bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1.</description>
           <addressOffset>0x40</addressOffset>
-          <size>0x10</size>
+          <size>0x20</size>
           <resetValue>0x0000FFFF</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>65535</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>MA0H</name>
+              <description>MAC address0 high</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
         </register>
         <register>
           <name>MACA0L</name>
@@ -28532,14 +28549,6 @@
               <maximum>4294967295</maximum>
             </range>
           </writeConstraint>
-          <fields>
-            <field>
-              <name>MA1L</name>
-              <description>MAC address1 low</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>MACA2H</name>
@@ -28616,14 +28625,6 @@
               <maximum>4294967295</maximum>
             </range>
           </writeConstraint>
-          <fields>
-            <field>
-              <name>MA2L</name>
-              <description>MAC address2 low</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>31</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>MACA3H</name>
@@ -28700,14 +28701,6 @@
               <maximum>4294967295</maximum>
             </range>
           </writeConstraint>
-          <fields>
-            <field>
-              <name>MA3L</name>
-              <description>MAC address3 low</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
       </registers>
     </peripheral>
@@ -29464,14 +29457,25 @@
           <description>Ethernet DMA transmit poll demand register</description>
           <addressOffset>0x4</addressOffset>
           <size>0x20</size>
-          <access>read-write</access>
+          <access>write-only</access>
           <resetValue>0x00000000</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>4294967295</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>TPD</name>
+              <description>Transmit poll demand</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>write-only</access>
+              <enumeratedValues>
+                <name>TPDW</name>
+                <enumeratedValue>
+                  <name>Poll</name>
+                  <description>When these bits are written with any value, the DMA reads the current descriptor pointed to by the EMAC_DMACTD. If the descriptor is not available (owned by host), the transmission suspends, and the bit 2 (TU) is set in the status register. If the descriptor is available, the transmission resumes.</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
         </register>
         <register>
           <name>DMARPD</name>
@@ -29479,14 +29483,25 @@
           <description>EHERNET DMA receive poll demand register</description>
           <addressOffset>0x8</addressOffset>
           <size>0x20</size>
-          <access>read-write</access>
+          <access>write-only</access>
           <resetValue>0x00000000</resetValue>
-          <writeConstraint>
-            <range>
-              <minimum>0</minimum>
-              <maximum>4294967295</maximum>
-            </range>
-          </writeConstraint>
+          <fields>
+            <field>
+              <name>RPD</name>
+              <description>Receive poll demand</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>write-only</access>
+              <enumeratedValues>
+                <name>RPDW</name>
+                <enumeratedValue>
+                  <name>Poll</name>
+                  <description>When these bits are written with any value, the DMA reads the current descriptor pointed to by the EMAC_DMACRD. If the descriptor is not available (owned by host), the reception suspends, and the bit 7 (RU) is set in the status register. If the descriptor is available, the reception resumes.</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
         </register>
         <register>
           <name>DMARDLADDR</name>

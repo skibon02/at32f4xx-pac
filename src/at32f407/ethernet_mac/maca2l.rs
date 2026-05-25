@@ -2,31 +2,12 @@
 pub type R = crate::R<MACA2L_SPEC>;
 #[doc = "Register `MACA2L` writer"]
 pub type W = crate::W<MACA2L_SPEC>;
-#[doc = "Field `MA2L` reader - MAC address2 low"]
-pub type MA2L_R = crate::FieldReader<u32>;
-#[doc = "Field `MA2L` writer - MAC address2 low"]
-pub type MA2L_W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
-impl R {
-    #[doc = "Bits 0:30 - MAC address2 low"]
-    #[inline(always)]
-    pub fn ma2l(&self) -> MA2L_R {
-        MA2L_R::new(self.bits & 0x7fff_ffff)
-    }
-}
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("MACA2L")
-            .field("ma2l", &self.ma2l())
-            .finish()
+        write!(f, "{}", self.bits())
     }
 }
-impl W {
-    #[doc = "Bits 0:30 - MAC address2 low"]
-    #[inline(always)]
-    pub fn ma2l(&mut self) -> MA2L_W<'_, MACA2L_SPEC> {
-        MA2L_W::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Ethernet MAC address 2 low register\n\nYou can [`read`](crate::Reg::read) this register and get [`maca2l::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`maca2l::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MACA2L_SPEC;
 impl crate::RegisterSpec for MACA2L_SPEC {

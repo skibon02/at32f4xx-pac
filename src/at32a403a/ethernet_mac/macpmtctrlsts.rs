@@ -5,7 +5,7 @@ pub type W = crate::W<MACPMTCTRLSTS_SPEC>;
 #[doc = "Field `PD` reader - Power down"]
 pub type PD_R = crate::BitReader;
 #[doc = "Field `PD` writer - Power down"]
-pub type PD_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PD_W<'a, REG> = crate::BitWriter1S<'a, REG>;
 #[doc = "Field `EMP` reader - Enable magic packet"]
 pub type EMP_R = crate::BitReader;
 #[doc = "Field `EMP` writer - Enable magic packet"]
@@ -14,14 +14,10 @@ pub type EMP_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type ERWF_R = crate::BitReader;
 #[doc = "Field `ERWF` writer - Enable remote wakeup frame"]
 pub type ERWF_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RMP` reader - Received magic packet"]
+#[doc = "Field `RMP` reader - Received magic packet\n\n<div class=\"warning\">The field is <b>cleared</b> (set to zero) following a read operation.</div>"]
 pub type RMP_R = crate::BitReader;
-#[doc = "Field `RMP` writer - Received magic packet"]
-pub type RMP_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RRWF` reader - Received remote wakeup frame"]
+#[doc = "Field `RRWF` reader - Received remote wakeup frame\n\n<div class=\"warning\">The field is <b>cleared</b> (set to zero) following a read operation.</div>"]
 pub type RRWF_R = crate::BitReader;
-#[doc = "Field `RRWF` writer - Received remote wakeup frame"]
-pub type RRWF_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `GUC` reader - Global unicast"]
 pub type GUC_R = crate::BitReader;
 #[doc = "Field `GUC` writer - Global unicast"]
@@ -29,7 +25,7 @@ pub type GUC_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RWFFPR` reader - Remote wakeup frame filter register pointer reset"]
 pub type RWFFPR_R = crate::BitReader;
 #[doc = "Field `RWFFPR` writer - Remote wakeup frame filter register pointer reset"]
-pub type RWFFPR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type RWFFPR_W<'a, REG> = crate::BitWriter1S<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Power down"]
     #[inline(always)]
@@ -73,8 +69,6 @@ impl core::fmt::Debug for R {
             .field("pd", &self.pd())
             .field("emp", &self.emp())
             .field("erwf", &self.erwf())
-            .field("rmp", &self.rmp())
-            .field("rrwf", &self.rrwf())
             .field("guc", &self.guc())
             .field("rwffpr", &self.rwffpr())
             .finish()
@@ -95,16 +89,6 @@ impl W {
     #[inline(always)]
     pub fn erwf(&mut self) -> ERWF_W<'_, MACPMTCTRLSTS_SPEC> {
         ERWF_W::new(self, 2)
-    }
-    #[doc = "Bit 5 - Received magic packet"]
-    #[inline(always)]
-    pub fn rmp(&mut self) -> RMP_W<'_, MACPMTCTRLSTS_SPEC> {
-        RMP_W::new(self, 5)
-    }
-    #[doc = "Bit 6 - Received remote wakeup frame"]
-    #[inline(always)]
-    pub fn rrwf(&mut self) -> RRWF_W<'_, MACPMTCTRLSTS_SPEC> {
-        RRWF_W::new(self, 6)
     }
     #[doc = "Bit 9 - Global unicast"]
     #[inline(always)]
@@ -127,6 +111,7 @@ impl crate::Readable for MACPMTCTRLSTS_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`macpmtctrlsts::W`](W) writer structure"]
 impl crate::Writable for MACPMTCTRLSTS_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x8000_0001;
 }
 #[doc = "`reset()` method sets MACPMTCTRLSTS to value 0"]
 impl crate::Resettable for MACPMTCTRLSTS_SPEC {}

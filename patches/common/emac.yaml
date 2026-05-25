@@ -84,25 +84,18 @@ ETHERNET_MAC:
       InterruptDisabled: [0, "PMT interrupt is disabled"]
       InterruptEnabled: [1, "PMT interrupt is enabled"]
   _modify:
-    MACMIIDT:
-      size: 16
-      writeConstraint: [ 0, 0xFFFF ]
     MACA0H:
       description: "Ethernet MAC address 0 high register. This register changed to 16 bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1."
-      size: 16
-      writeConstraint: [ 0, 0xFFFF ]
       resetValue: 0xFFFF
     MACA2H:
       resetValue: 0x0000FFFF
     MACA?L:
       size: 32
       writeConstraint: [0, 0xFFFFFFFF]
-  MACMIIDT:
-    _delete: [MD]
   MACA0H:
-    _delete: [MA0H, AE]
+    _delete: [AE]
   MACA?L:
-    _delete: [MA0L]
+    _delete: [MA?L]
   MACA[123]H:
     AE:
       Disabled: [0, "Second MAC address filter is disabled"]
@@ -110,6 +103,20 @@ ETHERNET_MAC:
     SA:
       Source: [0, "Second MAC address filter is used for source address filtering"]
       Destination: [1, "Second MAC address filter is used for destination address filtering"]
+  MACPMTCTRLSTS:
+    _modify:
+      RRWF,RMP:
+        access: "read-only"
+    RRWF,RMP:
+      _RC: {}
+    RWFFPR,PD:
+      _W1S: {}
+  MACISTS:
+    _modify:
+      "*":
+        access: "read-only"
+    TIS:
+      _RC: {}
 ETHERNET_DMA:
   DMABM:
     PR:
@@ -167,24 +174,32 @@ ETHERNET_DMA:
       Disabled: [0, "Interrupt disabled"]
       Enabled: [1, "Interrupt enabled"]
   _modify:
-    DMARPD:
-      size: 32
-      writeConstraint: [ 0, 0xFFFFFFFF ]
-    DMATPD:
-      size: 32
-      writeConstraint: [ 0, 0xFFFFFFFF ]
     DMARDLADDR:
       size: 32
       writeConstraint: [ 0, 0xFFFFFFFF ]
     DMATDLADDR:
       size: 32
       writeConstraint: [ 0, 0xFFFFFFFF ]
+    DMARPD,DMATPD:
+      access: "write-only"
 
-  DMARPD:
-    _delete: [RPD]
-  DMATPD:
-    _delete: [TPD]
   DMARDLADDR:
     _delete: [SRL]
   DMATDLADDR:
     _delete: [STL]
+
+  DMARPD:
+    _modify:
+      RPD:
+        access: "write-only"
+    RPD:
+      _write:
+        Poll: [0, "When these bits are written with any value, the DMA reads the current descriptor pointed to by the EMAC_DMACRD. If the descriptor is not available (owned by host), the reception suspends, and the bit 7 (RU) is set in the status register. If the descriptor is available, the reception resumes."]
+  DMATPD:
+    _modify:
+      TPD:
+        access: "write-only"
+    TPD:
+      _write:
+        Poll: [0, "When these bits are written with any value, the DMA reads the current descriptor pointed to by the EMAC_DMACTD. If the descriptor is not available (owned by host), the transmission suspends, and the bit 2 (TU) is set in the status register. If the descriptor is available, the transmission resumes."]
+
