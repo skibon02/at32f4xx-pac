@@ -23,6 +23,7 @@ _include:
   - common/adc/occe.yaml
   - common/adc/common.yaml
   - common/adc/odt.yaml
+  - common/adc/vm_16bit.yaml
   - common/exint/common.yaml
   - common/dma/common.yaml
   - common/can/common.yaml

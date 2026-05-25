@@ -18367,12 +18367,9 @@
           </fields>
         </register>
         <register>
-          <dim>2</dim>
-          <dimIncrement>0x4</dimIncrement>
-          <dimIndex>H,L</dimIndex>
-          <name>VM%sB</name>
-          <displayName>VM%sB</displayName>
-          <description>Voltage monitoring %s boundary register</description>
+          <name>VMHB</name>
+          <displayName>VMHB</displayName>
+          <description>Voltage monitoring high boundary register</description>
           <addressOffset>0x24</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -18381,6 +18378,29 @@
             <field>
               <name>VMB</name>
               <description>Voltage monitoring high boundary</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>12</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>4095</maximum>
+                </range>
+              </writeConstraint>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>VMLB</name>
+          <displayName>VMLB</displayName>
+          <description>Voltage monitoring low boundary register</description>
+          <addressOffset>0x28</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>VMB</name>
+              <description>Voltage monitoring low boundary</description>
               <bitOffset>0</bitOffset>
               <bitWidth>12</bitWidth>
               <writeConstraint>
@@ -19380,12 +19400,9 @@
           </fields>
         </register>
         <register>
-          <dim>2</dim>
-          <dimIncrement>0x4</dimIncrement>
-          <dimIndex>H,L</dimIndex>
-          <name>VM%sB</name>
-          <displayName>VM%sB</displayName>
-          <description>Voltage monitoring %s boundary register</description>
+          <name>VMHB</name>
+          <displayName>VMHB</displayName>
+          <description>Voltage monitoring high boundary register</description>
           <addressOffset>0x24</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -19394,6 +19411,29 @@
             <field>
               <name>VMB</name>
               <description>Voltage monitoring high boundary</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>12</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>4095</maximum>
+                </range>
+              </writeConstraint>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>VMLB</name>
+          <displayName>VMLB</displayName>
+          <description>Voltage monitoring low boundary register</description>
+          <addressOffset>0x28</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>VMB</name>
+              <description>Voltage monitoring low boundary</description>
               <bitOffset>0</bitOffset>
               <bitWidth>12</bitWidth>
               <writeConstraint>

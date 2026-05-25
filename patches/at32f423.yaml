@@ -20,6 +20,7 @@ _include:
   - common/gpio/gpio-v2.yaml
   - common/adc/common.yaml
   - common/adc/odt.yaml
+  - common/adc/vm_16bit.yaml
   - common/dma/common.yaml
   - common/can/common.yaml
   - common/crc/common.yaml

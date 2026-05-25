@@ -9,6 +9,7 @@ _include:
   - adc/common.yaml
   - adc/occe.yaml
   - adc/odt.yaml
+  - adc/vm_16bit.yaml
   - can/common.yaml
   - exint/common.yaml
   - exint/common.yaml

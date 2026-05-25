@@ -8,14 +8,15 @@ pub struct RegisterBlock {
     spt1: SPT1,
     spt2: SPT2,
     pcdto: [PCDTO; 4],
-    vmb: [VMB; 2],
+    vmhb: VMHB,
+    vmlb: VMLB,
     osq1: OSQ1,
     osq2: OSQ2,
     osq3: OSQ3,
     psq: PSQ,
     pdt: [PDT; 4],
     odt: ODT,
-    _reserved13: [u8; 0x30],
+    _reserved14: [u8; 0x30],
     ovsp: OVSP,
 }
 impl RegisterBlock {
@@ -77,28 +78,15 @@ impl RegisterBlock {
     pub const fn pcdto4(&self) -> &PCDTO {
         self.pcdto(3)
     }
-    #[doc = "0x24..0x2c - Voltage monitoring %s boundary register"]
-    #[doc = ""]
-    #[doc = "<div class=\"warning\">`n` is the index of register in the array. `n == 0` corresponds to `VMHB` register.</div>"]
+    #[doc = "0x24 - Voltage monitoring high boundary register"]
     #[inline(always)]
-    pub const fn vmb(&self, n: usize) -> &VMB {
-        &self.vmb[n]
+    pub const fn vmhb(&self) -> &VMHB {
+        &self.vmhb
     }
-    #[doc = "Iterator for array of:"]
-    #[doc = "0x24..0x2c - Voltage monitoring %s boundary register"]
+    #[doc = "0x28 - Voltage monitoring low boundary register"]
     #[inline(always)]
-    pub fn vmb_iter(&self) -> impl Iterator<Item = &VMB> {
-        self.vmb.iter()
-    }
-    #[doc = "0x24 - Voltage monitoring H boundary register"]
-    #[inline(always)]
-    pub const fn vmhb(&self) -> &VMB {
-        self.vmb(0)
-    }
-    #[doc = "0x28 - Voltage monitoring L boundary register"]
-    #[inline(always)]
-    pub const fn vmlb(&self) -> &VMB {
-        self.vmb(1)
+    pub const fn vmlb(&self) -> &VMLB {
+        &self.vmlb
     }
     #[doc = "0x2c - Ordinary sequence register 1"]
     #[inline(always)]
@@ -188,10 +176,14 @@ pub mod spt2;
 pub type PCDTO = crate::Reg<pcdto::PCDTO_SPEC>;
 #[doc = "Data offset for Preempted channel %s"]
 pub mod pcdto;
-#[doc = "VMB (rw) register accessor: Voltage monitoring %s boundary register\n\nYou can [`read`](crate::Reg::read) this register and get [`vmb::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`vmb::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@vmb`] module"]
-pub type VMB = crate::Reg<vmb::VMB_SPEC>;
-#[doc = "Voltage monitoring %s boundary register"]
-pub mod vmb;
+#[doc = "VMHB (rw) register accessor: Voltage monitoring high boundary register\n\nYou can [`read`](crate::Reg::read) this register and get [`vmhb::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`vmhb::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@vmhb`] module"]
+pub type VMHB = crate::Reg<vmhb::VMHB_SPEC>;
+#[doc = "Voltage monitoring high boundary register"]
+pub mod vmhb;
+#[doc = "VMLB (rw) register accessor: Voltage monitoring low boundary register\n\nYou can [`read`](crate::Reg::read) this register and get [`vmlb::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`vmlb::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@vmlb`] module"]
+pub type VMLB = crate::Reg<vmlb::VMLB_SPEC>;
+#[doc = "Voltage monitoring low boundary register"]
+pub mod vmlb;
 #[doc = "OSQ1 (rw) register accessor: Ordinary sequence register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`osq1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`osq1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@osq1`] module"]
 pub type OSQ1 = crate::Reg<osq1::OSQ1_SPEC>;
 #[doc = "Ordinary sequence register 1"]

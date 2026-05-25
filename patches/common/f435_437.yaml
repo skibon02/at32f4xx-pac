@@ -11,6 +11,7 @@ _include:
   - gpio/gpio-v2.yaml
   - adc/common.yaml
   - adc/odt.yaml
+  - adc/vm_16bit.yaml
   - flash/common.yaml
   - flash/f435_437.yaml
   - flash/unlock.yaml

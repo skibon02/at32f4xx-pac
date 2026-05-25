@@ -4,8 +4,6 @@ ADC?:
       description: Data offset for Preempted channel %s
     PDT?:
       description: Preempted data register %s
-    VM?B:
-      description: Voltage monitoring %s boundary register
   PCDTO?:
     _modify:
       PCDTO?:
