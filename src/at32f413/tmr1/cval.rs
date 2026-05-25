@@ -2,22 +2,39 @@
 pub type R = crate::R<CVAL_SPEC>;
 #[doc = "Register `CVAL` writer"]
 pub type W = crate::W<CVAL_SPEC>;
-impl core::fmt::Debug for R {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "{}", self.bits())
+#[doc = "Field `CVAL` reader - Counter value"]
+pub type CVAL_R = crate::FieldReader<u16>;
+#[doc = "Field `CVAL` writer - Counter value"]
+pub type CVAL_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+impl R {
+    #[doc = "Bits 0:15 - Counter value"]
+    #[inline(always)]
+    pub fn cval(&self) -> CVAL_R {
+        CVAL_R::new((self.bits & 0xffff) as u16)
     }
 }
-impl W {}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CVAL").field("cval", &self.cval()).finish()
+    }
+}
+impl W {
+    #[doc = "Bits 0:15 - Counter value"]
+    #[inline(always)]
+    pub fn cval(&mut self) -> CVAL_W<'_, CVAL_SPEC> {
+        CVAL_W::new(self, 0)
+    }
+}
 #[doc = "Counter value\n\nYou can [`read`](crate::Reg::read) this register and get [`cval::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cval::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CVAL_SPEC;
 impl crate::RegisterSpec for CVAL_SPEC {
-    type Ux = u16;
+    type Ux = u32;
 }
 #[doc = "`read()` method returns [`cval::R`](R) reader structure"]
 impl crate::Readable for CVAL_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`cval::W`](W) writer structure"]
 impl crate::Writable for CVAL_SPEC {
-    type Safety = crate::Safe;
+    type Safety = crate::Unsafe;
 }
 #[doc = "`reset()` method sets CVAL to value 0"]
 impl crate::Resettable for CVAL_SPEC {}

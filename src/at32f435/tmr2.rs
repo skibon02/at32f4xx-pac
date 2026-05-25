@@ -13,7 +13,6 @@ pub struct RegisterBlock {
     cctrl: CCTRL,
     cval: CVAL,
     div: DIV,
-    _reserved11: [u8; 0x02],
     pr: PR,
     _reserved12: [u8; 0x04],
     cdt: [CDT; 4],

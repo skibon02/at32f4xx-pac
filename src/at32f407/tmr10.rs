@@ -11,11 +11,9 @@ pub struct RegisterBlock {
     _reserved5: [u8; 0x04],
     cctrl: CCTRL,
     cval: CVAL,
-    _reserved7: [u8; 0x02],
     div: DIV,
-    _reserved8: [u8; 0x02],
     pr: PR,
-    _reserved9: [u8; 0x06],
+    _reserved9: [u8; 0x04],
     cdt: [CDT; 1],
 }
 impl RegisterBlock {

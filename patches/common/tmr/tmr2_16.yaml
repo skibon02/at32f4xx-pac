@@ -1,7 +1,0 @@
-TMR2:
-  _include:
-    - 16bit.yaml
-  _modify:
-    C%sDT:
-      size: 16
-      writeConstraint: [0, 0xFFFF]

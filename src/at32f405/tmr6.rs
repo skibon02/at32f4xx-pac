@@ -10,9 +10,7 @@ pub struct RegisterBlock {
     swevt: SWEVT,
     _reserved5: [u8; 0x0c],
     cval: CVAL,
-    _reserved6: [u8; 0x02],
     div: DIV,
-    _reserved7: [u8; 0x02],
     pr: PR,
 }
 impl RegisterBlock {

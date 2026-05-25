@@ -2,9 +2,6 @@ ACC:
   _modify:
     STS:
       access: read-only
-    C?:
-      size: 16
-      writeConstraint: [0, 0xFFFF]
   STS:
     CALRDY:
       NotReady: [0, "Interal 8MHz oscillator calibration is not ready"]
@@ -44,8 +41,4 @@ ACC:
   CTRL2:
     HICKCAL: [0, 0xff]
     HICKTRIM: [0, 0x3f]
-  C?:
-    _delete:
-      - C?
-
 

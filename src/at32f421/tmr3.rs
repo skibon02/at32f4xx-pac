@@ -12,13 +12,11 @@ pub struct RegisterBlock {
     _reserved_7_cm2: [u8; 0x04],
     cctrl: CCTRL,
     cval: CVAL,
-    _reserved10: [u8; 0x02],
     div: DIV,
-    _reserved11: [u8; 0x02],
     pr: PR,
-    _reserved12: [u8; 0x06],
-    cdt: (),
-    _reserved13: [u8; 0x14],
+    _reserved12: [u8; 0x04],
+    cdt: [CDT; 4],
+    _reserved13: [u8; 0x04],
     dmactrl: DMACTRL,
     dmadt: DMADT,
 }
@@ -93,32 +91,18 @@ impl RegisterBlock {
     pub const fn pr(&self) -> &PR {
         &self.pr
     }
-    #[doc = "0x34..0x3c - Channel data register"]
+    #[doc = "0x34..0x44 - Channel data register"]
     #[doc = ""]
     #[doc = "<div class=\"warning\">`n` is the index of register in the array. `n == 0` corresponds to `C1DT` register.</div>"]
     #[inline(always)]
     pub const fn cdt(&self, n: usize) -> &CDT {
-        #[allow(clippy::no_effect)]
-        [(); 4][n];
-        unsafe {
-            &*core::ptr::from_ref(self)
-                .cast::<u8>()
-                .add(52)
-                .add(4 * n)
-                .cast()
-        }
+        &self.cdt[n]
     }
     #[doc = "Iterator for array of:"]
-    #[doc = "0x34..0x3c - Channel data register"]
+    #[doc = "0x34..0x44 - Channel data register"]
     #[inline(always)]
     pub fn cdt_iter(&self) -> impl Iterator<Item = &CDT> {
-        (0..4).map(move |n| unsafe {
-            &*core::ptr::from_ref(self)
-                .cast::<u8>()
-                .add(52)
-                .add(4 * n)
-                .cast()
-        })
+        self.cdt.iter()
     }
     #[doc = "0x34 - Channel data register"]
     #[inline(always)]

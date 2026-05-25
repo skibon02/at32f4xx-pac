@@ -6,9 +6,7 @@ pub struct RegisterBlock {
     ctrl1: CTRL1,
     ctrl2: CTRL2,
     c1: C1,
-    _reserved4: [u8; 0x02],
     c2: C2,
-    _reserved5: [u8; 0x02],
     c3: C3,
 }
 impl RegisterBlock {

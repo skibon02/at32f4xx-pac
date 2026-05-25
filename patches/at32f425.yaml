@@ -35,7 +35,6 @@ _include:
   - common/i2c/common.yaml
   - common/i2c/v2.yaml
   - common/tmr/common.yaml
-  - common/tmr/tmr2_16.yaml
   - common/tmr/tmr16.yaml
   - common/wwdt/common.yaml
   - common/wdt/with_win.yaml

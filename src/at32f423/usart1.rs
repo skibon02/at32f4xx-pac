@@ -4,9 +4,7 @@
 pub struct RegisterBlock {
     sts: STS,
     dt: DT,
-    _reserved2: [u8; 0x02],
     baudr: BAUDR,
-    _reserved3: [u8; 0x02],
     ctrl1: CTRL1,
     ctrl2: CTRL2,
     ctrl3: CTRL3,
