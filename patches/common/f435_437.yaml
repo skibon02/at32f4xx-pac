@@ -1,6 +1,3 @@
-_derive: 
-  TMR5: TMR2
-
 _include:
   - crm/common.yaml
   - crm/crm_v2.yaml

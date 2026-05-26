@@ -73,7 +73,7 @@ impl RegisterBlock {
     pub const fn pr(&self) -> &PR {
         &self.pr
     }
-    #[doc = "0x34..0x3c - Channel data register"]
+    #[doc = "0x34..0x3c - Channel %s data register"]
     #[doc = ""]
     #[doc = "<div class=\"warning\">`n` is the index of register in the array. `n == 0` corresponds to `C1DT` register.</div>"]
     #[inline(always)]
@@ -81,17 +81,17 @@ impl RegisterBlock {
         &self.cdt[n]
     }
     #[doc = "Iterator for array of:"]
-    #[doc = "0x34..0x3c - Channel data register"]
+    #[doc = "0x34..0x3c - Channel %s data register"]
     #[inline(always)]
     pub fn cdt_iter(&self) -> impl Iterator<Item = &CDT> {
         self.cdt.iter()
     }
-    #[doc = "0x34 - Channel data register"]
+    #[doc = "0x34 - Channel 1 data register"]
     #[inline(always)]
     pub const fn c1dt(&self) -> &CDT {
         self.cdt(0)
     }
-    #[doc = "0x38 - Channel data register"]
+    #[doc = "0x38 - Channel 2 data register"]
     #[inline(always)]
     pub const fn c2dt(&self) -> &CDT {
         self.cdt(1)
@@ -141,7 +141,7 @@ pub mod div;
 pub type PR = crate::Reg<pr::PR_SPEC>;
 #[doc = "Period value"]
 pub mod pr;
-#[doc = "CDT (rw) register accessor: Channel data register\n\nYou can [`read`](crate::Reg::read) this register and get [`cdt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cdt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cdt`] module"]
+#[doc = "CDT (rw) register accessor: Channel %s data register\n\nYou can [`read`](crate::Reg::read) this register and get [`cdt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cdt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cdt`] module"]
 pub type CDT = crate::Reg<cdt::CDT_SPEC>;
-#[doc = "Channel data register"]
+#[doc = "Channel %s data register"]
 pub mod cdt;

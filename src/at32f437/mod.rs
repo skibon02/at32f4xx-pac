@@ -746,14 +746,14 @@ impl core::fmt::Debug for TMR4 {
 #[doc = "General purpose timer"]
 pub use self::tmr3 as tmr4;
 #[doc = "General purpose timer"]
-pub type TMR5 = crate::Periph<tmr2::RegisterBlock, 0x4000_0c00>;
+pub type TMR5 = crate::Periph<tmr5::RegisterBlock, 0x4000_0c00>;
 impl core::fmt::Debug for TMR5 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TMR5").finish()
     }
 }
 #[doc = "General purpose timer"]
-pub use self::tmr2 as tmr5;
+pub mod tmr5;
 #[doc = "General purpose timer"]
 pub type TMR9 = crate::Periph<tmr9::RegisterBlock, 0x4001_4000>;
 impl core::fmt::Debug for TMR9 {

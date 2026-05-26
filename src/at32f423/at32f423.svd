@@ -10389,7 +10389,7 @@
           <dimIndex>1-4</dimIndex>
           <name>C%sDT</name>
           <displayName>C%sDT</displayName>
-          <description>Channel data register</description>
+          <description>Channel %s data register</description>
           <addressOffset>0x34</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -10864,7 +10864,7 @@
         <register>
           <name>C5DT</name>
           <displayName>C5DT</displayName>
-          <description>Channel data register</description>
+          <description>Channel 5 data register</description>
           <addressOffset>0x74</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -12629,7 +12629,7 @@
           <dimIndex>1-4</dimIndex>
           <name>C%sDT</name>
           <displayName>C%sDT</displayName>
-          <description>Channel data register</description>
+          <description>Channel %s data register</description>
           <addressOffset>0x34</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -14460,7 +14460,7 @@
           <dimIndex>1-4</dimIndex>
           <name>C%sDT</name>
           <displayName>C%sDT</displayName>
-          <description>Channel data register</description>
+          <description>Channel %s data register</description>
           <addressOffset>0x34</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -15587,7 +15587,7 @@
           <dimIndex>1-2</dimIndex>
           <name>C%sDT</name>
           <displayName>C%sDT</displayName>
-          <description>Channel data register</description>
+          <description>Channel %s data register</description>
           <addressOffset>0x34</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -16602,7 +16602,7 @@
           <dimIndex>1-1</dimIndex>
           <name>C%sDT</name>
           <displayName>C%sDT</displayName>
-          <description>Channel data register</description>
+          <description>Channel %s data register</description>
           <addressOffset>0x34</addressOffset>
           <size>0x20</size>
           <access>read-write</access>

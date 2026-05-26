@@ -46,10 +46,8 @@ TMR*:
 
 TMR[1239],TMR??:
   _array:
-    C[1-4]DT: {}
-  _modify:
-    C?DT:
-      description: "Channel data register"
+    C[1-4]DT:
+      description: "Channel %s data register"
   C?DT:
     _delete:
       - C?DT
