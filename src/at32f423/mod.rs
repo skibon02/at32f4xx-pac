@@ -569,6 +569,15 @@ impl core::fmt::Debug for TMR14 {
 }
 #[doc = "General purpose timer"]
 pub use self::tmr10 as tmr14;
+#[doc = "TMR14 channel 1 input remap register"]
+pub type TMR14_RMP = crate::Periph<tmr14_rmp::RegisterBlock, 0x4000_2050>;
+impl core::fmt::Debug for TMR14_RMP {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TMR14_RMP").finish()
+    }
+}
+#[doc = "TMR14 channel 1 input remap register"]
+pub mod tmr14_rmp;
 #[doc = "Basic timer"]
 pub type TMR6 = crate::Periph<tmr6::RegisterBlock, 0x4000_1000>;
 impl core::fmt::Debug for TMR6 {
@@ -912,6 +921,8 @@ pub struct Peripherals {
     pub TMR13: TMR13,
     #[doc = "TMR14"]
     pub TMR14: TMR14,
+    #[doc = "TMR14_RMP"]
+    pub TMR14_RMP: TMR14_RMP,
     #[doc = "TMR6"]
     pub TMR6: TMR6,
     #[doc = "TMR7"]
@@ -1023,6 +1034,7 @@ impl Peripherals {
             TMR11: unsafe { TMR11::steal() },
             TMR13: unsafe { TMR13::steal() },
             TMR14: unsafe { TMR14::steal() },
+            TMR14_RMP: unsafe { TMR14_RMP::steal() },
             TMR6: unsafe { TMR6::steal() },
             TMR7: unsafe { TMR7::steal() },
             ACC: unsafe { ACC::steal() },

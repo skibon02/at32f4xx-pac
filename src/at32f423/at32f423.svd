@@ -16731,7 +16731,7 @@
       <name>TMR13</name>
       <baseAddress>0x40001C00</baseAddress>
     </peripheral>
-    <peripheral derivedFrom="TMR13">
+    <peripheral derivedFrom="TMR10">
       <name>TMR14</name>
       <description>General purpose timer</description>
       <groupName>TIMER</groupName>
@@ -16741,6 +16741,34 @@
         <description>TMR14 global interrupt</description>
         <value>45</value>
       </interrupt>
+    </peripheral>
+    <peripheral>
+      <name>TMR14_RMP</name>
+      <description>TMR14 channel 1 input remap register</description>
+      <baseAddress>0x40002050</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x4</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>RMP</name>
+          <description>TMR14 channel 1 input remap</description>
+          <addressOffset>0x0</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>TMR14_CH1_IRMP</name>
+              <description>TMR14 channel 1 input remap</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+          </fields>
+        </register>
+      </registers>
     </peripheral>
     <peripheral>
       <name>TMR6</name>

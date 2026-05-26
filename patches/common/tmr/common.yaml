@@ -1,4 +1,4 @@
-TMR*:
+TMR?,TMR??:
   CTRL1:
     TMREN:
       _read:

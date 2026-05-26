@@ -4,7 +4,7 @@ _modify:
   name: AT32F423
 
 _derive:
-  TMR14: TMR13
+  TMR14: TMR10
 
 TMR9,TMR10:
   _include:
@@ -35,7 +35,29 @@ _include:
   - common/tmr/common.yaml
   - common/tmr/tmr2_32.yaml
   - common/tmr/tmr10.yaml
+  - common/tmr/f432.yaml
   - common/wwdt/common.yaml
   - common/wdt/with_win.yaml
   - common/acc/common.yaml
   - common/debug/common.yaml
+
+_add:
+  TMR14_RMP:
+    description: "TMR14 channel 1 input remap register"
+    baseAddress: "0x40002050"
+    addressBlock:
+      offset: 0x0
+      size: 0x4
+      usage: registers
+    registers:
+      RMP:
+        description: "TMR14 channel 1 input remap"
+        addressOffset: 0x0
+        size: 32
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          TMR14_CH1_IRMP:
+            description: "TMR14 channel 1 input remap"
+            bitOffset: 6
+            bitWidth: 2
