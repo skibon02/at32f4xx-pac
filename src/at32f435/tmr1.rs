@@ -238,5 +238,7 @@ pub mod dmadt;
 pub type CM3_OUTPUT = crate::Reg<cm3_output::CM3_OUTPUT_SPEC>;
 #[doc = "Channel output mode register"]
 pub mod cm3_output;
-pub use CDT as C5DT;
-pub use cdt as c5dt;
+#[doc = "C5DT (rw) register accessor: Channel 5 data register\n\nYou can [`read`](crate::Reg::read) this register and get [`c5dt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c5dt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@c5dt`] module"]
+pub type C5DT = crate::Reg<c5dt::C5DT_SPEC>;
+#[doc = "Channel 5 data register"]
+pub mod c5dt;

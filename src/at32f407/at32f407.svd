@@ -8882,6 +8882,14 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>C1DT</name>
+              <description>Channel 1 data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>BRK</name>
@@ -10978,6 +10986,14 @@
               <maximum>4294967295</maximum>
             </range>
           </writeConstraint>
+          <fields>
+            <field>
+              <name>C1DT</name>
+              <description>Channel 1 data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>DMACTRL</name>
@@ -12786,6 +12802,14 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>C1DT</name>
+              <description>Channel 1 data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>DMACTRL</name>
@@ -13730,6 +13754,14 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>C1DT</name>
+              <description>Channel 1 data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
       </registers>
     </peripheral>
@@ -14483,6 +14515,14 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>C1DT</name>
+              <description>Channel 1 data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
         </register>
       </registers>
     </peripheral>

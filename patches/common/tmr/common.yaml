@@ -48,9 +48,6 @@ TMR[1239],TMR??:
   _array:
     C[1-4]DT:
       description: "Channel %s data register"
-  C?DT:
-    _delete:
-      - C?DT
   CTRL1:
     CLKDIV:
       NoDiv: [0, "No division, fDTS=fCK_INT"]

@@ -727,6 +727,15 @@ impl core::fmt::Debug for TMR2 {
 }
 #[doc = "General purpose timer"]
 pub mod tmr2;
+#[doc = "TMR2 channel 1 input remap register"]
+pub type TMR2_RMP = crate::Periph<tmr2_rmp::RegisterBlock, 0x4000_0050>;
+impl core::fmt::Debug for TMR2_RMP {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TMR2_RMP").finish()
+    }
+}
+#[doc = "TMR2 channel 1 input remap register"]
+pub mod tmr2_rmp;
 #[doc = "General purpose timer"]
 pub type TMR3 = crate::Periph<tmr3::RegisterBlock, 0x4000_0400>;
 impl core::fmt::Debug for TMR3 {
@@ -746,14 +755,23 @@ impl core::fmt::Debug for TMR4 {
 #[doc = "General purpose timer"]
 pub use self::tmr3 as tmr4;
 #[doc = "General purpose timer"]
-pub type TMR5 = crate::Periph<tmr5::RegisterBlock, 0x4000_0c00>;
+pub type TMR5 = crate::Periph<tmr2::RegisterBlock, 0x4000_0c00>;
 impl core::fmt::Debug for TMR5 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TMR5").finish()
     }
 }
 #[doc = "General purpose timer"]
-pub mod tmr5;
+pub use self::tmr2 as tmr5;
+#[doc = "TMR5 channel 4 input remap register"]
+pub type TMR5_RMP = crate::Periph<tmr5_rmp::RegisterBlock, 0x4000_0c50>;
+impl core::fmt::Debug for TMR5_RMP {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TMR5_RMP").finish()
+    }
+}
+#[doc = "TMR5 channel 4 input remap register"]
+pub mod tmr5_rmp;
 #[doc = "General purpose timer"]
 pub type TMR9 = crate::Periph<tmr9::RegisterBlock, 0x4001_4000>;
 impl core::fmt::Debug for TMR9 {
@@ -1275,12 +1293,16 @@ pub struct Peripherals {
     pub TMR20: TMR20,
     #[doc = "TMR2"]
     pub TMR2: TMR2,
+    #[doc = "TMR2_RMP"]
+    pub TMR2_RMP: TMR2_RMP,
     #[doc = "TMR3"]
     pub TMR3: TMR3,
     #[doc = "TMR4"]
     pub TMR4: TMR4,
     #[doc = "TMR5"]
     pub TMR5: TMR5,
+    #[doc = "TMR5_RMP"]
+    pub TMR5_RMP: TMR5_RMP,
     #[doc = "TMR9"]
     pub TMR9: TMR9,
     #[doc = "TMR12"]
@@ -1431,9 +1453,11 @@ impl Peripherals {
             TMR8: unsafe { TMR8::steal() },
             TMR20: unsafe { TMR20::steal() },
             TMR2: unsafe { TMR2::steal() },
+            TMR2_RMP: unsafe { TMR2_RMP::steal() },
             TMR3: unsafe { TMR3::steal() },
             TMR4: unsafe { TMR4::steal() },
             TMR5: unsafe { TMR5::steal() },
+            TMR5_RMP: unsafe { TMR5_RMP::steal() },
             TMR9: unsafe { TMR9::steal() },
             TMR12: unsafe { TMR12::steal() },
             TMR10: unsafe { TMR10::steal() },

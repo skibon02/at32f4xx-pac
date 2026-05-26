@@ -32,6 +32,54 @@ _include:
   - debug/common.yaml
   - sdio/common.yaml
 
+_derive:
+  TMR5: TMR2
+
+TMR2:
+  _delete:
+    _registers:
+      - TMR2_RMP
+
+_add:
+  TMR2_RMP:
+    description: "TMR2 channel 1 input remap register"
+    baseAddress: "0x40000050"
+    addressBlock:
+      offset: 0x0
+      size: 0x4
+      usage: registers
+    registers:
+      RMP:
+        description: "TMR2 channel 1 input remap"
+        addressOffset: 0x0
+        size: 32
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          TMR2_CH1_IRMP:
+            description: "TMR2 channel 1 input remap"
+            bitOffset: 10
+            bitWidth: 2
+  TMR5_RMP:
+    description: "TMR5 channel 4 input remap register"
+    baseAddress: "0x40000C50"
+    addressBlock:
+      offset: 0x0
+      size: 0x4
+      usage: registers
+    registers:
+      RMP:
+        description: "TMR5 channel 4 input remap"
+        addressOffset: 0x0
+        size: 32
+        access: read-write
+        resetValue: 0x00000000
+        fields:
+          TMR5_CH4_IRMP:
+            description: "TMR5 channel 4 input remap"
+            bitOffset: 6
+            bitWidth: 2
+
 CRM:
   CFG:
     CLKOUT1_SEL:

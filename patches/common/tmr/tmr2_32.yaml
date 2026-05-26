@@ -7,9 +7,11 @@ TMR2:
       size: 32
       writeConstraint: [0, 0xFFFFFFFF]
       resetValue: 0x0000FFFF
-    C%sDT:
+    C*DT:
       size: 32
       writeConstraint: [0, 0xFFFFFFFF]
+      _delete:
+        - C?DT
   CVAL:
     _delete:
       - CVAL
