@@ -23423,7 +23423,20 @@
               <description>CS pulse abnormal setting fiag</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
+              <enumeratedValues>
+                <name>CSPAS</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>CS pulse flag normal</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Abnormal</name>
+                  <description>CS pulse flag is set abnormally</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>BF</name>

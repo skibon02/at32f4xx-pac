@@ -323,10 +323,43 @@ impl BF_R {
         *self == BF_A::Busy
     }
 }
+#[doc = "CS pulse abnormal setting fiag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CSPAS_A {
+    #[doc = "0: CS pulse flag normal"]
+    Normal = 0,
+    #[doc = "1: CS pulse flag is set abnormally"]
+    Abnormal = 1,
+}
+impl From<CSPAS_A> for bool {
+    #[inline(always)]
+    fn from(variant: CSPAS_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `CSPAS` reader - CS pulse abnormal setting fiag"]
-pub type CSPAS_R = crate::BitReader;
-#[doc = "Field `CSPAS` writer - CS pulse abnormal setting fiag"]
-pub type CSPAS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type CSPAS_R = crate::BitReader<CSPAS_A>;
+impl CSPAS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> CSPAS_A {
+        match self.bits {
+            false => CSPAS_A::Normal,
+            true => CSPAS_A::Abnormal,
+        }
+    }
+    #[doc = "CS pulse flag normal"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        *self == CSPAS_A::Normal
+    }
+    #[doc = "CS pulse flag is set abnormally"]
+    #[inline(always)]
+    pub fn is_abnormal(&self) -> bool {
+        *self == CSPAS_A::Abnormal
+    }
+}
 impl R {
     #[doc = "Bit 0 - Receive data buffer full"]
     #[inline(always)]
@@ -394,11 +427,6 @@ impl W {
     #[inline(always)]
     pub fn ccerr(&mut self) -> CCERR_W<'_, STS_SPEC> {
         CCERR_W::new(self, 4)
-    }
-    #[doc = "Bit 8 - CS pulse abnormal setting fiag"]
-    #[inline(always)]
-    pub fn cspas(&mut self) -> CSPAS_W<'_, STS_SPEC> {
-        CSPAS_W::new(self, 8)
     }
 }
 #[doc = "status register\n\nYou can [`read`](crate::Reg::read) this register and get [`sts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

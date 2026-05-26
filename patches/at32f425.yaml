@@ -32,6 +32,7 @@ _include:
   - common/crc/poly.yaml
   - common/usart/common.yaml
   - common/spi/common.yaml
+  - common/spi/sts_cspas.yaml
   - common/i2c/common.yaml
   - common/i2c/v2.yaml
   - common/tmr/common.yaml

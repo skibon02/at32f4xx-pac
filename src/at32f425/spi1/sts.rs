@@ -323,8 +323,43 @@ impl BF_R {
         *self == BF_A::Busy
     }
 }
+#[doc = "CS pulse abnormal setting fiag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CSPAS_A {
+    #[doc = "0: CS pulse flag normal"]
+    Normal = 0,
+    #[doc = "1: CS pulse flag is set abnormally"]
+    Abnormal = 1,
+}
+impl From<CSPAS_A> for bool {
+    #[inline(always)]
+    fn from(variant: CSPAS_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `CSPAS` reader - CS pulse abnormal setting fiag"]
-pub type CSPAS_R = crate::BitReader;
+pub type CSPAS_R = crate::BitReader<CSPAS_A>;
+impl CSPAS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> CSPAS_A {
+        match self.bits {
+            false => CSPAS_A::Normal,
+            true => CSPAS_A::Abnormal,
+        }
+    }
+    #[doc = "CS pulse flag normal"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        *self == CSPAS_A::Normal
+    }
+    #[doc = "CS pulse flag is set abnormally"]
+    #[inline(always)]
+    pub fn is_abnormal(&self) -> bool {
+        *self == CSPAS_A::Abnormal
+    }
+}
 impl R {
     #[doc = "Bit 0 - Receive data buffer full"]
     #[inline(always)]

@@ -1,0 +1,8 @@
+SPI?:
+  STS:
+    _modify:
+      CSPAS:
+        access: "read-only"
+    CSPAS:
+      Normal: [0, "CS pulse flag normal"]
+      Abnormal: [1, "CS pulse flag is set abnormally"]
