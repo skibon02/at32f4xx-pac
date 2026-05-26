@@ -1,0 +1,23 @@
+SDIO?:
+  _modify:
+    ARGU:
+      writeConstraint: [0, 0xFFFFFFFF]
+    DTTMR:
+      writeConstraint: [0, 0xFFFFFFFF]
+    BUF:
+      writeConstraint: [0, 0xFFFFFFFF]
+  ARGU:
+    _delete: [ARGU]
+  DTTMR:
+    _delete: [TIMEOUT]
+  BUF:
+    _delete: [DT]
+
+  RSP?:
+    _delete: [CARDSTS?]
+  _cluster:
+    Rsp%s:
+      description: "Short/long card status response part %s"
+      RSP?:
+        name: RSP
+        description: "Short/long card status response"

@@ -33,6 +33,7 @@ _include:
   - wdt/with_win.yaml
   - acc/common.yaml
   - debug/common.yaml
+  - sdio/common.yaml
 
 CRM:
   CFG:

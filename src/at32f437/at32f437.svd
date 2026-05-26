@@ -10475,14 +10475,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>ARGU</name>
-              <description>Command argument</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>CMDCTRL</name>
@@ -10549,74 +10547,23 @@
             </field>
           </fields>
         </register>
-        <register>
-          <name>RSP1</name>
-          <displayName>RSP1</displayName>
-          <description>Bits 31:0 = CARDSTATUS1</description>
+        <cluster>
+          <dim>4</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <dimIndex>1-4</dimIndex>
+          <name>Rsp%s</name>
+          <description>Short/long card status response part %s</description>
           <addressOffset>0x14</addressOffset>
-          <size>0x20</size>
-          <access>read-only</access>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>CARDSTS1</name>
-              <description>CARDSTATUS1</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>RSP2</name>
-          <displayName>RSP2</displayName>
-          <description>Bits 31:0 = CARDSTATUS2</description>
-          <addressOffset>0x18</addressOffset>
-          <size>0x20</size>
-          <access>read-only</access>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>CARDSTS2</name>
-              <description>CARDSTATUS2</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>RSP3</name>
-          <displayName>RSP3</displayName>
-          <description>Bits 31:0 = CARDSTATUS3</description>
-          <addressOffset>0x1C</addressOffset>
-          <size>0x20</size>
-          <access>read-only</access>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>CARDSTS2</name>
-              <description>CARDSTATUS3</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>RSP4</name>
-          <displayName>RSP4</displayName>
-          <description>Bits 31:0 = CARDSTATUS4</description>
-          <addressOffset>0x20</addressOffset>
-          <size>0x20</size>
-          <access>read-only</access>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>CARDSTS2</name>
-              <description>CARDSTATUS4</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
-        </register>
+          <register>
+            <name>RSP</name>
+            <displayName>RSP1</displayName>
+            <description>Short/long card status response</description>
+            <addressOffset>0x0</addressOffset>
+            <size>0x20</size>
+            <access>read-only</access>
+            <resetValue>0x00000000</resetValue>
+          </register>
+        </cluster>
         <register>
           <name>DTTMR</name>
           <displayName>DTTMR</displayName>
@@ -10626,14 +10573,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>TIMEOUT</name>
-              <description>Data timeout period</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>DTLEN</name>
@@ -11148,14 +11093,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>DT</name>
-              <description>Buffer data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
       </registers>
     </peripheral>

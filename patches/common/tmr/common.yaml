@@ -45,8 +45,14 @@ TMR*:
         Overflow: [1, "Generate an overflow event"]
 
 TMR[1239],TMR??:
-  _include:
-    - cdt.yaml
+  _array:
+    C[1-4]DT: {}
+  _modify:
+    C?DT:
+      description: "Channel data register"
+  C?DT:
+    _delete:
+      - C?DT
   CTRL1:
     CLKDIV:
       NoDiv: [0, "No division, fDTS=fCK_INT"]
@@ -177,8 +183,17 @@ TMR[1239],TMR1[5789]:
 
 
 TMR[123],TMR1[5-9]:
-  _include:
-    - channel_dma.yaml
+  IDEN:
+    _array:
+      C?DEN:
+        description: "Channel %s DMA request enable"
+    C?DEN:
+      _read:
+        Disabled: [0, "Channel DMA request is disabled"]
+        Enabled: [1, "Channel DMA request is enabled"]
+      _write:
+        Disable: [0, "Channel DMA request disable"]
+        Enable: [1, "Channel DMA request enable"]
   DMACTRL:
     ADDR: [0, 0x1F]
     DTB: [0, 0x1F]
@@ -186,8 +201,25 @@ TMR[123],TMR1[5-9]:
     DMADT: [0, 0xFFFF]
 
 TMR[123],TMR1[59]:
-  _include:
-    - trigger.yaml
+  IDEN:
+    TIEN:
+      _read:
+        Disabled: [0, "Trigger interrupt is disabled"]
+        Enabled: [1, "Trigger interrupt is enabled"]
+      _write:
+        Disable: [0, "Trigger interrupt disable"]
+        Enable: [1, "Trigger interrupt enable"]
+  ISTS:
+    TRGIF:
+      _read:
+        NoEvent: [0, "No trigger event occurs"]
+        TriggerEvent: [1, "Trigger event is generated"]
+      _W0C:
+        Clear: [0, "Trigger interrupt flag clear"]
+  SWEVT:
+    TRGSWTR:
+      _W1S:
+        Event: [1, "Generate a trigger event"]
 
 TMR[19],TMR??:
   CCTRL:

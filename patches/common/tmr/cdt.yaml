@@ -1,8 +1,0 @@
-_array:
-  C[1-4]DT: {}
-_modify:
-  C?DT:
-    description: "Channel data register"
-C?DT:
-  _delete:
-    - C?DT

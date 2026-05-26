@@ -7,10 +7,7 @@ pub struct RegisterBlock {
     argu: ARGU,
     cmdctrl: CMDCTRL,
     rspcmd: RSPCMD,
-    rsp1: RSP1,
-    rsp2: RSP2,
-    rsp3: RSP3,
-    rsp4: RSP4,
+    rsp: [Rsp; 4],
     dttmr: DTTMR,
     dtlen: DTLEN,
     dtctrl: DTCTRL,
@@ -18,9 +15,9 @@ pub struct RegisterBlock {
     sts: STS,
     intclr: INTCLR,
     inten: INTEN,
-    _reserved16: [u8; 0x08],
+    _reserved13: [u8; 0x08],
     bufcnt: BUFCNT,
-    _reserved17: [u8; 0x34],
+    _reserved14: [u8; 0x34],
     buf: BUF,
 }
 impl RegisterBlock {
@@ -49,25 +46,38 @@ impl RegisterBlock {
     pub const fn rspcmd(&self) -> &RSPCMD {
         &self.rspcmd
     }
-    #[doc = "0x14 - Bits 31:0 = CARDSTATUS1"]
+    #[doc = "0x14..0x24 - Short/long card status response part %s"]
+    #[doc = ""]
+    #[doc = "<div class=\"warning\">`n` is the index of cluster in the array. `n == 0` corresponds to `Rsp1` cluster.</div>"]
     #[inline(always)]
-    pub const fn rsp1(&self) -> &RSP1 {
-        &self.rsp1
+    pub const fn rsp(&self, n: usize) -> &Rsp {
+        &self.rsp[n]
     }
-    #[doc = "0x18 - Bits 31:0 = CARDSTATUS2"]
+    #[doc = "Iterator for array of:"]
+    #[doc = "0x14..0x24 - Short/long card status response part %s"]
     #[inline(always)]
-    pub const fn rsp2(&self) -> &RSP2 {
-        &self.rsp2
+    pub fn rsp_iter(&self) -> impl Iterator<Item = &Rsp> {
+        self.rsp.iter()
     }
-    #[doc = "0x1c - Bits 31:0 = CARDSTATUS3"]
+    #[doc = "0x14 - Short/long card status response part 1"]
     #[inline(always)]
-    pub const fn rsp3(&self) -> &RSP3 {
-        &self.rsp3
+    pub const fn rsp1(&self) -> &Rsp {
+        self.rsp(0)
     }
-    #[doc = "0x20 - Bits 31:0 = CARDSTATUS4"]
+    #[doc = "0x18 - Short/long card status response part 2"]
     #[inline(always)]
-    pub const fn rsp4(&self) -> &RSP4 {
-        &self.rsp4
+    pub const fn rsp2(&self) -> &Rsp {
+        self.rsp(1)
+    }
+    #[doc = "0x1c - Short/long card status response part 3"]
+    #[inline(always)]
+    pub const fn rsp3(&self) -> &Rsp {
+        self.rsp(2)
+    }
+    #[doc = "0x20 - Short/long card status response part 4"]
+    #[inline(always)]
+    pub const fn rsp4(&self) -> &Rsp {
+        self.rsp(3)
     }
     #[doc = "0x24 - Bits 31:0 = TIMEOUT: Data timeout period"]
     #[inline(always)]
@@ -135,22 +145,11 @@ pub mod cmdctrl;
 pub type RSPCMD = crate::Reg<rspcmd::RSPCMD_SPEC>;
 #[doc = "SDIO command register"]
 pub mod rspcmd;
-#[doc = "RSP1 (r) register accessor: Bits 31:0 = CARDSTATUS1\n\nYou can [`read`](crate::Reg::read) this register and get [`rsp1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsp1`] module"]
-pub type RSP1 = crate::Reg<rsp1::RSP1_SPEC>;
-#[doc = "Bits 31:0 = CARDSTATUS1"]
-pub mod rsp1;
-#[doc = "RSP2 (r) register accessor: Bits 31:0 = CARDSTATUS2\n\nYou can [`read`](crate::Reg::read) this register and get [`rsp2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsp2`] module"]
-pub type RSP2 = crate::Reg<rsp2::RSP2_SPEC>;
-#[doc = "Bits 31:0 = CARDSTATUS2"]
-pub mod rsp2;
-#[doc = "RSP3 (r) register accessor: Bits 31:0 = CARDSTATUS3\n\nYou can [`read`](crate::Reg::read) this register and get [`rsp3::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsp3`] module"]
-pub type RSP3 = crate::Reg<rsp3::RSP3_SPEC>;
-#[doc = "Bits 31:0 = CARDSTATUS3"]
-pub mod rsp3;
-#[doc = "RSP4 (r) register accessor: Bits 31:0 = CARDSTATUS4\n\nYou can [`read`](crate::Reg::read) this register and get [`rsp4::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsp4`] module"]
-pub type RSP4 = crate::Reg<rsp4::RSP4_SPEC>;
-#[doc = "Bits 31:0 = CARDSTATUS4"]
-pub mod rsp4;
+#[doc = "Short/long card status response part %s"]
+pub use self::rsp::Rsp;
+#[doc = r"Cluster"]
+#[doc = "Short/long card status response part %s"]
+pub mod rsp;
 #[doc = "DTTMR (rw) register accessor: Bits 31:0 = TIMEOUT: Data timeout period\n\nYou can [`read`](crate::Reg::read) this register and get [`dttmr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dttmr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dttmr`] module"]
 pub type DTTMR = crate::Reg<dttmr::DTTMR_SPEC>;
 #[doc = "Bits 31:0 = TIMEOUT: Data timeout period"]
