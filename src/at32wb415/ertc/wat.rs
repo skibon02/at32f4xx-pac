@@ -5,7 +5,7 @@ pub type W = crate::W<WAT_SPEC>;
 #[doc = "Field `VAL` reader - Wakeup timer reload value"]
 pub type VAL_R = crate::FieldReader<u16>;
 #[doc = "Field `VAL` writer - Wakeup timer reload value"]
-pub type VAL_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type VAL_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 impl R {
     #[doc = "Bits 0:15 - Wakeup timer reload value"]
     #[inline(always)]

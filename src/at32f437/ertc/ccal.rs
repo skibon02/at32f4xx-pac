@@ -5,11 +5,61 @@ pub type W = crate::W<CCAL_SPEC>;
 #[doc = "Field `CALVAL` reader - Calibration value"]
 pub type CALVAL_R = crate::FieldReader;
 #[doc = "Field `CALVAL` writer - Calibration value"]
-pub type CALVAL_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type CALVAL_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
+#[doc = "Calibration direction\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CALDIR_A {
+    #[doc = "0: Positive calibration (+0, +4, +8...)"]
+    Pos = 0,
+    #[doc = "1: Negative calibration (-0, -2, -4...)"]
+    Neg = 1,
+}
+impl From<CALDIR_A> for bool {
+    #[inline(always)]
+    fn from(variant: CALDIR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `CALDIR` reader - Calibration direction"]
-pub type CALDIR_R = crate::BitReader;
+pub type CALDIR_R = crate::BitReader<CALDIR_A>;
+impl CALDIR_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> CALDIR_A {
+        match self.bits {
+            false => CALDIR_A::Pos,
+            true => CALDIR_A::Neg,
+        }
+    }
+    #[doc = "Positive calibration (+0, +4, +8...)"]
+    #[inline(always)]
+    pub fn is_pos(&self) -> bool {
+        *self == CALDIR_A::Pos
+    }
+    #[doc = "Negative calibration (-0, -2, -4...)"]
+    #[inline(always)]
+    pub fn is_neg(&self) -> bool {
+        *self == CALDIR_A::Neg
+    }
+}
 #[doc = "Field `CALDIR` writer - Calibration direction"]
-pub type CALDIR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type CALDIR_W<'a, REG> = crate::BitWriter<'a, REG, CALDIR_A>;
+impl<'a, REG> CALDIR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Positive calibration (+0, +4, +8...)"]
+    #[inline(always)]
+    pub fn pos(self) -> &'a mut crate::W<REG> {
+        self.variant(CALDIR_A::Pos)
+    }
+    #[doc = "Negative calibration (-0, -2, -4...)"]
+    #[inline(always)]
+    pub fn neg(self) -> &'a mut crate::W<REG> {
+        self.variant(CALDIR_A::Neg)
+    }
+}
 impl R {
     #[doc = "Bits 0:4 - Calibration value"]
     #[inline(always)]

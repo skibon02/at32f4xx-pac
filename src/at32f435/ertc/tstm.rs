@@ -12,8 +12,43 @@ pub type MT_R = crate::FieldReader;
 pub type HU_R = crate::FieldReader;
 #[doc = "Field `HT` reader - Hour tens"]
 pub type HT_R = crate::FieldReader;
+#[doc = "AMPM\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AMPM_A {
+    #[doc = "0: AM"]
+    Am = 0,
+    #[doc = "1: PM"]
+    Pm = 1,
+}
+impl From<AMPM_A> for bool {
+    #[inline(always)]
+    fn from(variant: AMPM_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `AMPM` reader - AMPM"]
-pub type AMPM_R = crate::BitReader;
+pub type AMPM_R = crate::BitReader<AMPM_A>;
+impl AMPM_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> AMPM_A {
+        match self.bits {
+            false => AMPM_A::Am,
+            true => AMPM_A::Pm,
+        }
+    }
+    #[doc = "AM"]
+    #[inline(always)]
+    pub fn is_am(&self) -> bool {
+        *self == AMPM_A::Am
+    }
+    #[doc = "PM"]
+    #[inline(always)]
+    pub fn is_pm(&self) -> bool {
+        *self == AMPM_A::Pm
+    }
+}
 impl R {
     #[doc = "Bits 0:3 - Second units"]
     #[inline(always)]

@@ -21,14 +21,6 @@ ERTC:
     DT: [0, 0x3]
     MU: [0, 0xF]
     MT: [0, 0x1]
-    WK:
-      Monday: [1, "Monday"]
-      Tuesday: [2, "Tuesday"]
-      Wednesday: [3, "Wednesday"]
-      Thursday: [4, "Thursday"]
-      Friday: [5, "Friday"]
-      Saturday: [6, "Saturday"]
-      Sunday: [7, "Sunday"]
     YU: [0, 0xF]
     YT: [0, 0xF]
   CTRL:
@@ -50,8 +42,8 @@ ERTC:
         Disable: [0, "Date/time register direct read disable"]
         Enable: [1, "Date/time register direct read enable"]
     HM:
-      hour24: [0, "24-hour format"]
-      hour12: [1, "12-hour format"]
+      Hour24: [0, "24-hour format"]
+      Hour12: [1, "12-hour format"]
     AL?EN:
       _read:
         Disabled: [0, "Alarm is disabled"]
@@ -160,3 +152,94 @@ ERTC:
   ALASBS:
     SBS: [0, 0x7F]
     SBSMSK: [0, 0xF]
+  SBS:
+    SBS: [0, 0xFFFF]
+    _modify:
+      SBS:
+        description: "Subsecond is the value in the DIVB counter. Clock frequency = ERTC_CLK/(DIVA+1)"
+  TADJ:
+    _modify:
+      ADD1S:
+        description: "Add 1 second. This bit can be written only when TADJF=0. It is intended to be used with DECSBS in order to fine-tune the time"
+      DECSBS:
+        description: "Decrease sub-second value. Delay (ADD1S=0): Delay = DECSBS/(DIVB+1). Advance (ADD1S=1) : Advance =1-(DECSBS/(DIVB+1))"
+    ADD1S:
+      NoEffect: [0, "No effect"]
+      AddOneSecond: [1, "Add one second"]
+    DECSBS: [0, 0x7FFF]
+  TSTM:
+    AMPM:
+      AM: [0, "AM"]
+      PM: [1, "PM"]
+    HT: [0, 0x3]
+    HU: [0, 0xF]
+    MT: [0, 0x7]
+    MU: [0, 0xF]
+    ST: [0, 0x7]
+    SU: [0, 0xF]
+  TSDT:
+    MT: [0, 0x1]
+    MU: [0, 0xF]
+    DT: [0, 0x3]
+    DU: [0, 0xF]
+  DATE,TSDT:
+    WK:
+      _name: WeekDay
+      Monday: [1, "Monday"]
+      Tuesday: [2, "Tuesday"]
+      Wednesday: [3, "Wednesday"]
+      Thursday: [4, "Thursday"]
+      Friday: [5, "Friday"]
+      Saturday: [6, "Saturday"]
+      Sunday: [7, "Sunday"]
+  TSSBS:
+    SBS: [0, 0xFF]
+  SCAL:
+    ADD:
+      None: [0, "No effect"]
+      OneClkEvery2_11Cycles: [1, "One ERTC_CLK is inserted every 2^11 ERTC_CLK cycles"]
+    CAL8:
+      None: [0, "No effect"]
+      Period8Seconds: [1, "8-second calibration"]
+    CAL16:
+      None: [0, "No effect"]
+      Period16Seconds: [1, "16-second calibration"]
+    DEC: [0, 0x1F]
+  TAMP:
+    OUTTYPE:
+      OpenDrain: [0, "Open-drain"]
+      PushPull: [1, "Push-pull"]
+    TPPU:
+      Enabled: [0, "Tamper detection pull-up enabled"]
+      Disabled: [1, "Tamper detection pull-up disabled"]
+    TPPR:
+      Cyc1: [0, "1 ERTC_CLK cycle"]
+      Cyc2: [1, "2 ERTC_CLK cycles"]
+      Cyc4: [2, "4 ERTC_CLK cycles"]
+      Cyc8: [3, "8 ERTC_CLK cycles"]
+    TPFLT:
+      NoFilter: [0, "No filter"]
+      Filter2: [1, "Tamper is detected after 2 consecutive samples"]
+      Filter4: [2, "Tamper is detected after 4 consecutive samples"]
+      Filter8: [3, "Tamper is detected after 8 consecutive samples"]
+    TPFREQ:
+      Div32768: [0, "ERTC_CLK/32768"]
+      Div16384: [1, "ERTC_CLK/16384"]
+      Div8192: [2, "ERTC_CLK/8192"]
+      Div4096: [3, "ERTC_CLK/4096"]
+      Div2048: [4, "ERTC_CLK/2048"]
+      Div1024: [5, "ERTC_CLK/1024"]
+      Div512: [6, "ERTC_CLK/512"]
+      Div256: [7, "ERTC_CLK/256"]
+    TPTSEN:
+      Disabled: [0, "Tamper detection timestamp disabled"]
+      Enabled: [1, "Tamper detection timestamp enabled"]
+    TP[12]EDG:
+      RisingOrLow: [0, "If TPFLT=0: Rising edge.\nIf TPFLT>0: low level"]
+      FallingOrHigh: [1, "If TPFLT=0: Falling edge.\nIf TPFLT>0: High level"]
+    TP[12]EN:
+      Disabled: [0, "Tamper detection disabled"]
+      Enabled: [1, "Tamper detection enabled"]
+    TPIEN:
+      Disabled: [0, "Tamper interrupt disabled"]
+      Enabled: [1, "Tamper interrupt enabled"]

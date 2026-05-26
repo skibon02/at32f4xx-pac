@@ -22,7 +22,7 @@ pub type MT_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum WK_A {
+pub enum WEEK_DAY_A {
     #[doc = "1: Monday"]
     Monday = 1,
     #[doc = "2: Tuesday"]
@@ -38,71 +38,71 @@ pub enum WK_A {
     #[doc = "7: Sunday"]
     Sunday = 7,
 }
-impl From<WK_A> for u8 {
+impl From<WEEK_DAY_A> for u8 {
     #[inline(always)]
-    fn from(variant: WK_A) -> Self {
+    fn from(variant: WEEK_DAY_A) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for WK_A {
+impl crate::FieldSpec for WEEK_DAY_A {
     type Ux = u8;
 }
-impl crate::IsEnum for WK_A {}
+impl crate::IsEnum for WEEK_DAY_A {}
 #[doc = "Field `WK` reader - Week"]
-pub type WK_R = crate::FieldReader<WK_A>;
+pub type WK_R = crate::FieldReader<WEEK_DAY_A>;
 impl WK_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Option<WK_A> {
+    pub const fn variant(&self) -> Option<WEEK_DAY_A> {
         match self.bits {
-            1 => Some(WK_A::Monday),
-            2 => Some(WK_A::Tuesday),
-            3 => Some(WK_A::Wednesday),
-            4 => Some(WK_A::Thursday),
-            5 => Some(WK_A::Friday),
-            6 => Some(WK_A::Saturday),
-            7 => Some(WK_A::Sunday),
+            1 => Some(WEEK_DAY_A::Monday),
+            2 => Some(WEEK_DAY_A::Tuesday),
+            3 => Some(WEEK_DAY_A::Wednesday),
+            4 => Some(WEEK_DAY_A::Thursday),
+            5 => Some(WEEK_DAY_A::Friday),
+            6 => Some(WEEK_DAY_A::Saturday),
+            7 => Some(WEEK_DAY_A::Sunday),
             _ => None,
         }
     }
     #[doc = "Monday"]
     #[inline(always)]
     pub fn is_monday(&self) -> bool {
-        *self == WK_A::Monday
+        *self == WEEK_DAY_A::Monday
     }
     #[doc = "Tuesday"]
     #[inline(always)]
     pub fn is_tuesday(&self) -> bool {
-        *self == WK_A::Tuesday
+        *self == WEEK_DAY_A::Tuesday
     }
     #[doc = "Wednesday"]
     #[inline(always)]
     pub fn is_wednesday(&self) -> bool {
-        *self == WK_A::Wednesday
+        *self == WEEK_DAY_A::Wednesday
     }
     #[doc = "Thursday"]
     #[inline(always)]
     pub fn is_thursday(&self) -> bool {
-        *self == WK_A::Thursday
+        *self == WEEK_DAY_A::Thursday
     }
     #[doc = "Friday"]
     #[inline(always)]
     pub fn is_friday(&self) -> bool {
-        *self == WK_A::Friday
+        *self == WEEK_DAY_A::Friday
     }
     #[doc = "Saturday"]
     #[inline(always)]
     pub fn is_saturday(&self) -> bool {
-        *self == WK_A::Saturday
+        *self == WEEK_DAY_A::Saturday
     }
     #[doc = "Sunday"]
     #[inline(always)]
     pub fn is_sunday(&self) -> bool {
-        *self == WK_A::Sunday
+        *self == WEEK_DAY_A::Sunday
     }
 }
 #[doc = "Field `WK` writer - Week"]
-pub type WK_W<'a, REG> = crate::FieldWriter<'a, REG, 3, WK_A>;
+pub type WK_W<'a, REG> = crate::FieldWriter<'a, REG, 3, WEEK_DAY_A>;
 impl<'a, REG> WK_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
@@ -111,37 +111,37 @@ where
     #[doc = "Monday"]
     #[inline(always)]
     pub fn monday(self) -> &'a mut crate::W<REG> {
-        self.variant(WK_A::Monday)
+        self.variant(WEEK_DAY_A::Monday)
     }
     #[doc = "Tuesday"]
     #[inline(always)]
     pub fn tuesday(self) -> &'a mut crate::W<REG> {
-        self.variant(WK_A::Tuesday)
+        self.variant(WEEK_DAY_A::Tuesday)
     }
     #[doc = "Wednesday"]
     #[inline(always)]
     pub fn wednesday(self) -> &'a mut crate::W<REG> {
-        self.variant(WK_A::Wednesday)
+        self.variant(WEEK_DAY_A::Wednesday)
     }
     #[doc = "Thursday"]
     #[inline(always)]
     pub fn thursday(self) -> &'a mut crate::W<REG> {
-        self.variant(WK_A::Thursday)
+        self.variant(WEEK_DAY_A::Thursday)
     }
     #[doc = "Friday"]
     #[inline(always)]
     pub fn friday(self) -> &'a mut crate::W<REG> {
-        self.variant(WK_A::Friday)
+        self.variant(WEEK_DAY_A::Friday)
     }
     #[doc = "Saturday"]
     #[inline(always)]
     pub fn saturday(self) -> &'a mut crate::W<REG> {
-        self.variant(WK_A::Saturday)
+        self.variant(WEEK_DAY_A::Saturday)
     }
     #[doc = "Sunday"]
     #[inline(always)]
     pub fn sunday(self) -> &'a mut crate::W<REG> {
-        self.variant(WK_A::Sunday)
+        self.variant(WEEK_DAY_A::Sunday)
     }
 }
 #[doc = "Field `YU` reader - Year units"]

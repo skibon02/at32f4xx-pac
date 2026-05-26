@@ -5,3 +5,28 @@ ERTC:
         access: "read-only"
     WATF:
       _W0C: {}
+  CTRL:
+    WATIEN:
+      _read:
+        Disabled: [0, "Wakeup timer interrupt is disabled"]
+        Enabled: [1, "Wakeup timer interrupt is enabled"]
+      _write:
+        Disable: [0, "Wakeup timer interrupt disable"]
+        Enable: [1, "Wakeup timer interrupt enable"]
+    WATEN:
+      _read:
+        Disabled: [0, "Wakeup timer is disabled"]
+        Enabled: [1, "Wakeup timer is enabled"]
+      _write:
+        Disable: [0, "Wakeup timer disable"]
+        Enable: [1, "Wakeup timer enable"]
+    WATCLK:
+      ertc_clk_div16: [0, "ERTC_CLK/16"]
+      ertc_clk_div8: [1, "ERTC_CLK/8"]
+      ertc_clk_div4: [2, "ERTC_CLK/4"]
+      ertc_clk_div2: [3, "ERTC_CLK/2"]
+      ck_b: [4, "ck_b"]
+      ck_b_plus_2_16: [6, "ck_b is selected. 2^16 is added to the wakeup counter value, and wakeup time =ERTC_WAT+2^16."]
+
+  WAT:
+    VAL: [0, 0xFFFF]

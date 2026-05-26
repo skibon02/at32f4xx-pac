@@ -1,9 +1,9 @@
 #[doc = "Register `SBS` reader"]
 pub type R = crate::R<SBS_SPEC>;
-#[doc = "Field `SBS` reader - Sub second value"]
+#[doc = "Field `SBS` reader - Subsecond is the value in the DIVB counter. Clock frequency = ERTC_CLK/(DIVA+1)"]
 pub type SBS_R = crate::FieldReader<u16>;
 impl R {
-    #[doc = "Bits 0:15 - Sub second value"]
+    #[doc = "Bits 0:15 - Subsecond is the value in the DIVB counter. Clock frequency = ERTC_CLK/(DIVA+1)"]
     #[inline(always)]
     pub fn sbs(&self) -> SBS_R {
         SBS_R::new((self.bits & 0xffff) as u16)

@@ -5,6 +5,7 @@ _include:
   - ertc/common.yaml
   - ertc/alarmb.yaml
   - ertc/wat.yaml
+  - ertc/tspin.yaml
   - flash/common.yaml
   - gpio/gpio-v2.yaml
   - adc/common.yaml

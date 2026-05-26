@@ -5,3 +5,16 @@ ERTC:
   CTRL:
     OUTSEL:
       AlarmB: [2, "Alarm clock B"]
+    CCALEN:
+      _read:
+        Disabled: [0, "Coarse calibration is disabled"]
+        Enabled: [1, "Coarse calibration is enabled"]
+      _write:
+        Disable: [0, "Coarse calibration disable"]
+        Enable: [1, "Coarse calibration enable"]
+
+  CCAL:
+    CALDIR:
+      Pos: [0, "Positive calibration (+0, +4, +8...)"]
+      Neg: [1, "Negative calibration (-0, -2, -4...)"]
+    CALVAL: [0, 31]

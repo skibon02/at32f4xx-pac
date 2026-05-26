@@ -3076,7 +3076,7 @@
               <bitOffset>13</bitOffset>
               <bitWidth>3</bitWidth>
               <enumeratedValues>
-                <name>WK</name>
+                <name>WeekDay</name>
                 <enumeratedValue>
                   <name>Monday</name>
                   <description>Monday</description>
@@ -3456,12 +3456,12 @@
               <enumeratedValues>
                 <name>HM</name>
                 <enumeratedValue>
-                  <name>hour24</name>
+                  <name>Hour24</name>
                   <description>24-hour format</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>hour12</name>
+                  <name>Hour12</name>
                   <description>12-hour format</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -3951,9 +3951,15 @@
           <fields>
             <field>
               <name>SBS</name>
-              <description>Sub second value</description>
+              <description>Subsecond is the value in the DIVB counter. Clock frequency = ERTC_CLK/(DIVA+1)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -3968,15 +3974,34 @@
           <fields>
             <field>
               <name>ADD1S</name>
-              <description>Add 1 second</description>
+              <description>Add 1 second. This bit can be written only when TADJF=0. It is intended to be used with DECSBS in order to fine-tune the time</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ADD1S</name>
+                <enumeratedValue>
+                  <name>NoEffect</name>
+                  <description>No effect</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AddOneSecond</name>
+                  <description>Add one second</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DECSBS</name>
-              <description>Decrease sub-second value</description>
+              <description>Decrease sub-second value. Delay (ADD1S=0): Delay = DECSBS/(DIVB+1). Advance (ADD1S=1) : Advance =1-(DECSBS/(DIVB+1))</description>
               <bitOffset>0</bitOffset>
               <bitWidth>15</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>32767</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -3994,42 +4019,91 @@
               <description>AMPM</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AMPM</name>
+                <enumeratedValue>
+                  <name>AM</name>
+                  <description>AM</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PM</name>
+                  <description>PM</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HT</name>
               <description>Hour tens</description>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>3</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>HU</name>
               <description>Hour units</description>
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MT</name>
               <description>Minute tens</description>
               <bitOffset>12</bitOffset>
               <bitWidth>3</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>7</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MU</name>
               <description>Minute units</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>ST</name>
               <description>Second tens</description>
               <bitOffset>4</bitOffset>
               <bitWidth>3</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>7</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SU</name>
               <description>Second units</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -4047,30 +4121,92 @@
               <description>Week</description>
               <bitOffset>13</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>WeekDay</name>
+                <enumeratedValue>
+                  <name>Monday</name>
+                  <description>Monday</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Tuesday</name>
+                  <description>Tuesday</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Wednesday</name>
+                  <description>Wednesday</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thursday</name>
+                  <description>Thursday</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Friday</name>
+                  <description>Friday</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Saturday</name>
+                  <description>Saturday</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Sunday</name>
+                  <description>Sunday</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MT</name>
               <description>Month tens</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>1</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MU</name>
               <description>Month units</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>DT</name>
               <description>Date tens</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>3</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>DU</name>
               <description>Date units</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -4088,6 +4224,12 @@
               <description>Sub second value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -4105,24 +4247,69 @@
               <description>Add ERTC clock</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ADD</name>
+                <enumeratedValue>
+                  <name>None</name>
+                  <description>No effect</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>OneClkEvery2_11Cycles</name>
+                  <description>One ERTC_CLK is inserted every 2^11 ERTC_CLK cycles</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CAL8</name>
               <description>8-second calibration period</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>CAL8</name>
+                <enumeratedValue>
+                  <name>None</name>
+                  <description>No effect</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Period8Seconds</name>
+                  <description>8-second calibration</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CAL16</name>
               <description>16 second calibration period</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>CAL16</name>
+                <enumeratedValue>
+                  <name>None</name>
+                  <description>No effect</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Period16Seconds</name>
+                  <description>16-second calibration</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DEC</name>
               <description>Decrease ERTC clock</description>
               <bitOffset>0</bitOffset>
               <bitWidth>9</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>31</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -4141,54 +4328,223 @@
               <description>Output type</description>
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>OUTTYPE</name>
+                <enumeratedValue>
+                  <name>OpenDrain</name>
+                  <description>Open-drain</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PushPull</name>
+                  <description>Push-pull</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TPPU</name>
               <description>Tamper detection pull-up</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TPPU</name>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Tamper detection pull-up enabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Tamper detection pull-up disabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TPPR</name>
               <description>Tamper detection pre-charge time</description>
               <bitOffset>13</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>TPPR</name>
+                <enumeratedValue>
+                  <name>Cyc1</name>
+                  <description>1 ERTC_CLK cycle</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Cyc2</name>
+                  <description>2 ERTC_CLK cycles</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Cyc4</name>
+                  <description>4 ERTC_CLK cycles</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Cyc8</name>
+                  <description>8 ERTC_CLK cycles</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TPFLT</name>
               <description>Tamper detection filter time</description>
               <bitOffset>11</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>TPFLT</name>
+                <enumeratedValue>
+                  <name>NoFilter</name>
+                  <description>No filter</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Filter2</name>
+                  <description>Tamper is detected after 2 consecutive samples</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Filter4</name>
+                  <description>Tamper is detected after 4 consecutive samples</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Filter8</name>
+                  <description>Tamper is detected after 8 consecutive samples</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TPFREQ</name>
               <description>Tamper detection frequency</description>
               <bitOffset>8</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>TPFREQ</name>
+                <enumeratedValue>
+                  <name>Div32768</name>
+                  <description>ERTC_CLK/32768</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div16384</name>
+                  <description>ERTC_CLK/16384</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div8192</name>
+                  <description>ERTC_CLK/8192</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div4096</name>
+                  <description>ERTC_CLK/4096</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div2048</name>
+                  <description>ERTC_CLK/2048</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div1024</name>
+                  <description>ERTC_CLK/1024</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div512</name>
+                  <description>ERTC_CLK/512</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Div256</name>
+                  <description>ERTC_CLK/256</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TPTSEN</name>
               <description>Tamper detection timestamp enable</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TPTSEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Tamper detection timestamp disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Tamper detection timestamp enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TPIEN</name>
               <description>Tamper detection interrupt enable</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TPIEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Tamper interrupt disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Tamper interrupt enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TP1EDG</name>
               <description>Tamper detection 1 valid edge</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TP1EDG</name>
+                <enumeratedValue>
+                  <name>RisingOrLow</name>
+                  <description>If TPFLT=0: Rising edge.
+If TPFLT&gt;0: low level</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>FallingOrHigh</name>
+                  <description>If TPFLT=0: Falling edge.
+If TPFLT&gt;0: High level</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TP1EN</name>
               <description>Tamper detection 1 enable</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TP1EN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Tamper detection disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Tamper detection enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>

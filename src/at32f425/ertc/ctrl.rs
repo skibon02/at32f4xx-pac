@@ -2,10 +2,119 @@
 pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
+#[doc = "Wakeup timer clock selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum WATCLK_A {
+    #[doc = "0: ERTC_CLK/16"]
+    ErtcClkDiv16 = 0,
+    #[doc = "1: ERTC_CLK/8"]
+    ErtcClkDiv8 = 1,
+    #[doc = "2: ERTC_CLK/4"]
+    ErtcClkDiv4 = 2,
+    #[doc = "3: ERTC_CLK/2"]
+    ErtcClkDiv2 = 3,
+    #[doc = "4: ck_b"]
+    CkB = 4,
+    #[doc = "6: ck_b is selected. 2^16 is added to the wakeup counter value, and wakeup time =ERTC_WAT+2^16."]
+    CkBPlus2_16 = 6,
+}
+impl From<WATCLK_A> for u8 {
+    #[inline(always)]
+    fn from(variant: WATCLK_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for WATCLK_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for WATCLK_A {}
 #[doc = "Field `WATCLK` reader - Wakeup timer clock selection"]
-pub type WATCLK_R = crate::FieldReader;
+pub type WATCLK_R = crate::FieldReader<WATCLK_A>;
+impl WATCLK_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<WATCLK_A> {
+        match self.bits {
+            0 => Some(WATCLK_A::ErtcClkDiv16),
+            1 => Some(WATCLK_A::ErtcClkDiv8),
+            2 => Some(WATCLK_A::ErtcClkDiv4),
+            3 => Some(WATCLK_A::ErtcClkDiv2),
+            4 => Some(WATCLK_A::CkB),
+            6 => Some(WATCLK_A::CkBPlus2_16),
+            _ => None,
+        }
+    }
+    #[doc = "ERTC_CLK/16"]
+    #[inline(always)]
+    pub fn is_ertc_clk_div16(&self) -> bool {
+        *self == WATCLK_A::ErtcClkDiv16
+    }
+    #[doc = "ERTC_CLK/8"]
+    #[inline(always)]
+    pub fn is_ertc_clk_div8(&self) -> bool {
+        *self == WATCLK_A::ErtcClkDiv8
+    }
+    #[doc = "ERTC_CLK/4"]
+    #[inline(always)]
+    pub fn is_ertc_clk_div4(&self) -> bool {
+        *self == WATCLK_A::ErtcClkDiv4
+    }
+    #[doc = "ERTC_CLK/2"]
+    #[inline(always)]
+    pub fn is_ertc_clk_div2(&self) -> bool {
+        *self == WATCLK_A::ErtcClkDiv2
+    }
+    #[doc = "ck_b"]
+    #[inline(always)]
+    pub fn is_ck_b(&self) -> bool {
+        *self == WATCLK_A::CkB
+    }
+    #[doc = "ck_b is selected. 2^16 is added to the wakeup counter value, and wakeup time =ERTC_WAT+2^16."]
+    #[inline(always)]
+    pub fn is_ck_b_plus_2_16(&self) -> bool {
+        *self == WATCLK_A::CkBPlus2_16
+    }
+}
 #[doc = "Field `WATCLK` writer - Wakeup timer clock selection"]
-pub type WATCLK_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+pub type WATCLK_W<'a, REG> = crate::FieldWriter<'a, REG, 3, WATCLK_A>;
+impl<'a, REG> WATCLK_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "ERTC_CLK/16"]
+    #[inline(always)]
+    pub fn ertc_clk_div16(self) -> &'a mut crate::W<REG> {
+        self.variant(WATCLK_A::ErtcClkDiv16)
+    }
+    #[doc = "ERTC_CLK/8"]
+    #[inline(always)]
+    pub fn ertc_clk_div8(self) -> &'a mut crate::W<REG> {
+        self.variant(WATCLK_A::ErtcClkDiv8)
+    }
+    #[doc = "ERTC_CLK/4"]
+    #[inline(always)]
+    pub fn ertc_clk_div4(self) -> &'a mut crate::W<REG> {
+        self.variant(WATCLK_A::ErtcClkDiv4)
+    }
+    #[doc = "ERTC_CLK/2"]
+    #[inline(always)]
+    pub fn ertc_clk_div2(self) -> &'a mut crate::W<REG> {
+        self.variant(WATCLK_A::ErtcClkDiv2)
+    }
+    #[doc = "ck_b"]
+    #[inline(always)]
+    pub fn ck_b(self) -> &'a mut crate::W<REG> {
+        self.variant(WATCLK_A::CkB)
+    }
+    #[doc = "ck_b is selected. 2^16 is added to the wakeup counter value, and wakeup time =ERTC_WAT+2^16."]
+    #[inline(always)]
+    pub fn ck_b_plus_2_16(self) -> &'a mut crate::W<REG> {
+        self.variant(WATCLK_A::CkBPlus2_16)
+    }
+}
 #[doc = "Timestamp trigger edge\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -321,10 +430,75 @@ where
         self.variant(AlaenwWO::Enable)
     }
 }
+#[doc = "Wakeup timer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Watenr {
+    #[doc = "0: Wakeup timer is disabled"]
+    Disabled = 0,
+    #[doc = "1: Wakeup timer is enabled"]
+    Enabled = 1,
+}
+impl From<Watenr> for bool {
+    #[inline(always)]
+    fn from(variant: Watenr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `WATEN` reader - Wakeup timer enable"]
-pub type WATEN_R = crate::BitReader;
+pub type WATEN_R = crate::BitReader<Watenr>;
+impl WATEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Watenr {
+        match self.bits {
+            false => Watenr::Disabled,
+            true => Watenr::Enabled,
+        }
+    }
+    #[doc = "Wakeup timer is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Watenr::Disabled
+    }
+    #[doc = "Wakeup timer is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Watenr::Enabled
+    }
+}
+#[doc = "Wakeup timer enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum WatenwWO {
+    #[doc = "0: Wakeup timer disable"]
+    Disable = 0,
+    #[doc = "1: Wakeup timer enable"]
+    Enable = 1,
+}
+impl From<WatenwWO> for bool {
+    #[inline(always)]
+    fn from(variant: WatenwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `WATEN` writer - Wakeup timer enable"]
-pub type WATEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type WATEN_W<'a, REG> = crate::BitWriter<'a, REG, WatenwWO>;
+impl<'a, REG> WATEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Wakeup timer disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(WatenwWO::Disable)
+    }
+    #[doc = "Wakeup timer enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(WatenwWO::Enable)
+    }
+}
 #[doc = "Timestamp enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -463,10 +637,75 @@ where
         self.variant(AlaienwWO::Enable)
     }
 }
+#[doc = "Wakeup timer interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Watienr {
+    #[doc = "0: Wakeup timer interrupt is disabled"]
+    Disabled = 0,
+    #[doc = "1: Wakeup timer interrupt is enabled"]
+    Enabled = 1,
+}
+impl From<Watienr> for bool {
+    #[inline(always)]
+    fn from(variant: Watienr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `WATIEN` reader - Wakeup timer interrupt enable"]
-pub type WATIEN_R = crate::BitReader;
+pub type WATIEN_R = crate::BitReader<Watienr>;
+impl WATIEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Watienr {
+        match self.bits {
+            false => Watienr::Disabled,
+            true => Watienr::Enabled,
+        }
+    }
+    #[doc = "Wakeup timer interrupt is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Watienr::Disabled
+    }
+    #[doc = "Wakeup timer interrupt is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Watienr::Enabled
+    }
+}
+#[doc = "Wakeup timer interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum WatienwWO {
+    #[doc = "0: Wakeup timer interrupt disable"]
+    Disable = 0,
+    #[doc = "1: Wakeup timer interrupt enable"]
+    Enable = 1,
+}
+impl From<WatienwWO> for bool {
+    #[inline(always)]
+    fn from(variant: WatienwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `WATIEN` writer - Wakeup timer interrupt enable"]
-pub type WATIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type WATIEN_W<'a, REG> = crate::BitWriter<'a, REG, WatienwWO>;
+impl<'a, REG> WATIEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Wakeup timer interrupt disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(WatienwWO::Disable)
+    }
+    #[doc = "Wakeup timer interrupt enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(WatienwWO::Enable)
+    }
+}
 #[doc = "Timestamp interrupt enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

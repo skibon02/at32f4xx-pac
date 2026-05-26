@@ -8,8 +8,89 @@ pub type DT_R = crate::FieldReader;
 pub type MU_R = crate::FieldReader;
 #[doc = "Field `MT` reader - Month tens"]
 pub type MT_R = crate::BitReader;
+#[doc = "Week\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum WEEK_DAY_A {
+    #[doc = "1: Monday"]
+    Monday = 1,
+    #[doc = "2: Tuesday"]
+    Tuesday = 2,
+    #[doc = "3: Wednesday"]
+    Wednesday = 3,
+    #[doc = "4: Thursday"]
+    Thursday = 4,
+    #[doc = "5: Friday"]
+    Friday = 5,
+    #[doc = "6: Saturday"]
+    Saturday = 6,
+    #[doc = "7: Sunday"]
+    Sunday = 7,
+}
+impl From<WEEK_DAY_A> for u8 {
+    #[inline(always)]
+    fn from(variant: WEEK_DAY_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for WEEK_DAY_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for WEEK_DAY_A {}
 #[doc = "Field `WK` reader - Week"]
-pub type WK_R = crate::FieldReader;
+pub type WK_R = crate::FieldReader<WEEK_DAY_A>;
+impl WK_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<WEEK_DAY_A> {
+        match self.bits {
+            1 => Some(WEEK_DAY_A::Monday),
+            2 => Some(WEEK_DAY_A::Tuesday),
+            3 => Some(WEEK_DAY_A::Wednesday),
+            4 => Some(WEEK_DAY_A::Thursday),
+            5 => Some(WEEK_DAY_A::Friday),
+            6 => Some(WEEK_DAY_A::Saturday),
+            7 => Some(WEEK_DAY_A::Sunday),
+            _ => None,
+        }
+    }
+    #[doc = "Monday"]
+    #[inline(always)]
+    pub fn is_monday(&self) -> bool {
+        *self == WEEK_DAY_A::Monday
+    }
+    #[doc = "Tuesday"]
+    #[inline(always)]
+    pub fn is_tuesday(&self) -> bool {
+        *self == WEEK_DAY_A::Tuesday
+    }
+    #[doc = "Wednesday"]
+    #[inline(always)]
+    pub fn is_wednesday(&self) -> bool {
+        *self == WEEK_DAY_A::Wednesday
+    }
+    #[doc = "Thursday"]
+    #[inline(always)]
+    pub fn is_thursday(&self) -> bool {
+        *self == WEEK_DAY_A::Thursday
+    }
+    #[doc = "Friday"]
+    #[inline(always)]
+    pub fn is_friday(&self) -> bool {
+        *self == WEEK_DAY_A::Friday
+    }
+    #[doc = "Saturday"]
+    #[inline(always)]
+    pub fn is_saturday(&self) -> bool {
+        *self == WEEK_DAY_A::Saturday
+    }
+    #[doc = "Sunday"]
+    #[inline(always)]
+    pub fn is_sunday(&self) -> bool {
+        *self == WEEK_DAY_A::Sunday
+    }
+}
 impl R {
     #[doc = "Bits 0:3 - Date units"]
     #[inline(always)]
