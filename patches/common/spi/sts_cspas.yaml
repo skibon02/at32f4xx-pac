@@ -1,4 +1,11 @@
 SPI?:
+  CTRL2:
+    TIEN:
+      Disabled: [0, "TI mode is disabled (Motorola mode)"]
+      Enabled: [1, "TI mode is enabled (TI mode)"]
+    MDIV3EN:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled. MDIV is ignored and SPI clock set to PCLK/3"]
   STS:
     _modify:
       CSPAS:

@@ -242,7 +242,11 @@ UART?,USART?:
         Enabled: [1, "CTSCF interrupt is enabled"]
       _write:
         Disable: [0, "CTSCF interrupt disable"]
-        Enable: [1, "CTSCF interrupt enable"]  
+        Enable: [1, "CTSCF interrupt enable"]
+  DT:
+    DT: [0, 0x1FF]
+  BAUDR:
+    DIV: [0, 0xFFFF]
   GDIV:
-    ISDIV: [0, 0xFF]
-    SCGT: [0, 0xFF]
+    ISDIV: [1, 0xFF]
+    SCGT: [1, 0xFF]

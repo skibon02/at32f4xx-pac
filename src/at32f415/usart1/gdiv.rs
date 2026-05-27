@@ -5,11 +5,11 @@ pub type W = crate::W<GDIV_SPEC>;
 #[doc = "Field `ISDIV` reader - IrDA/smartcard division value"]
 pub type ISDIV_R = crate::FieldReader;
 #[doc = "Field `ISDIV` writer - IrDA/smartcard division value"]
-pub type ISDIV_W<'a, REG> = crate::FieldWriter<'a, REG, 8, u8, crate::Safe>;
+pub type ISDIV_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `SCGT` reader - Smart card guard time value"]
 pub type SCGT_R = crate::FieldReader;
 #[doc = "Field `SCGT` writer - Smart card guard time value"]
-pub type SCGT_W<'a, REG> = crate::FieldWriter<'a, REG, 8, u8, crate::Safe>;
+pub type SCGT_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - IrDA/smartcard division value"]
     #[inline(always)]

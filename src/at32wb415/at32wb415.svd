@@ -5880,12 +5880,7 @@ If TPFLT&gt;0: High level</description>
                 <enumeratedValue>
                   <name>div256</name>
                   <description>LICK divided by 256</description>
-                  <value>6</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>div256_2</name>
-                  <description>LICK divided by 256</description>
-                  <value>7</value>
+                  <isDefault>true</isDefault>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -16482,6 +16477,12 @@ If TPFLT&gt;0: High level</description>
               <description>Data value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>9</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>511</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -16499,6 +16500,12 @@ If TPFLT&gt;0: High level</description>
               <description>Division</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -17556,7 +17563,7 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>0</minimum>
+                  <minimum>1</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>
@@ -17568,7 +17575,7 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>0</minimum>
+                  <minimum>1</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>

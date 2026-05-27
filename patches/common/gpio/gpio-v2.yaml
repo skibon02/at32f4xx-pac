@@ -30,7 +30,7 @@ GPIO?:
     _array:
       ODRV*: {}
     ODRV*:
-      Normal: [0, "Normal sourcing/sinking strength"]
+      Normal: [-1, "Normal sourcing/sinking strength"]
       Large: [1, "Large sourcing/sinking strength"]
   PULL:
     _array:
@@ -66,3 +66,9 @@ GPIO?:
         name: MUX%s
         description: "GPIOx pin %s muxing"
     MUXH*: [0, 15]
+  HDRV:
+    _array:
+      HDRV*: {}
+    HDRV*:
+      NormalLarge: [0, "Normal/large drive strength (according to ODRVR)"]
+      Huge: [1, "GPIO is configured as maximum sourcing/sinking strength"]

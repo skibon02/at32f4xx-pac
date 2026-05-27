@@ -761,14 +761,129 @@ where
         self.variant(CtscfienwWO::Enable)
     }
 }
+#[doc = "RS485 enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Rs485enr {
+    #[doc = "0: RS-485 mode is disabled"]
+    Disabled = 0,
+    #[doc = "1: RS-485 mode is enabled. The control signal DE outputs on the RTS pin."]
+    Enabled = 1,
+}
+impl From<Rs485enr> for bool {
+    #[inline(always)]
+    fn from(variant: Rs485enr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `RS485EN` reader - RS485 enable"]
-pub type RS485EN_R = crate::BitReader;
+pub type RS485EN_R = crate::BitReader<Rs485enr>;
+impl RS485EN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Rs485enr {
+        match self.bits {
+            false => Rs485enr::Disabled,
+            true => Rs485enr::Enabled,
+        }
+    }
+    #[doc = "RS-485 mode is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Rs485enr::Disabled
+    }
+    #[doc = "RS-485 mode is enabled. The control signal DE outputs on the RTS pin."]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Rs485enr::Enabled
+    }
+}
+#[doc = "RS485 enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Rs485enwWO {
+    #[doc = "0: RS-485 mode disable"]
+    Disable = 0,
+    #[doc = "1: RS-485 mode enable. The control signal DE outputs on the RTS pin."]
+    Enable = 1,
+}
+impl From<Rs485enwWO> for bool {
+    #[inline(always)]
+    fn from(variant: Rs485enwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `RS485EN` writer - RS485 enable"]
-pub type RS485EN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type RS485EN_W<'a, REG> = crate::BitWriter<'a, REG, Rs485enwWO>;
+impl<'a, REG> RS485EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "RS-485 mode disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Rs485enwWO::Disable)
+    }
+    #[doc = "RS-485 mode enable. The control signal DE outputs on the RTS pin."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Rs485enwWO::Enable)
+    }
+}
+#[doc = "DE polarity selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DEP_A {
+    #[doc = "0: DE signal is active high"]
+    High = 0,
+    #[doc = "1: DE signal is active low"]
+    Low = 1,
+}
+impl From<DEP_A> for bool {
+    #[inline(always)]
+    fn from(variant: DEP_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `DEP` reader - DE polarity selection"]
-pub type DEP_R = crate::BitReader;
+pub type DEP_R = crate::BitReader<DEP_A>;
+impl DEP_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> DEP_A {
+        match self.bits {
+            false => DEP_A::High,
+            true => DEP_A::Low,
+        }
+    }
+    #[doc = "DE signal is active high"]
+    #[inline(always)]
+    pub fn is_high(&self) -> bool {
+        *self == DEP_A::High
+    }
+    #[doc = "DE signal is active low"]
+    #[inline(always)]
+    pub fn is_low(&self) -> bool {
+        *self == DEP_A::Low
+    }
+}
 #[doc = "Field `DEP` writer - DE polarity selection"]
-pub type DEP_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type DEP_W<'a, REG> = crate::BitWriter<'a, REG, DEP_A>;
+impl<'a, REG> DEP_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "DE signal is active high"]
+    #[inline(always)]
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(DEP_A::High)
+    }
+    #[doc = "DE signal is active low"]
+    #[inline(always)]
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(DEP_A::Low)
+    }
+}
 impl R {
     #[doc = "Bit 0 - Error interrupt enable"]
     #[inline(always)]

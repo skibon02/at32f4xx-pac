@@ -1,5 +1,6 @@
 _include:
   - crm/crm_v2.yaml
+  - debug/pause_id.yaml
   - ertc/common.yaml
   - ertc/alarmb.yaml
   - ertc/wat.yaml
@@ -9,6 +10,7 @@ _include:
   - adc/occe.yaml
   - adc/odt_vm.yaml
   - comms.yaml
+  - usart/dbn.yaml
   - crc/poly.yaml
   - spi/sts_cspas.yaml
   - pwc/vrsel.yaml

@@ -5584,14 +5584,14 @@
               <enumeratedValues>
                 <name>ODRV0</name>
                 <enumeratedValue>
-                  <name>Normal</name>
-                  <description>Normal sourcing/sinking strength</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>Large</name>
                   <description>Large sourcing/sinking strength</description>
                   <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal sourcing/sinking strength</description>
+                  <isDefault>true</isDefault>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -5922,100 +5922,26 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>HDRV0</name>
+              <dim>16</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>0-15</dimIndex>
+              <name>HDRV%s</name>
               <description>Port x driver bit y</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV1</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV2</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV3</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV4</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV5</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV6</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV7</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV8</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV9</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV10</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV11</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV12</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV13</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV14</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDRV15</name>
-              <description>Port x driver bit y</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>HDRV0</name>
+                <enumeratedValue>
+                  <name>NormalLarge</name>
+                  <description>Normal/large drive strength (according to ODRVR)</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Huge</name>
+                  <description>GPIO is configured as maximum sourcing/sinking strength</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -14321,12 +14247,7 @@ If TPFLT&gt;0: High level</description>
                 <enumeratedValue>
                   <name>div256</name>
                   <description>LICK divided by 256</description>
-                  <value>6</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>div256_2</name>
-                  <description>LICK divided by 256</description>
-                  <value>7</value>
+                  <isDefault>true</isDefault>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -24727,15 +24648,9 @@ If TPFLT&gt;0: High level</description>
             </field>
             <field>
               <name>MDIV2_0</name>
-              <description>Master clock frequency division bit2-0</description>
+              <description>MDIV[2:0] — master clock frequency division bits 2-0. Combined with MDIV3 (in CTRL2) to form MDIV[3:0]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024</description>
               <bitOffset>3</bitOffset>
               <bitWidth>3</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>7</maximum>
-                </range>
-              </writeConstraint>
             </field>
             <field>
               <name>MSTEN</name>
@@ -24810,18 +24725,25 @@ If TPFLT&gt;0: High level</description>
               <description>Master clock frequency3 division enable</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>MDIV3EN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Enabled. MDIV is ignored and SPI clock set to PCLK/3</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MDIV3</name>
-              <description>Master clock frequency division bit3</description>
+              <description>MDIV[3] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV[3:0]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>1</maximum>
-                </range>
-              </writeConstraint>
             </field>
             <field>
               <name>TDBEIE</name>
@@ -24930,6 +24852,19 @@ If TPFLT&gt;0: High level</description>
               <description>TI mode enable</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TIEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>TI mode is disabled (Motorola mode)</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>TI mode is enabled (TI mode)</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HWCSOE</name>
@@ -25250,6 +25185,12 @@ If TPFLT&gt;0: High level</description>
               <description>Data value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -25267,6 +25208,12 @@ If TPFLT&gt;0: High level</description>
               <description>CRC polynomial</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -25518,7 +25465,7 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DIV9_8</name>
-              <description>I2S division bit9 and bit8</description>
+              <description>I2SDIV[9:8] — I2S linear divider high bits. Combined with DIV7_0 to form I2SDIV[9:0]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed.</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
               <writeConstraint>
@@ -25570,20 +25517,20 @@ If TPFLT&gt;0: High level</description>
               <enumeratedValues>
                 <name>ODD</name>
                 <enumeratedValue>
-                  <name>Double</name>
-                  <description>Actual divider factor = DIV*2</description>
+                  <name>Even</name>
+                  <description>Actual divider = I2SDIV * 2</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>DoublePlusOne</name>
-                  <description>Actual divider factor = (DIV*2)+1</description>
+                  <name>Odd</name>
+                  <description>Actual divider = I2SDIV * 2 + 1</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>DIV7_0</name>
-              <description>I2S division bit7 to bit0</description>
+              <description>I2SDIV[7:0] — I2S linear divider low bits. Combined with DIV9_8 to form I2SDIV[9:0]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <writeConstraint>
@@ -25917,6 +25864,12 @@ If TPFLT&gt;0: High level</description>
               <description>Data value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>9</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>511</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -25934,6 +25887,12 @@ If TPFLT&gt;0: High level</description>
               <description>Division</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -25948,7 +25907,7 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DBN1</name>
-              <description>high bit for Data bit num</description>
+              <description>DBN[1] — high bit of data bit number. Combined with DBN0 to form DBN[1:0]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -25957,12 +25916,24 @@ If TPFLT&gt;0: High level</description>
               <description>transmit start delay time</description>
               <bitOffset>21</bitOffset>
               <bitWidth>5</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>31</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>TCDT</name>
               <description>transmit complete delay time</description>
               <bitOffset>16</bitOffset>
               <bitWidth>5</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>31</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>UEN</name>
@@ -26000,7 +25971,7 @@ If TPFLT&gt;0: High level</description>
             </field>
             <field>
               <name>DBN0</name>
-              <description>low bit for Data bit num</description>
+              <description>DBN[0] — low bit of data bit number. Combined with DBN1 to form DBN[1:0]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -26383,12 +26354,31 @@ If TPFLT&gt;0: High level</description>
               <description>bit 7-4 for usart identification</description>
               <bitOffset>28</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>TRPSWAP</name>
               <description>Transmit receive pin swap</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TRPSWAP</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>No swap</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Swapped</name>
+                  <description>TX and RX pins are swapped</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>LINEN</name>
@@ -26617,12 +26607,31 @@ If TPFLT&gt;0: High level</description>
               <description>Identification bit num</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>IDBN</name>
+                <enumeratedValue>
+                  <name>Bit4</name>
+                  <description>4-bit ID</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Databits_minus_1</name>
+                  <description>data_bits - 1 ID</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ID3_0</name>
               <description>bit 3-0 for usart identification</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -26640,12 +26649,53 @@ If TPFLT&gt;0: High level</description>
               <description>DE polarity selection</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DEP</name>
+                <enumeratedValue>
+                  <name>High</name>
+                  <description>DE signal is active high</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Low</name>
+                  <description>DE signal is active low</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RS485EN</name>
               <description>RS485 enable</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>RS485ENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>RS-485 mode is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>RS-485 mode is enabled. The control signal DE outputs on the RTS pin.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>RS485ENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>RS-485 mode disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>RS-485 mode enable. The control signal DE outputs on the RTS pin.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CTSCFIEN</name>
@@ -27039,7 +27089,7 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>0</minimum>
+                  <minimum>1</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>
@@ -27051,7 +27101,7 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>0</minimum>
+                  <minimum>1</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>
@@ -31256,108 +31306,150 @@ If TPFLT&gt;0: High level</description>
               <description>TMR2_PAUSE</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TMR2_PAUSE</name>
+                <enumeratedValue>
+                  <name>Run</name>
+                  <description>Running normally</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Stop</name>
+                  <description>Stopped running</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TMR3_PAUSE</name>
               <description>TMR3_PAUSE</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>TMR4_PAUSE</name>
               <description>TMR4_PAUSE</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>TMR5_PAUSE</name>
               <description>TMR5_PAUSE</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>TMR6_PAUSE</name>
               <description>TMR6_PAUSE</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>TMR7_PAUSE</name>
               <description>TMR7_PAUSE</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>TMR12_PAUSE</name>
               <description>TMR12_PAUSE</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>TMR13_PAUSE</name>
               <description>TMR13_PAUSE</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>TMR14_PAUSE</name>
               <description>TMR14_PAUSE</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>ERTC_PAUSE</name>
               <description>ERTC_PAUSE</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>WWDT_PAUSE</name>
               <description>WWDT_PAUSE</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>WDT_PAUSE</name>
               <description>WDT_PAUSE</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>ERTC512_PAUSE</name>
               <description>ERTC512_PAUSE</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>I2C1_SMBUS_TIMEOUT</name>
               <description>I2C1_SMBUS_TIMEOUT</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>I2C1_SMBUS_TIMEOUT</name>
+                <enumeratedValue>
+                  <name>Run</name>
+                  <description>I2C SMBUS timeout control works normally</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Stop</name>
+                  <description>I2C SMBUS timeout control stops running</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CAN1_PAUSE</name>
               <description>CAN1_PAUSE</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>CAN2_PAUSE</name>
               <description>CAN2_PAUSE</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR2_PAUSE"/>
             </field>
             <field>
               <name>I2C2_SMBUS_TIMEOUT</name>
               <description>I2C2_SMBUS_TIMEOUT</description>
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="I2C1_SMBUS_TIMEOUT"/>
             </field>
             <field>
               <name>I2C3_SMBUS_TIMEOUT</name>
               <description>I2C3_SMBUS_TIMEOUT</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="I2C1_SMBUS_TIMEOUT"/>
             </field>
           </fields>
         </register>
@@ -31375,36 +31467,54 @@ If TPFLT&gt;0: High level</description>
               <description>TMR1_PAUSE</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TMR1_PAUSE</name>
+                <enumeratedValue>
+                  <name>Run</name>
+                  <description>Running normally</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Stop</name>
+                  <description>Stopped running</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TMR8_PAUSE</name>
               <description>TMR8_PAUSE</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR20_PAUSE</name>
               <description>TIM20_PAUSE</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR9_PAUSE</name>
               <description>TMR9_PAUSE</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR10_PAUSE</name>
               <description>TMR10_PAUSE</description>
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR11_PAUSE</name>
               <description>TMR11_PAUSE</description>
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
           </fields>
         </register>
@@ -31422,6 +31532,12 @@ If TPFLT&gt;0: High level</description>
               <description>version ID</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>7</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SER_ID</name>

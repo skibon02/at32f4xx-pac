@@ -209,10 +209,60 @@ where
         self.variant(HwcsoewWO::Enable)
     }
 }
+#[doc = "TI mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TIEN_A {
+    #[doc = "0: TI mode is disabled (Motorola mode)"]
+    Disabled = 0,
+    #[doc = "1: TI mode is enabled (TI mode)"]
+    Enabled = 1,
+}
+impl From<TIEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: TIEN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TIEN` reader - TI mode enable"]
-pub type TIEN_R = crate::BitReader;
+pub type TIEN_R = crate::BitReader<TIEN_A>;
+impl TIEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TIEN_A {
+        match self.bits {
+            false => TIEN_A::Disabled,
+            true => TIEN_A::Enabled,
+        }
+    }
+    #[doc = "TI mode is disabled (Motorola mode)"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == TIEN_A::Disabled
+    }
+    #[doc = "TI mode is enabled (TI mode)"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == TIEN_A::Enabled
+    }
+}
 #[doc = "Field `TIEN` writer - TI mode enable"]
-pub type TIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TIEN_W<'a, REG> = crate::BitWriter<'a, REG, TIEN_A>;
+impl<'a, REG> TIEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "TI mode is disabled (Motorola mode)"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TIEN_A::Disabled)
+    }
+    #[doc = "TI mode is enabled (TI mode)"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TIEN_A::Enabled)
+    }
+}
 #[doc = "Error interrupt enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -420,14 +470,64 @@ where
         self.variant(TdbeiewWO::Enable)
     }
 }
-#[doc = "Field `MDIV3` reader - Master clock frequency division bit3"]
+#[doc = "Field `MDIV3` reader - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
 pub type MDIV3_R = crate::BitReader;
-#[doc = "Field `MDIV3` writer - Master clock frequency division bit3"]
+#[doc = "Field `MDIV3` writer - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
 pub type MDIV3_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Master clock frequency 3 division enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MDIV3EN_A {
+    #[doc = "0: Disabled"]
+    Disabled = 0,
+    #[doc = "1: Enabled. MDIV is ignored and SPI clock set to PCLK/3"]
+    Enabled = 1,
+}
+impl From<MDIV3EN_A> for bool {
+    #[inline(always)]
+    fn from(variant: MDIV3EN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `MDIV3EN` reader - Master clock frequency 3 division enable"]
-pub type MDIV3EN_R = crate::BitReader;
+pub type MDIV3EN_R = crate::BitReader<MDIV3EN_A>;
+impl MDIV3EN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> MDIV3EN_A {
+        match self.bits {
+            false => MDIV3EN_A::Disabled,
+            true => MDIV3EN_A::Enabled,
+        }
+    }
+    #[doc = "Disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == MDIV3EN_A::Disabled
+    }
+    #[doc = "Enabled. MDIV is ignored and SPI clock set to PCLK/3"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == MDIV3EN_A::Enabled
+    }
+}
 #[doc = "Field `MDIV3EN` writer - Master clock frequency 3 division enable"]
-pub type MDIV3EN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type MDIV3EN_W<'a, REG> = crate::BitWriter<'a, REG, MDIV3EN_A>;
+impl<'a, REG> MDIV3EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(MDIV3EN_A::Disabled)
+    }
+    #[doc = "Enabled. MDIV is ignored and SPI clock set to PCLK/3"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(MDIV3EN_A::Enabled)
+    }
+}
 impl R {
     #[doc = "Bit 0 - DMA receive enable"]
     #[inline(always)]
@@ -464,7 +564,7 @@ impl R {
     pub fn tdbeie(&self) -> TDBEIE_R {
         TDBEIE_R::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bit 8 - Master clock frequency division bit3"]
+    #[doc = "Bit 8 - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
     #[inline(always)]
     pub fn mdiv3(&self) -> MDIV3_R {
         MDIV3_R::new(((self.bits >> 8) & 1) != 0)
@@ -526,7 +626,7 @@ impl W {
     pub fn tdbeie(&mut self) -> TDBEIE_W<'_, CTRL2_SPEC> {
         TDBEIE_W::new(self, 7)
     }
-    #[doc = "Bit 8 - Master clock frequency division bit3"]
+    #[doc = "Bit 8 - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
     #[inline(always)]
     pub fn mdiv3(&mut self) -> MDIV3_W<'_, CTRL2_SPEC> {
         MDIV3_W::new(self, 8)

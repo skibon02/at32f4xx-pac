@@ -6537,12 +6537,7 @@
                 <enumeratedValue>
                   <name>div256</name>
                   <description>LICK divided by 256</description>
-                  <value>6</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>div256_2</name>
-                  <description>LICK divided by 256</description>
-                  <value>7</value>
+                  <isDefault>true</isDefault>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -17213,15 +17208,9 @@
             </field>
             <field>
               <name>MDIV2_0</name>
-              <description>Master clock frequency division bit2-0</description>
+              <description>MDIV[2:0] — master clock frequency division bits 2-0. Combined with MDIV3 (in CTRL2) to form MDIV[3:0]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024</description>
               <bitOffset>3</bitOffset>
               <bitWidth>3</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>7</maximum>
-                </range>
-              </writeConstraint>
             </field>
             <field>
               <name>MSTEN</name>
@@ -17293,15 +17282,9 @@
           <fields>
             <field>
               <name>MDIV3</name>
-              <description>Master clock frequency division bit3</description>
+              <description>MDIV[3] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV[3:0]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>1</maximum>
-                </range>
-              </writeConstraint>
             </field>
             <field>
               <name>TDBEIE</name>
@@ -17704,6 +17687,12 @@
               <description>Data value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -17721,6 +17710,12 @@
               <description>CRC polynomial</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -17972,7 +17967,7 @@
           <fields>
             <field>
               <name>DIV9_8</name>
-              <description>I2S division bit9 and bit8</description>
+              <description>I2SDIV[9:8] — I2S linear divider high bits. Combined with DIV7_0 to form I2SDIV[9:0]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed.</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
               <writeConstraint>
@@ -18024,20 +18019,20 @@
               <enumeratedValues>
                 <name>ODD</name>
                 <enumeratedValue>
-                  <name>Double</name>
-                  <description>Actual divider factor = DIV*2</description>
+                  <name>Even</name>
+                  <description>Actual divider = I2SDIV * 2</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>DoublePlusOne</name>
-                  <description>Actual divider factor = (DIV*2)+1</description>
+                  <name>Odd</name>
+                  <description>Actual divider = I2SDIV * 2 + 1</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>DIV7_0</name>
-              <description>I2S division bit7 to bit0</description>
+              <description>I2SDIV[7:0] — I2S linear divider low bits. Combined with DIV9_8 to form I2SDIV[9:0]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <writeConstraint>
@@ -18371,6 +18366,12 @@
               <description>Data value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>9</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>511</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18388,6 +18389,12 @@
               <description>Division</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -19445,7 +19452,7 @@
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>0</minimum>
+                  <minimum>1</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>
@@ -19457,7 +19464,7 @@
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>0</minimum>
+                  <minimum>1</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>

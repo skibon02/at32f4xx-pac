@@ -2,78 +2,178 @@
 pub type R = crate::R<APB1_PAUSE_SPEC>;
 #[doc = "Register `APB1_PAUSE` writer"]
 pub type W = crate::W<APB1_PAUSE_SPEC>;
+#[doc = "TMR2_PAUSE\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TMR2_PAUSE_A {
+    #[doc = "0: Running normally"]
+    Run = 0,
+    #[doc = "1: Stopped running"]
+    Stop = 1,
+}
+impl From<TMR2_PAUSE_A> for bool {
+    #[inline(always)]
+    fn from(variant: TMR2_PAUSE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TMR2_PAUSE` reader - TMR2_PAUSE"]
-pub type TMR2_PAUSE_R = crate::BitReader;
+pub type TMR2_PAUSE_R = crate::BitReader<TMR2_PAUSE_A>;
+impl TMR2_PAUSE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TMR2_PAUSE_A {
+        match self.bits {
+            false => TMR2_PAUSE_A::Run,
+            true => TMR2_PAUSE_A::Stop,
+        }
+    }
+    #[doc = "Running normally"]
+    #[inline(always)]
+    pub fn is_run(&self) -> bool {
+        *self == TMR2_PAUSE_A::Run
+    }
+    #[doc = "Stopped running"]
+    #[inline(always)]
+    pub fn is_stop(&self) -> bool {
+        *self == TMR2_PAUSE_A::Stop
+    }
+}
 #[doc = "Field `TMR2_PAUSE` writer - TMR2_PAUSE"]
-pub type TMR2_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TMR2_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG, TMR2_PAUSE_A>;
+impl<'a, REG> TMR2_PAUSE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Running normally"]
+    #[inline(always)]
+    pub fn run(self) -> &'a mut crate::W<REG> {
+        self.variant(TMR2_PAUSE_A::Run)
+    }
+    #[doc = "Stopped running"]
+    #[inline(always)]
+    pub fn stop(self) -> &'a mut crate::W<REG> {
+        self.variant(TMR2_PAUSE_A::Stop)
+    }
+}
 #[doc = "Field `TMR3_PAUSE` reader - TMR3_PAUSE"]
-pub type TMR3_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR3_PAUSE` writer - TMR3_PAUSE"]
-pub type TMR3_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR3_PAUSE_R;
 #[doc = "Field `TMR4_PAUSE` reader - TMR4_PAUSE"]
-pub type TMR4_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR4_PAUSE` writer - TMR4_PAUSE"]
-pub type TMR4_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR4_PAUSE_R;
 #[doc = "Field `TMR5_PAUSE` reader - TMR5_PAUSE"]
-pub type TMR5_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR5_PAUSE` writer - TMR5_PAUSE"]
-pub type TMR5_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR5_PAUSE_R;
 #[doc = "Field `TMR6_PAUSE` reader - TMR6_PAUSE"]
-pub type TMR6_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR6_PAUSE` writer - TMR6_PAUSE"]
-pub type TMR6_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR6_PAUSE_R;
 #[doc = "Field `TMR7_PAUSE` reader - TMR7_PAUSE"]
-pub type TMR7_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR7_PAUSE` writer - TMR7_PAUSE"]
-pub type TMR7_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR7_PAUSE_R;
 #[doc = "Field `TMR12_PAUSE` reader - TMR12_PAUSE"]
-pub type TMR12_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR12_PAUSE` writer - TMR12_PAUSE"]
-pub type TMR12_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR12_PAUSE_R;
 #[doc = "Field `TMR13_PAUSE` reader - TMR13_PAUSE"]
-pub type TMR13_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR13_PAUSE` writer - TMR13_PAUSE"]
-pub type TMR13_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR13_PAUSE_R;
 #[doc = "Field `TMR14_PAUSE` reader - TMR14_PAUSE"]
-pub type TMR14_PAUSE_R = crate::BitReader;
-#[doc = "Field `TMR14_PAUSE` writer - TMR14_PAUSE"]
-pub type TMR14_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as TMR14_PAUSE_R;
 #[doc = "Field `ERTC_PAUSE` reader - ERTC_PAUSE"]
-pub type ERTC_PAUSE_R = crate::BitReader;
-#[doc = "Field `ERTC_PAUSE` writer - ERTC_PAUSE"]
-pub type ERTC_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as ERTC_PAUSE_R;
 #[doc = "Field `WWDT_PAUSE` reader - WWDT_PAUSE"]
-pub type WWDT_PAUSE_R = crate::BitReader;
-#[doc = "Field `WWDT_PAUSE` writer - WWDT_PAUSE"]
-pub type WWDT_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as WWDT_PAUSE_R;
 #[doc = "Field `WDT_PAUSE` reader - WDT_PAUSE"]
-pub type WDT_PAUSE_R = crate::BitReader;
-#[doc = "Field `WDT_PAUSE` writer - WDT_PAUSE"]
-pub type WDT_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_R as WDT_PAUSE_R;
 #[doc = "Field `ERTC512_PAUSE` reader - ERTC512_PAUSE"]
-pub type ERTC512_PAUSE_R = crate::BitReader;
+pub use TMR2_PAUSE_R as ERTC512_PAUSE_R;
+#[doc = "Field `TMR3_PAUSE` writer - TMR3_PAUSE"]
+pub use TMR2_PAUSE_W as TMR3_PAUSE_W;
+#[doc = "Field `TMR4_PAUSE` writer - TMR4_PAUSE"]
+pub use TMR2_PAUSE_W as TMR4_PAUSE_W;
+#[doc = "Field `TMR5_PAUSE` writer - TMR5_PAUSE"]
+pub use TMR2_PAUSE_W as TMR5_PAUSE_W;
+#[doc = "Field `TMR6_PAUSE` writer - TMR6_PAUSE"]
+pub use TMR2_PAUSE_W as TMR6_PAUSE_W;
+#[doc = "Field `TMR7_PAUSE` writer - TMR7_PAUSE"]
+pub use TMR2_PAUSE_W as TMR7_PAUSE_W;
+#[doc = "Field `TMR12_PAUSE` writer - TMR12_PAUSE"]
+pub use TMR2_PAUSE_W as TMR12_PAUSE_W;
+#[doc = "Field `TMR13_PAUSE` writer - TMR13_PAUSE"]
+pub use TMR2_PAUSE_W as TMR13_PAUSE_W;
+#[doc = "Field `TMR14_PAUSE` writer - TMR14_PAUSE"]
+pub use TMR2_PAUSE_W as TMR14_PAUSE_W;
+#[doc = "Field `ERTC_PAUSE` writer - ERTC_PAUSE"]
+pub use TMR2_PAUSE_W as ERTC_PAUSE_W;
+#[doc = "Field `WWDT_PAUSE` writer - WWDT_PAUSE"]
+pub use TMR2_PAUSE_W as WWDT_PAUSE_W;
+#[doc = "Field `WDT_PAUSE` writer - WDT_PAUSE"]
+pub use TMR2_PAUSE_W as WDT_PAUSE_W;
 #[doc = "Field `ERTC512_PAUSE` writer - ERTC512_PAUSE"]
-pub type ERTC512_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_PAUSE_W as ERTC512_PAUSE_W;
+#[doc = "I2C1_SMBUS_TIMEOUT\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum I2C1_SMBUS_TIMEOUT_A {
+    #[doc = "0: I2C SMBUS timeout control works normally"]
+    Run = 0,
+    #[doc = "1: I2C SMBUS timeout control stops running"]
+    Stop = 1,
+}
+impl From<I2C1_SMBUS_TIMEOUT_A> for bool {
+    #[inline(always)]
+    fn from(variant: I2C1_SMBUS_TIMEOUT_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `I2C1_SMBUS_TIMEOUT` reader - I2C1_SMBUS_TIMEOUT"]
-pub type I2C1_SMBUS_TIMEOUT_R = crate::BitReader;
+pub type I2C1_SMBUS_TIMEOUT_R = crate::BitReader<I2C1_SMBUS_TIMEOUT_A>;
+impl I2C1_SMBUS_TIMEOUT_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> I2C1_SMBUS_TIMEOUT_A {
+        match self.bits {
+            false => I2C1_SMBUS_TIMEOUT_A::Run,
+            true => I2C1_SMBUS_TIMEOUT_A::Stop,
+        }
+    }
+    #[doc = "I2C SMBUS timeout control works normally"]
+    #[inline(always)]
+    pub fn is_run(&self) -> bool {
+        *self == I2C1_SMBUS_TIMEOUT_A::Run
+    }
+    #[doc = "I2C SMBUS timeout control stops running"]
+    #[inline(always)]
+    pub fn is_stop(&self) -> bool {
+        *self == I2C1_SMBUS_TIMEOUT_A::Stop
+    }
+}
 #[doc = "Field `I2C1_SMBUS_TIMEOUT` writer - I2C1_SMBUS_TIMEOUT"]
-pub type I2C1_SMBUS_TIMEOUT_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CAN1_PAUSE` reader - CAN1_PAUSE"]
-pub type CAN1_PAUSE_R = crate::BitReader;
-#[doc = "Field `CAN1_PAUSE` writer - CAN1_PAUSE"]
-pub type CAN1_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CAN2_PAUSE` reader - CAN2_PAUSE"]
-pub type CAN2_PAUSE_R = crate::BitReader;
-#[doc = "Field `CAN2_PAUSE` writer - CAN2_PAUSE"]
-pub type CAN2_PAUSE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type I2C1_SMBUS_TIMEOUT_W<'a, REG> = crate::BitWriter<'a, REG, I2C1_SMBUS_TIMEOUT_A>;
+impl<'a, REG> I2C1_SMBUS_TIMEOUT_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "I2C SMBUS timeout control works normally"]
+    #[inline(always)]
+    pub fn run(self) -> &'a mut crate::W<REG> {
+        self.variant(I2C1_SMBUS_TIMEOUT_A::Run)
+    }
+    #[doc = "I2C SMBUS timeout control stops running"]
+    #[inline(always)]
+    pub fn stop(self) -> &'a mut crate::W<REG> {
+        self.variant(I2C1_SMBUS_TIMEOUT_A::Stop)
+    }
+}
 #[doc = "Field `I2C2_SMBUS_TIMEOUT` reader - I2C2_SMBUS_TIMEOUT"]
-pub type I2C2_SMBUS_TIMEOUT_R = crate::BitReader;
-#[doc = "Field `I2C2_SMBUS_TIMEOUT` writer - I2C2_SMBUS_TIMEOUT"]
-pub type I2C2_SMBUS_TIMEOUT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use I2C1_SMBUS_TIMEOUT_R as I2C2_SMBUS_TIMEOUT_R;
 #[doc = "Field `I2C3_SMBUS_TIMEOUT` reader - I2C3_SMBUS_TIMEOUT"]
-pub type I2C3_SMBUS_TIMEOUT_R = crate::BitReader;
+pub use I2C1_SMBUS_TIMEOUT_R as I2C3_SMBUS_TIMEOUT_R;
+#[doc = "Field `I2C2_SMBUS_TIMEOUT` writer - I2C2_SMBUS_TIMEOUT"]
+pub use I2C1_SMBUS_TIMEOUT_W as I2C2_SMBUS_TIMEOUT_W;
 #[doc = "Field `I2C3_SMBUS_TIMEOUT` writer - I2C3_SMBUS_TIMEOUT"]
-pub type I2C3_SMBUS_TIMEOUT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use I2C1_SMBUS_TIMEOUT_W as I2C3_SMBUS_TIMEOUT_W;
+#[doc = "Field `CAN1_PAUSE` reader - CAN1_PAUSE"]
+pub use TMR2_PAUSE_R as CAN1_PAUSE_R;
+#[doc = "Field `CAN2_PAUSE` reader - CAN2_PAUSE"]
+pub use TMR2_PAUSE_R as CAN2_PAUSE_R;
+#[doc = "Field `CAN1_PAUSE` writer - CAN1_PAUSE"]
+pub use TMR2_PAUSE_W as CAN1_PAUSE_W;
+#[doc = "Field `CAN2_PAUSE` writer - CAN2_PAUSE"]
+pub use TMR2_PAUSE_W as CAN2_PAUSE_W;
 impl R {
     #[doc = "Bit 0 - TMR2_PAUSE"]
     #[inline(always)]

@@ -785,9 +785,9 @@ where
         self.variant(WUM_A::Id)
     }
 }
-#[doc = "Field `DBN0` reader - low bit for data bit num"]
+#[doc = "Field `DBN0` reader - DBN\\[0\\] — low bit of data bit number. Combined with DBN1 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
 pub type DBN0_R = crate::BitReader;
-#[doc = "Field `DBN0` writer - low bit for data bit num"]
+#[doc = "Field `DBN0` writer - DBN\\[0\\] — low bit of data bit number. Combined with DBN1 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
 pub type DBN0_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "USART enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
@@ -861,14 +861,14 @@ where
 #[doc = "Field `TCDT` reader - transmit complete delay time"]
 pub type TCDT_R = crate::FieldReader;
 #[doc = "Field `TCDT` writer - transmit complete delay time"]
-pub type TCDT_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type TCDT_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
 #[doc = "Field `TSDT` reader - transmit start delay time"]
 pub type TSDT_R = crate::FieldReader;
 #[doc = "Field `TSDT` writer - transmit start delay time"]
-pub type TSDT_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
-#[doc = "Field `DBN1` reader - high bit for data bit num"]
+pub type TSDT_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
+#[doc = "Field `DBN1` reader - DBN\\[1\\] — high bit of data bit number. Combined with DBN0 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
 pub type DBN1_R = crate::BitReader;
-#[doc = "Field `DBN1` writer - high bit for data bit num"]
+#[doc = "Field `DBN1` writer - DBN\\[1\\] — high bit of data bit number. Combined with DBN0 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
 pub type DBN1_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Send break frame"]
@@ -931,7 +931,7 @@ impl R {
     pub fn wum(&self) -> WUM_R {
         WUM_R::new(((self.bits >> 11) & 1) != 0)
     }
-    #[doc = "Bit 12 - low bit for data bit num"]
+    #[doc = "Bit 12 - DBN\\[0\\] — low bit of data bit number. Combined with DBN1 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
     #[inline(always)]
     pub fn dbn0(&self) -> DBN0_R {
         DBN0_R::new(((self.bits >> 12) & 1) != 0)
@@ -951,7 +951,7 @@ impl R {
     pub fn tsdt(&self) -> TSDT_R {
         TSDT_R::new(((self.bits >> 21) & 0x1f) as u8)
     }
-    #[doc = "Bit 28 - high bit for data bit num"]
+    #[doc = "Bit 28 - DBN\\[1\\] — high bit of data bit number. Combined with DBN0 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
     #[inline(always)]
     pub fn dbn1(&self) -> DBN1_R {
         DBN1_R::new(((self.bits >> 28) & 1) != 0)
@@ -1041,7 +1041,7 @@ impl W {
     pub fn wum(&mut self) -> WUM_W<'_, CTRL1_SPEC> {
         WUM_W::new(self, 11)
     }
-    #[doc = "Bit 12 - low bit for data bit num"]
+    #[doc = "Bit 12 - DBN\\[0\\] — low bit of data bit number. Combined with DBN1 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
     #[inline(always)]
     pub fn dbn0(&mut self) -> DBN0_W<'_, CTRL1_SPEC> {
         DBN0_W::new(self, 12)
@@ -1061,7 +1061,7 @@ impl W {
     pub fn tsdt(&mut self) -> TSDT_W<'_, CTRL1_SPEC> {
         TSDT_W::new(self, 21)
     }
-    #[doc = "Bit 28 - high bit for data bit num"]
+    #[doc = "Bit 28 - DBN\\[1\\] — high bit of data bit number. Combined with DBN0 to form DBN\\[1:0\\]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"]
     #[inline(always)]
     pub fn dbn1(&mut self) -> DBN1_W<'_, CTRL1_SPEC> {
         DBN1_W::new(self, 28)

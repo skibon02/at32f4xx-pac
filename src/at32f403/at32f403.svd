@@ -7987,12 +7987,7 @@
                 <enumeratedValue>
                   <name>div256</name>
                   <description>LICK divided by 256</description>
-                  <value>6</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>div256_2</name>
-                  <description>LICK divided by 256</description>
-                  <value>7</value>
+                  <isDefault>true</isDefault>
                 </enumeratedValue>
               </enumeratedValues>
             </field>

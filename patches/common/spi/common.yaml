@@ -1,7 +1,103 @@
-_include:
-  - wo_i2s.yaml
 SPI?:
+  CTRL1:
+    CLKPHA:
+      First:  [0, "Data capture starts from the first clock edge"]
+      Second:  [1, "Data capture starts from the second clock edge"]
+    CLKPOL:
+      Low: [0, "Low level"]
+      High: [1, "High level"]
+    MSTEN:
+      Slave: [0, Master is disabled (Slave)"]
+      Master: [1, Master is enabled"]
+    SPIEN:
+      _read:
+        Disabled: [0, "SPI is disabled"]
+        Enabled: [1, "SPI is enabled"]
+      _write:
+        Disable: [0, "SPI disable"]
+        Enable: [1, "SPI enable"]
+    LTF:
+      MSB: [0, "Most significant bit first"]
+      LSB: [1, "Least significant bit first"]
+    SWCSIL:
+      Low: [0, "Low level"]
+      High: [1, "High level"]
+    SWCSEN:
+      _read:
+        Disabled: [0, "Software CS is disabled"]
+        Enabled: [1, "Software CS is enabled"]
+      _write:
+        Disable: [0, "Software CS disable"]
+        Enable: [1, "Software CS enable"]
+    ORA:
+      RxTx: [0, "Transmission and reception"]
+      ReceiveOnly: [1, "Receive-only mode"]
+    FBN:
+      bit8: [0, "8-bit data frame"]
+      bit16: [1, "16-bit data frame"]
+    NTC:
+      Normal: [0, "Next transmitted data is the normal value"]
+      CRC: [1, "Next transmitted data is CRC value"]
+    CCEN:
+      _read:
+        Disabled: [0, "RC calculation is disabled"]
+        Enabled: [1, "RC calculation is enabled"]
+      _write:
+        Disable: [0, "RC calculation disable"]
+        Enable: [1, "RC calculation enable"]
+    SLBTD:
+      Receive: [0, "Receive-only mode"]
+      Transmit: [1, "Transmit-only mode"]
+    SLBEN:
+      _read:
+        Disabled: [0, "Single line bidirectional half-duplex is disabled"]
+        Enabled: [1, "Single line bidirectional half-duplex is enabled"]
+      _write:
+        Disable: [0, "Single line bidirectional half-duplex disable"]
+        Enable: [1, "Single line bidirectional half-duplex enable"]
+    _modify:
+      MDIV2_0:
+        description: "MDIV[2:0] — master clock frequency division bits 2-0. Combined with MDIV3 (in CTRL2) to form MDIV[3:0]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"
   CTRL2:
+    DMAREN:
+      _read:
+        Disabled: [0, "DMA receive is disabled"]
+        Enabled: [1, "DMA receive is enabled"]
+      _write:
+        Disable: [0, "DMA receive disable"]
+        Enable: [1, "DMA receive enable"]
+    DMATEN:
+      _read:
+        Disabled: [0, "DMA transmit is disabled"]
+        Enabled: [1, "DMA transmit is enabled"]
+      _write:
+        Disable: [0, "DMA transmit disable"]
+        Enable: [1, "DMA transmit enable"]
+
+    ERRIE:
+      _read:
+        Disabled: [0, "Error interrupt is disabled"]
+        Enabled: [1, "Error interrupt is enabled"]
+      _write:
+        Disable: [0, "Error interrupt disable"]
+        Enable: [1, "Error interrupt enable"]
+    RDBFIE:
+      _read:
+        Disabled: [0, "Receive data buffer full interrupt is disabled"]
+        Enabled: [1, "Receive data buffer full interrupt is enabled"]
+      _write:
+        Disable: [0, "Receive data buffer full interrupt disable"]
+        Enable: [1, "Receive data buffer full interrupt enable"]
+    TDBEIE:
+      _read:
+        Disabled: [0, "Transmit data buffer empty interrupt is disabled"]
+        Enabled: [1, "Transmit data buffer empty interrupt is enabled"]
+      _write:
+        Disable: [0, "Transmit data buffer empty interrupt disable"]
+        Enable: [1, "Transmit data buffer empty interrupt enable"]
+    _modify:
+      MDIV3:
+        description: "MDIV[3] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV[3:0]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"
     HWCSOE:
       _read:
         Disabled: [0, "Hardware CS output is disabled"]
@@ -10,12 +106,37 @@ SPI?:
         Disable: [0, "Hardware CS output disable"]
         Enable: [1, "Hardware CS output enable"]
   STS:
+    RDBF:
+      NotFull: [0, "Transmit data buffer is not full"]
+      Full: [1, "Transmit data buffer is full"]
+    TDBE:
+      NotEmpty: [0, "Transmit data buffer is not empty"]
+      Empty: [1, "Transmit data buffer is empty"]
+    CCERR:
+      _read:
+        NoError: [0, "No CRC error"]
+        Error: [1, "CRC error occurs"]
+      _W0C:
+        Clear: [0, "Clear CRC error"]
+    MMERR:
+      NoError: [0, "No mode error"]
+      Error: [1, "Mode error occurs"]
+    ROERR:
+      NoError: [0, "No overflow error"]
+      Overflow: [1, "Overflow error occurs"]
+    BF:
+      Idle: [0, "SPI is not busy"]
+      Busy: [1, "SPI is busy"]
     ACS:
       Left: [0, "Left channel"]
       Right: [1, "Right channel"]
     TUERR:
       NoError: [0, "No underload error"]
       Underload: [1, "Underload error occurs"]
+  DT:
+    DT: [0, 0xFFFF]
+  CPOLY:
+    CPOLY: [0, 0xFFFF]
   I2SCTRL:
     _strip: "I2S"
     CBN:
@@ -53,10 +174,15 @@ SPI?:
       I2S: [1, "I2S mode"]
   I2SCLK:
     _strip: "I2S"
+    _modify:
+      DIV7_0:
+        description: "I2SDIV[7:0] — I2S linear divider low bits. Combined with DIV9_8 to form I2SDIV[9:0]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."
+      DIV9_8:
+        description: "I2SDIV[9:8] — I2S linear divider high bits. Combined with DIV7_0 to form I2SDIV[9:0]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."
     DIV7_0: [0, 0xFF]
     ODD:
-      Double: [0, "Actual divider factor = DIV*2"]
-      DoublePlusOne: [1, "Actual divider factor = (DIV*2)+1"]
+      Even: [0, "Actual divider = I2SDIV * 2"]
+      Odd: [1, "Actual divider = I2SDIV * 2 + 1"]
     MCLKOE:
       _read:
         Disabled: [0, "Master clock output is disabled"]

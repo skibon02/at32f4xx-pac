@@ -164,10 +164,10 @@ where
         self.variant(MSTEN_A::Master)
     }
 }
-#[doc = "Field `MDIV2_0` reader - Master clock frequency division bit2-0"]
+#[doc = "Field `MDIV2_0` reader - MDIV\\[2:0\\] — master clock frequency division bits 2-0. Combined with MDIV3 (in CTRL2) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
 pub type MDIV2_0_R = crate::FieldReader;
-#[doc = "Field `MDIV2_0` writer - Master clock frequency division bit2-0"]
-pub type MDIV2_0_W<'a, REG> = crate::FieldWriter<'a, REG, 3, u8, crate::Safe>;
+#[doc = "Field `MDIV2_0` writer - MDIV\\[2:0\\] — master clock frequency division bits 2-0. Combined with MDIV3 (in CTRL2) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
+pub type MDIV2_0_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "SPI enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -784,7 +784,7 @@ impl R {
     pub fn msten(&self) -> MSTEN_R {
         MSTEN_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bits 3:5 - Master clock frequency division bit2-0"]
+    #[doc = "Bits 3:5 - MDIV\\[2:0\\] — master clock frequency division bits 2-0. Combined with MDIV3 (in CTRL2) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
     #[inline(always)]
     pub fn mdiv2_0(&self) -> MDIV2_0_R {
         MDIV2_0_R::new(((self.bits >> 3) & 7) as u8)
@@ -876,7 +876,7 @@ impl W {
     pub fn msten(&mut self) -> MSTEN_W<'_, CTRL1_SPEC> {
         MSTEN_W::new(self, 2)
     }
-    #[doc = "Bits 3:5 - Master clock frequency division bit2-0"]
+    #[doc = "Bits 3:5 - MDIV\\[2:0\\] — master clock frequency division bits 2-0. Combined with MDIV3 (in CTRL2) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
     #[inline(always)]
     pub fn mdiv2_0(&mut self) -> MDIV2_0_W<'_, CTRL1_SPEC> {
         MDIV2_0_W::new(self, 3)

@@ -12,8 +12,7 @@ WDT:
       div32: [3, "LICK divided by 32"]
       div64: [4, "LICK divided by 64"]
       div128: [5, "LICK divided by 128"]
-      div256: [6, "LICK divided by 256"]
-      div256_2: [7, "LICK divided by 256"]
+      div256: [-1, "LICK divided by 256"]
   RLD:
     RLD: [0, 0xFFF]
   _modify:

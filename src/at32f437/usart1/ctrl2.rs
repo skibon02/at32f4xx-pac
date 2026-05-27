@@ -5,11 +5,61 @@ pub type W = crate::W<CTRL2_SPEC>;
 #[doc = "Field `ID3_0` reader - bit 3-0 for usart identification"]
 pub type ID3_0_R = crate::FieldReader;
 #[doc = "Field `ID3_0` writer - bit 3-0 for usart identification"]
-pub type ID3_0_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub type ID3_0_W<'a, REG> = crate::FieldWriter<'a, REG, 4, u8, crate::Safe>;
+#[doc = "Identification bit num\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum IDBN_A {
+    #[doc = "0: 4-bit ID"]
+    Bit4 = 0,
+    #[doc = "1: data_bits - 1 ID"]
+    DatabitsMinus1 = 1,
+}
+impl From<IDBN_A> for bool {
+    #[inline(always)]
+    fn from(variant: IDBN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `IDBN` reader - Identification bit num"]
-pub type IDBN_R = crate::BitReader;
+pub type IDBN_R = crate::BitReader<IDBN_A>;
+impl IDBN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> IDBN_A {
+        match self.bits {
+            false => IDBN_A::Bit4,
+            true => IDBN_A::DatabitsMinus1,
+        }
+    }
+    #[doc = "4-bit ID"]
+    #[inline(always)]
+    pub fn is_bit4(&self) -> bool {
+        *self == IDBN_A::Bit4
+    }
+    #[doc = "data_bits - 1 ID"]
+    #[inline(always)]
+    pub fn is_databits_minus_1(&self) -> bool {
+        *self == IDBN_A::DatabitsMinus1
+    }
+}
 #[doc = "Field `IDBN` writer - Identification bit num"]
-pub type IDBN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type IDBN_W<'a, REG> = crate::BitWriter<'a, REG, IDBN_A>;
+impl<'a, REG> IDBN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "4-bit ID"]
+    #[inline(always)]
+    pub fn bit4(self) -> &'a mut crate::W<REG> {
+        self.variant(IDBN_A::Bit4)
+    }
+    #[doc = "data_bits - 1 ID"]
+    #[inline(always)]
+    pub fn databits_minus_1(self) -> &'a mut crate::W<REG> {
+        self.variant(IDBN_A::DatabitsMinus1)
+    }
+}
 #[doc = "Break frame bit num\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -535,14 +585,64 @@ where
         self.variant(LinenwWO::Enable)
     }
 }
+#[doc = "Transmit receive pin swap\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TRPSWAP_A {
+    #[doc = "0: No swap"]
+    Normal = 0,
+    #[doc = "1: TX and RX pins are swapped"]
+    Swapped = 1,
+}
+impl From<TRPSWAP_A> for bool {
+    #[inline(always)]
+    fn from(variant: TRPSWAP_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TRPSWAP` reader - Transmit receive pin swap"]
-pub type TRPSWAP_R = crate::BitReader;
+pub type TRPSWAP_R = crate::BitReader<TRPSWAP_A>;
+impl TRPSWAP_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TRPSWAP_A {
+        match self.bits {
+            false => TRPSWAP_A::Normal,
+            true => TRPSWAP_A::Swapped,
+        }
+    }
+    #[doc = "No swap"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        *self == TRPSWAP_A::Normal
+    }
+    #[doc = "TX and RX pins are swapped"]
+    #[inline(always)]
+    pub fn is_swapped(&self) -> bool {
+        *self == TRPSWAP_A::Swapped
+    }
+}
 #[doc = "Field `TRPSWAP` writer - Transmit receive pin swap"]
-pub type TRPSWAP_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TRPSWAP_W<'a, REG> = crate::BitWriter<'a, REG, TRPSWAP_A>;
+impl<'a, REG> TRPSWAP_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "No swap"]
+    #[inline(always)]
+    pub fn normal(self) -> &'a mut crate::W<REG> {
+        self.variant(TRPSWAP_A::Normal)
+    }
+    #[doc = "TX and RX pins are swapped"]
+    #[inline(always)]
+    pub fn swapped(self) -> &'a mut crate::W<REG> {
+        self.variant(TRPSWAP_A::Swapped)
+    }
+}
 #[doc = "Field `ID7_4` reader - bit 7-4 for usart identification"]
 pub type ID7_4_R = crate::FieldReader;
 #[doc = "Field `ID7_4` writer - bit 7-4 for usart identification"]
-pub type ID7_4_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub type ID7_4_W<'a, REG> = crate::FieldWriter<'a, REG, 4, u8, crate::Safe>;
 impl R {
     #[doc = "Bits 0:3 - bit 3-0 for usart identification"]
     #[inline(always)]

@@ -5,12 +5,14 @@ _include:
   - ertc/alarmb.yaml
   - ertc/wat.yaml
   - ertc/tspin.yaml
+  - debug/pause_id.yaml
   - periph-v2.yaml
   - adc/common.yaml
   - adc/odt_vm.yaml
   - flash/f435_437.yaml
   - flash/unlock.yaml
   - comms.yaml
+  - usart/dbn.yaml
   - crc/poly.yaml
   - spi/sts_cspas.yaml
   - pwc/ldoov.yaml
@@ -233,3 +235,6 @@ ADCCOM:
     ITSRVEN:
       Disabled: [0, "Internal temperature sensor and Vintrv channel disabled"]
       Enabled: [1, "Internal temperature sensor and Vintrv channel enabled"]
+U*RT?:
+  CTRL2:
+    ID7_4,ID3_0: [0, 0xF]

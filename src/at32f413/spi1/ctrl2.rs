@@ -416,9 +416,9 @@ where
         self.variant(TdbeiewWO::Enable)
     }
 }
-#[doc = "Field `MDIV3` reader - Master clock frequency division bit3"]
+#[doc = "Field `MDIV3` reader - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
 pub type MDIV3_R = crate::BitReader;
-#[doc = "Field `MDIV3` writer - Master clock frequency division bit3"]
+#[doc = "Field `MDIV3` writer - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
 pub type MDIV3_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - DMA receive enable"]
@@ -451,7 +451,7 @@ impl R {
     pub fn tdbeie(&self) -> TDBEIE_R {
         TDBEIE_R::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bit 8 - Master clock frequency division bit3"]
+    #[doc = "Bit 8 - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
     #[inline(always)]
     pub fn mdiv3(&self) -> MDIV3_R {
         MDIV3_R::new(((self.bits >> 8) & 1) != 0)
@@ -501,7 +501,7 @@ impl W {
     pub fn tdbeie(&mut self) -> TDBEIE_W<'_, CTRL2_SPEC> {
         TDBEIE_W::new(self, 7)
     }
-    #[doc = "Bit 8 - Master clock frequency division bit3"]
+    #[doc = "Bit 8 - MDIV\\[3\\] — master clock frequency division bit 3. Combined with MDIV2_0 (in CTRL1) to form MDIV\\[3:0\\]. 0: Divided by 2, 1: Divided by 4, 2: Divided by 8, 3: Divided by 16, 4: Divided by 32, 5: Divided by 64, 6: Divided by 128, 7: Divided by 256, 8: Divided by 512, 9: Divided by 1024"]
     #[inline(always)]
     pub fn mdiv3(&mut self) -> MDIV3_W<'_, CTRL2_SPEC> {
         MDIV3_W::new(self, 8)

@@ -1,0 +1,12 @@
+DEBUG:
+  APB?_PAUSE:
+    "*_PAUSE":
+      Run: [0, "Running normally"]
+      Stop: [1, "Stopped running"]
+  APB1_PAUSE:
+    I2C?_SMBUS_TIMEOUT:
+      Run: [ 0, "I2C SMBUS timeout control works normally"]
+      Stop: [1, "I2C SMBUS timeout control stops running"]
+  SER_ID:
+    REV_ID: [0, 7]
+    SER_ID: [0; 0xF]

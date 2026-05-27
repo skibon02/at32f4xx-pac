@@ -21,8 +21,6 @@ pub enum DIV_A {
     Div128 = 5,
     #[doc = "6: LICK divided by 256"]
     Div256 = 6,
-    #[doc = "7: LICK divided by 256"]
-    Div256_2 = 7,
 }
 impl From<DIV_A> for u8 {
     #[inline(always)]
@@ -47,9 +45,7 @@ impl DIV_R {
             3 => DIV_A::Div32,
             4 => DIV_A::Div64,
             5 => DIV_A::Div128,
-            6 => DIV_A::Div256,
-            7 => DIV_A::Div256_2,
-            _ => unreachable!(),
+            _ => DIV_A::Div256,
         }
     }
     #[doc = "LICK divided by 4"]
@@ -85,12 +81,7 @@ impl DIV_R {
     #[doc = "LICK divided by 256"]
     #[inline(always)]
     pub fn is_div256(&self) -> bool {
-        *self == DIV_A::Div256
-    }
-    #[doc = "LICK divided by 256"]
-    #[inline(always)]
-    pub fn is_div256_2(&self) -> bool {
-        *self == DIV_A::Div256_2
+        matches!(self.variant(), DIV_A::Div256)
     }
 }
 #[doc = "Field `DIV` writer - Division divider"]
@@ -134,11 +125,6 @@ where
     #[inline(always)]
     pub fn div256(self) -> &'a mut crate::W<REG> {
         self.variant(DIV_A::Div256)
-    }
-    #[doc = "LICK divided by 256"]
-    #[inline(always)]
-    pub fn div256_2(self) -> &'a mut crate::W<REG> {
-        self.variant(DIV_A::Div256_2)
     }
 }
 impl R {

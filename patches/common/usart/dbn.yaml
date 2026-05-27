@@ -1,0 +1,27 @@
+UART?,USART?:
+  CTRL1:
+    _modify:
+      DBN1:
+        description: "DBN[1] — high bit of data bit number. Combined with DBN0 to form DBN[1:0]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"
+      DBN0:
+        description: "DBN[0] — low bit of data bit number. Combined with DBN1 to form DBN[1:0]. 10: 7 data bits, 00: 8 data bits, 01: 9 data bits, 11: Forbidden. When parity is enabled, the valid data bit count is reduced by one and the MSB is replaced with the parity bit"
+    TSDT: [0, 0x1F]
+    TCDT: [0, 0x1F]
+  CTRL2:
+    TRPSWAP:
+      Normal: [0, "No swap"]
+      Swapped: [1, "TX and RX pins are swapped"]
+    IDBN:
+      Bit4: [0, "4-bit ID"]
+      Databits_minus_1: [1, "data_bits - 1 ID"]
+  CTRL3:
+    RS485EN:
+      _read:
+        Disabled: [0, "RS-485 mode is disabled"]
+        Enabled: [1, "RS-485 mode is enabled. The control signal DE outputs on the RTS pin."]
+      _write:
+        Disable: [0, "RS-485 mode disable"]
+        Enable: [1, "RS-485 mode enable. The control signal DE outputs on the RTS pin."]
+    DEP:
+      High: [0, "DE signal is active high"]
+      Low: [1, "DE signal is active low"]

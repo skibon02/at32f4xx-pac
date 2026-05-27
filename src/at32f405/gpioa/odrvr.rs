@@ -7,10 +7,10 @@ pub type W = crate::W<ODRVR_SPEC>;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ODRV0_A {
-    #[doc = "0: Normal sourcing/sinking strength"]
-    Normal = 0,
     #[doc = "1: Large sourcing/sinking strength"]
     Large = 1,
+    #[doc = "0: Normal sourcing/sinking strength"]
+    Normal = 0,
 }
 impl From<ODRV0_A> for u8 {
     #[inline(always)]
@@ -27,40 +27,39 @@ pub type ODRV_R = crate::FieldReader<ODRV0_A>;
 impl ODRV_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Option<ODRV0_A> {
+    pub const fn variant(&self) -> ODRV0_A {
         match self.bits {
-            0 => Some(ODRV0_A::Normal),
-            1 => Some(ODRV0_A::Large),
-            _ => None,
+            1 => ODRV0_A::Large,
+            _ => ODRV0_A::Normal,
         }
-    }
-    #[doc = "Normal sourcing/sinking strength"]
-    #[inline(always)]
-    pub fn is_normal(&self) -> bool {
-        *self == ODRV0_A::Normal
     }
     #[doc = "Large sourcing/sinking strength"]
     #[inline(always)]
     pub fn is_large(&self) -> bool {
         *self == ODRV0_A::Large
     }
+    #[doc = "Normal sourcing/sinking strength"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        matches!(self.variant(), ODRV0_A::Normal)
+    }
 }
 #[doc = "Field `ODRV(0-15)` writer - GPIOx pin %s output drive capability"]
-pub type ODRV_W<'a, REG> = crate::FieldWriter<'a, REG, 2, ODRV0_A>;
+pub type ODRV_W<'a, REG> = crate::FieldWriter<'a, REG, 2, ODRV0_A, crate::Safe>;
 impl<'a, REG> ODRV_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
 {
-    #[doc = "Normal sourcing/sinking strength"]
-    #[inline(always)]
-    pub fn normal(self) -> &'a mut crate::W<REG> {
-        self.variant(ODRV0_A::Normal)
-    }
     #[doc = "Large sourcing/sinking strength"]
     #[inline(always)]
     pub fn large(self) -> &'a mut crate::W<REG> {
         self.variant(ODRV0_A::Large)
+    }
+    #[doc = "Normal sourcing/sinking strength"]
+    #[inline(always)]
+    pub fn normal(self) -> &'a mut crate::W<REG> {
+        self.variant(ODRV0_A::Normal)
     }
 }
 impl R {

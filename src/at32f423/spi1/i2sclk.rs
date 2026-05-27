@@ -2,18 +2,18 @@
 pub type R = crate::R<I2SCLK_SPEC>;
 #[doc = "Register `I2SCLK` writer"]
 pub type W = crate::W<I2SCLK_SPEC>;
-#[doc = "Field `DIV7_0` reader - I2S division bit7 to bit0"]
+#[doc = "Field `DIV7_0` reader - I2SDIV\\[7:0\\] — I2S linear divider low bits. Combined with DIV9_8 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
 pub type DIV7_0_R = crate::FieldReader;
-#[doc = "Field `DIV7_0` writer - I2S division bit7 to bit0"]
+#[doc = "Field `DIV7_0` writer - I2SDIV\\[7:0\\] — I2S linear divider low bits. Combined with DIV9_8 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
 pub type DIV7_0_W<'a, REG> = crate::FieldWriter<'a, REG, 8, u8, crate::Safe>;
 #[doc = "Odd result for I2S division\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ODD_A {
-    #[doc = "0: Actual divider factor = DIV*2"]
-    Double = 0,
-    #[doc = "1: Actual divider factor = (DIV*2)+1"]
-    DoublePlusOne = 1,
+    #[doc = "0: Actual divider = I2SDIV * 2"]
+    Even = 0,
+    #[doc = "1: Actual divider = I2SDIV * 2 + 1"]
+    Odd = 1,
 }
 impl From<ODD_A> for bool {
     #[inline(always)]
@@ -28,19 +28,19 @@ impl ODD_R {
     #[inline(always)]
     pub const fn variant(&self) -> ODD_A {
         match self.bits {
-            false => ODD_A::Double,
-            true => ODD_A::DoublePlusOne,
+            false => ODD_A::Even,
+            true => ODD_A::Odd,
         }
     }
-    #[doc = "Actual divider factor = DIV*2"]
+    #[doc = "Actual divider = I2SDIV * 2"]
     #[inline(always)]
-    pub fn is_double(&self) -> bool {
-        *self == ODD_A::Double
+    pub fn is_even(&self) -> bool {
+        *self == ODD_A::Even
     }
-    #[doc = "Actual divider factor = (DIV*2)+1"]
+    #[doc = "Actual divider = I2SDIV * 2 + 1"]
     #[inline(always)]
-    pub fn is_double_plus_one(&self) -> bool {
-        *self == ODD_A::DoublePlusOne
+    pub fn is_odd(&self) -> bool {
+        *self == ODD_A::Odd
     }
 }
 #[doc = "Field `ODD` writer - Odd result for I2S division"]
@@ -49,15 +49,15 @@ impl<'a, REG> ODD_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Actual divider factor = DIV*2"]
+    #[doc = "Actual divider = I2SDIV * 2"]
     #[inline(always)]
-    pub fn double(self) -> &'a mut crate::W<REG> {
-        self.variant(ODD_A::Double)
+    pub fn even(self) -> &'a mut crate::W<REG> {
+        self.variant(ODD_A::Even)
     }
-    #[doc = "Actual divider factor = (DIV*2)+1"]
+    #[doc = "Actual divider = I2SDIV * 2 + 1"]
     #[inline(always)]
-    pub fn double_plus_one(self) -> &'a mut crate::W<REG> {
-        self.variant(ODD_A::DoublePlusOne)
+    pub fn odd(self) -> &'a mut crate::W<REG> {
+        self.variant(ODD_A::Odd)
     }
 }
 #[doc = "I2S master clock output enable\n\nValue on reset: 0"]
@@ -129,12 +129,12 @@ where
         self.variant(MclkoewWO::Enable)
     }
 }
-#[doc = "Field `DIV9_8` reader - I2S division bit9 and bit8"]
+#[doc = "Field `DIV9_8` reader - I2SDIV\\[9:8\\] — I2S linear divider high bits. Combined with DIV7_0 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
 pub type DIV9_8_R = crate::FieldReader;
-#[doc = "Field `DIV9_8` writer - I2S division bit9 and bit8"]
+#[doc = "Field `DIV9_8` writer - I2SDIV\\[9:8\\] — I2S linear divider high bits. Combined with DIV7_0 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
 pub type DIV9_8_W<'a, REG> = crate::FieldWriter<'a, REG, 2, u8, crate::Safe>;
 impl R {
-    #[doc = "Bits 0:7 - I2S division bit7 to bit0"]
+    #[doc = "Bits 0:7 - I2SDIV\\[7:0\\] — I2S linear divider low bits. Combined with DIV9_8 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
     #[inline(always)]
     pub fn div7_0(&self) -> DIV7_0_R {
         DIV7_0_R::new((self.bits & 0xff) as u8)
@@ -149,7 +149,7 @@ impl R {
     pub fn mclkoe(&self) -> MCLKOE_R {
         MCLKOE_R::new(((self.bits >> 9) & 1) != 0)
     }
-    #[doc = "Bits 10:11 - I2S division bit9 and bit8"]
+    #[doc = "Bits 10:11 - I2SDIV\\[9:8\\] — I2S linear divider high bits. Combined with DIV7_0 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
     #[inline(always)]
     pub fn div9_8(&self) -> DIV9_8_R {
         DIV9_8_R::new(((self.bits >> 10) & 3) as u8)
@@ -166,7 +166,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - I2S division bit7 to bit0"]
+    #[doc = "Bits 0:7 - I2SDIV\\[7:0\\] — I2S linear divider low bits. Combined with DIV9_8 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
     #[inline(always)]
     pub fn div7_0(&mut self) -> DIV7_0_W<'_, I2SCLK_SPEC> {
         DIV7_0_W::new(self, 0)
@@ -181,7 +181,7 @@ impl W {
     pub fn mclkoe(&mut self) -> MCLKOE_W<'_, I2SCLK_SPEC> {
         MCLKOE_W::new(self, 9)
     }
-    #[doc = "Bits 10:11 - I2S division bit9 and bit8"]
+    #[doc = "Bits 10:11 - I2SDIV\\[9:8\\] — I2S linear divider high bits. Combined with DIV7_0 to form I2SDIV\\[9:0\\]. Actual divider = I2SDIV * 2 (+1 if ODD=1). Values 0 and 0x3FF are not allowed."]
     #[inline(always)]
     pub fn div9_8(&mut self) -> DIV9_8_W<'_, I2SCLK_SPEC> {
         DIV9_8_W::new(self, 10)
