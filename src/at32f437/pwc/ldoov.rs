@@ -7,12 +7,12 @@ pub type W = crate::W<LDOOV_SPEC>;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LDO_OUTPUT_VSELECT_A {
-    #[doc = "0: LDO output voltage is 1.1 V"]
-    V1_1 = 0,
-    #[doc = "1: LDO output voltage is 1.2 V"]
-    V1_2 = 1,
-    #[doc = "2: LDO output voltage is 1.3 V"]
-    V1_3 = 2,
+    #[doc = "0: LDO output voltage is 1.2 V"]
+    V1_2 = 0,
+    #[doc = "1: LDO output voltage is 1.3 V"]
+    V1_3 = 1,
+    #[doc = "4: LDO output voltage is 1.1 V"]
+    V1_1 = 4,
 }
 impl From<LDO_OUTPUT_VSELECT_A> for u8 {
     #[inline(always)]
@@ -31,16 +31,11 @@ impl LDOOVSEL_R {
     #[inline(always)]
     pub const fn variant(&self) -> Option<LDO_OUTPUT_VSELECT_A> {
         match self.bits {
-            0 => Some(LDO_OUTPUT_VSELECT_A::V1_1),
-            1 => Some(LDO_OUTPUT_VSELECT_A::V1_2),
-            2 => Some(LDO_OUTPUT_VSELECT_A::V1_3),
+            0 => Some(LDO_OUTPUT_VSELECT_A::V1_2),
+            1 => Some(LDO_OUTPUT_VSELECT_A::V1_3),
+            4 => Some(LDO_OUTPUT_VSELECT_A::V1_1),
             _ => None,
         }
-    }
-    #[doc = "LDO output voltage is 1.1 V"]
-    #[inline(always)]
-    pub fn is_v1_1(&self) -> bool {
-        *self == LDO_OUTPUT_VSELECT_A::V1_1
     }
     #[doc = "LDO output voltage is 1.2 V"]
     #[inline(always)]
@@ -52,6 +47,11 @@ impl LDOOVSEL_R {
     pub fn is_v1_3(&self) -> bool {
         *self == LDO_OUTPUT_VSELECT_A::V1_3
     }
+    #[doc = "LDO output voltage is 1.1 V"]
+    #[inline(always)]
+    pub fn is_v1_1(&self) -> bool {
+        *self == LDO_OUTPUT_VSELECT_A::V1_1
+    }
 }
 #[doc = "Field `LDOOVSEL` writer - LDO output voltage select"]
 pub type LDOOVSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 3, LDO_OUTPUT_VSELECT_A>;
@@ -60,11 +60,6 @@ where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
 {
-    #[doc = "LDO output voltage is 1.1 V"]
-    #[inline(always)]
-    pub fn v1_1(self) -> &'a mut crate::W<REG> {
-        self.variant(LDO_OUTPUT_VSELECT_A::V1_1)
-    }
     #[doc = "LDO output voltage is 1.2 V"]
     #[inline(always)]
     pub fn v1_2(self) -> &'a mut crate::W<REG> {
@@ -74,6 +69,11 @@ where
     #[inline(always)]
     pub fn v1_3(self) -> &'a mut crate::W<REG> {
         self.variant(LDO_OUTPUT_VSELECT_A::V1_3)
+    }
+    #[doc = "LDO output voltage is 1.1 V"]
+    #[inline(always)]
+    pub fn v1_1(self) -> &'a mut crate::W<REG> {
+        self.variant(LDO_OUTPUT_VSELECT_A::V1_1)
     }
 }
 impl R {

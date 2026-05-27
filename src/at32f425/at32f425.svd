@@ -55,6 +55,19 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>VRSEL</name>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>LDO enabled in deepsleep mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>LDO disabled in deepsleep mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>LPSEL</name>
@@ -62,6 +75,19 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>LPSEL</name>
+                <enumeratedValue>
+                  <name>EnterDeepsleep</name>
+                  <description>Enter deepsleep mode when the CPU enters deepsleep mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>EnterStandby</name>
+                  <description>Enter standby mode when the CPU enters deepsleep mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLSWEF</name>
@@ -70,6 +96,14 @@
               <bitWidth>1</bitWidth>
               <access>write-only</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>CLSWEFW</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear the flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CLSEF</name>
@@ -78,6 +112,7 @@
               <bitWidth>1</bitWidth>
               <access>write-only</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="CLSWEFW"/>
             </field>
             <field>
               <name>PVMEN</name>
@@ -85,6 +120,19 @@
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>PVMEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Power voltage monitoring disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Power voltage monitoring enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PVMSEL</name>
@@ -92,6 +140,44 @@
               <bitOffset>5</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>PVMSEL</name>
+                <enumeratedValue>
+                  <name>v2_3</name>
+                  <description>2.3V</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>v2_4</name>
+                  <description>2.4V</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>v2_5</name>
+                  <description>2.5V</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>v2_6</name>
+                  <description>2.6V</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>v2_7</name>
+                  <description>2.7V</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>v2_8</name>
+                  <description>2.8V</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>v2_9</name>
+                  <description>2.9V</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>BPWEN</name>
@@ -99,6 +185,19 @@
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>BPWEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Battery powered domain write disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Battery powered domain write enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -117,6 +216,19 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>SWEF</name>
+                <enumeratedValue>
+                  <name>NoWakeup</name>
+                  <description>No wakeup event occurred</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Wakeup</name>
+                  <description>Wakeup event occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SEF</name>
@@ -124,6 +236,19 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>SEF</name>
+                <enumeratedValue>
+                  <name>NoStandby</name>
+                  <description>Device is not in standby mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Standby</name>
+                  <description>Device is in standby mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PVMOF</name>
@@ -131,6 +256,19 @@
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>PVMOF</name>
+                <enumeratedValue>
+                  <name>Higher</name>
+                  <description>Power voltage is higher than the threshold</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Lower</name>
+                  <description>Power voltage is lower than the threshold</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SWPEN1</name>
@@ -138,6 +276,19 @@
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>SWPEN1</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SWPEN2</name>
@@ -145,6 +296,7 @@
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="SWPEN1"/>
             </field>
             <field>
               <name>SWPEN4</name>
@@ -152,6 +304,7 @@
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="SWPEN1"/>
             </field>
             <field>
               <name>SWPEN5</name>
@@ -159,6 +312,7 @@
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="SWPEN1"/>
             </field>
             <field>
               <name>SWPEN6</name>
@@ -166,6 +320,7 @@
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="SWPEN1"/>
             </field>
             <field>
               <name>SWPEN7</name>
@@ -173,6 +328,7 @@
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="SWPEN1"/>
             </field>
           </fields>
         </register>

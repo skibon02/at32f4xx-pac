@@ -22,6 +22,7 @@ _include:
   - iomux/iomux_gpioe.yaml
   - iomux/common.yaml
   - wwdt/common.yaml
+  - pwc/vrsel.yaml
   - wdt/common.yaml
   - acc/common.yaml
   - debug/common.yaml

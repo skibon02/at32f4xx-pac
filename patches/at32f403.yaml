@@ -23,6 +23,7 @@ _include:
   - common/iomux/iomux_gpioe.yaml
   - common/iomux/iomux_gpiof.yaml
   - common/iomux/iomux_gpiog.yaml
+  - common/pwc/vrsel.yaml
   - common/wwdt/common.yaml
   - common/wdt/common.yaml
   - common/debug/common.yaml

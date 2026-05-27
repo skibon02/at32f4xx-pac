@@ -4,4 +4,35 @@ PWC:
       CLSWEF,CLSEF:
         access: "write-only"
     CLSWEF,CLSEF:
-      _W1C: {}
+      _W1C:
+        Clear: [1, "Clear the flag"]
+    BPWEN:
+      Disabled: [0, "Battery powered domain write disabled"]
+      Enabled: [1, "Battery powered domain write enabled"]
+    PVMSEL:
+      v2_3: [1, "2.3V"]
+      v2_4: [2, "2.4V"]
+      v2_5: [3, "2.5V"]
+      v2_6: [4, "2.6V"]
+      v2_7: [5, "2.7V"]
+      v2_8: [6, "2.8V"]
+      v2_9: [7, "2.9V"]
+    PVMEN:
+      Disabled: [0, "Power voltage monitoring disabled"]
+      Enabled: [1, "Power voltage monitoring enabled"]
+    LPSEL:
+      EnterDeepsleep: [0, "Enter deepsleep mode when the CPU enters deepsleep mode"]
+      EnterStandby: [1, "Enter standby mode when the CPU enters deepsleep mode"]
+  CTRLSTS:
+    SWPEN?,SWPEN:
+      Disabled: [0, "Disabled"]
+      Enabled: [1, "Enabled"]
+    PVMOF:
+      Higher: [0, "Power voltage is higher than the threshold"]
+      Lower: [1, "Power voltage is lower than the threshold"]
+    SEF:
+      NoStandby: [0, "Device is not in standby mode"]
+      Standby: [1, "Device is in standby mode"]
+    SWEF:
+      NoWakeup: [0, "No wakeup event occurred"]
+      Wakeup: [1, "Wakeup event occurred"]

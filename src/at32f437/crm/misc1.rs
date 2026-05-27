@@ -330,23 +330,23 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CLKOUT1DIV2_A {
-    #[doc = "8: CLKOUT%s is divided by 2"]
+    #[doc = "8: Clock output is divided by 2"]
     Div2 = 8,
-    #[doc = "9: CLKOUT%s is divided by 4"]
+    #[doc = "9: Clock output is divided by 4"]
     Div4 = 9,
-    #[doc = "10: CLKOUT%s is divided by 8"]
+    #[doc = "10: Clock output is divided by 8"]
     Div8 = 10,
-    #[doc = "11: CLKOUT%s is divided by 16"]
+    #[doc = "11: Clock output is divided by 16"]
     Div16 = 11,
-    #[doc = "12: CLKOUT%s is divided by 64"]
+    #[doc = "12: Clock output is divided by 64"]
     Div64 = 12,
-    #[doc = "13: CLKOUT%s is divided by 128"]
+    #[doc = "13: Clock output is divided by 128"]
     Div128 = 13,
-    #[doc = "14: CLKOUT%s is divided by 256"]
+    #[doc = "14: Clock output is divided by 256"]
     Div256 = 14,
-    #[doc = "15: CLKOUT%s is divided by 512"]
+    #[doc = "15: Clock output is divided by 512"]
     Div512 = 15,
-    #[doc = "0: CLKOUT%s is divided by 1"]
+    #[doc = "0: Clock output is divided by 1"]
     Div1 = 0,
 }
 impl From<CLKOUT1DIV2_A> for u8 {
@@ -377,47 +377,47 @@ impl CLKOUT1DIV2_R {
             _ => CLKOUT1DIV2_A::Div1,
         }
     }
-    #[doc = "CLKOUT%s is divided by 2"]
+    #[doc = "Clock output is divided by 2"]
     #[inline(always)]
     pub fn is_div2(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div2
     }
-    #[doc = "CLKOUT%s is divided by 4"]
+    #[doc = "Clock output is divided by 4"]
     #[inline(always)]
     pub fn is_div4(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div4
     }
-    #[doc = "CLKOUT%s is divided by 8"]
+    #[doc = "Clock output is divided by 8"]
     #[inline(always)]
     pub fn is_div8(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div8
     }
-    #[doc = "CLKOUT%s is divided by 16"]
+    #[doc = "Clock output is divided by 16"]
     #[inline(always)]
     pub fn is_div16(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div16
     }
-    #[doc = "CLKOUT%s is divided by 64"]
+    #[doc = "Clock output is divided by 64"]
     #[inline(always)]
     pub fn is_div64(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div64
     }
-    #[doc = "CLKOUT%s is divided by 128"]
+    #[doc = "Clock output is divided by 128"]
     #[inline(always)]
     pub fn is_div128(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div128
     }
-    #[doc = "CLKOUT%s is divided by 256"]
+    #[doc = "Clock output is divided by 256"]
     #[inline(always)]
     pub fn is_div256(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div256
     }
-    #[doc = "CLKOUT%s is divided by 512"]
+    #[doc = "Clock output is divided by 512"]
     #[inline(always)]
     pub fn is_div512(&self) -> bool {
         *self == CLKOUT1DIV2_A::Div512
     }
-    #[doc = "CLKOUT%s is divided by 1"]
+    #[doc = "Clock output is divided by 1"]
     #[inline(always)]
     pub fn is_div1(&self) -> bool {
         matches!(self.variant(), CLKOUT1DIV2_A::Div1)
@@ -430,47 +430,47 @@ where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
 {
-    #[doc = "CLKOUT%s is divided by 2"]
+    #[doc = "Clock output is divided by 2"]
     #[inline(always)]
     pub fn div2(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div2)
     }
-    #[doc = "CLKOUT%s is divided by 4"]
+    #[doc = "Clock output is divided by 4"]
     #[inline(always)]
     pub fn div4(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div4)
     }
-    #[doc = "CLKOUT%s is divided by 8"]
+    #[doc = "Clock output is divided by 8"]
     #[inline(always)]
     pub fn div8(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div8)
     }
-    #[doc = "CLKOUT%s is divided by 16"]
+    #[doc = "Clock output is divided by 16"]
     #[inline(always)]
     pub fn div16(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div16)
     }
-    #[doc = "CLKOUT%s is divided by 64"]
+    #[doc = "Clock output is divided by 64"]
     #[inline(always)]
     pub fn div64(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div64)
     }
-    #[doc = "CLKOUT%s is divided by 128"]
+    #[doc = "Clock output is divided by 128"]
     #[inline(always)]
     pub fn div128(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div128)
     }
-    #[doc = "CLKOUT%s is divided by 256"]
+    #[doc = "Clock output is divided by 256"]
     #[inline(always)]
     pub fn div256(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div256)
     }
-    #[doc = "CLKOUT%s is divided by 512"]
+    #[doc = "Clock output is divided by 512"]
     #[inline(always)]
     pub fn div512(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div512)
     }
-    #[doc = "CLKOUT%s is divided by 1"]
+    #[doc = "Clock output is divided by 1"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut crate::W<REG> {
         self.variant(CLKOUT1DIV2_A::Div1)

@@ -27,6 +27,7 @@ _include:
   - common/spi/wo_i2s.yaml
   - common/i2c/common.yaml
   - common/i2c/v1.yaml
+  - common/pwc/vrsel.yaml
   - common/tmr/common.yaml
   - common/tmr/tmr10.yaml
   - common/iomux/common.yaml

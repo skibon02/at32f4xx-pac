@@ -1,0 +1,5 @@
+PWC:
+  CTRL:
+    VRSEL:
+      Enabled: [0, "LDO enabled in deepsleep mode"]
+      Disabled: [1, "LDO disabled in deepsleep mode"]

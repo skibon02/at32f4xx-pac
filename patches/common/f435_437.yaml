@@ -24,6 +24,7 @@ _include:
   - i2c/common.yaml
   - i2c/v2.yaml
   - pwc/ldoov.yaml
+  - pwc/vrsel.yaml
   - scfg/f435_437.yaml
   - tmr/common.yaml
   - tmr/tmr2_32.yaml
@@ -109,15 +110,15 @@ CRM:
       Lext: [4, "LEXT clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]
 
     CLKOUT?DIV2:
-      Div1: [-1, "CLKOUT%s is divided by 1"]
-      Div2: [8, "CLKOUT%s is divided by 2"]
-      Div4: [9, "CLKOUT%s is divided by 4"]
-      Div8: [10, "CLKOUT%s is divided by 8"]
-      Div16: [11, "CLKOUT%s is divided by 16"]
-      Div64: [12, "CLKOUT%s is divided by 64"]
-      Div128: [13, "CLKOUT%s is divided by 128"]
-      Div256: [14, "CLKOUT%s is divided by 256"]
-      Div512: [15, "CLKOUT%s is divided by 512"]
+      Div1: [-1, "Clock output is divided by 1"]
+      Div2: [8, "Clock output is divided by 2"]
+      Div4: [9, "Clock output is divided by 4"]
+      Div8: [10, "Clock output is divided by 8"]
+      Div16: [11, "Clock output is divided by 16"]
+      Div64: [12, "Clock output is divided by 64"]
+      Div128: [13, "Clock output is divided by 128"]
+      Div256: [14, "Clock output is divided by 256"]
+      Div512: [15, "Clock output is divided by 512"]
   MISC2:
     CLK_TO_TMR:
       Disconnected: [0, "Disconnected"]

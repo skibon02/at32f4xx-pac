@@ -35,6 +35,7 @@ _include:
   - common/spi/sts_cspas.yaml
   - common/i2c/common.yaml
   - common/i2c/v2.yaml
+  - common/pwc/vrsel.yaml
   - common/tmr/common.yaml
   - common/tmr/tmr16.yaml
   - common/wwdt/common.yaml

@@ -2,20 +2,175 @@
 pub type R = crate::R<CTRLSTS_SPEC>;
 #[doc = "Register `CTRLSTS` writer"]
 pub type W = crate::W<CTRLSTS_SPEC>;
+#[doc = "Standby wake-up event flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SWEF_A {
+    #[doc = "0: No wakeup event occurred"]
+    NoWakeup = 0,
+    #[doc = "1: Wakeup event occurred"]
+    Wakeup = 1,
+}
+impl From<SWEF_A> for bool {
+    #[inline(always)]
+    fn from(variant: SWEF_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SWEF` reader - Standby wake-up event flag"]
-pub type SWEF_R = crate::BitReader;
+pub type SWEF_R = crate::BitReader<SWEF_A>;
+impl SWEF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SWEF_A {
+        match self.bits {
+            false => SWEF_A::NoWakeup,
+            true => SWEF_A::Wakeup,
+        }
+    }
+    #[doc = "No wakeup event occurred"]
+    #[inline(always)]
+    pub fn is_no_wakeup(&self) -> bool {
+        *self == SWEF_A::NoWakeup
+    }
+    #[doc = "Wakeup event occurred"]
+    #[inline(always)]
+    pub fn is_wakeup(&self) -> bool {
+        *self == SWEF_A::Wakeup
+    }
+}
+#[doc = "Standby mode entry flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SEF_A {
+    #[doc = "0: Device is not in standby mode"]
+    NoStandby = 0,
+    #[doc = "1: Device is in standby mode"]
+    Standby = 1,
+}
+impl From<SEF_A> for bool {
+    #[inline(always)]
+    fn from(variant: SEF_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SEF` reader - Standby mode entry flag"]
-pub type SEF_R = crate::BitReader;
+pub type SEF_R = crate::BitReader<SEF_A>;
+impl SEF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SEF_A {
+        match self.bits {
+            false => SEF_A::NoStandby,
+            true => SEF_A::Standby,
+        }
+    }
+    #[doc = "Device is not in standby mode"]
+    #[inline(always)]
+    pub fn is_no_standby(&self) -> bool {
+        *self == SEF_A::NoStandby
+    }
+    #[doc = "Device is in standby mode"]
+    #[inline(always)]
+    pub fn is_standby(&self) -> bool {
+        *self == SEF_A::Standby
+    }
+}
+#[doc = "Power voltage monitoring output flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PVMOF_A {
+    #[doc = "0: Power voltage is higher than the threshold"]
+    Higher = 0,
+    #[doc = "1: Power voltage is lower than the threshold"]
+    Lower = 1,
+}
+impl From<PVMOF_A> for bool {
+    #[inline(always)]
+    fn from(variant: PVMOF_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `PVMOF` reader - Power voltage monitoring output flag"]
-pub type PVMOF_R = crate::BitReader;
+pub type PVMOF_R = crate::BitReader<PVMOF_A>;
+impl PVMOF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> PVMOF_A {
+        match self.bits {
+            false => PVMOF_A::Higher,
+            true => PVMOF_A::Lower,
+        }
+    }
+    #[doc = "Power voltage is higher than the threshold"]
+    #[inline(always)]
+    pub fn is_higher(&self) -> bool {
+        *self == PVMOF_A::Higher
+    }
+    #[doc = "Power voltage is lower than the threshold"]
+    #[inline(always)]
+    pub fn is_lower(&self) -> bool {
+        *self == PVMOF_A::Lower
+    }
+}
+#[doc = "Standby wake-up pin 1 enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SWPEN1_A {
+    #[doc = "0: Disabled"]
+    Disabled = 0,
+    #[doc = "1: Enabled"]
+    Enabled = 1,
+}
+impl From<SWPEN1_A> for bool {
+    #[inline(always)]
+    fn from(variant: SWPEN1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SWPEN1` reader - Standby wake-up pin 1 enable"]
-pub type SWPEN1_R = crate::BitReader;
+pub type SWPEN1_R = crate::BitReader<SWPEN1_A>;
+impl SWPEN1_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SWPEN1_A {
+        match self.bits {
+            false => SWPEN1_A::Disabled,
+            true => SWPEN1_A::Enabled,
+        }
+    }
+    #[doc = "Disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == SWPEN1_A::Disabled
+    }
+    #[doc = "Enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == SWPEN1_A::Enabled
+    }
+}
 #[doc = "Field `SWPEN1` writer - Standby wake-up pin 1 enable"]
-pub type SWPEN1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SWPEN1_W<'a, REG> = crate::BitWriter<'a, REG, SWPEN1_A>;
+impl<'a, REG> SWPEN1_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(SWPEN1_A::Disabled)
+    }
+    #[doc = "Enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(SWPEN1_A::Enabled)
+    }
+}
 #[doc = "Field `SWPEN2` reader - Standby wake-up pin 2 enable"]
-pub type SWPEN2_R = crate::BitReader;
+pub use SWPEN1_R as SWPEN2_R;
 #[doc = "Field `SWPEN2` writer - Standby wake-up pin 2 enable"]
-pub type SWPEN2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use SWPEN1_W as SWPEN2_W;
 impl R {
     #[doc = "Bit 0 - Standby wake-up event flag"]
     #[inline(always)]

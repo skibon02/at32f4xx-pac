@@ -23,6 +23,7 @@ _include:
   - spi/sts_cspas.yaml
   - i2c/common.yaml
   - i2c/v2.yaml
+  - pwc/vrsel.yaml
   - tmr/common.yaml
   - tmr/tmr2_32.yaml
   - tmr/tmr10.yaml
