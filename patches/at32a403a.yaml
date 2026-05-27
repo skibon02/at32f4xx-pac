@@ -5,17 +5,4 @@ _modify:
 
 _include:
   - common/common.yaml
-  - common/crm/pllhextdiv.yaml
-  - common/flash/unlock.yaml
-  - common/periph-v1.yaml
-  - common/gpio/hdrv.yaml
-  - common/adc/common.yaml
-  - common/adc/occe.yaml
-  - common/comms.yaml
-  - common/bpr/common.yaml
-  - common/adv-tmr.yaml
-  - common/iomux/common.yaml
-  - common/iomux/iomux_gpioe.yaml
-  - common/acc/common.yaml
-  - common/debug/timers.yaml
-  - common/emac.yaml
+  - common/a403a.yaml

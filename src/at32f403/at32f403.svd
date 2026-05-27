@@ -24668,36 +24668,78 @@
               <description>WDT_PAUSE</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>WDT_PAUSE</name>
+                <enumeratedValue>
+                  <name>Continue</name>
+                  <description>The counter clock of TMRx is fed even if the core is halted</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Pause</name>
+                  <description>The counter clock of TMRx is stopped when the core is halted</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>WWDT_PAUSE</name>
               <description>WWDT_PAUSE</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>WWDT_PAUSE</name>
+                <enumeratedValue>
+                  <name>Continue</name>
+                  <description>The counter clock of TMRx is fed even if the core is halted</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Pause</name>
+                  <description>The counter clock of TMRx is stopped when the core is halted</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TMR1_PAUSE</name>
-              <description>TMR1_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TMR1_PAUSE</name>
+                <enumeratedValue>
+                  <name>Continue</name>
+                  <description>The counter clock of TMRx is fed even if the core is halted</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Pause</name>
+                  <description>The counter clock of TMRx is stopped when the core is halted</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TMR2_PAUSE</name>
-              <description>TMR2_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR3_PAUSE</name>
-              <description>TMR3_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR4_PAUSE</name>
-              <description>TMR4_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>CAN1_PAUSE</name>
@@ -24719,69 +24761,80 @@
             </field>
             <field>
               <name>TMR8_PAUSE</name>
-              <description>TMR8_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR5_PAUSE</name>
-              <description>TMR5_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR6_PAUSE</name>
-              <description>TMR6_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>19</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR7_PAUSE</name>
-              <description>TMR7_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>20</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR15_PAUSE</name>
-              <description>TMR15_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR12_PAUSE</name>
-              <description>TMR12_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR13_PAUSE</name>
-              <description>TMR13_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR14_PAUSE</name>
-              <description>TMR14_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR9_PAUSE</name>
-              <description>TMR9_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR10_PAUSE</name>
-              <description>TMR10_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>TMR11_PAUSE</name>
-              <description>TMR11_PAUSE</description>
+              <description>Timer pause control bit</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="TMR1_PAUSE"/>
             </field>
             <field>
               <name>I2C3_SMBUS_TIMEOUT</name>

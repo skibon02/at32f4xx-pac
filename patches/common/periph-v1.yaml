@@ -2,3 +2,4 @@ _include:
   - gpio/gpio-v1.yaml
   - i2c/v1.yaml
   - wdt/common.yaml
+  - debug/v1_ctrl.yaml

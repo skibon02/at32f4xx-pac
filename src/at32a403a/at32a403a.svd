@@ -25607,6 +25607,29 @@
               <description>Polynomial size</description>
               <bitOffset>3</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>POLY_SIZE</name>
+                <enumeratedValue>
+                  <name>bits32</name>
+                  <description>32 bits</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bits16</name>
+                  <description>16 bits</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bits8</name>
+                  <description>8 bits</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bits7</name>
+                  <description>7 bits</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>REVID</name>
@@ -25681,14 +25704,12 @@
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x04C11DB7</resetValue>
-          <fields>
-            <field>
-              <name>POLY</name>
-              <description>polynomial coefficient</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
       </registers>
     </peripheral>

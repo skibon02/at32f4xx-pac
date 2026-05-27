@@ -13,12 +13,11 @@ _include:
   - flash/unlock.yaml
   - comms.yaml
   - usart/dbn.yaml
-  - crc/poly.yaml
   - spi/sts_cspas.yaml
   - pwc/ldoov.yaml
   - pwc/vrsel.yaml
   - scfg/f435_437.yaml
-  - adv-tmr.yaml
+  - tmr/advanced.yaml
   - acc/common.yaml
   - sdio/common.yaml
 

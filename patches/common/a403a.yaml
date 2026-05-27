@@ -1,5 +1,6 @@
 _include:
   - crm/pllhextdiv.yaml
+  - flash/unlock.yaml
   - periph-v1.yaml
   - gpio/hdrv.yaml
   - adc/common.yaml
@@ -7,7 +8,7 @@ _include:
   - comms.yaml
   - bpr/common.yaml
   - tmr/advanced.yaml
-  - iomux/iomux_gpioe.yaml
   - iomux/common.yaml
-  - pwc/vrsel.yaml
+  - iomux/iomux_gpioe.yaml
   - acc/common.yaml
+  - emac.yaml

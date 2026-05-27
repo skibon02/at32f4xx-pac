@@ -44,10 +44,93 @@ where
         self.variant(RSTW_A::Reset)
     }
 }
+#[doc = "Polynomial size\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum POLY_SIZE_A {
+    #[doc = "0: 32 bits"]
+    Bits32 = 0,
+    #[doc = "1: 16 bits"]
+    Bits16 = 1,
+    #[doc = "2: 8 bits"]
+    Bits8 = 2,
+    #[doc = "3: 7 bits"]
+    Bits7 = 3,
+}
+impl From<POLY_SIZE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: POLY_SIZE_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for POLY_SIZE_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for POLY_SIZE_A {}
 #[doc = "Field `POLY_SIZE` reader - Polynomial size"]
-pub type POLY_SIZE_R = crate::FieldReader;
+pub type POLY_SIZE_R = crate::FieldReader<POLY_SIZE_A>;
+impl POLY_SIZE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> POLY_SIZE_A {
+        match self.bits {
+            0 => POLY_SIZE_A::Bits32,
+            1 => POLY_SIZE_A::Bits16,
+            2 => POLY_SIZE_A::Bits8,
+            3 => POLY_SIZE_A::Bits7,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "32 bits"]
+    #[inline(always)]
+    pub fn is_bits32(&self) -> bool {
+        *self == POLY_SIZE_A::Bits32
+    }
+    #[doc = "16 bits"]
+    #[inline(always)]
+    pub fn is_bits16(&self) -> bool {
+        *self == POLY_SIZE_A::Bits16
+    }
+    #[doc = "8 bits"]
+    #[inline(always)]
+    pub fn is_bits8(&self) -> bool {
+        *self == POLY_SIZE_A::Bits8
+    }
+    #[doc = "7 bits"]
+    #[inline(always)]
+    pub fn is_bits7(&self) -> bool {
+        *self == POLY_SIZE_A::Bits7
+    }
+}
 #[doc = "Field `POLY_SIZE` writer - Polynomial size"]
-pub type POLY_SIZE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type POLY_SIZE_W<'a, REG> = crate::FieldWriter<'a, REG, 2, POLY_SIZE_A, crate::Safe>;
+impl<'a, REG> POLY_SIZE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "32 bits"]
+    #[inline(always)]
+    pub fn bits32(self) -> &'a mut crate::W<REG> {
+        self.variant(POLY_SIZE_A::Bits32)
+    }
+    #[doc = "16 bits"]
+    #[inline(always)]
+    pub fn bits16(self) -> &'a mut crate::W<REG> {
+        self.variant(POLY_SIZE_A::Bits16)
+    }
+    #[doc = "8 bits"]
+    #[inline(always)]
+    pub fn bits8(self) -> &'a mut crate::W<REG> {
+        self.variant(POLY_SIZE_A::Bits8)
+    }
+    #[doc = "7 bits"]
+    #[inline(always)]
+    pub fn bits7(self) -> &'a mut crate::W<REG> {
+        self.variant(POLY_SIZE_A::Bits7)
+    }
+}
 #[doc = "Reverse input data\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

@@ -5,15 +5,4 @@ _modify:
 
 _include:
   - common/common.yaml
-  - common/crm/pllhextdiv.yaml
-  - common/periph-v1.yaml
-  - common/adc/common.yaml
-  - common/adc/occe.yaml
-  - common/can/common.yaml
-  - common/bpr/common.yaml
-  - common/crc/poly.yaml
-  - common/iomux/common.yaml
-  - common/iomux/iomux_gpioe.yaml
-  - common/iomux/iomux_gpiof.yaml
-  - common/iomux/iomux_gpiog.yaml
-  - common/pwc/vrsel.yaml
+  - common/f403.yaml

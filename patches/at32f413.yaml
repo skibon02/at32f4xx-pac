@@ -11,9 +11,7 @@ _include:
   - common/adc/occe.yaml
   - common/comms.yaml
   - common/bpr/common.yaml
-  - common/crc/poly.yaml
-  - common/adv-tmr.yaml
+  - common/tmr/advanced.yaml
   - common/iomux/common.yaml
   - common/iomux/iomux_gpiof.yaml
   - common/acc/common.yaml
-  - common/debug/timers.yaml

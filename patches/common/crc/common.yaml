@@ -4,12 +4,18 @@ CRC:
       writeConstraint: [0, 0xFFFFFFFF]
     IDT:
       writeConstraint: [0, 0xFFFFFFFF]
+    POLY:
+      size: 32
+      writeConstraint: [0, 0xFFFFFFFF]
   DT:
     _delete:
       - DT
   IDT:
     _delete:
       - IDT
+  POLY:
+    _delete:
+      - POLY
   CDT:
     _modify:
       CDT:
@@ -27,3 +33,8 @@ CRC:
     REVOD:
       NoEffect: [0, "No effect"]
       WordReverse: [1, "Word reverse"]
+    POLY_SIZE:
+      bits32: [0, "32 bits"]
+      bits16: [1, "16 bits"]
+      bits8: [2, "8 bits"]
+      bits7: [3, "7 bits"]

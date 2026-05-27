@@ -1,13 +1,12 @@
 _include:
   - crm/pllhextdiv.yaml
   - periph-v1.yaml
-  - gpio/hdrv.yaml
   - adc/common.yaml
   - adc/occe.yaml
-  - comms.yaml
+  - can/common.yaml
   - bpr/common.yaml
-  - tmr/advanced.yaml
-  - iomux/iomux_gpioe.yaml
   - iomux/common.yaml
+  - iomux/iomux_gpioe.yaml
+  - iomux/iomux_gpiof.yaml
+  - iomux/iomux_gpiog.yaml
   - pwc/vrsel.yaml
-  - acc/common.yaml

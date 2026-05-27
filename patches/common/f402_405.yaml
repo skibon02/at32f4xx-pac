@@ -11,8 +11,7 @@ _include:
   - adc/odt_vm.yaml
   - comms.yaml
   - usart/dbn.yaml
-  - crc/poly.yaml
   - spi/sts_cspas.yaml
   - pwc/vrsel.yaml
-  - adv-tmr.yaml
+  - tmr/advanced.yaml
   - acc/common.yaml

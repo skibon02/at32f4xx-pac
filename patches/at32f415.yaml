@@ -14,12 +14,10 @@ _include:
   - common/adc/occe.yaml
   - common/adc/odt.yaml
   - common/comms.yaml
-  - common/crc/poly.yaml
   - common/pwc/vrsel.yaml
-  - common/adv-tmr.yaml
+  - common/tmr/advanced.yaml
   - common/iomux/common.yaml
   - common/iomux/iomux_gpiof.yaml
-  - common/debug/timers.yaml
 
 IOMUX:
   EXINTC?:

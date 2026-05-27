@@ -25,9 +25,8 @@ _include:
   - common/adc/odt_vm.yaml
   - common/comms.yaml
   - common/usart/dbn.yaml
-  - common/crc/poly.yaml
   - common/spi/sts_cspas.yaml
   - common/pwc/vrsel.yaml
   - common/tmr/tmr16.yaml
   - common/acc/common.yaml
-  - common/debug/timers.yaml
+  - common/debug/v1_ctrl.yaml

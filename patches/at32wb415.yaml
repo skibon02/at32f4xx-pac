@@ -10,7 +10,6 @@ DEBUG:
 _include:
   - common/common.yaml
   - common/exint/common.yaml
-  - common/crc/poly.yaml
   - common/can/common.yaml
   - common/ertc/common.yaml
   - common/ertc/alarmb.yaml
@@ -25,4 +24,3 @@ _include:
   - common/tmr/tmr10.yaml
   - common/iomux/common.yaml
   - common/iomux/iomux_gpiof.yaml
-  - common/debug/timers.yaml
