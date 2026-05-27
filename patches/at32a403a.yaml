@@ -5,9 +5,7 @@ _modify:
 
 _include:
   - common/common.yaml
-  - common/crm/common.yaml
   - common/crm/pllhextdiv.yaml
-  - common/flash/common.yaml
   - common/flash/unlock.yaml
   - common/gpio/gpio-v1.yaml
   - common/gpio/hdrv.yaml
@@ -15,21 +13,15 @@ _include:
   - common/adc/occe.yaml
   - common/can/common.yaml
   - common/exint/common.yaml
-  - common/dma/common.yaml
   - common/bpr/common.yaml
-  - common/crc/common.yaml
   - common/usart/common.yaml
   - common/spi/common.yaml
-  - common/i2c/common.yaml
   - common/i2c/v1.yaml
-  - common/tmr/common.yaml
   - common/tmr/tmr2_32.yaml
   - common/tmr/tmr10.yaml
   - common/iomux/common.yaml
   - common/iomux/iomux_gpioe.yaml
-  - common/wwdt/common.yaml
   - common/wdt/common.yaml
   - common/acc/common.yaml
-  - common/debug/common.yaml
   - common/debug/timers.yaml
   - common/emac.yaml

@@ -14,34 +14,26 @@ _include:
   - common/common.yaml
   - common/f423_435_437.yaml
   - common/f423_402_405.yaml
-  - common/crm/common.yaml
   - common/crm/crm_v2.yaml
   - common/ertc/common.yaml
   - common/ertc/alarmb.yaml
   - common/ertc/wat.yaml
   - common/ertc/tspin.yaml
-  - common/flash/common.yaml
   - common/gpio/gpio-v2.yaml
   - common/adc/common.yaml
   - common/adc/odt.yaml
   - common/adc/vm_16bit.yaml
-  - common/dma/common.yaml
   - common/can/common.yaml
-  - common/crc/common.yaml
   - common/crc/poly.yaml
   - common/usart/common.yaml
   - common/spi/common.yaml
   - common/spi/sts_cspas.yaml
-  - common/i2c/common.yaml
   - common/i2c/v2.yaml
   - common/pwc/vrsel.yaml
-  - common/tmr/common.yaml
   - common/tmr/tmr2_32.yaml
   - common/tmr/tmr10.yaml
-  - common/wwdt/common.yaml
   - common/wdt/with_win.yaml
   - common/acc/common.yaml
-  - common/debug/common.yaml
 
 _add:
   TMR14_RMP:

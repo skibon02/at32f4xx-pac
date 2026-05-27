@@ -1,2 +1,10 @@
 _include:
   - pwc/common.yaml
+  - crc/common.yaml
+  - crm/common.yaml
+  - debug/common.yaml
+  - dma/common.yaml
+  - flash/common.yaml
+  - i2c/common.yaml
+  - tmr/common.yaml
+  - wwdt/common.yaml

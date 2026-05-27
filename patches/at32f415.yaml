@@ -5,34 +5,26 @@ _modify:
 
 _include:
   - common/common.yaml
-  - common/crm/common.yaml
   - common/crm/pllhextdiv.yaml
   - common/ertc/common.yaml
   - common/ertc/alarmb.yaml
   - common/ertc/wat.yaml
-  - common/flash/common.yaml
   - common/gpio/gpio-v1.yaml
   - common/adc/occe.yaml
   - common/adc/common.yaml
   - common/adc/odt.yaml
   - common/can/common.yaml
   - common/exint/common.yaml
-  - common/dma/common.yaml
-  - common/crc/common.yaml
   - common/crc/poly.yaml
   - common/usart/common.yaml
   - common/spi/common.yaml
-  - common/i2c/common.yaml
   - common/i2c/v1.yaml
   - common/pwc/vrsel.yaml
-  - common/tmr/common.yaml
   - common/tmr/tmr2_32.yaml
   - common/tmr/tmr10.yaml
   - common/iomux/common.yaml
   - common/iomux/iomux_gpiof.yaml
-  - common/wwdt/common.yaml
   - common/wdt/common.yaml
-  - common/debug/common.yaml
   - common/debug/timers.yaml
 
 IOMUX:

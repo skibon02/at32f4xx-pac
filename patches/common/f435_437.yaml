@@ -1,5 +1,4 @@
 _include:
-  - crm/common.yaml
   - crm/crm_v2.yaml
   - f423_435_437.yaml
   - ertc/common.yaml
@@ -10,29 +9,22 @@ _include:
   - adc/common.yaml
   - adc/odt.yaml
   - adc/vm_16bit.yaml
-  - flash/common.yaml
   - flash/f435_437.yaml
   - flash/unlock.yaml
   - can/common.yaml
   - exint/common.yaml
-  - dma/common.yaml
-  - crc/common.yaml
   - crc/poly.yaml
   - usart/common.yaml
   - spi/common.yaml
   - spi/sts_cspas.yaml
-  - i2c/common.yaml
   - i2c/v2.yaml
   - pwc/ldoov.yaml
   - pwc/vrsel.yaml
   - scfg/f435_437.yaml
-  - tmr/common.yaml
   - tmr/tmr2_32.yaml
   - tmr/tmr10.yaml
-  - wwdt/common.yaml
   - wdt/with_win.yaml
   - acc/common.yaml
-  - debug/common.yaml
   - sdio/common.yaml
 
 _derive:
