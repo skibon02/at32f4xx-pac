@@ -252,9 +252,9 @@ where
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Prsfenr {
-    #[doc = "0: Prohibit retransmission is disabled when sending fails enable"]
+    #[doc = "0: Prohibit retransmission is disabled when sending fails"]
     Disabled = 0,
-    #[doc = "1: Prohibit retransmission is enabled when sending fails enable"]
+    #[doc = "1: Prohibit retransmission is enabled when sending fails"]
     Enabled = 1,
 }
 impl From<Prsfenr> for bool {
@@ -274,12 +274,12 @@ impl PRSFEN_R {
             true => Prsfenr::Enabled,
         }
     }
-    #[doc = "Prohibit retransmission is disabled when sending fails enable"]
+    #[doc = "Prohibit retransmission is disabled when sending fails"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
         *self == Prsfenr::Disabled
     }
-    #[doc = "Prohibit retransmission is enabled when sending fails enable"]
+    #[doc = "Prohibit retransmission is enabled when sending fails"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == Prsfenr::Enabled

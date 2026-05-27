@@ -5632,7 +5632,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>External clock mode B is disabled</description>
+                  <description>External clock mode B is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5784,7 +5784,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Subordinate TMR synchronization is disabled</description>
+                  <description>Subordinate TMR synchronization is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -8205,7 +8205,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>External clock mode B is disabled</description>
+                  <description>External clock mode B is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -8357,7 +8357,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Subordinate TMR synchronization is disabled</description>
+                  <description>Subordinate TMR synchronization is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -10701,7 +10701,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Subordinate TMR synchronization is disabled</description>
+                  <description>Subordinate TMR synchronization is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>

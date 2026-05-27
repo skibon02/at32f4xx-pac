@@ -7165,7 +7165,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>External clock mode B is disabled</description>
+                  <description>External clock mode B is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -7317,7 +7317,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Subordinate TMR synchronization is disabled</description>
+                  <description>Subordinate TMR synchronization is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -9781,7 +9781,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>External clock mode B is disabled</description>
+                  <description>External clock mode B is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -9933,7 +9933,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Subordinate TMR synchronization is disabled</description>
+                  <description>Subordinate TMR synchronization is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -11599,7 +11599,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>External clock mode B is disabled</description>
+                  <description>External clock mode B is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -11751,7 +11751,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Subordinate TMR synchronization is disabled</description>
+                  <description>Subordinate TMR synchronization is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -22654,12 +22654,12 @@
                 <usage>read</usage>
                 <enumeratedValue>
                   <name>Disabled</name>
-                  <description>Prohibit retransmission is disabled when sending fails enable</description>
+                  <description>Prohibit retransmission is disabled when sending fails</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Prohibit retransmission is enabled when sending fails enable</description>
+                  <description>Prohibit retransmission is enabled when sending fails</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>

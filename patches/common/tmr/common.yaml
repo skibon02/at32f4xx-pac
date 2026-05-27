@@ -150,7 +150,7 @@ TMR[123],TMR1[5789]:
     STS:
       _read:
         Disabled: [0, "Subordinate TMR synchronization is disabled"]
-        Enabled: [1, "Subordinate TMR synchronization is disabled"]
+        Enabled: [1, "Subordinate TMR synchronization is enabled"]
       _write:
         Disable: [0, "Subordinate TMR synchronization disable"]
         Enable: [1, "Subordinate TMR synchronization enable"]
@@ -275,7 +275,7 @@ TMR[123]:
     ECMBEN:
       _read:
         Disabled: [0, "External clock mode B is disabled"]
-        Enabled: [1, "External clock mode B is disabled"]
+        Enabled: [1, "External clock mode B is enabled"]
       _write:
         Disable: [0, "External clock mode B disable"]
         Enable: [1, "External clock mode B enable"]

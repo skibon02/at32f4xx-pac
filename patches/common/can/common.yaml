@@ -124,8 +124,8 @@ CAN?:
       Incoming: [1, "The new incoming message is discarded"]
     PRSFEN:
       _read:
-        Disabled: [0, "Prohibit retransmission is disabled when sending fails enable"]
-        Enabled: [1, "Prohibit retransmission is enabled when sending fails enable"]
+        Disabled: [0, "Prohibit retransmission is disabled when sending fails"]
+        Enabled: [1, "Prohibit retransmission is enabled when sending fails"]
       _write:
         Disable: [0, "Prohibit retransmission disable"]
         Enable: [1, "Prohibit retransmission enable"]

@@ -286,7 +286,7 @@ where
 pub enum Stsr {
     #[doc = "0: Subordinate TMR synchronization is disabled"]
     Disabled = 0,
-    #[doc = "1: Subordinate TMR synchronization is disabled"]
+    #[doc = "1: Subordinate TMR synchronization is enabled"]
     Enabled = 1,
 }
 impl From<Stsr> for bool {
@@ -311,7 +311,7 @@ impl STS_R {
     pub fn is_disabled(&self) -> bool {
         *self == Stsr::Disabled
     }
-    #[doc = "Subordinate TMR synchronization is disabled"]
+    #[doc = "Subordinate TMR synchronization is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == Stsr::Enabled
@@ -685,7 +685,7 @@ where
 pub enum Ecmbenr {
     #[doc = "0: External clock mode B is disabled"]
     Disabled = 0,
-    #[doc = "1: External clock mode B is disabled"]
+    #[doc = "1: External clock mode B is enabled"]
     Enabled = 1,
 }
 impl From<Ecmbenr> for bool {
@@ -710,7 +710,7 @@ impl ECMBEN_R {
     pub fn is_disabled(&self) -> bool {
         *self == Ecmbenr::Disabled
     }
-    #[doc = "External clock mode B is disabled"]
+    #[doc = "External clock mode B is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == Ecmbenr::Enabled

@@ -42,9 +42,9 @@ IOMUX:
     EXINT*:
       GPIOA: [0, "GPIOA pin"]
       GPIOB: [1, "GPIOB pin"]
-      GPIOC: [2, "GPIOB pin"]
-      GPIOD: [3, "GPIOB pin"]
-      GPIOF: [4, "GPIOB pin"]
+      GPIOC: [2, "GPIOC pin"]
+      GPIOD: [3, "GPIOD pin"]
+      GPIOF: [4, "GPIOF pin"]
   REMAP:
     SPI1_MUX0: [0, 0]
     SPI1_MUX1:

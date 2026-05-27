@@ -286,7 +286,7 @@ where
 pub enum Stsr {
     #[doc = "0: Subordinate TMR synchronization is disabled"]
     Disabled = 0,
-    #[doc = "1: Subordinate TMR synchronization is disabled"]
+    #[doc = "1: Subordinate TMR synchronization is enabled"]
     Enabled = 1,
 }
 impl From<Stsr> for bool {
@@ -311,7 +311,7 @@ impl STS_R {
     pub fn is_disabled(&self) -> bool {
         *self == Stsr::Disabled
     }
-    #[doc = "Subordinate TMR synchronization is disabled"]
+    #[doc = "Subordinate TMR synchronization is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == Stsr::Enabled

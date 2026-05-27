@@ -11,11 +11,11 @@ pub enum EXINT12_A {
     Gpioa = 0,
     #[doc = "1: GPIOB pin"]
     Gpiob = 1,
-    #[doc = "2: GPIOB pin"]
+    #[doc = "2: GPIOC pin"]
     Gpioc = 2,
-    #[doc = "3: GPIOB pin"]
+    #[doc = "3: GPIOD pin"]
     Gpiod = 3,
-    #[doc = "4: GPIOB pin"]
+    #[doc = "4: GPIOF pin"]
     Gpiof = 4,
 }
 impl From<EXINT12_A> for u8 {
@@ -53,17 +53,17 @@ impl EXINT_R {
     pub fn is_gpiob(&self) -> bool {
         *self == EXINT12_A::Gpiob
     }
-    #[doc = "GPIOB pin"]
+    #[doc = "GPIOC pin"]
     #[inline(always)]
     pub fn is_gpioc(&self) -> bool {
         *self == EXINT12_A::Gpioc
     }
-    #[doc = "GPIOB pin"]
+    #[doc = "GPIOD pin"]
     #[inline(always)]
     pub fn is_gpiod(&self) -> bool {
         *self == EXINT12_A::Gpiod
     }
-    #[doc = "GPIOB pin"]
+    #[doc = "GPIOF pin"]
     #[inline(always)]
     pub fn is_gpiof(&self) -> bool {
         *self == EXINT12_A::Gpiof
@@ -86,17 +86,17 @@ where
     pub fn gpiob(self) -> &'a mut crate::W<REG> {
         self.variant(EXINT12_A::Gpiob)
     }
-    #[doc = "GPIOB pin"]
+    #[doc = "GPIOC pin"]
     #[inline(always)]
     pub fn gpioc(self) -> &'a mut crate::W<REG> {
         self.variant(EXINT12_A::Gpioc)
     }
-    #[doc = "GPIOB pin"]
+    #[doc = "GPIOD pin"]
     #[inline(always)]
     pub fn gpiod(self) -> &'a mut crate::W<REG> {
         self.variant(EXINT12_A::Gpiod)
     }
-    #[doc = "GPIOB pin"]
+    #[doc = "GPIOF pin"]
     #[inline(always)]
     pub fn gpiof(self) -> &'a mut crate::W<REG> {
         self.variant(EXINT12_A::Gpiof)
