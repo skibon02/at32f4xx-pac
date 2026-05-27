@@ -15,16 +15,14 @@ _include:
   - common/ertc/common.yaml
   - common/ertc/alarmb.yaml
   - common/ertc/wat.yaml
-  - common/gpio/gpio-v1.yaml
+  - common/periph-v1.yaml
   - common/adc/wo_spt.yaml
   - common/adc/occe.yaml
   - common/adc/odt.yaml
   - common/usart/common.yaml
   - common/spi/wo_i2s.yaml
-  - common/i2c/v1.yaml
   - common/pwc/vrsel.yaml
   - common/tmr/tmr10.yaml
   - common/iomux/common.yaml
   - common/iomux/iomux_gpiof.yaml
-  - common/wdt/common.yaml
   - common/debug/timers.yaml

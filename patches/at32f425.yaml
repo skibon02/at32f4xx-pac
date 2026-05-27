@@ -17,21 +17,16 @@ _include:
   - common/crm/pllhextdiv.yaml
   - common/ertc/common.yaml
   - common/ertc/wat.yaml
-  - common/gpio/gpio-v2.yaml
+  - common/periph-v2.yaml
   - common/adc/adc1.yaml
   - common/adc/occe.yaml
   - common/adc/common.yaml
   - common/adc/odt.yaml
   - common/adc/vm_16bit.yaml
-  - common/exint/common.yaml
-  - common/can/common.yaml
+  - common/comms.yaml
   - common/crc/poly.yaml
-  - common/usart/common.yaml
-  - common/spi/common.yaml
   - common/spi/sts_cspas.yaml
-  - common/i2c/v2.yaml
   - common/pwc/vrsel.yaml
   - common/tmr/tmr16.yaml
-  - common/wdt/with_win.yaml
   - common/acc/common.yaml
   - common/debug/timers.yaml

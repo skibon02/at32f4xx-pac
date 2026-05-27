@@ -1,0 +1,5 @@
+_include:
+  - spi/common.yaml
+  - usart/common.yaml
+  - can/common.yaml
+  - exint/common.yaml

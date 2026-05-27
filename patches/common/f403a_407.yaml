@@ -1,21 +1,15 @@
 _include:
   - crm/pllhextdiv.yaml
-  - gpio/gpio-v1.yaml
+  - periph-v1.yaml
   - gpio/hdrv.yaml
   - adc/common.yaml
   - adc/occe.yaml
-  - can/common.yaml
-  - exint/common.yaml
+  - comms.yaml
   - bpr/common.yaml
   - crc/poly.yaml
-  - usart/common.yaml
-  - spi/common.yaml
-  - i2c/v1.yaml
-  - tmr/tmr2_32.yaml
-  - tmr/tmr10.yaml
+  - adv-tmr.yaml
   - iomux/iomux_gpioe.yaml
   - iomux/common.yaml
   - pwc/vrsel.yaml
-  - wdt/common.yaml
   - acc/common.yaml
   - debug/timers.yaml

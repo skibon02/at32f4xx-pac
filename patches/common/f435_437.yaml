@@ -5,25 +5,19 @@ _include:
   - ertc/alarmb.yaml
   - ertc/wat.yaml
   - ertc/tspin.yaml
-  - gpio/gpio-v2.yaml
+  - periph-v2.yaml
   - adc/common.yaml
   - adc/odt.yaml
   - adc/vm_16bit.yaml
   - flash/f435_437.yaml
   - flash/unlock.yaml
-  - can/common.yaml
-  - exint/common.yaml
+  - comms.yaml
   - crc/poly.yaml
-  - usart/common.yaml
-  - spi/common.yaml
   - spi/sts_cspas.yaml
-  - i2c/v2.yaml
   - pwc/ldoov.yaml
   - pwc/vrsel.yaml
   - scfg/f435_437.yaml
-  - tmr/tmr2_32.yaml
-  - tmr/tmr10.yaml
-  - wdt/with_win.yaml
+  - adv-tmr.yaml
   - acc/common.yaml
   - sdio/common.yaml
 
