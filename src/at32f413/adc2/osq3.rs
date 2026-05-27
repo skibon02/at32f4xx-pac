@@ -2,12 +2,10 @@
 pub type R = crate::R<OSQ3_SPEC>;
 #[doc = "Register `OSQ3` writer"]
 pub type W = crate::W<OSQ3_SPEC>;
-#[doc = "Number of %sth conversion in ordinary sequence"]
-pub use crate::adc1::osq1::ADC_CHANNEL_A;
 #[doc = "Field `OSN(1-6)` reader - Number of %sth conversion in ordinary sequence"]
-pub use crate::adc1::osq1::OSN_R;
+pub type OSN_R = crate::FieldReader;
 #[doc = "Field `OSN(1-6)` writer - Number of %sth conversion in ordinary sequence"]
-pub use crate::adc1::osq1::OSN_W;
+pub type OSN_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 impl R {
     #[doc = "Number of (1-6)th conversion in ordinary sequence"]
     #[doc = ""]

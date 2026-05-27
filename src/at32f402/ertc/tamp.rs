@@ -593,13 +593,7 @@ where
         self.variant(TPPU_A::Disabled)
     }
 }
-#[doc = "Tamper detection pin selection"]
-pub use PIN_SELECTION_A;
-#[doc = "Field `TP1PIN` reader - Tamper detection pin selection"]
-pub use TSPIN_R as TP1PIN_R;
-#[doc = "Field `TP1PIN` writer - Tamper detection pin selection"]
-pub use TSPIN_W as TP1PIN_W;
-#[doc = "Time stamp detection pin selection\n\nValue on reset: 0"]
+#[doc = "Tamper detection pin selection\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PIN_SELECTION_A {
@@ -614,9 +608,9 @@ impl From<PIN_SELECTION_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `TSPIN` reader - Time stamp detection pin selection"]
-pub type TSPIN_R = crate::BitReader<PIN_SELECTION_A>;
-impl TSPIN_R {
+#[doc = "Field `TP1PIN` reader - Tamper detection pin selection"]
+pub type TP1PIN_R = crate::BitReader<PIN_SELECTION_A>;
+impl TP1PIN_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
     pub const fn variant(&self) -> PIN_SELECTION_A {
@@ -636,9 +630,9 @@ impl TSPIN_R {
         *self == PIN_SELECTION_A::ErtcMux2
     }
 }
-#[doc = "Field `TSPIN` writer - Time stamp detection pin selection"]
-pub type TSPIN_W<'a, REG> = crate::BitWriter<'a, REG, PIN_SELECTION_A>;
-impl<'a, REG> TSPIN_W<'a, REG>
+#[doc = "Field `TP1PIN` writer - Tamper detection pin selection"]
+pub type TP1PIN_W<'a, REG> = crate::BitWriter<'a, REG, PIN_SELECTION_A>;
+impl<'a, REG> TP1PIN_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
@@ -653,6 +647,10 @@ where
         self.variant(PIN_SELECTION_A::ErtcMux2)
     }
 }
+#[doc = "Field `TSPIN` reader - Time stamp detection pin selection"]
+pub use TP1PIN_R as TSPIN_R;
+#[doc = "Field `TSPIN` writer - Time stamp detection pin selection"]
+pub use TP1PIN_W as TSPIN_W;
 #[doc = "Output type\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -778,8 +776,8 @@ impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TAMP")
             .field("outtype", &self.outtype())
-            .field("tspin", &self.tspin())
             .field("tp1pin", &self.tp1pin())
+            .field("tspin", &self.tspin())
             .field("tppu", &self.tppu())
             .field("tppr", &self.tppr())
             .field("tpflt", &self.tpflt())

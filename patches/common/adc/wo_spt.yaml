@@ -148,17 +148,11 @@ ADC?:
         dimIndex: "13,14,15,16"
         description: "Number of %sth conversion in ordinary sequence"
   OSQ2:
-    _modify:
-      "OSN*":
-        derivedFrom: ADC1.OSQ1.OSN%s
     _array:
       OSN*:
         dimIndex: "7,8,9,10,11,12"
         description: "Number of %sth conversion in ordinary sequence"
   OSQ3:
-    _modify:
-      "OSN*":
-        derivedFrom: ADC1.OSQ1.OSN%s
     _array:
       OSN*:
         dimIndex: "1,2,3,4,5,6"

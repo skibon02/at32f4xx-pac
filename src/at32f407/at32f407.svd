@@ -20429,7 +20429,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -20449,7 +20449,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -21462,7 +21462,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -21482,7 +21482,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -22495,7 +22495,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -22515,7 +22515,7 @@
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>

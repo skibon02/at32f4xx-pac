@@ -1,8 +1,6 @@
 ERTC:
   TAMP:
-    TSPIN:
+    TSPIN,TP1PIN:
       _name: PinSelection
       ErtcMux1: [0, "ERTC_MUX1"]
       ErtcMux2: [1, "ERTC_MUX2"]
-    TP1PIN:
-      _derivedFrom: PinSelection

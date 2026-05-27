@@ -8846,9 +8846,9 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>TSPIN</name>
-              <description>Time stamp detection pin selection</description>
-              <bitOffset>17</bitOffset>
+              <name>TP1PIN</name>
+              <description>Tamper detection pin selection</description>
+              <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
                 <name>PinSelection</name>
@@ -8865,9 +8865,9 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>TP1PIN</name>
-              <description>Tamper detection pin selection</description>
-              <bitOffset>16</bitOffset>
+              <name>TSPIN</name>
+              <description>Time stamp detection pin selection</description>
+              <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="PinSelection"/>
             </field>
@@ -23586,7 +23586,7 @@ If TPFLT&gt;0: High level</description>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -23606,7 +23606,7 @@ If TPFLT&gt;0: High level</description>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>

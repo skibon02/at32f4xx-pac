@@ -13920,9 +13920,9 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>TSPIN</name>
-              <description>Time stamp detection pin selection</description>
-              <bitOffset>17</bitOffset>
+              <name>TP1PIN</name>
+              <description>Tamper detection pin selection</description>
+              <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
                 <name>PinSelection</name>
@@ -13939,9 +13939,9 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>TP1PIN</name>
-              <description>Tamper detection pin selection</description>
-              <bitOffset>16</bitOffset>
+              <name>TSPIN</name>
+              <description>Time stamp detection pin selection</description>
+              <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="PinSelection"/>
             </field>
@@ -28038,7 +28038,7 @@ If TPFLT&gt;0: High level</description>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>7-12</dimIndex>
@@ -28058,7 +28058,7 @@ If TPFLT&gt;0: High level</description>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field derivedFrom="ADC1.OSQ1.OSN%s">
+            <field>
               <dim>6</dim>
               <dimIncrement>0x5</dimIncrement>
               <dimIndex>1-6</dimIndex>
@@ -28326,7 +28326,7 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>MSDMASEL_H</name>
-              <description>MSDMASEL[2] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure.</description>
+              <description>MSDMASEL[2] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -28382,7 +28382,7 @@ If TPFLT&gt;0: High level</description>
             </field>
             <field>
               <name>MSDMASEL_L</name>
-              <description>MSDMASEL[1:0] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure.</description>
+              <description>MSDMASEL[1:0] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>

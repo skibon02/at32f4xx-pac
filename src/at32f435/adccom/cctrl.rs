@@ -251,9 +251,9 @@ where
         self.variant(MSDRCEN_A::Enabled)
     }
 }
-#[doc = "Field `MSDMASEL_L` reader - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+#[doc = "Field `MSDMASEL_L` reader - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
 pub type MSDMASEL_L_R = crate::FieldReader;
-#[doc = "Field `MSDMASEL_L` writer - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+#[doc = "Field `MSDMASEL_L` writer - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
 pub type MSDMASEL_L_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `ADCDIV` reader - ADC division: HCLK / (2 + {value}). Cannot be higher than 80Mhz and PCLK2"]
 pub type ADCDIV_R = crate::FieldReader;
@@ -367,9 +367,9 @@ where
         self.variant(ITSRVEN_A::Enabled)
     }
 }
-#[doc = "Field `MSDMASEL_H` reader - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+#[doc = "Field `MSDMASEL_H` reader - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
 pub type MSDMASEL_H_R = crate::BitReader;
-#[doc = "Field `MSDMASEL_H` writer - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+#[doc = "Field `MSDMASEL_H` writer - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
 pub type MSDMASEL_H_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:4 - Master slave mode select"]
@@ -387,7 +387,7 @@ impl R {
     pub fn msdrcen(&self) -> MSDRCEN_R {
         MSDRCEN_R::new(((self.bits >> 13) & 1) != 0)
     }
-    #[doc = "Bits 14:15 - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+    #[doc = "Bits 14:15 - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
     #[inline(always)]
     pub fn msdmasel_l(&self) -> MSDMASEL_L_R {
         MSDMASEL_L_R::new(((self.bits >> 14) & 3) as u8)
@@ -407,7 +407,7 @@ impl R {
     pub fn itsrven(&self) -> ITSRVEN_R {
         ITSRVEN_R::new(((self.bits >> 23) & 1) != 0)
     }
-    #[doc = "Bit 28 - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+    #[doc = "Bit 28 - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
     #[inline(always)]
     pub fn msdmasel_h(&self) -> MSDMASEL_H_R {
         MSDMASEL_H_R::new(((self.bits >> 28) & 1) != 0)
@@ -443,7 +443,7 @@ impl W {
     pub fn msdrcen(&mut self) -> MSDRCEN_W<'_, CCTRL_SPEC> {
         MSDRCEN_W::new(self, 13)
     }
-    #[doc = "Bits 14:15 - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+    #[doc = "Bits 14:15 - MSDMASEL\\[1:0\\] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
     #[inline(always)]
     pub fn msdmasel_l(&mut self) -> MSDMASEL_L_W<'_, CCTRL_SPEC> {
         MSDMASEL_L_W::new(self, 14)
@@ -463,7 +463,7 @@ impl W {
     pub fn itsrven(&mut self) -> ITSRVEN_W<'_, CCTRL_SPEC> {
         ITSRVEN_W::new(self, 23)
     }
-    #[doc = "Bit 28 - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure."]
+    #[doc = "Bit 28 - MSDMASEL\\[2\\] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL\\[2:0\\]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"]
     #[inline(always)]
     pub fn msdmasel_h(&mut self) -> MSDMASEL_H_W<'_, CCTRL_SPEC> {
         MSDMASEL_H_W::new(self, 28)
