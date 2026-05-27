@@ -19,15 +19,17 @@ SCFG:
         description: XMC address mapping swap bit 0
         bitOffset: 10
         bitWidth: 1
-        NoSwap: [0, "No XMC address mapping swap"]
-        SwapSDRAM: [1, "SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000"]
 
       SWAP_XMC_11:
         description: XMC address mapping swap bit 1
         bitOffset: 11
         bitWidth: 1
-        NoSwap: [0, "No XMC address mapping swap"]
-        SwapQSPI_NAND3: [1, "QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000"]
+    SWAP_XMC_10:
+      NoSwap: [0, "No XMC address mapping swap"]
+      SwapSDRAM: [1, "SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000"]
+    SWAP_XMC_11:
+      NoSwap: [0, "No XMC address mapping swap"]
+      SwapQSPI_NAND3: [1, "QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000"]
   CFG2:
     MII_RMII_SEL:
       MII: [0, "MII interface selected"]
@@ -78,3 +80,7 @@ SCFG:
       EXINT*:
         dimIndex: "12,13,14,15"
         description: "External interrupt line %s"
+  UHDRV:
+    "*_UH":
+      NotActive: [0, "Not active"]
+      Active: [1, "Corresponding GPIO is switched to ultra-high"]

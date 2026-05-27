@@ -204,14 +204,114 @@ where
         self.variant(IR_SRC_SEL_A::Tmr10)
     }
 }
+#[doc = "XMC address mapping swap bit 0\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SWAP_XMC_10_A {
+    #[doc = "0: No XMC address mapping swap"]
+    NoSwap = 0,
+    #[doc = "1: SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000"]
+    SwapSdram = 1,
+}
+impl From<SWAP_XMC_10_A> for bool {
+    #[inline(always)]
+    fn from(variant: SWAP_XMC_10_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SWAP_XMC_10` reader - XMC address mapping swap bit 0"]
-pub type SWAP_XMC_10_R = crate::BitReader;
+pub type SWAP_XMC_10_R = crate::BitReader<SWAP_XMC_10_A>;
+impl SWAP_XMC_10_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SWAP_XMC_10_A {
+        match self.bits {
+            false => SWAP_XMC_10_A::NoSwap,
+            true => SWAP_XMC_10_A::SwapSdram,
+        }
+    }
+    #[doc = "No XMC address mapping swap"]
+    #[inline(always)]
+    pub fn is_no_swap(&self) -> bool {
+        *self == SWAP_XMC_10_A::NoSwap
+    }
+    #[doc = "SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000"]
+    #[inline(always)]
+    pub fn is_swap_sdram(&self) -> bool {
+        *self == SWAP_XMC_10_A::SwapSdram
+    }
+}
 #[doc = "Field `SWAP_XMC_10` writer - XMC address mapping swap bit 0"]
-pub type SWAP_XMC_10_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SWAP_XMC_10_W<'a, REG> = crate::BitWriter<'a, REG, SWAP_XMC_10_A>;
+impl<'a, REG> SWAP_XMC_10_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "No XMC address mapping swap"]
+    #[inline(always)]
+    pub fn no_swap(self) -> &'a mut crate::W<REG> {
+        self.variant(SWAP_XMC_10_A::NoSwap)
+    }
+    #[doc = "SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000"]
+    #[inline(always)]
+    pub fn swap_sdram(self) -> &'a mut crate::W<REG> {
+        self.variant(SWAP_XMC_10_A::SwapSdram)
+    }
+}
+#[doc = "XMC address mapping swap bit 1\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SWAP_XMC_11_A {
+    #[doc = "0: No XMC address mapping swap"]
+    NoSwap = 0,
+    #[doc = "1: QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000"]
+    SwapQspiNand3 = 1,
+}
+impl From<SWAP_XMC_11_A> for bool {
+    #[inline(always)]
+    fn from(variant: SWAP_XMC_11_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SWAP_XMC_11` reader - XMC address mapping swap bit 1"]
-pub type SWAP_XMC_11_R = crate::BitReader;
+pub type SWAP_XMC_11_R = crate::BitReader<SWAP_XMC_11_A>;
+impl SWAP_XMC_11_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SWAP_XMC_11_A {
+        match self.bits {
+            false => SWAP_XMC_11_A::NoSwap,
+            true => SWAP_XMC_11_A::SwapQspiNand3,
+        }
+    }
+    #[doc = "No XMC address mapping swap"]
+    #[inline(always)]
+    pub fn is_no_swap(&self) -> bool {
+        *self == SWAP_XMC_11_A::NoSwap
+    }
+    #[doc = "QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000"]
+    #[inline(always)]
+    pub fn is_swap_qspi_nand3(&self) -> bool {
+        *self == SWAP_XMC_11_A::SwapQspiNand3
+    }
+}
 #[doc = "Field `SWAP_XMC_11` writer - XMC address mapping swap bit 1"]
-pub type SWAP_XMC_11_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SWAP_XMC_11_W<'a, REG> = crate::BitWriter<'a, REG, SWAP_XMC_11_A>;
+impl<'a, REG> SWAP_XMC_11_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "No XMC address mapping swap"]
+    #[inline(always)]
+    pub fn no_swap(self) -> &'a mut crate::W<REG> {
+        self.variant(SWAP_XMC_11_A::NoSwap)
+    }
+    #[doc = "QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000"]
+    #[inline(always)]
+    pub fn swap_qspi_nand3(self) -> &'a mut crate::W<REG> {
+        self.variant(SWAP_XMC_11_A::SwapQspiNand3)
+    }
+}
 impl R {
     #[doc = "Bits 0:2 - Memory address mapping selection bits"]
     #[inline(always)]

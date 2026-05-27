@@ -51025,12 +51025,38 @@ If TPFLT&gt;0: High level</description>
               <description>XMC address mapping swap bit 0</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SWAP_XMC_10</name>
+                <enumeratedValue>
+                  <name>NoSwap</name>
+                  <description>No XMC address mapping swap</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SwapSDRAM</name>
+                  <description>SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SWAP_XMC_11</name>
               <description>XMC address mapping swap bit 1</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SWAP_XMC_11</name>
+                <enumeratedValue>
+                  <name>NoSwap</name>
+                  <description>No XMC address mapping swap</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SwapQSPI_NAND3</name>
+                  <description>QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -51237,58 +51263,79 @@ If TPFLT&gt;0: High level</description>
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
+              <name>PB3_UH</name>
+              <description>PB3 ultra high sourcing/sinking strength</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PB3_UH</name>
+                <enumeratedValue>
+                  <name>NotActive</name>
+                  <description>Not active</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Active</name>
+                  <description>Corresponding GPIO is switched to ultra-high</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
               <name>PF15_UH</name>
               <description>PF15 ultra high sourcing/sinking strength</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
             <field>
               <name>PF14_UH</name>
               <description>PF14 ultra high sourcing/sinking strength</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
             <field>
               <name>PD15_UH</name>
               <description>PD15 ultra high sourcing/sinking strength</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
             <field>
               <name>PD14_UH</name>
               <description>PD14 ultra high sourcing/sinking strength</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
             <field>
               <name>PD13_UH</name>
               <description>PD13 ultra high sourcing/sinking strength</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
             <field>
               <name>PD12_UH</name>
               <description>PD12 ultra high sourcing/sinking strength</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
             <field>
               <name>PB10_UH</name>
               <description>PB10 ultra high sourcing/sinking strength</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
             <field>
               <name>PB9_UH</name>
               <description>PB9 ultra high sourcing/sinking strength</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>PB3_UH</name>
-              <description>PB3 ultra high sourcing/sinking strength</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="PB3_UH"/>
             </field>
           </fields>
         </register>

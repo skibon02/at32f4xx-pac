@@ -2,42 +2,92 @@
 pub type R = crate::R<UHDRV_SPEC>;
 #[doc = "Register `UHDRV` writer"]
 pub type W = crate::W<UHDRV_SPEC>;
+#[doc = "PB3 ultra high sourcing/sinking strength\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PB3_UH_A {
+    #[doc = "0: Not active"]
+    NotActive = 0,
+    #[doc = "1: Corresponding GPIO is switched to ultra-high"]
+    Active = 1,
+}
+impl From<PB3_UH_A> for bool {
+    #[inline(always)]
+    fn from(variant: PB3_UH_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `PB3_UH` reader - PB3 ultra high sourcing/sinking strength"]
-pub type PB3_UH_R = crate::BitReader;
+pub type PB3_UH_R = crate::BitReader<PB3_UH_A>;
+impl PB3_UH_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> PB3_UH_A {
+        match self.bits {
+            false => PB3_UH_A::NotActive,
+            true => PB3_UH_A::Active,
+        }
+    }
+    #[doc = "Not active"]
+    #[inline(always)]
+    pub fn is_not_active(&self) -> bool {
+        *self == PB3_UH_A::NotActive
+    }
+    #[doc = "Corresponding GPIO is switched to ultra-high"]
+    #[inline(always)]
+    pub fn is_active(&self) -> bool {
+        *self == PB3_UH_A::Active
+    }
+}
 #[doc = "Field `PB3_UH` writer - PB3 ultra high sourcing/sinking strength"]
-pub type PB3_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PB3_UH_W<'a, REG> = crate::BitWriter<'a, REG, PB3_UH_A>;
+impl<'a, REG> PB3_UH_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Not active"]
+    #[inline(always)]
+    pub fn not_active(self) -> &'a mut crate::W<REG> {
+        self.variant(PB3_UH_A::NotActive)
+    }
+    #[doc = "Corresponding GPIO is switched to ultra-high"]
+    #[inline(always)]
+    pub fn active(self) -> &'a mut crate::W<REG> {
+        self.variant(PB3_UH_A::Active)
+    }
+}
 #[doc = "Field `PB9_UH` reader - PB9 ultra high sourcing/sinking strength"]
-pub type PB9_UH_R = crate::BitReader;
-#[doc = "Field `PB9_UH` writer - PB9 ultra high sourcing/sinking strength"]
-pub type PB9_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_R as PB9_UH_R;
 #[doc = "Field `PB10_UH` reader - PB10 ultra high sourcing/sinking strength"]
-pub type PB10_UH_R = crate::BitReader;
-#[doc = "Field `PB10_UH` writer - PB10 ultra high sourcing/sinking strength"]
-pub type PB10_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_R as PB10_UH_R;
 #[doc = "Field `PD12_UH` reader - PD12 ultra high sourcing/sinking strength"]
-pub type PD12_UH_R = crate::BitReader;
-#[doc = "Field `PD12_UH` writer - PD12 ultra high sourcing/sinking strength"]
-pub type PD12_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_R as PD12_UH_R;
 #[doc = "Field `PD13_UH` reader - PD13 ultra high sourcing/sinking strength"]
-pub type PD13_UH_R = crate::BitReader;
-#[doc = "Field `PD13_UH` writer - PD13 ultra high sourcing/sinking strength"]
-pub type PD13_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_R as PD13_UH_R;
 #[doc = "Field `PD14_UH` reader - PD14 ultra high sourcing/sinking strength"]
-pub type PD14_UH_R = crate::BitReader;
-#[doc = "Field `PD14_UH` writer - PD14 ultra high sourcing/sinking strength"]
-pub type PD14_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_R as PD14_UH_R;
 #[doc = "Field `PD15_UH` reader - PD15 ultra high sourcing/sinking strength"]
-pub type PD15_UH_R = crate::BitReader;
-#[doc = "Field `PD15_UH` writer - PD15 ultra high sourcing/sinking strength"]
-pub type PD15_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_R as PD15_UH_R;
 #[doc = "Field `PF14_UH` reader - PF14 ultra high sourcing/sinking strength"]
-pub type PF14_UH_R = crate::BitReader;
-#[doc = "Field `PF14_UH` writer - PF14 ultra high sourcing/sinking strength"]
-pub type PF14_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_R as PF14_UH_R;
 #[doc = "Field `PF15_UH` reader - PF15 ultra high sourcing/sinking strength"]
-pub type PF15_UH_R = crate::BitReader;
+pub use PB3_UH_R as PF15_UH_R;
+#[doc = "Field `PB9_UH` writer - PB9 ultra high sourcing/sinking strength"]
+pub use PB3_UH_W as PB9_UH_W;
+#[doc = "Field `PB10_UH` writer - PB10 ultra high sourcing/sinking strength"]
+pub use PB3_UH_W as PB10_UH_W;
+#[doc = "Field `PD12_UH` writer - PD12 ultra high sourcing/sinking strength"]
+pub use PB3_UH_W as PD12_UH_W;
+#[doc = "Field `PD13_UH` writer - PD13 ultra high sourcing/sinking strength"]
+pub use PB3_UH_W as PD13_UH_W;
+#[doc = "Field `PD14_UH` writer - PD14 ultra high sourcing/sinking strength"]
+pub use PB3_UH_W as PD14_UH_W;
+#[doc = "Field `PD15_UH` writer - PD15 ultra high sourcing/sinking strength"]
+pub use PB3_UH_W as PD15_UH_W;
+#[doc = "Field `PF14_UH` writer - PF14 ultra high sourcing/sinking strength"]
+pub use PB3_UH_W as PF14_UH_W;
 #[doc = "Field `PF15_UH` writer - PF15 ultra high sourcing/sinking strength"]
-pub type PF15_UH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use PB3_UH_W as PF15_UH_W;
 impl R {
     #[doc = "Bit 0 - PB3 ultra high sourcing/sinking strength"]
     #[inline(always)]
@@ -88,6 +138,7 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("UHDRV")
+            .field("pb3_uh", &self.pb3_uh())
             .field("pf15_uh", &self.pf15_uh())
             .field("pf14_uh", &self.pf14_uh())
             .field("pd15_uh", &self.pd15_uh())
@@ -96,7 +147,6 @@ impl core::fmt::Debug for R {
             .field("pd12_uh", &self.pd12_uh())
             .field("pb10_uh", &self.pb10_uh())
             .field("pb9_uh", &self.pb9_uh())
-            .field("pb3_uh", &self.pb3_uh())
             .finish()
     }
 }
