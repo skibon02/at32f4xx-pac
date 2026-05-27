@@ -28251,128 +28251,65 @@ If TPFLT&gt;0: High level</description>
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>RDY3</name>
-              <description>ADC ready to conversion flag of ADC3</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>OCCO3</name>
-              <description>Ordinary channel conversion overflow flag of ADC3</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>OCCS3</name>
-              <description>Ordinary channel conversion start flag of ADC3</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>PCCS3</name>
-              <description>Preempted channel conversion start flag of ADC3</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>PCCE3</name>
-              <description>Preempted channels conversion end flag of ADC3</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>OCCE3</name>
-              <description>Ordinary channels conversion end flag of ADC3</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>VMOR3</name>
-              <description>Voltage monitoring out of range flag of ADC3</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>RDY2</name>
-              <description>ADC ready to conversion flag of ADC2</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>OCCO2</name>
-              <description>Ordinary channel conversion overflow flag of ADC2</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>OCCS2</name>
-              <description>Ordinary channel conversion start flag of ADC2</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>PCCS2</name>
-              <description>Preempted channel conversion start flag of ADC2</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>PCCE2</name>
-              <description>Preempted channels conversion end flag of ADC2</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>OCCE2</name>
-              <description>Ordinary channels conversion end flag of ADC2</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>VMOR2</name>
-              <description>Voltage monitoring out of range flag of ADC2</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>RDY1</name>
-              <description>ADC ready to conversion flag of ADC1</description>
+              <dim>3</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>1-3</dimIndex>
+              <name>RDY%s</name>
+              <description>ADC%s conversion ready flag</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>OCCO1</name>
-              <description>Ordinary channel conversion overflow flag of ADC1</description>
+              <dim>3</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>1-3</dimIndex>
+              <name>OCCO%s</name>
+              <description>ADC%s overrun flag</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>OCCS1</name>
-              <description>Ordinary channel conversion start flag of ADC1</description>
+              <dim>3</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>1-3</dimIndex>
+              <name>OCCS%s</name>
+              <description>ADC%s ordinary channel conversion start flag</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>PCCS1</name>
-              <description>Preempted channel conversion start flag of ADC1</description>
+              <dim>3</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>1-3</dimIndex>
+              <name>PCCS%s</name>
+              <description>ADC%s preempted channel conversion start flag</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>PCCE1</name>
-              <description>Preempted channels conversion end flag of ADC1</description>
+              <dim>3</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>1-3</dimIndex>
+              <name>PCCE%s</name>
+              <description>ADC%s preempted channel conversion end flag</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>OCCE1</name>
-              <description>Ordinary channels conversion end flag of ADC1</description>
+              <dim>3</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>1-3</dimIndex>
+              <name>OCCE%s</name>
+              <description>ADC%s ordinary channel conversion end flag</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>VMOR1</name>
-              <description>Voltage monitoring out of range flag of ADC1</description>
+              <dim>3</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>1-3</dimIndex>
+              <name>VMOR%s</name>
+              <description>ADC%s voltage monitoring out of range flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -28389,7 +28326,7 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>MSDMASEL_H</name>
-              <description>High bit of ordinary channel DMA transfer mode select for master slave mode</description>
+              <description>MSDMASEL[2] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure.</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -28398,22 +28335,54 @@ If TPFLT&gt;0: High level</description>
               <description>Internal temperature sensor and VINTRV enable</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ITSRVEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Internal temperature sensor and Vintrv channel disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Internal temperature sensor and Vintrv channel enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>VBATEN</name>
               <description>VBAT enable</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>VBATEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>VBAT channel disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>VBAT channel enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ADCDIV</name>
-              <description>ADC division</description>
+              <description>ADC division: HCLK / (2 + {value}). Cannot be higher than 80Mhz and PCLK2</description>
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MSDMASEL_L</name>
-              <description>Low bit of ordinary channel DMA transfer mode select for master slave mode</description>
+              <description>MSDMASEL[1:0] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure.</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
@@ -28422,18 +28391,100 @@ If TPFLT&gt;0: High level</description>
               <description>Ordinary channel DMA request continuation enable for master slave mode</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>MSDRCEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>MSDRC disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>MSDRC enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ASISEL</name>
-              <description>Adjacent ADC sampling interval select for ordinary shifting mode</description>
+              <description>Adjacent ADC sampling interval select in ordinary shift mode: {value} + 5 * TADCCLK</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MSSEL</name>
               <description>Master slave mode select</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
+              <enumeratedValues>
+                <name>MSSEL</name>
+                <enumeratedValue>
+                  <name>NonCombined</name>
+                  <description>Non-combined mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CombinedOrdinaryPreempted</name>
+                  <description>Combined ordinary simultaneous+preempted simultaneous modes (single slave)</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CombinedOrdinaryAlternate</name>
+                  <description>Combined ordinary simultaneous+alternate preempted trigger modes (single slave)</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PreemptedSimultaneous</name>
+                  <description>Preempted simultaneous mode (single slave)</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>OrdinarySimultaneous</name>
+                  <description>Ordinary simultaneous mode (single slave)</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>OrdinaryShift</name>
+                  <description>Ordinary shift mode (single slave)</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AlternatePreemptedTrigger</name>
+                  <description>Alternate preempted trigger mode (single slave)</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CombinedOrdinaryPreemptedDual</name>
+                  <description>Combined ordinary simultaneous+preempted simultaneous modes (dual slaves)</description>
+                  <value>17</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CombinedOrdinaryAlternateDual</name>
+                  <description>Combined ordinary simultaneous+alternate preempted trigger modes (dual slaves)</description>
+                  <value>18</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PreemptedSimultaneousDual</name>
+                  <description>Preempted simultaneous mode (dual slaves)</description>
+                  <value>21</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>OrdinarySimultaneousDual</name>
+                  <description>Ordinary simultaneous mode (dual slaves)</description>
+                  <value>22</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>OrdinaryShiftDual</name>
+                  <description>Ordinary shift mode (dual slaves)</description>
+                  <value>23</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
