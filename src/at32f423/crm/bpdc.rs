@@ -2,28 +2,364 @@
 pub type R = crate::R<BPDC_SPEC>;
 #[doc = "Register `BPDC` writer"]
 pub type W = crate::W<BPDC_SPEC>;
+#[doc = "Low speed external crystal enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Lextenr {
+    #[doc = "0: Low speed external crystal is disabled"]
+    Disabled = 0,
+    #[doc = "1: Low speed external crystal is enabled"]
+    Enabled = 1,
+}
+impl From<Lextenr> for bool {
+    #[inline(always)]
+    fn from(variant: Lextenr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `LEXTEN` reader - Low speed external crystal enable"]
-pub type LEXTEN_R = crate::BitReader;
+pub type LEXTEN_R = crate::BitReader<Lextenr>;
+impl LEXTEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Lextenr {
+        match self.bits {
+            false => Lextenr::Disabled,
+            true => Lextenr::Enabled,
+        }
+    }
+    #[doc = "Low speed external crystal is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Lextenr::Disabled
+    }
+    #[doc = "Low speed external crystal is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Lextenr::Enabled
+    }
+}
+#[doc = "Low speed external crystal enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum LextenwWO {
+    #[doc = "0: Low speed external crystal disable"]
+    Disable = 0,
+    #[doc = "1: Low speed external crystal enable"]
+    Enable = 1,
+}
+impl From<LextenwWO> for bool {
+    #[inline(always)]
+    fn from(variant: LextenwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `LEXTEN` writer - Low speed external crystal enable"]
-pub type LEXTEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type LEXTEN_W<'a, REG> = crate::BitWriter<'a, REG, LextenwWO>;
+impl<'a, REG> LEXTEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Low speed external crystal disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(LextenwWO::Disable)
+    }
+    #[doc = "Low speed external crystal enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(LextenwWO::Enable)
+    }
+}
+#[doc = "Low speed external crystal ready\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum LEXTSTBL_A {
+    #[doc = "0: LEXT is not ready"]
+    NotReady = 0,
+    #[doc = "1: LEXT is ready"]
+    Ready = 1,
+}
+impl From<LEXTSTBL_A> for bool {
+    #[inline(always)]
+    fn from(variant: LEXTSTBL_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `LEXTSTBL` reader - Low speed external crystal ready"]
-pub type LEXTSTBL_R = crate::BitReader;
+pub type LEXTSTBL_R = crate::BitReader<LEXTSTBL_A>;
+impl LEXTSTBL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> LEXTSTBL_A {
+        match self.bits {
+            false => LEXTSTBL_A::NotReady,
+            true => LEXTSTBL_A::Ready,
+        }
+    }
+    #[doc = "LEXT is not ready"]
+    #[inline(always)]
+    pub fn is_not_ready(&self) -> bool {
+        *self == LEXTSTBL_A::NotReady
+    }
+    #[doc = "LEXT is ready"]
+    #[inline(always)]
+    pub fn is_ready(&self) -> bool {
+        *self == LEXTSTBL_A::Ready
+    }
+}
+#[doc = "Low speed external crystal bypass\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Lextbypsr {
+    #[doc = "0: LEXT bypass is disabled"]
+    Disabled = 0,
+    #[doc = "1: LEXT bypass is enabled"]
+    Enabled = 1,
+}
+impl From<Lextbypsr> for bool {
+    #[inline(always)]
+    fn from(variant: Lextbypsr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `LEXTBYPS` reader - Low speed external crystal bypass"]
-pub type LEXTBYPS_R = crate::BitReader;
+pub type LEXTBYPS_R = crate::BitReader<Lextbypsr>;
+impl LEXTBYPS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Lextbypsr {
+        match self.bits {
+            false => Lextbypsr::Disabled,
+            true => Lextbypsr::Enabled,
+        }
+    }
+    #[doc = "LEXT bypass is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Lextbypsr::Disabled
+    }
+    #[doc = "LEXT bypass is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Lextbypsr::Enabled
+    }
+}
+#[doc = "Low speed external crystal bypass\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum LextbypswWO {
+    #[doc = "0: LEXT bypass disable"]
+    Disable = 0,
+    #[doc = "1: LEXT bypass enable"]
+    Enable = 1,
+}
+impl From<LextbypswWO> for bool {
+    #[inline(always)]
+    fn from(variant: LextbypswWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `LEXTBYPS` writer - Low speed external crystal bypass"]
-pub type LEXTBYPS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type LEXTBYPS_W<'a, REG> = crate::BitWriter<'a, REG, LextbypswWO>;
+impl<'a, REG> LEXTBYPS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "LEXT bypass disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(LextbypswWO::Disable)
+    }
+    #[doc = "LEXT bypass enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(LextbypswWO::Enable)
+    }
+}
+#[doc = "ERTC clock source selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum ERTCSEL_A {
+    #[doc = "0: No clock"]
+    NoClock = 0,
+    #[doc = "1: LEXT"]
+    Lext = 1,
+    #[doc = "2: LICK"]
+    Lick = 2,
+    #[doc = "3: Divided HEXT (with the ERTC_DIV bit in the CRM_CFG)"]
+    Hext = 3,
+}
+impl From<ERTCSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: ERTCSEL_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for ERTCSEL_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for ERTCSEL_A {}
 #[doc = "Field `ERTCSEL` reader - ERTC clock source selection"]
-pub type ERTCSEL_R = crate::FieldReader;
+pub type ERTCSEL_R = crate::FieldReader<ERTCSEL_A>;
+impl ERTCSEL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ERTCSEL_A {
+        match self.bits {
+            0 => ERTCSEL_A::NoClock,
+            1 => ERTCSEL_A::Lext,
+            2 => ERTCSEL_A::Lick,
+            3 => ERTCSEL_A::Hext,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "No clock"]
+    #[inline(always)]
+    pub fn is_no_clock(&self) -> bool {
+        *self == ERTCSEL_A::NoClock
+    }
+    #[doc = "LEXT"]
+    #[inline(always)]
+    pub fn is_lext(&self) -> bool {
+        *self == ERTCSEL_A::Lext
+    }
+    #[doc = "LICK"]
+    #[inline(always)]
+    pub fn is_lick(&self) -> bool {
+        *self == ERTCSEL_A::Lick
+    }
+    #[doc = "Divided HEXT (with the ERTC_DIV bit in the CRM_CFG)"]
+    #[inline(always)]
+    pub fn is_hext(&self) -> bool {
+        *self == ERTCSEL_A::Hext
+    }
+}
 #[doc = "Field `ERTCSEL` writer - ERTC clock source selection"]
-pub type ERTCSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type ERTCSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 2, ERTCSEL_A, crate::Safe>;
+impl<'a, REG> ERTCSEL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "No clock"]
+    #[inline(always)]
+    pub fn no_clock(self) -> &'a mut crate::W<REG> {
+        self.variant(ERTCSEL_A::NoClock)
+    }
+    #[doc = "LEXT"]
+    #[inline(always)]
+    pub fn lext(self) -> &'a mut crate::W<REG> {
+        self.variant(ERTCSEL_A::Lext)
+    }
+    #[doc = "LICK"]
+    #[inline(always)]
+    pub fn lick(self) -> &'a mut crate::W<REG> {
+        self.variant(ERTCSEL_A::Lick)
+    }
+    #[doc = "Divided HEXT (with the ERTC_DIV bit in the CRM_CFG)"]
+    #[inline(always)]
+    pub fn hext(self) -> &'a mut crate::W<REG> {
+        self.variant(ERTCSEL_A::Hext)
+    }
+}
+#[doc = "ERTC clock enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ERTCEN_A {
+    #[doc = "0: ERTC clock is disabled"]
+    Disabled = 0,
+    #[doc = "1: ERTC clock is enabled"]
+    Enabled = 1,
+}
+impl From<ERTCEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: ERTCEN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ERTCEN` reader - ERTC clock enable"]
-pub type ERTCEN_R = crate::BitReader;
+pub type ERTCEN_R = crate::BitReader<ERTCEN_A>;
+impl ERTCEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ERTCEN_A {
+        match self.bits {
+            false => ERTCEN_A::Disabled,
+            true => ERTCEN_A::Enabled,
+        }
+    }
+    #[doc = "ERTC clock is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ERTCEN_A::Disabled
+    }
+    #[doc = "ERTC clock is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ERTCEN_A::Enabled
+    }
+}
 #[doc = "Field `ERTCEN` writer - ERTC clock enable"]
-pub type ERTCEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ERTCEN_W<'a, REG> = crate::BitWriter<'a, REG, ERTCEN_A>;
+impl<'a, REG> ERTCEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "ERTC clock is disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ERTCEN_A::Disabled)
+    }
+    #[doc = "ERTC clock is enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ERTCEN_A::Enabled)
+    }
+}
+#[doc = "Battery powered domain software reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum BPDRSTW_A {
+    #[doc = "1: Backup domain software reset"]
+    Reset = 1,
+}
+impl From<BPDRSTW_A> for bool {
+    #[inline(always)]
+    fn from(variant: BPDRSTW_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `BPDRST` reader - Battery powered domain software reset"]
-pub type BPDRST_R = crate::BitReader;
+pub type BPDRST_R = crate::BitReader<BPDRSTW_A>;
+impl BPDRST_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<BPDRSTW_A> {
+        match self.bits {
+            true => Some(BPDRSTW_A::Reset),
+            _ => None,
+        }
+    }
+    #[doc = "Backup domain software reset"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == BPDRSTW_A::Reset
+    }
+}
 #[doc = "Field `BPDRST` writer - Battery powered domain software reset"]
-pub type BPDRST_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type BPDRST_W<'a, REG> = crate::BitWriter1S<'a, REG, BPDRSTW_A>;
+impl<'a, REG> BPDRST_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Backup domain software reset"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut crate::W<REG> {
+        self.variant(BPDRSTW_A::Reset)
+    }
+}
 impl R {
     #[doc = "Bit 0 - Low speed external crystal enable"]
     #[inline(always)]
@@ -105,6 +441,7 @@ impl crate::Readable for BPDC_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`bpdc::W`](W) writer structure"]
 impl crate::Writable for BPDC_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x0001_0000;
 }
 #[doc = "`reset()` method sets BPDC to value 0"]
 impl crate::Resettable for BPDC_SPEC {}

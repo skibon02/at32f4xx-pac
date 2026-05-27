@@ -2,106 +2,144 @@
 pub type R = crate::R<APB1RST_SPEC>;
 #[doc = "Register `APB1RST` writer"]
 pub type W = crate::W<APB1RST_SPEC>;
+#[doc = "Timer2 reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TMR2W_A {
+    #[doc = "1: Reset peripheral"]
+    Reset = 1,
+}
+impl From<TMR2W_A> for bool {
+    #[inline(always)]
+    fn from(variant: TMR2W_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TMR2` reader - Timer2 reset"]
-pub type TMR2_R = crate::BitReader;
+pub type TMR2_R = crate::BitReader<TMR2W_A>;
+impl TMR2_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<TMR2W_A> {
+        match self.bits {
+            true => Some(TMR2W_A::Reset),
+            _ => None,
+        }
+    }
+    #[doc = "Reset peripheral"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == TMR2W_A::Reset
+    }
+}
 #[doc = "Field `TMR2` writer - Timer2 reset"]
-pub type TMR2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TMR2_W<'a, REG> = crate::BitWriter1S<'a, REG, TMR2W_A>;
+impl<'a, REG> TMR2_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Reset peripheral"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut crate::W<REG> {
+        self.variant(TMR2W_A::Reset)
+    }
+}
 #[doc = "Field `TMR3` reader - Timer3 reset"]
-pub type TMR3_R = crate::BitReader;
-#[doc = "Field `TMR3` writer - Timer3 reset"]
-pub type TMR3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR3_R;
 #[doc = "Field `TMR4` reader - Timer4 reset"]
-pub type TMR4_R = crate::BitReader;
-#[doc = "Field `TMR4` writer - Timer4 reset"]
-pub type TMR4_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR4_R;
 #[doc = "Field `TMR5` reader - Timer5 reset"]
-pub type TMR5_R = crate::BitReader;
-#[doc = "Field `TMR5` writer - Timer5 reset"]
-pub type TMR5_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR5_R;
 #[doc = "Field `TMR6` reader - Timer6 reset"]
-pub type TMR6_R = crate::BitReader;
-#[doc = "Field `TMR6` writer - Timer6 reset"]
-pub type TMR6_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR6_R;
 #[doc = "Field `TMR7` reader - Timer7 reset"]
-pub type TMR7_R = crate::BitReader;
-#[doc = "Field `TMR7` writer - Timer7 reset"]
-pub type TMR7_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR7_R;
 #[doc = "Field `TMR12` reader - Timer12 reset"]
-pub type TMR12_R = crate::BitReader;
-#[doc = "Field `TMR12` writer - Timer12 reset"]
-pub type TMR12_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR12_R;
 #[doc = "Field `TMR13` reader - Timer13 reset"]
-pub type TMR13_R = crate::BitReader;
-#[doc = "Field `TMR13` writer - Timer13 reset"]
-pub type TMR13_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR13_R;
 #[doc = "Field `TMR14` reader - Timer14 reset"]
-pub type TMR14_R = crate::BitReader;
-#[doc = "Field `TMR14` writer - Timer14 reset"]
-pub type TMR14_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR14_R;
 #[doc = "Field `WWDT` reader - Window watchdog reset"]
-pub type WWDT_R = crate::BitReader;
-#[doc = "Field `WWDT` writer - Window watchdog reset"]
-pub type WWDT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as WWDT_R;
 #[doc = "Field `SPI2` reader - SPI2 reset"]
-pub type SPI2_R = crate::BitReader;
-#[doc = "Field `SPI2` writer - SPI2 reset"]
-pub type SPI2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as SPI2_R;
 #[doc = "Field `SPI3` reader - SPI3 reset"]
-pub type SPI3_R = crate::BitReader;
-#[doc = "Field `SPI3` writer - SPI3 reset"]
-pub type SPI3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as SPI3_R;
 #[doc = "Field `USART2` reader - USART2 reset"]
-pub type USART2_R = crate::BitReader;
-#[doc = "Field `USART2` writer - USART2 reset"]
-pub type USART2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as USART2_R;
 #[doc = "Field `USART3` reader - USART3 reset"]
-pub type USART3_R = crate::BitReader;
-#[doc = "Field `USART3` writer - USART3 reset"]
-pub type USART3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as USART3_R;
 #[doc = "Field `UART4` reader - UART4 reset"]
-pub type UART4_R = crate::BitReader;
-#[doc = "Field `UART4` writer - UART4 reset"]
-pub type UART4_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as UART4_R;
 #[doc = "Field `UART5` reader - UART5 reset"]
-pub type UART5_R = crate::BitReader;
-#[doc = "Field `UART5` writer - UART5 reset"]
-pub type UART5_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as UART5_R;
 #[doc = "Field `I2C1` reader - I2C1 reset"]
-pub type I2C1_R = crate::BitReader;
-#[doc = "Field `I2C1` writer - I2C1 reset"]
-pub type I2C1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as I2C1_R;
 #[doc = "Field `I2C2` reader - I2C2 reset"]
-pub type I2C2_R = crate::BitReader;
-#[doc = "Field `I2C2` writer - I2C2 reset"]
-pub type I2C2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as I2C2_R;
 #[doc = "Field `I2C3` reader - I2C3 reset"]
-pub type I2C3_R = crate::BitReader;
-#[doc = "Field `I2C3` writer - I2C3 reset"]
-pub type I2C3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as I2C3_R;
 #[doc = "Field `CAN1` reader - CAN1 reset"]
-pub type CAN1_R = crate::BitReader;
-#[doc = "Field `CAN1` writer - CAN1 reset"]
-pub type CAN1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as CAN1_R;
 #[doc = "Field `CAN2` reader - CAN2 reset"]
-pub type CAN2_R = crate::BitReader;
-#[doc = "Field `CAN2` writer - CAN2 reset"]
-pub type CAN2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as CAN2_R;
 #[doc = "Field `PWC` reader - PWC reset"]
-pub type PWC_R = crate::BitReader;
-#[doc = "Field `PWC` writer - PWC reset"]
-pub type PWC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as PWC_R;
 #[doc = "Field `DAC` reader - DAC reset"]
-pub type DAC_R = crate::BitReader;
-#[doc = "Field `DAC` writer - DAC reset"]
-pub type DAC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as DAC_R;
 #[doc = "Field `UART7` reader - UART7 reset"]
-pub type UART7_R = crate::BitReader;
-#[doc = "Field `UART7` writer - UART7 reset"]
-pub type UART7_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as UART7_R;
 #[doc = "Field `UART8` reader - UART8 reset"]
-pub type UART8_R = crate::BitReader;
+pub use TMR2_R as UART8_R;
+#[doc = "Field `TMR3` writer - Timer3 reset"]
+pub use TMR2_W as TMR3_W;
+#[doc = "Field `TMR4` writer - Timer4 reset"]
+pub use TMR2_W as TMR4_W;
+#[doc = "Field `TMR5` writer - Timer5 reset"]
+pub use TMR2_W as TMR5_W;
+#[doc = "Field `TMR6` writer - Timer6 reset"]
+pub use TMR2_W as TMR6_W;
+#[doc = "Field `TMR7` writer - Timer7 reset"]
+pub use TMR2_W as TMR7_W;
+#[doc = "Field `TMR12` writer - Timer12 reset"]
+pub use TMR2_W as TMR12_W;
+#[doc = "Field `TMR13` writer - Timer13 reset"]
+pub use TMR2_W as TMR13_W;
+#[doc = "Field `TMR14` writer - Timer14 reset"]
+pub use TMR2_W as TMR14_W;
+#[doc = "Field `WWDT` writer - Window watchdog reset"]
+pub use TMR2_W as WWDT_W;
+#[doc = "Field `SPI2` writer - SPI2 reset"]
+pub use TMR2_W as SPI2_W;
+#[doc = "Field `SPI3` writer - SPI3 reset"]
+pub use TMR2_W as SPI3_W;
+#[doc = "Field `USART2` writer - USART2 reset"]
+pub use TMR2_W as USART2_W;
+#[doc = "Field `USART3` writer - USART3 reset"]
+pub use TMR2_W as USART3_W;
+#[doc = "Field `UART4` writer - UART4 reset"]
+pub use TMR2_W as UART4_W;
+#[doc = "Field `UART5` writer - UART5 reset"]
+pub use TMR2_W as UART5_W;
+#[doc = "Field `I2C1` writer - I2C1 reset"]
+pub use TMR2_W as I2C1_W;
+#[doc = "Field `I2C2` writer - I2C2 reset"]
+pub use TMR2_W as I2C2_W;
+#[doc = "Field `I2C3` writer - I2C3 reset"]
+pub use TMR2_W as I2C3_W;
+#[doc = "Field `CAN1` writer - CAN1 reset"]
+pub use TMR2_W as CAN1_W;
+#[doc = "Field `CAN2` writer - CAN2 reset"]
+pub use TMR2_W as CAN2_W;
+#[doc = "Field `PWC` writer - PWC reset"]
+pub use TMR2_W as PWC_W;
+#[doc = "Field `DAC` writer - DAC reset"]
+pub use TMR2_W as DAC_W;
+#[doc = "Field `UART7` writer - UART7 reset"]
+pub use TMR2_W as UART7_W;
 #[doc = "Field `UART8` writer - UART8 reset"]
-pub type UART8_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_W as UART8_W;
 impl R {
     #[doc = "Bit 0 - Timer2 reset"]
     #[inline(always)]
@@ -397,6 +435,7 @@ impl crate::Readable for APB1RST_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`apb1rst::W`](W) writer structure"]
 impl crate::Writable for APB1RST_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0xf6fe_c9ff;
 }
 #[doc = "`reset()` method sets APB1RST to value 0"]
 impl crate::Resettable for APB1RST_SPEC {}

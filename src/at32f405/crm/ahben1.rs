@@ -2,42 +2,92 @@
 pub type R = crate::R<AHBEN1_SPEC>;
 #[doc = "Register `AHBEN1` writer"]
 pub type W = crate::W<AHBEN1_SPEC>;
+#[doc = "IO A clock enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum GPIOA_A {
+    #[doc = "0: Disable peripheral clock"]
+    Disable = 0,
+    #[doc = "1: Enable peripheral clock"]
+    Enable = 1,
+}
+impl From<GPIOA_A> for bool {
+    #[inline(always)]
+    fn from(variant: GPIOA_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `GPIOA` reader - IO A clock enable"]
-pub type GPIOA_R = crate::BitReader;
+pub type GPIOA_R = crate::BitReader<GPIOA_A>;
+impl GPIOA_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> GPIOA_A {
+        match self.bits {
+            false => GPIOA_A::Disable,
+            true => GPIOA_A::Enable,
+        }
+    }
+    #[doc = "Disable peripheral clock"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        *self == GPIOA_A::Disable
+    }
+    #[doc = "Enable peripheral clock"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == GPIOA_A::Enable
+    }
+}
 #[doc = "Field `GPIOA` writer - IO A clock enable"]
-pub type GPIOA_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type GPIOA_W<'a, REG> = crate::BitWriter<'a, REG, GPIOA_A>;
+impl<'a, REG> GPIOA_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disable peripheral clock"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(GPIOA_A::Disable)
+    }
+    #[doc = "Enable peripheral clock"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(GPIOA_A::Enable)
+    }
+}
 #[doc = "Field `GPIOB` reader - IO B clock enable"]
-pub type GPIOB_R = crate::BitReader;
-#[doc = "Field `GPIOB` writer - IO B clock enable"]
-pub type GPIOB_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOB_R;
 #[doc = "Field `GPIOC` reader - IO C clock enable"]
-pub type GPIOC_R = crate::BitReader;
-#[doc = "Field `GPIOC` writer - IO C clock enable"]
-pub type GPIOC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOC_R;
 #[doc = "Field `GPIOD` reader - IO D clock enable"]
-pub type GPIOD_R = crate::BitReader;
-#[doc = "Field `GPIOD` writer - IO D clock enable"]
-pub type GPIOD_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOD_R;
 #[doc = "Field `GPIOF` reader - IO F clock enable"]
-pub type GPIOF_R = crate::BitReader;
-#[doc = "Field `GPIOF` writer - IO F clock enable"]
-pub type GPIOF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOF_R;
 #[doc = "Field `CRC` reader - CRC clock enable"]
-pub type CRC_R = crate::BitReader;
-#[doc = "Field `CRC` writer - CRC clock enable"]
-pub type CRC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as CRC_R;
 #[doc = "Field `DMA1` reader - DMA1 clock enable"]
-pub type DMA1_R = crate::BitReader;
-#[doc = "Field `DMA1` writer - DMA1 clock enable"]
-pub type DMA1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as DMA1_R;
 #[doc = "Field `DMA2` reader - DMA2 clock enable"]
-pub type DMA2_R = crate::BitReader;
-#[doc = "Field `DMA2` writer - DMA2 clock enable"]
-pub type DMA2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as DMA2_R;
 #[doc = "Field `OTGHS` reader - OTGHS clock enable"]
-pub type OTGHS_R = crate::BitReader;
+pub use GPIOA_R as OTGHS_R;
+#[doc = "Field `GPIOB` writer - IO B clock enable"]
+pub use GPIOA_W as GPIOB_W;
+#[doc = "Field `GPIOC` writer - IO C clock enable"]
+pub use GPIOA_W as GPIOC_W;
+#[doc = "Field `GPIOD` writer - IO D clock enable"]
+pub use GPIOA_W as GPIOD_W;
+#[doc = "Field `GPIOF` writer - IO F clock enable"]
+pub use GPIOA_W as GPIOF_W;
+#[doc = "Field `CRC` writer - CRC clock enable"]
+pub use GPIOA_W as CRC_W;
+#[doc = "Field `DMA1` writer - DMA1 clock enable"]
+pub use GPIOA_W as DMA1_W;
+#[doc = "Field `DMA2` writer - DMA2 clock enable"]
+pub use GPIOA_W as DMA2_W;
 #[doc = "Field `OTGHS` writer - OTGHS clock enable"]
-pub type OTGHS_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_W as OTGHS_W;
 impl R {
     #[doc = "Bit 0 - IO A clock enable"]
     #[inline(always)]

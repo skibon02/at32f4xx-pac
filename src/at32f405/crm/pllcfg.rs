@@ -2,13 +2,13 @@
 pub type R = crate::R<PLLCFG_SPEC>;
 #[doc = "Register `PLLCFG` writer"]
 pub type W = crate::W<PLLCFG_SPEC>;
-#[doc = "Field `MS` reader - PLL pre-division"]
+#[doc = "Field `MS` reader - PLL pre-division (1-15)"]
 pub type MS_R = crate::FieldReader;
-#[doc = "Field `MS` writer - PLL pre-division"]
+#[doc = "Field `MS` writer - PLL pre-division (1-15)"]
 pub type MS_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
-#[doc = "Field `NS` reader - PLL frequency multiplication factor"]
+#[doc = "Field `NS` reader - PLL multiplication factor (31-500)"]
 pub type NS_R = crate::FieldReader<u16>;
-#[doc = "Field `NS` writer - PLL frequency multiplication factor"]
+#[doc = "Field `NS` writer - PLL multiplication factor (31-500)"]
 pub type NS_W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `PLL_FP` reader - PLLP post-division"]
 pub type PLL_FP_R = crate::FieldReader;
@@ -77,12 +77,12 @@ where
     }
 }
 impl R {
-    #[doc = "Bits 0:3 - PLL pre-division"]
+    #[doc = "Bits 0:3 - PLL pre-division (1-15)"]
     #[inline(always)]
     pub fn ms(&self) -> MS_R {
         MS_R::new((self.bits & 0x0f) as u8)
     }
-    #[doc = "Bits 6:14 - PLL frequency multiplication factor"]
+    #[doc = "Bits 6:14 - PLL multiplication factor (31-500)"]
     #[inline(always)]
     pub fn ns(&self) -> NS_R {
         NS_R::new(((self.bits >> 6) & 0x01ff) as u16)
@@ -121,12 +121,12 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - PLL pre-division"]
+    #[doc = "Bits 0:3 - PLL pre-division (1-15)"]
     #[inline(always)]
     pub fn ms(&mut self) -> MS_W<'_, PLLCFG_SPEC> {
         MS_W::new(self, 0)
     }
-    #[doc = "Bits 6:14 - PLL frequency multiplication factor"]
+    #[doc = "Bits 6:14 - PLL multiplication factor (31-500)"]
     #[inline(always)]
     pub fn ns(&mut self) -> NS_W<'_, PLLCFG_SPEC> {
         NS_W::new(self, 6)

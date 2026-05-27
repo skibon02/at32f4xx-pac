@@ -2,46 +2,84 @@
 pub type R = crate::R<APB2RST_SPEC>;
 #[doc = "Register `APB2RST` writer"]
 pub type W = crate::W<APB2RST_SPEC>;
+#[doc = "Timer1 reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TMR1W_A {
+    #[doc = "1: Reset peripheral"]
+    Reset = 1,
+}
+impl From<TMR1W_A> for bool {
+    #[inline(always)]
+    fn from(variant: TMR1W_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TMR1` reader - Timer1 reset"]
-pub type TMR1_R = crate::BitReader;
+pub type TMR1_R = crate::BitReader<TMR1W_A>;
+impl TMR1_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<TMR1W_A> {
+        match self.bits {
+            true => Some(TMR1W_A::Reset),
+            _ => None,
+        }
+    }
+    #[doc = "Reset peripheral"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == TMR1W_A::Reset
+    }
+}
 #[doc = "Field `TMR1` writer - Timer1 reset"]
-pub type TMR1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TMR1_W<'a, REG> = crate::BitWriter1S<'a, REG, TMR1W_A>;
+impl<'a, REG> TMR1_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Reset peripheral"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut crate::W<REG> {
+        self.variant(TMR1W_A::Reset)
+    }
+}
 #[doc = "Field `USART1` reader - USART1 reset"]
-pub type USART1_R = crate::BitReader;
-#[doc = "Field `USART1` writer - USART1 reset"]
-pub type USART1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as USART1_R;
 #[doc = "Field `USART6` reader - USART6 reset"]
-pub type USART6_R = crate::BitReader;
-#[doc = "Field `USART6` writer - USART6 reset"]
-pub type USART6_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as USART6_R;
 #[doc = "Field `ADC` reader - ADC reset"]
-pub type ADC_R = crate::BitReader;
-#[doc = "Field `ADC` writer - ADC reset"]
-pub type ADC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as ADC_R;
 #[doc = "Field `SPI1` reader - SPI1 reset"]
-pub type SPI1_R = crate::BitReader;
-#[doc = "Field `SPI1` writer - SPI1 reset"]
-pub type SPI1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as SPI1_R;
 #[doc = "Field `SCFG` reader - SCFG reset"]
-pub type SCFG_R = crate::BitReader;
-#[doc = "Field `SCFG` writer - SCFG reset"]
-pub type SCFG_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as SCFG_R;
 #[doc = "Field `TMR9` reader - Timer9 reset"]
-pub type TMR9_R = crate::BitReader;
-#[doc = "Field `TMR9` writer - Timer9 reset"]
-pub type TMR9_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as TMR9_R;
 #[doc = "Field `TMR10` reader - Timer10 reset"]
-pub type TMR10_R = crate::BitReader;
-#[doc = "Field `TMR10` writer - Timer10 reset"]
-pub type TMR10_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as TMR10_R;
 #[doc = "Field `TMR11` reader - Timer 11 reset"]
-pub type TMR11_R = crate::BitReader;
-#[doc = "Field `TMR11` writer - Timer 11 reset"]
-pub type TMR11_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_R as TMR11_R;
 #[doc = "Field `ACC` reader - ACC reset"]
-pub type ACC_R = crate::BitReader;
+pub use TMR1_R as ACC_R;
+#[doc = "Field `USART1` writer - USART1 reset"]
+pub use TMR1_W as USART1_W;
+#[doc = "Field `USART6` writer - USART6 reset"]
+pub use TMR1_W as USART6_W;
+#[doc = "Field `ADC` writer - ADC reset"]
+pub use TMR1_W as ADC_W;
+#[doc = "Field `SPI1` writer - SPI1 reset"]
+pub use TMR1_W as SPI1_W;
+#[doc = "Field `SCFG` writer - SCFG reset"]
+pub use TMR1_W as SCFG_W;
+#[doc = "Field `TMR9` writer - Timer9 reset"]
+pub use TMR1_W as TMR9_W;
+#[doc = "Field `TMR10` writer - Timer10 reset"]
+pub use TMR1_W as TMR10_W;
+#[doc = "Field `TMR11` writer - Timer 11 reset"]
+pub use TMR1_W as TMR11_W;
 #[doc = "Field `ACC` writer - ACC reset"]
-pub type ACC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR1_W as ACC_W;
 impl R {
     #[doc = "Bit 0 - Timer1 reset"]
     #[inline(always)]
@@ -172,6 +210,7 @@ impl crate::Readable for APB2RST_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`apb2rst::W`](W) writer structure"]
 impl crate::Writable for APB2RST_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x2007_5131;
 }
 #[doc = "`reset()` method sets APB2RST to value 0"]
 impl crate::Resettable for APB2RST_SPEC {}

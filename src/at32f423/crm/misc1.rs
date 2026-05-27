@@ -2,10 +2,67 @@
 pub type R = crate::R<MISC1_SPEC>;
 #[doc = "Register `MISC1` writer"]
 pub type W = crate::W<MISC1_SPEC>;
+#[doc = "HICKCAL write key value\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum HICKCAL_KEY_A {
+    #[doc = "0: Invalid key (0). Write to HICKCAL is ignored"]
+    Invalid = 0,
+    #[doc = "90: Unlock key (0x5A). HICKCAL can be written"]
+    Unlock = 90,
+}
+impl From<HICKCAL_KEY_A> for u8 {
+    #[inline(always)]
+    fn from(variant: HICKCAL_KEY_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for HICKCAL_KEY_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for HICKCAL_KEY_A {}
 #[doc = "Field `HICKCAL_KEY` reader - HICKCAL write key value"]
-pub type HICKCAL_KEY_R = crate::FieldReader;
+pub type HICKCAL_KEY_R = crate::FieldReader<HICKCAL_KEY_A>;
+impl HICKCAL_KEY_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<HICKCAL_KEY_A> {
+        match self.bits {
+            0 => Some(HICKCAL_KEY_A::Invalid),
+            90 => Some(HICKCAL_KEY_A::Unlock),
+            _ => None,
+        }
+    }
+    #[doc = "Invalid key (0). Write to HICKCAL is ignored"]
+    #[inline(always)]
+    pub fn is_invalid(&self) -> bool {
+        *self == HICKCAL_KEY_A::Invalid
+    }
+    #[doc = "Unlock key (0x5A). HICKCAL can be written"]
+    #[inline(always)]
+    pub fn is_unlock(&self) -> bool {
+        *self == HICKCAL_KEY_A::Unlock
+    }
+}
 #[doc = "Field `HICKCAL_KEY` writer - HICKCAL write key value"]
-pub type HICKCAL_KEY_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+pub type HICKCAL_KEY_W<'a, REG> = crate::FieldWriter<'a, REG, 8, HICKCAL_KEY_A>;
+impl<'a, REG> HICKCAL_KEY_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Invalid key (0). Write to HICKCAL is ignored"]
+    #[inline(always)]
+    pub fn invalid(self) -> &'a mut crate::W<REG> {
+        self.variant(HICKCAL_KEY_A::Invalid)
+    }
+    #[doc = "Unlock key (0x5A). HICKCAL can be written"]
+    #[inline(always)]
+    pub fn unlock(self) -> &'a mut crate::W<REG> {
+        self.variant(HICKCAL_KEY_A::Unlock)
+    }
+}
 #[doc = "HICK 6 divider selection\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

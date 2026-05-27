@@ -208,6 +208,34 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HICKENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>High speed internal clock is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>High speed internal clock is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>HICKENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>High speed internal clock disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>High speed internal clock enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HICKSTBL</name>
@@ -215,6 +243,19 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>HICKSTBLR</name>
+                <enumeratedValue>
+                  <name>NotReady</name>
+                  <description>Not ready</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ready</name>
+                  <description>Ready</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HICKTRIM</name>
@@ -229,6 +270,12 @@
               <bitOffset>8</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-only</access>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>HEXTEN</name>
@@ -236,6 +283,34 @@
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HEXTENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>High speed external crystal is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>High speed external crystal is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>HEXTENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>High speed external crystal disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>High speed external crystal enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HEXTSTBL</name>
@@ -243,6 +318,19 @@
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>HEXTSTBLR</name>
+                <enumeratedValue>
+                  <name>NotReady</name>
+                  <description>Not ready</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ready</name>
+                  <description>Ready</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HEXTBYPS</name>
@@ -250,6 +338,34 @@
               <bitOffset>18</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HEXTBYPSR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>High speed external crystal bypass is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>High speed external crystal bypass is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>HEXTBYPSW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>High speed external crystal bypass disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>High speed external crystal bypass enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CFDEN</name>
@@ -257,6 +373,34 @@
               <bitOffset>19</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>CFDENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Clock failure detector is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Clock failure detector is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>CFDENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Clock failure detector disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Clock failure detector enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PLLEN</name>
@@ -264,6 +408,34 @@
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>PLLENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>PLL is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>PLL is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>PLLENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>PLL disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>PLL enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PLLSTBL</name>
@@ -271,6 +443,19 @@
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>PLLSTBLR</name>
+                <enumeratedValue>
+                  <name>NotReady</name>
+                  <description>Not ready</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ready</name>
+                  <description>Ready</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -314,24 +499,7 @@
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
-              <enumeratedValues>
-                <name>SCLKSTS</name>
-                <enumeratedValue>
-                  <name>HICK</name>
-                  <description>System clock from HICK</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>HEXT</name>
-                  <description>System clock from HEXT</description>
-                  <value>1</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>PLL</name>
-                  <description>System clock from PLL</description>
-                  <value>2</value>
-                </enumeratedValue>
-              </enumeratedValues>
+              <enumeratedValues derivedFrom="SCLKSEL"/>
             </field>
             <field>
               <name>AHBDIV</name>
@@ -341,11 +509,6 @@
               <access>read-write</access>
               <enumeratedValues>
                 <name>AHBDIV</name>
-                <enumeratedValue>
-                  <name>SCLK</name>
-                  <description>The SCLK is used as AHB clock</description>
-                  <value>0</value>
-                </enumeratedValue>
                 <enumeratedValue>
                   <name>Div2</name>
                   <description>SCLK divided by 2</description>
@@ -386,6 +549,11 @@
                   <description>SCLK divided by 512</description>
                   <value>15</value>
                 </enumeratedValue>
+                <enumeratedValue>
+                  <name>SCLK</name>
+                  <description>The SCLK is used as AHB clock</description>
+                  <isDefault>true</isDefault>
+                </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
@@ -396,11 +564,6 @@
               <access>read-write</access>
               <enumeratedValues>
                 <name>APB1DIV</name>
-                <enumeratedValue>
-                  <name>HCLK</name>
-                  <description>The divided HCLK is used as APB clock</description>
-                  <value>0</value>
-                </enumeratedValue>
                 <enumeratedValue>
                   <name>Div2</name>
                   <description>HCLK divided by 2</description>
@@ -420,6 +583,11 @@
                   <name>Div16</name>
                   <description>HCLK divided by 16</description>
                   <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HCLK</name>
+                  <description>The divided HCLK is used as APB clock</description>
+                  <isDefault>true</isDefault>
                 </enumeratedValue>
               </enumeratedValues>
             </field>

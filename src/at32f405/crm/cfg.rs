@@ -76,64 +76,13 @@ where
         self.variant(SCLKSEL_A::Pll)
     }
 }
-#[doc = "System Clock select Status\n\nValue on reset: 0"]
-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum SCLKSTS_A {
-    #[doc = "0: System clock from HICK"]
-    Hick = 0,
-    #[doc = "1: System clock from HEXT"]
-    Hext = 1,
-    #[doc = "2: System clock from PLL"]
-    Pll = 2,
-}
-impl From<SCLKSTS_A> for u8 {
-    #[inline(always)]
-    fn from(variant: SCLKSTS_A) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for SCLKSTS_A {
-    type Ux = u8;
-}
-impl crate::IsEnum for SCLKSTS_A {}
 #[doc = "Field `SCLKSTS` reader - System Clock select Status"]
-pub type SCLKSTS_R = crate::FieldReader<SCLKSTS_A>;
-impl SCLKSTS_R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<SCLKSTS_A> {
-        match self.bits {
-            0 => Some(SCLKSTS_A::Hick),
-            1 => Some(SCLKSTS_A::Hext),
-            2 => Some(SCLKSTS_A::Pll),
-            _ => None,
-        }
-    }
-    #[doc = "System clock from HICK"]
-    #[inline(always)]
-    pub fn is_hick(&self) -> bool {
-        *self == SCLKSTS_A::Hick
-    }
-    #[doc = "System clock from HEXT"]
-    #[inline(always)]
-    pub fn is_hext(&self) -> bool {
-        *self == SCLKSTS_A::Hext
-    }
-    #[doc = "System clock from PLL"]
-    #[inline(always)]
-    pub fn is_pll(&self) -> bool {
-        *self == SCLKSTS_A::Pll
-    }
-}
+pub use SCLKSEL_R as SCLKSTS_R;
 #[doc = "AHB division\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AHBDIV_A {
-    #[doc = "0: The SCLK is used as AHB clock"]
-    Sclk = 0,
     #[doc = "8: SCLK divided by 2"]
     Div2 = 8,
     #[doc = "9: SCLK divided by 4"]
@@ -150,6 +99,8 @@ pub enum AHBDIV_A {
     Div256 = 14,
     #[doc = "15: SCLK divided by 512"]
     Div512 = 15,
+    #[doc = "0: The SCLK is used as AHB clock"]
+    Sclk = 0,
 }
 impl From<AHBDIV_A> for u8 {
     #[inline(always)]
@@ -166,24 +117,18 @@ pub type AHBDIV_R = crate::FieldReader<AHBDIV_A>;
 impl AHBDIV_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Option<AHBDIV_A> {
+    pub const fn variant(&self) -> AHBDIV_A {
         match self.bits {
-            0 => Some(AHBDIV_A::Sclk),
-            8 => Some(AHBDIV_A::Div2),
-            9 => Some(AHBDIV_A::Div4),
-            10 => Some(AHBDIV_A::Div8),
-            11 => Some(AHBDIV_A::Div16),
-            12 => Some(AHBDIV_A::Div64),
-            13 => Some(AHBDIV_A::Div128),
-            14 => Some(AHBDIV_A::Div256),
-            15 => Some(AHBDIV_A::Div512),
-            _ => None,
+            8 => AHBDIV_A::Div2,
+            9 => AHBDIV_A::Div4,
+            10 => AHBDIV_A::Div8,
+            11 => AHBDIV_A::Div16,
+            12 => AHBDIV_A::Div64,
+            13 => AHBDIV_A::Div128,
+            14 => AHBDIV_A::Div256,
+            15 => AHBDIV_A::Div512,
+            _ => AHBDIV_A::Sclk,
         }
-    }
-    #[doc = "The SCLK is used as AHB clock"]
-    #[inline(always)]
-    pub fn is_sclk(&self) -> bool {
-        *self == AHBDIV_A::Sclk
     }
     #[doc = "SCLK divided by 2"]
     #[inline(always)]
@@ -225,19 +170,19 @@ impl AHBDIV_R {
     pub fn is_div512(&self) -> bool {
         *self == AHBDIV_A::Div512
     }
+    #[doc = "The SCLK is used as AHB clock"]
+    #[inline(always)]
+    pub fn is_sclk(&self) -> bool {
+        matches!(self.variant(), AHBDIV_A::Sclk)
+    }
 }
 #[doc = "Field `AHBDIV` writer - AHB division"]
-pub type AHBDIV_W<'a, REG> = crate::FieldWriter<'a, REG, 4, AHBDIV_A>;
+pub type AHBDIV_W<'a, REG> = crate::FieldWriter<'a, REG, 4, AHBDIV_A, crate::Safe>;
 impl<'a, REG> AHBDIV_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
 {
-    #[doc = "The SCLK is used as AHB clock"]
-    #[inline(always)]
-    pub fn sclk(self) -> &'a mut crate::W<REG> {
-        self.variant(AHBDIV_A::Sclk)
-    }
     #[doc = "SCLK divided by 2"]
     #[inline(always)]
     pub fn div2(self) -> &'a mut crate::W<REG> {
@@ -278,14 +223,17 @@ where
     pub fn div512(self) -> &'a mut crate::W<REG> {
         self.variant(AHBDIV_A::Div512)
     }
+    #[doc = "The SCLK is used as AHB clock"]
+    #[inline(always)]
+    pub fn sclk(self) -> &'a mut crate::W<REG> {
+        self.variant(AHBDIV_A::Sclk)
+    }
 }
 #[doc = "APB1 division\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum APB1DIV_A {
-    #[doc = "0: The divided HCLK is used as APB clock"]
-    Hclk = 0,
     #[doc = "4: HCLK divided by 2"]
     Div2 = 4,
     #[doc = "5: HCLK divided by 4"]
@@ -294,6 +242,8 @@ pub enum APB1DIV_A {
     Div8 = 6,
     #[doc = "7: HCLK divided by 16"]
     Div16 = 7,
+    #[doc = "0: The divided HCLK is used as APB clock"]
+    Hclk = 0,
 }
 impl From<APB1DIV_A> for u8 {
     #[inline(always)]
@@ -310,20 +260,14 @@ pub type APB1DIV_R = crate::FieldReader<APB1DIV_A>;
 impl APB1DIV_R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Option<APB1DIV_A> {
+    pub const fn variant(&self) -> APB1DIV_A {
         match self.bits {
-            0 => Some(APB1DIV_A::Hclk),
-            4 => Some(APB1DIV_A::Div2),
-            5 => Some(APB1DIV_A::Div4),
-            6 => Some(APB1DIV_A::Div8),
-            7 => Some(APB1DIV_A::Div16),
-            _ => None,
+            4 => APB1DIV_A::Div2,
+            5 => APB1DIV_A::Div4,
+            6 => APB1DIV_A::Div8,
+            7 => APB1DIV_A::Div16,
+            _ => APB1DIV_A::Hclk,
         }
-    }
-    #[doc = "The divided HCLK is used as APB clock"]
-    #[inline(always)]
-    pub fn is_hclk(&self) -> bool {
-        *self == APB1DIV_A::Hclk
     }
     #[doc = "HCLK divided by 2"]
     #[inline(always)]
@@ -345,19 +289,19 @@ impl APB1DIV_R {
     pub fn is_div16(&self) -> bool {
         *self == APB1DIV_A::Div16
     }
+    #[doc = "The divided HCLK is used as APB clock"]
+    #[inline(always)]
+    pub fn is_hclk(&self) -> bool {
+        matches!(self.variant(), APB1DIV_A::Hclk)
+    }
 }
 #[doc = "Field `APB1DIV` writer - APB1 division"]
-pub type APB1DIV_W<'a, REG> = crate::FieldWriter<'a, REG, 3, APB1DIV_A>;
+pub type APB1DIV_W<'a, REG> = crate::FieldWriter<'a, REG, 3, APB1DIV_A, crate::Safe>;
 impl<'a, REG> APB1DIV_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
 {
-    #[doc = "The divided HCLK is used as APB clock"]
-    #[inline(always)]
-    pub fn hclk(self) -> &'a mut crate::W<REG> {
-        self.variant(APB1DIV_A::Hclk)
-    }
     #[doc = "HCLK divided by 2"]
     #[inline(always)]
     pub fn div2(self) -> &'a mut crate::W<REG> {
@@ -378,14 +322,19 @@ where
     pub fn div16(self) -> &'a mut crate::W<REG> {
         self.variant(APB1DIV_A::Div16)
     }
+    #[doc = "The divided HCLK is used as APB clock"]
+    #[inline(always)]
+    pub fn hclk(self) -> &'a mut crate::W<REG> {
+        self.variant(APB1DIV_A::Hclk)
+    }
 }
 #[doc = "Field `APB2DIV` reader - APB2 division"]
 pub use APB1DIV_R as APB2DIV_R;
 #[doc = "Field `APB2DIV` writer - APB2 division"]
 pub use APB1DIV_W as APB2DIV_W;
-#[doc = "Field `ERTCDIV` reader - HEXT division for ERTC clock"]
+#[doc = "Field `ERTCDIV` reader - HEXT division for ERTC clock (2-31)"]
 pub type ERTCDIV_R = crate::FieldReader;
-#[doc = "Field `ERTCDIV` writer - HEXT division for ERTC clock"]
+#[doc = "Field `ERTCDIV` writer - HEXT division for ERTC clock (2-31)"]
 pub type ERTCDIV_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `I2S5CLKSEL` reader - I2S clock select"]
 pub type I2S5CLKSEL_R = crate::FieldReader;
@@ -425,7 +374,7 @@ impl R {
     pub fn apb2div(&self) -> APB2DIV_R {
         APB2DIV_R::new(((self.bits >> 13) & 7) as u8)
     }
-    #[doc = "Bits 16:20 - HEXT division for ERTC clock"]
+    #[doc = "Bits 16:20 - HEXT division for ERTC clock (2-31)"]
     #[inline(always)]
     pub fn ertcdiv(&self) -> ERTCDIV_R {
         ERTCDIV_R::new(((self.bits >> 16) & 0x1f) as u8)
@@ -482,7 +431,7 @@ impl W {
     pub fn apb2div(&mut self) -> APB2DIV_W<'_, CFG_SPEC> {
         APB2DIV_W::new(self, 13)
     }
-    #[doc = "Bits 16:20 - HEXT division for ERTC clock"]
+    #[doc = "Bits 16:20 - HEXT division for ERTC clock (2-31)"]
     #[inline(always)]
     pub fn ertcdiv(&mut self) -> ERTCDIV_W<'_, CFG_SPEC> {
         ERTCDIV_W::new(self, 16)

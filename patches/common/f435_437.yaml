@@ -95,11 +95,11 @@ CRM:
       HEXT: [2, "HEXT clock selected as CLKOUT2"]
       PLL: [3, "PLL clock selected as CLKOUT2"]
     CLKOUT?DIV1:
-      Div1: [-1, "CLKOUT%s is divided by 1"]
-      Div2: [4, "CLKOUT%s is divided by 2"]
-      Div3: [5, "CLKOUT%s is divided by 3"]
-      Div4: [6, "CLKOUT%s is divided by 4"]
-      Div5: [7, "CLKOUT%s is divided by 5"]
+      Div1: [-1, "Clock output is divided by 1"]
+      Div2: [4, "Clock output is divided by 2"]
+      Div3: [5, "Clock output is divided by 3"]
+      Div4: [6, "Clock output is divided by 4"]
+      Div5: [7, "Clock output is divided by 5"]
   MISC1:
     CLKOUT2_SEL2:
       Usb: [0, "USB clock selected as CLKOUT2 when CLKOUT2_SEL1 is set to Secondary"]

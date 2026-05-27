@@ -2,62 +2,100 @@
 pub type R = crate::R<AHBRST1_SPEC>;
 #[doc = "Register `AHBRST1` writer"]
 pub type W = crate::W<AHBRST1_SPEC>;
+#[doc = "IO port A reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum GPIOAW_A {
+    #[doc = "1: Reset peripheral"]
+    Reset = 1,
+}
+impl From<GPIOAW_A> for bool {
+    #[inline(always)]
+    fn from(variant: GPIOAW_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `GPIOA` reader - IO port A reset"]
-pub type GPIOA_R = crate::BitReader;
+pub type GPIOA_R = crate::BitReader<GPIOAW_A>;
+impl GPIOA_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<GPIOAW_A> {
+        match self.bits {
+            true => Some(GPIOAW_A::Reset),
+            _ => None,
+        }
+    }
+    #[doc = "Reset peripheral"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == GPIOAW_A::Reset
+    }
+}
 #[doc = "Field `GPIOA` writer - IO port A reset"]
-pub type GPIOA_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type GPIOA_W<'a, REG> = crate::BitWriter1S<'a, REG, GPIOAW_A>;
+impl<'a, REG> GPIOA_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Reset peripheral"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut crate::W<REG> {
+        self.variant(GPIOAW_A::Reset)
+    }
+}
 #[doc = "Field `GPIOB` reader - IO port B reset"]
-pub type GPIOB_R = crate::BitReader;
-#[doc = "Field `GPIOB` writer - IO port B reset"]
-pub type GPIOB_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOB_R;
 #[doc = "Field `GPIOC` reader - IO port C reset"]
-pub type GPIOC_R = crate::BitReader;
-#[doc = "Field `GPIOC` writer - IO port C reset"]
-pub type GPIOC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOC_R;
 #[doc = "Field `GPIOD` reader - IO port D reset"]
-pub type GPIOD_R = crate::BitReader;
-#[doc = "Field `GPIOD` writer - IO port D reset"]
-pub type GPIOD_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOD_R;
 #[doc = "Field `GPIOE` reader - IO port E reset"]
-pub type GPIOE_R = crate::BitReader;
-#[doc = "Field `GPIOE` writer - IO port E reset"]
-pub type GPIOE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOE_R;
 #[doc = "Field `GPIOF` reader - IO port F reset"]
-pub type GPIOF_R = crate::BitReader;
-#[doc = "Field `GPIOF` writer - IO port F reset"]
-pub type GPIOF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOF_R;
 #[doc = "Field `GPIOG` reader - IO port G reset"]
-pub type GPIOG_R = crate::BitReader;
-#[doc = "Field `GPIOG` writer - IO port G reset"]
-pub type GPIOG_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOG_R;
 #[doc = "Field `GPIOH` reader - IO port H reset"]
-pub type GPIOH_R = crate::BitReader;
-#[doc = "Field `GPIOH` writer - IO port H reset"]
-pub type GPIOH_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as GPIOH_R;
 #[doc = "Field `CRC` reader - CRC reset"]
-pub type CRC_R = crate::BitReader;
-#[doc = "Field `CRC` writer - CRC reset"]
-pub type CRC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as CRC_R;
 #[doc = "Field `EDMA` reader - EDMA reset"]
-pub type EDMA_R = crate::BitReader;
-#[doc = "Field `EDMA` writer - EDMA reset"]
-pub type EDMA_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as EDMA_R;
 #[doc = "Field `DMA1` reader - DMA1 reset"]
-pub type DMA1_R = crate::BitReader;
-#[doc = "Field `DMA1` writer - DMA1 reset"]
-pub type DMA1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as DMA1_R;
 #[doc = "Field `DMA2` reader - DMA2 reset"]
-pub type DMA2_R = crate::BitReader;
-#[doc = "Field `DMA2` writer - DMA2 reset"]
-pub type DMA2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as DMA2_R;
 #[doc = "Field `EMAC` reader - EMAC reset"]
-pub type EMAC_R = crate::BitReader;
-#[doc = "Field `EMAC` writer - EMAC reset"]
-pub type EMAC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_R as EMAC_R;
 #[doc = "Field `OTGFS2` reader - OTGFS2 interface reset"]
-pub type OTGFS2_R = crate::BitReader;
+pub use GPIOA_R as OTGFS2_R;
+#[doc = "Field `GPIOB` writer - IO port B reset"]
+pub use GPIOA_W as GPIOB_W;
+#[doc = "Field `GPIOC` writer - IO port C reset"]
+pub use GPIOA_W as GPIOC_W;
+#[doc = "Field `GPIOD` writer - IO port D reset"]
+pub use GPIOA_W as GPIOD_W;
+#[doc = "Field `GPIOE` writer - IO port E reset"]
+pub use GPIOA_W as GPIOE_W;
+#[doc = "Field `GPIOF` writer - IO port F reset"]
+pub use GPIOA_W as GPIOF_W;
+#[doc = "Field `GPIOG` writer - IO port G reset"]
+pub use GPIOA_W as GPIOG_W;
+#[doc = "Field `GPIOH` writer - IO port H reset"]
+pub use GPIOA_W as GPIOH_W;
+#[doc = "Field `CRC` writer - CRC reset"]
+pub use GPIOA_W as CRC_W;
+#[doc = "Field `EDMA` writer - EDMA reset"]
+pub use GPIOA_W as EDMA_W;
+#[doc = "Field `DMA1` writer - DMA1 reset"]
+pub use GPIOA_W as DMA1_W;
+#[doc = "Field `DMA2` writer - DMA2 reset"]
+pub use GPIOA_W as DMA2_W;
+#[doc = "Field `EMAC` writer - EMAC reset"]
+pub use GPIOA_W as EMAC_W;
 #[doc = "Field `OTGFS2` writer - OTGFS2 interface reset"]
-pub type OTGFS2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use GPIOA_W as OTGFS2_W;
 impl R {
     #[doc = "Bit 0 - IO port A reset"]
     #[inline(always)]
@@ -232,6 +270,7 @@ impl crate::Readable for AHBRST1_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`ahbrst1::W`](W) writer structure"]
 impl crate::Writable for AHBRST1_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x2360_10ff;
 }
 #[doc = "`reset()` method sets AHBRST1 to value 0"]
 impl crate::Resettable for AHBRST1_SPEC {}

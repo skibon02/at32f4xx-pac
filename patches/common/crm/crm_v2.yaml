@@ -1,21 +1,124 @@
 CRM:
+  CTRL:
+    HICKTRIM: [0, 0x3F]
+  CFG:
+    _modify:
+      ERTCDIV:
+        description: "HEXT division for ERTC clock (2-31)"
+    ERTCDIV: [2, 31]
   PLLCFG:
     _modify:
       PLL_NS:
         name: NS
+        description: "PLL multiplication factor (31-500)"
       PLL_MS:
         name: MS
+        description: "PLL pre-division (1-15)"
     NS: [31, 500]
     MS: [1, 15]
     PLLRCS:
       HICK: [0, "HICK-divided clock"]
       HEXT: [1, "HEXT clock"]
+  CLKINT:
+    "*FC":
+      _W1C:
+        Clear: [0, "Clear flag"]
+    "*IEN":
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+    CFDF:
+      NoFailure: [0, "No clock failure"]
+      Failure: [1, "Clock failure detected"]
+    PLLSTBLF:
+      NotReady: [0, "PLL is not ready"]
+      Ready: [1, "PLL is ready"]
+    HEXTSTBLF:
+      NotReady: [0, "HEXT is not ready"]
+      Ready: [1, "HEXT is ready"]
+    HICKSTBLF:
+      NotReady: [0, "HICK is not ready"]
+      Ready: [1, "HICK is ready"]
+    LEXTSTBLF:
+      NotReady: [0, "LEXT is not ready"]
+      Ready: [1, "LEXT is ready"]
+    LICKSTBLF:
+      NotReady: [0, "LICK is not ready"]
+      Ready: [1, "LICK is ready"]
+  A*RST,A*RST?:
+    "*":
+      _W1S:
+        Reset: [1, "Reset peripheral"]
+
+  A*EN?,A*EN:
+    "*":
+      Disable: [0, "Disable peripheral clock"]
+      Enable: [1, "Enable peripheral clock"]
+  A*LPEN?,A*LPEN:
+    _strip_end: "LPEN"
+  BPDC:
+    BPDRST:
+      _W1S:
+        Reset: [1, "Backup domain software reset"]
+    ERTCEN:
+      Disabled: [0, "ERTC clock is disabled"]
+      Enabled: [1, "ERTC clock is enabled"]
+    ERTCSEL:
+      NoClock: [0, "No clock"]
+      LEXT: [1, "LEXT"]
+      LICK: [2, "LICK"]
+      HEXT: [3, "Divided HEXT (with the ERTC_DIV bit in the CRM_CFG)"]
+    LEXTBYPS:
+      _read:
+        Disabled: [0, "LEXT bypass is disabled"]
+        Enabled: [1, "LEXT bypass is enabled"]
+      _write:
+        Disable: [0, "LEXT bypass disable"]
+        Enable: [1, "LEXT bypass enable"]
+    LEXTSTBL:
+      NotReady: [0, "LEXT is not ready"]
+      Ready: [1, "LEXT is ready"]
+    LEXTEN:
+      _read:
+        Disabled: [0, "Low speed external crystal is disabled"]
+        Enabled: [1, "Low speed external crystal is enabled"]
+      _write:
+        Disable: [0, "Low speed external crystal disable"]
+        Enable: [1, "Low speed external crystal enable"]
   CTRLSTS:
     _modify:
       LPRSTF,WWDTRSTF,WDTRSTF,SWRSTF,PORRSTF,NRSTF:
         access: "read-only"
+    LPRSTF:
+      NoReset: [0, "No low power reset occurred"]
+      Reset: [1, "Low power reset occurred"]
+    WWDTRSTF:
+      NoReset: [0, "No window watchdog reset occurred"]
+      Reset: [1, "Window watchdog reset occurred"]
+    WDTRSTF:
+      NoReset: [0, "No watchdog reset occurred"]
+      Reset: [1, "Watchdog reset occurred"]
+    SWRSTF:
+      NoReset: [0, "No software reset occurred"]
+      Reset: [1, "Software reset occurred"]
+    PORRSTF:
+      NoReset: [0, "No POR/LVR reset occurred"]
+      Reset: [1, "POR/LVR reset occurred"]
+    NRSTF:
+      NoReset: [0, "No NRST pin reset occurred"]
+      Reset: [1, "NRST pin reset occurred"]
     RSTFC:
-      _W1C: {}
+      _W1C:
+        Clear: [0, "Clear reset flags *RSTF"]
+    LICKSTBL:
+      NotReady: [0, "LICK is not ready"]
+      Ready: [1, "LICK is ready"]
+    LICKEN:
+      _read:
+        Disabled: [0, "LICK is disabled"]
+        Enabled: [1, "LICK is enabled"]
+      _write:
+        Disable: [0, "Low speed internal clock disable"]
+        Enable: [1, "Low speed internal clock enable"]
   MISC1:
     HICK_TO_SCLK:
       HICKDiv6: [0, "Fixed 8 MHz, that is, HICK/6"]
@@ -23,6 +126,9 @@ CRM:
     HICKDIV:
       Div6: [0, "HICK is divided by 6 to generate the SCLK and USB clock when HICK_TO_SCLK or HICK_TO_USB is set to HICKDiv"]
       Div1: [1, "HICK is not divided"]
+    HICKCAL_KEY:
+      Invalid: [0, "Invalid key (0). Write to HICKCAL is ignored"]
+      Unlock: [0x5A, "Unlock key (0x5A). HICKCAL can be written"]
   MISC2:
     AUTO_STEP_EN:
       Disabled: [0, "Auto step mode disabled"]

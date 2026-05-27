@@ -2,10 +2,60 @@
 pub type R = crate::R<AHBEN2_SPEC>;
 #[doc = "Register `AHBEN2` writer"]
 pub type W = crate::W<AHBEN2_SPEC>;
+#[doc = "OTGFS1 clock enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OTGFS1_A {
+    #[doc = "0: Disable peripheral clock"]
+    Disable = 0,
+    #[doc = "1: Enable peripheral clock"]
+    Enable = 1,
+}
+impl From<OTGFS1_A> for bool {
+    #[inline(always)]
+    fn from(variant: OTGFS1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `OTGFS1` reader - OTGFS1 clock enable"]
-pub type OTGFS1_R = crate::BitReader;
+pub type OTGFS1_R = crate::BitReader<OTGFS1_A>;
+impl OTGFS1_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> OTGFS1_A {
+        match self.bits {
+            false => OTGFS1_A::Disable,
+            true => OTGFS1_A::Enable,
+        }
+    }
+    #[doc = "Disable peripheral clock"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        *self == OTGFS1_A::Disable
+    }
+    #[doc = "Enable peripheral clock"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == OTGFS1_A::Enable
+    }
+}
 #[doc = "Field `OTGFS1` writer - OTGFS1 clock enable"]
-pub type OTGFS1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type OTGFS1_W<'a, REG> = crate::BitWriter<'a, REG, OTGFS1_A>;
+impl<'a, REG> OTGFS1_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disable peripheral clock"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(OTGFS1_A::Disable)
+    }
+    #[doc = "Enable peripheral clock"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(OTGFS1_A::Enable)
+    }
+}
 impl R {
     #[doc = "Bit 7 - OTGFS1 clock enable"]
     #[inline(always)]

@@ -2,90 +2,140 @@
 pub type R = crate::R<APB1EN_SPEC>;
 #[doc = "Register `APB1EN` writer"]
 pub type W = crate::W<APB1EN_SPEC>;
+#[doc = "Timer2 clock enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TMR2_A {
+    #[doc = "0: Disable peripheral clock"]
+    Disable = 0,
+    #[doc = "1: Enable peripheral clock"]
+    Enable = 1,
+}
+impl From<TMR2_A> for bool {
+    #[inline(always)]
+    fn from(variant: TMR2_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TMR2` reader - Timer2 clock enable"]
-pub type TMR2_R = crate::BitReader;
+pub type TMR2_R = crate::BitReader<TMR2_A>;
+impl TMR2_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TMR2_A {
+        match self.bits {
+            false => TMR2_A::Disable,
+            true => TMR2_A::Enable,
+        }
+    }
+    #[doc = "Disable peripheral clock"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        *self == TMR2_A::Disable
+    }
+    #[doc = "Enable peripheral clock"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == TMR2_A::Enable
+    }
+}
 #[doc = "Field `TMR2` writer - Timer2 clock enable"]
-pub type TMR2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TMR2_W<'a, REG> = crate::BitWriter<'a, REG, TMR2_A>;
+impl<'a, REG> TMR2_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disable peripheral clock"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(TMR2_A::Disable)
+    }
+    #[doc = "Enable peripheral clock"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(TMR2_A::Enable)
+    }
+}
 #[doc = "Field `TMR3` reader - Timer3 clock enable"]
-pub type TMR3_R = crate::BitReader;
-#[doc = "Field `TMR3` writer - Timer3 clock enable"]
-pub type TMR3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR3_R;
 #[doc = "Field `TMR4` reader - Timer4 clock enable"]
-pub type TMR4_R = crate::BitReader;
-#[doc = "Field `TMR4` writer - Timer4 clock enable"]
-pub type TMR4_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR4_R;
 #[doc = "Field `TMR6` reader - Timer6 clock enable"]
-pub type TMR6_R = crate::BitReader;
-#[doc = "Field `TMR6` writer - Timer6 clock enable"]
-pub type TMR6_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR6_R;
 #[doc = "Field `TMR7` reader - Timer7 clock enable"]
-pub type TMR7_R = crate::BitReader;
-#[doc = "Field `TMR7` writer - Timer7 clock enable"]
-pub type TMR7_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR7_R;
 #[doc = "Field `TMR13` reader - Timer13 clock enable"]
-pub type TMR13_R = crate::BitReader;
-#[doc = "Field `TMR13` writer - Timer13 clock enable"]
-pub type TMR13_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR13_R;
 #[doc = "Field `TMR14` reader - Timer14 clock enable"]
-pub type TMR14_R = crate::BitReader;
-#[doc = "Field `TMR14` writer - Timer14 clock enable"]
-pub type TMR14_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as TMR14_R;
 #[doc = "Field `WWDT` reader - WWDT clock enable"]
-pub type WWDT_R = crate::BitReader;
-#[doc = "Field `WWDT` writer - WWDT clock enable"]
-pub type WWDT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as WWDT_R;
 #[doc = "Field `SPI2` reader - SPI2 clock enable"]
-pub type SPI2_R = crate::BitReader;
-#[doc = "Field `SPI2` writer - SPI2 clock enable"]
-pub type SPI2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as SPI2_R;
 #[doc = "Field `SPI3` reader - SPI3 clock enable"]
-pub type SPI3_R = crate::BitReader;
-#[doc = "Field `SPI3` writer - SPI3 clock enable"]
-pub type SPI3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as SPI3_R;
 #[doc = "Field `USART2` reader - USART2 clock enable"]
-pub type USART2_R = crate::BitReader;
-#[doc = "Field `USART2` writer - USART2 clock enable"]
-pub type USART2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as USART2_R;
 #[doc = "Field `USART3` reader - USART3 clock enable"]
-pub type USART3_R = crate::BitReader;
-#[doc = "Field `USART3` writer - USART3 clock enable"]
-pub type USART3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as USART3_R;
 #[doc = "Field `USART4` reader - USART4 clock enable"]
-pub type USART4_R = crate::BitReader;
-#[doc = "Field `USART4` writer - USART4 clock enable"]
-pub type USART4_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as USART4_R;
 #[doc = "Field `USART5` reader - USART5 clock enable"]
-pub type USART5_R = crate::BitReader;
-#[doc = "Field `USART5` writer - USART5 clock enable"]
-pub type USART5_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as USART5_R;
 #[doc = "Field `I2C1` reader - I2C1 clock enable"]
-pub type I2C1_R = crate::BitReader;
-#[doc = "Field `I2C1` writer - I2C1 clock enable"]
-pub type I2C1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as I2C1_R;
 #[doc = "Field `I2C2` reader - I2C2 clock enable"]
-pub type I2C2_R = crate::BitReader;
-#[doc = "Field `I2C2` writer - I2C2 clock enable"]
-pub type I2C2_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as I2C2_R;
 #[doc = "Field `I2C3` reader - I2C3 clock enable"]
-pub type I2C3_R = crate::BitReader;
-#[doc = "Field `I2C3` writer - I2C3 clock enable"]
-pub type I2C3_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as I2C3_R;
 #[doc = "Field `CAN1` reader - CAN1 clock enable"]
-pub type CAN1_R = crate::BitReader;
-#[doc = "Field `CAN1` writer - CAN1 clock enable"]
-pub type CAN1_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as CAN1_R;
 #[doc = "Field `PWC` reader - PWC clock enable"]
-pub type PWC_R = crate::BitReader;
-#[doc = "Field `PWC` writer - PWC clock enable"]
-pub type PWC_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as PWC_R;
 #[doc = "Field `UART7` reader - UART7 clock enable"]
-pub type UART7_R = crate::BitReader;
-#[doc = "Field `UART7` writer - UART7 clock enable"]
-pub type UART7_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_R as UART7_R;
 #[doc = "Field `UART8` reader - UART8 clock enable"]
-pub type UART8_R = crate::BitReader;
+pub use TMR2_R as UART8_R;
+#[doc = "Field `TMR3` writer - Timer3 clock enable"]
+pub use TMR2_W as TMR3_W;
+#[doc = "Field `TMR4` writer - Timer4 clock enable"]
+pub use TMR2_W as TMR4_W;
+#[doc = "Field `TMR6` writer - Timer6 clock enable"]
+pub use TMR2_W as TMR6_W;
+#[doc = "Field `TMR7` writer - Timer7 clock enable"]
+pub use TMR2_W as TMR7_W;
+#[doc = "Field `TMR13` writer - Timer13 clock enable"]
+pub use TMR2_W as TMR13_W;
+#[doc = "Field `TMR14` writer - Timer14 clock enable"]
+pub use TMR2_W as TMR14_W;
+#[doc = "Field `WWDT` writer - WWDT clock enable"]
+pub use TMR2_W as WWDT_W;
+#[doc = "Field `SPI2` writer - SPI2 clock enable"]
+pub use TMR2_W as SPI2_W;
+#[doc = "Field `SPI3` writer - SPI3 clock enable"]
+pub use TMR2_W as SPI3_W;
+#[doc = "Field `USART2` writer - USART2 clock enable"]
+pub use TMR2_W as USART2_W;
+#[doc = "Field `USART3` writer - USART3 clock enable"]
+pub use TMR2_W as USART3_W;
+#[doc = "Field `USART4` writer - USART4 clock enable"]
+pub use TMR2_W as USART4_W;
+#[doc = "Field `USART5` writer - USART5 clock enable"]
+pub use TMR2_W as USART5_W;
+#[doc = "Field `I2C1` writer - I2C1 clock enable"]
+pub use TMR2_W as I2C1_W;
+#[doc = "Field `I2C2` writer - I2C2 clock enable"]
+pub use TMR2_W as I2C2_W;
+#[doc = "Field `I2C3` writer - I2C3 clock enable"]
+pub use TMR2_W as I2C3_W;
+#[doc = "Field `CAN1` writer - CAN1 clock enable"]
+pub use TMR2_W as CAN1_W;
+#[doc = "Field `PWC` writer - PWC clock enable"]
+pub use TMR2_W as PWC_W;
+#[doc = "Field `UART7` writer - UART7 clock enable"]
+pub use TMR2_W as UART7_W;
 #[doc = "Field `UART8` writer - UART8 clock enable"]
-pub type UART8_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use TMR2_W as UART8_W;
 impl R {
     #[doc = "Bit 0 - Timer2 clock enable"]
     #[inline(always)]
