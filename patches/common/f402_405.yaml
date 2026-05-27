@@ -1,5 +1,4 @@
 _include:
-  - f423_402_405.yaml
   - crm/crm_v2.yaml
   - ertc/common.yaml
   - ertc/alarmb.yaml
@@ -8,8 +7,7 @@ _include:
   - periph-v2.yaml
   - adc/common.yaml
   - adc/occe.yaml
-  - adc/odt.yaml
-  - adc/vm_16bit.yaml
+  - adc/odt_vm.yaml
   - comms.yaml
   - crc/poly.yaml
   - spi/sts_cspas.yaml

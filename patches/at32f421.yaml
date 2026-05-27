@@ -2,15 +2,16 @@ _svd: "../svd/at32f421.svd"
 
 _modify:
   name: AT32F421
+  ADC:
+    name: ADC1
 
 _include:
   - common/common.yaml
   - common/crm/pllhextdiv.yaml
   - common/ertc/common.yaml
   - common/gpio/gpio-v2.yaml
-  - common/adc/adc1.yaml
-  - common/adc/occe.yaml
   - common/adc/common.yaml
+  - common/adc/occe.yaml
   - common/adc/odt.yaml
   - common/exint/wo18-20.yaml
   - common/crc/poly.yaml

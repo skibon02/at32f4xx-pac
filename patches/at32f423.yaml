@@ -13,7 +13,6 @@ TMR9,TMR10:
 _include:
   - common/common.yaml
   - common/f423_435_437.yaml
-  - common/f423_402_405.yaml
   - common/crm/crm_v2.yaml
   - common/ertc/common.yaml
   - common/ertc/alarmb.yaml
@@ -21,8 +20,7 @@ _include:
   - common/ertc/tspin.yaml
   - common/periph-v2.yaml
   - common/adc/common.yaml
-  - common/adc/odt.yaml
-  - common/adc/vm_16bit.yaml
+  - common/adc/odt_vm.yaml
   - common/can/common.yaml
   - common/crc/poly.yaml
   - common/usart/common.yaml

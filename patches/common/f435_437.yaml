@@ -7,8 +7,7 @@ _include:
   - ertc/tspin.yaml
   - periph-v2.yaml
   - adc/common.yaml
-  - adc/odt.yaml
-  - adc/vm_16bit.yaml
+  - adc/odt_vm.yaml
   - flash/f435_437.yaml
   - flash/unlock.yaml
   - comms.yaml
@@ -181,3 +180,56 @@ DMA?:
         dimIndex: "1,2,3,4,5,6,7"
     TRGOVFC?:
       _W1C: {}
+
+ADCCOM:
+  CSTS:
+    _array:
+      RDY?:
+        description: ADC%s conversion ready flag
+      OCCO?:
+        description: ADC%s overrun flag
+      OCCS?:
+        description: ADC%s ordinary channel conversion start flag
+      PCCS?:
+        description: ADC%s preempted channel conversion start flag
+      PCCE?:
+        description: ADC%s preempted channel conversion end flag
+      OCCE?:
+        description: ADC%s ordinary channel conversion end flag
+      VMOR?:
+        description: ADC%s voltage monitoring out of range flag
+  CCTRL:
+    MSSEL:
+      NonCombined: [0, "Non-combined mode"]
+      CombinedOrdinaryPreempted: [1, "Combined ordinary simultaneous+preempted simultaneous modes (single slave)"]
+      CombinedOrdinaryAlternate: [2, "Combined ordinary simultaneous+alternate preempted trigger modes (single slave)"]
+      PreemptedSimultaneous: [5, "Preempted simultaneous mode (single slave)"]
+      OrdinarySimultaneous: [6, "Ordinary simultaneous mode (single slave)"]
+      OrdinaryShift: [7, "Ordinary shift mode (single slave)"]
+      AlternatePreemptedTrigger: [9, "Alternate preempted trigger mode (single slave)"]
+      CombinedOrdinaryPreemptedDual: [17, "Combined ordinary simultaneous+preempted simultaneous modes (dual slaves)"]
+      CombinedOrdinaryAlternateDual: [18, "Combined ordinary simultaneous+alternate preempted trigger modes (dual slaves)"]
+      PreemptedSimultaneousDual: [21, "Preempted simultaneous mode (dual slaves)"]
+      OrdinarySimultaneousDual: [22, "Ordinary simultaneous mode (dual slaves)"]
+      OrdinaryShiftDual: [23, "Ordinary shift mode (dual slaves)"]
+
+    MSDRCEN:
+      Disabled: [0, "MSDRC disabled"]
+      Enabled: [1, "MSDRC enabled"]
+    _modify:
+      MSDMASEL_H:
+        description: "MSDMASEL[2] — high bit of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_L to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"
+      MSDMASEL_L:
+        description: "MSDMASEL[1:0] — low bits of ordinary channel DMA transfer mode select for master/slave mode. Combined with MSDMASEL_H to form MSDMASEL[2:0]. 0: No DMA transfer, 1: DMA mode 1, 2: DMA mode 2, 3: DMA mode 3, 4: DMA mode 4, 5: DMA mode 5. 6~7: Unused, do not configure"
+      ADCDIV:
+        description: "ADC division: HCLK / (2 + {value}). Cannot be higher than 80Mhz and PCLK2"
+      ASISEL:
+        description: "Adjacent ADC sampling interval select in ordinary shift mode: {value} + 5 * TADCCLK"
+    ASISEL: [0, 0xF]
+    ADCDIV: [0, 0xF]
+    VBATEN:
+      Disabled: [0, "VBAT channel disabled"]
+      Enabled: [1, "VBAT channel enabled"]
+    ITSRVEN:
+      Disabled: [0, "Internal temperature sensor and Vintrv channel disabled"]
+      Enabled: [1, "Internal temperature sensor and Vintrv channel enabled"]

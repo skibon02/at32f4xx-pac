@@ -2,6 +2,8 @@ _svd: "../svd/at32f425.svd"
 
 _modify:
   name: AT32F425
+  ADC:
+    name: ADC1
 
 ACC:
   CTRL2:
@@ -18,11 +20,9 @@ _include:
   - common/ertc/common.yaml
   - common/ertc/wat.yaml
   - common/periph-v2.yaml
-  - common/adc/adc1.yaml
-  - common/adc/occe.yaml
   - common/adc/common.yaml
-  - common/adc/odt.yaml
-  - common/adc/vm_16bit.yaml
+  - common/adc/occe.yaml
+  - common/adc/odt_vm.yaml
   - common/comms.yaml
   - common/crc/poly.yaml
   - common/spi/sts_cspas.yaml
