@@ -2,54 +2,92 @@
 pub type R = crate::R<INTCLR_SPEC>;
 #[doc = "Register `INTCLR` writer"]
 pub type W = crate::W<INTCLR_SPEC>;
+#[doc = "Command crc fail flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CMDFAIL_A {
+    #[doc = "1: Clear the corresponding flag in STS"]
+    Clear = 1,
+}
+impl From<CMDFAIL_A> for bool {
+    #[inline(always)]
+    fn from(variant: CMDFAIL_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `CMDFAIL` reader - Command crc fail flag clear"]
-pub type CMDFAIL_R = crate::BitReader;
+pub type CMDFAIL_R = crate::BitReader<CMDFAIL_A>;
+impl CMDFAIL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<CMDFAIL_A> {
+        match self.bits {
+            true => Some(CMDFAIL_A::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear the corresponding flag in STS"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == CMDFAIL_A::Clear
+    }
+}
 #[doc = "Field `CMDFAIL` writer - Command crc fail flag clear"]
-pub type CMDFAIL_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type CMDFAIL_W<'a, REG> = crate::BitWriter<'a, REG, CMDFAIL_A>;
+impl<'a, REG> CMDFAIL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear the corresponding flag in STS"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(CMDFAIL_A::Clear)
+    }
+}
 #[doc = "Field `DTFAIL` reader - Data crc fail flag clear"]
-pub type DTFAIL_R = crate::BitReader;
-#[doc = "Field `DTFAIL` writer - Data crc fail flag clear"]
-pub type DTFAIL_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as DTFAIL_R;
 #[doc = "Field `CMDTIMEOUT` reader - Command timeout flag clear"]
-pub type CMDTIMEOUT_R = crate::BitReader;
-#[doc = "Field `CMDTIMEOUT` writer - Command timeout flag clear"]
-pub type CMDTIMEOUT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as CMDTIMEOUT_R;
 #[doc = "Field `DTTIMEOUT` reader - Data timeout flag clear"]
-pub type DTTIMEOUT_R = crate::BitReader;
-#[doc = "Field `DTTIMEOUT` writer - Data timeout flag clear"]
-pub type DTTIMEOUT_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as DTTIMEOUT_R;
 #[doc = "Field `TXERRU` reader - Tx under run error flag clear"]
-pub type TXERRU_R = crate::BitReader;
-#[doc = "Field `TXERRU` writer - Tx under run error flag clear"]
-pub type TXERRU_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as TXERRU_R;
 #[doc = "Field `RXERRU` reader - Rx over run error flag clear"]
-pub type RXERRU_R = crate::BitReader;
-#[doc = "Field `RXERRU` writer - Rx over run error flag clear"]
-pub type RXERRU_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as RXERRU_R;
 #[doc = "Field `CMDRSPCMPL` reader - Command response complete flag clear"]
-pub type CMDRSPCMPL_R = crate::BitReader;
-#[doc = "Field `CMDRSPCMPL` writer - Command response complete flag clear"]
-pub type CMDRSPCMPL_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as CMDRSPCMPL_R;
 #[doc = "Field `CMDCMPL` reader - Command sent flag clear"]
-pub type CMDCMPL_R = crate::BitReader;
-#[doc = "Field `CMDCMPL` writer - Command sent flag clear"]
-pub type CMDCMPL_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as CMDCMPL_R;
 #[doc = "Field `DTCMPL` reader - Data sent flag clear"]
-pub type DTCMPL_R = crate::BitReader;
-#[doc = "Field `DTCMPL` writer - Data sent flag clear"]
-pub type DTCMPL_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as DTCMPL_R;
 #[doc = "Field `SBITERR` reader - Start bit error flag clear"]
-pub type SBITERR_R = crate::BitReader;
-#[doc = "Field `SBITERR` writer - Start bit error flag clear"]
-pub type SBITERR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as SBITERR_R;
 #[doc = "Field `DTBLKCMPL` reader - Data block sent clear"]
-pub type DTBLKCMPL_R = crate::BitReader;
-#[doc = "Field `DTBLKCMPL` writer - Data block sent clear"]
-pub type DTBLKCMPL_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_R as DTBLKCMPL_R;
 #[doc = "Field `IOIF` reader - SD I/O interrupt flag clear"]
-pub type IOIF_R = crate::BitReader;
+pub use CMDFAIL_R as IOIF_R;
+#[doc = "Field `DTFAIL` writer - Data crc fail flag clear"]
+pub use CMDFAIL_W as DTFAIL_W;
+#[doc = "Field `CMDTIMEOUT` writer - Command timeout flag clear"]
+pub use CMDFAIL_W as CMDTIMEOUT_W;
+#[doc = "Field `DTTIMEOUT` writer - Data timeout flag clear"]
+pub use CMDFAIL_W as DTTIMEOUT_W;
+#[doc = "Field `TXERRU` writer - Tx under run error flag clear"]
+pub use CMDFAIL_W as TXERRU_W;
+#[doc = "Field `RXERRU` writer - Rx over run error flag clear"]
+pub use CMDFAIL_W as RXERRU_W;
+#[doc = "Field `CMDRSPCMPL` writer - Command response complete flag clear"]
+pub use CMDFAIL_W as CMDRSPCMPL_W;
+#[doc = "Field `CMDCMPL` writer - Command sent flag clear"]
+pub use CMDFAIL_W as CMDCMPL_W;
+#[doc = "Field `DTCMPL` writer - Data sent flag clear"]
+pub use CMDFAIL_W as DTCMPL_W;
+#[doc = "Field `SBITERR` writer - Start bit error flag clear"]
+pub use CMDFAIL_W as SBITERR_W;
+#[doc = "Field `DTBLKCMPL` writer - Data block sent clear"]
+pub use CMDFAIL_W as DTBLKCMPL_W;
 #[doc = "Field `IOIF` writer - SD I/O interrupt flag clear"]
-pub type IOIF_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAIL_W as IOIF_W;
 impl R {
     #[doc = "Bit 0 - Command crc fail flag clear"]
     #[inline(always)]

@@ -15,6 +15,7 @@ _include:
   - flash/f435_437.yaml
   - comms.yaml
   - usart/dbn.yaml
+  - sdio/v2.yaml
   - spi/sts_cspas.yaml
   - pwc/ldoov.yaml
   - pwc/vrsel.yaml

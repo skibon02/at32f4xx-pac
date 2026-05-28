@@ -11,4 +11,5 @@ _include:
   - iomux/iomux_gpiof.yaml
   - iomux/iomux_gpiog.yaml
   - pwc/vrsel.yaml
+  - sdio/v2.yaml
   - tmr/basic.yaml

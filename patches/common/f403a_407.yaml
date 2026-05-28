@@ -7,6 +7,7 @@ _include:
   - comms.yaml
   - bpr/common.yaml
   - flash/banks2-3.yaml
+  - sdio/v2.yaml
   - tmr/advanced.yaml
   - iomux/iomux_gpioe.yaml
   - iomux/common.yaml

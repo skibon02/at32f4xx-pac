@@ -1,51 +1,86 @@
 #[doc = "Register `STS` reader"]
 pub type R = crate::R<STS_SPEC>;
+#[doc = "Command crc fail\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CMDFAIL_A {
+    #[doc = "0: Flag is not set"]
+    NotSet = 0,
+    #[doc = "1: Flag is set"]
+    Set = 1,
+}
+impl From<CMDFAIL_A> for bool {
+    #[inline(always)]
+    fn from(variant: CMDFAIL_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `CMDFAIL` reader - Command crc fail"]
-pub type CMDFAIL_R = crate::BitReader;
+pub type CMDFAIL_R = crate::BitReader<CMDFAIL_A>;
+impl CMDFAIL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> CMDFAIL_A {
+        match self.bits {
+            false => CMDFAIL_A::NotSet,
+            true => CMDFAIL_A::Set,
+        }
+    }
+    #[doc = "Flag is not set"]
+    #[inline(always)]
+    pub fn is_not_set(&self) -> bool {
+        *self == CMDFAIL_A::NotSet
+    }
+    #[doc = "Flag is set"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == CMDFAIL_A::Set
+    }
+}
 #[doc = "Field `DTFAIL` reader - Data crc fail"]
-pub type DTFAIL_R = crate::BitReader;
+pub use CMDFAIL_R as DTFAIL_R;
 #[doc = "Field `CMDTIMEOUT` reader - Command timeout"]
-pub type CMDTIMEOUT_R = crate::BitReader;
+pub use CMDFAIL_R as CMDTIMEOUT_R;
 #[doc = "Field `DTTIMEOUT` reader - Data timeout"]
-pub type DTTIMEOUT_R = crate::BitReader;
+pub use CMDFAIL_R as DTTIMEOUT_R;
 #[doc = "Field `TXERRU` reader - Tx under run error"]
-pub type TXERRU_R = crate::BitReader;
+pub use CMDFAIL_R as TXERRU_R;
 #[doc = "Field `RXERRO` reader - Rx over run error"]
-pub type RXERRO_R = crate::BitReader;
+pub use CMDFAIL_R as RXERRO_R;
 #[doc = "Field `CMDRSPCMPL` reader - Command response complete"]
-pub type CMDRSPCMPL_R = crate::BitReader;
+pub use CMDFAIL_R as CMDRSPCMPL_R;
 #[doc = "Field `CMDCMPL` reader - Command sent"]
-pub type CMDCMPL_R = crate::BitReader;
+pub use CMDFAIL_R as CMDCMPL_R;
 #[doc = "Field `DTCMPL` reader - Data sent"]
-pub type DTCMPL_R = crate::BitReader;
+pub use CMDFAIL_R as DTCMPL_R;
 #[doc = "Field `SBITERR` reader - Start bit error"]
-pub type SBITERR_R = crate::BitReader;
+pub use CMDFAIL_R as SBITERR_R;
 #[doc = "Field `DTBLKCMPL` reader - Data block sent"]
-pub type DTBLKCMPL_R = crate::BitReader;
+pub use CMDFAIL_R as DTBLKCMPL_R;
 #[doc = "Field `DOCMD` reader - Command transfer in progress"]
-pub type DOCMD_R = crate::BitReader;
+pub use CMDFAIL_R as DOCMD_R;
 #[doc = "Field `DOTX` reader - Data transmit in progress"]
-pub type DOTX_R = crate::BitReader;
+pub use CMDFAIL_R as DOTX_R;
 #[doc = "Field `DORX` reader - Data receive in progress"]
-pub type DORX_R = crate::BitReader;
+pub use CMDFAIL_R as DORX_R;
 #[doc = "Field `TXBUFH` reader - Tx buffer half empty"]
-pub type TXBUFH_R = crate::BitReader;
+pub use CMDFAIL_R as TXBUFH_R;
 #[doc = "Field `RXBUFH` reader - Rx buffer half empty"]
-pub type RXBUFH_R = crate::BitReader;
+pub use CMDFAIL_R as RXBUFH_R;
 #[doc = "Field `TXBUFF` reader - Tx buffer full"]
-pub type TXBUFF_R = crate::BitReader;
+pub use CMDFAIL_R as TXBUFF_R;
 #[doc = "Field `RXBUFF` reader - Rx buffer full"]
-pub type RXBUFF_R = crate::BitReader;
+pub use CMDFAIL_R as RXBUFF_R;
 #[doc = "Field `TXBUFE` reader - Tx buffer empty"]
-pub type TXBUFE_R = crate::BitReader;
+pub use CMDFAIL_R as TXBUFE_R;
 #[doc = "Field `RXBUFE` reader - Rx buffer empty"]
-pub type RXBUFE_R = crate::BitReader;
+pub use CMDFAIL_R as RXBUFE_R;
 #[doc = "Field `TXBUF` reader - Tx data vaild"]
-pub type TXBUF_R = crate::BitReader;
+pub use CMDFAIL_R as TXBUF_R;
 #[doc = "Field `RXBUF` reader - Rx data vaild"]
-pub type RXBUF_R = crate::BitReader;
+pub use CMDFAIL_R as RXBUF_R;
 #[doc = "Field `IOIF` reader - SD I/O interrupt"]
-pub type IOIF_R = crate::BitReader;
+pub use CMDFAIL_R as IOIF_R;
 impl R {
     #[doc = "Bit 0 - Command crc fail"]
     #[inline(always)]

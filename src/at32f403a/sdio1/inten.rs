@@ -2,98 +2,148 @@
 pub type R = crate::R<INTEN_SPEC>;
 #[doc = "Register `INTEN` writer"]
 pub type W = crate::W<INTEN_SPEC>;
+#[doc = "Command crc fail interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CMDFAILIEN_A {
+    #[doc = "0: Interrupt disabled"]
+    Disabled = 0,
+    #[doc = "1: Interrupt enabled"]
+    Enabled = 1,
+}
+impl From<CMDFAILIEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: CMDFAILIEN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `CMDFAILIEN` reader - Command crc fail interrupt enable"]
-pub type CMDFAILIEN_R = crate::BitReader;
+pub type CMDFAILIEN_R = crate::BitReader<CMDFAILIEN_A>;
+impl CMDFAILIEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> CMDFAILIEN_A {
+        match self.bits {
+            false => CMDFAILIEN_A::Disabled,
+            true => CMDFAILIEN_A::Enabled,
+        }
+    }
+    #[doc = "Interrupt disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == CMDFAILIEN_A::Disabled
+    }
+    #[doc = "Interrupt enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == CMDFAILIEN_A::Enabled
+    }
+}
 #[doc = "Field `CMDFAILIEN` writer - Command crc fail interrupt enable"]
-pub type CMDFAILIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type CMDFAILIEN_W<'a, REG> = crate::BitWriter<'a, REG, CMDFAILIEN_A>;
+impl<'a, REG> CMDFAILIEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Interrupt disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(CMDFAILIEN_A::Disabled)
+    }
+    #[doc = "Interrupt enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(CMDFAILIEN_A::Enabled)
+    }
+}
 #[doc = "Field `DTFAILIEN` reader - Data crc fail interrupt enable"]
-pub type DTFAILIEN_R = crate::BitReader;
-#[doc = "Field `DTFAILIEN` writer - Data crc fail interrupt enable"]
-pub type DTFAILIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as DTFAILIEN_R;
 #[doc = "Field `CMDTIMEOUTIEN` reader - Command timeout interrupt enable"]
-pub type CMDTIMEOUTIEN_R = crate::BitReader;
-#[doc = "Field `CMDTIMEOUTIEN` writer - Command timeout interrupt enable"]
-pub type CMDTIMEOUTIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as CMDTIMEOUTIEN_R;
 #[doc = "Field `DTTIMEOUTIEN` reader - Data timeout interrupt enable"]
-pub type DTTIMEOUTIEN_R = crate::BitReader;
-#[doc = "Field `DTTIMEOUTIEN` writer - Data timeout interrupt enable"]
-pub type DTTIMEOUTIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as DTTIMEOUTIEN_R;
 #[doc = "Field `TXERRUIEN` reader - Tx under run interrupt enable"]
-pub type TXERRUIEN_R = crate::BitReader;
-#[doc = "Field `TXERRUIEN` writer - Tx under run interrupt enable"]
-pub type TXERRUIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as TXERRUIEN_R;
 #[doc = "Field `RXERRUIEN` reader - Rx over run interrupt enable"]
-pub type RXERRUIEN_R = crate::BitReader;
-#[doc = "Field `RXERRUIEN` writer - Rx over run interrupt enable"]
-pub type RXERRUIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as RXERRUIEN_R;
 #[doc = "Field `CMDRSPCMPLIEN` reader - Command response complete interrupt enable"]
-pub type CMDRSPCMPLIEN_R = crate::BitReader;
-#[doc = "Field `CMDRSPCMPLIEN` writer - Command response complete interrupt enable"]
-pub type CMDRSPCMPLIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as CMDRSPCMPLIEN_R;
 #[doc = "Field `CMDCMPLIEN` reader - Command sent complete interrupt enable"]
-pub type CMDCMPLIEN_R = crate::BitReader;
-#[doc = "Field `CMDCMPLIEN` writer - Command sent complete interrupt enable"]
-pub type CMDCMPLIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as CMDCMPLIEN_R;
 #[doc = "Field `DTCMPLIEN` reader - Data sent complete interrupt enable"]
-pub type DTCMPLIEN_R = crate::BitReader;
-#[doc = "Field `DTCMPLIEN` writer - Data sent complete interrupt enable"]
-pub type DTCMPLIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as DTCMPLIEN_R;
 #[doc = "Field `SBITERRIEN` reader - Start bit error interrupt enable"]
-pub type SBITERRIEN_R = crate::BitReader;
-#[doc = "Field `SBITERRIEN` writer - Start bit error interrupt enable"]
-pub type SBITERRIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as SBITERRIEN_R;
 #[doc = "Field `DTBLKCMPLIEN` reader - Data block sent complete interrupt enable"]
-pub type DTBLKCMPLIEN_R = crate::BitReader;
-#[doc = "Field `DTBLKCMPLIEN` writer - Data block sent complete interrupt enable"]
-pub type DTBLKCMPLIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as DTBLKCMPLIEN_R;
 #[doc = "Field `DOCMDIEN` reader - Command acting interrupt enable"]
-pub type DOCMDIEN_R = crate::BitReader;
-#[doc = "Field `DOCMDIEN` writer - Command acting interrupt enable"]
-pub type DOCMDIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as DOCMDIEN_R;
 #[doc = "Field `DOTXIEN` reader - Data transmit acting interrupt enable"]
-pub type DOTXIEN_R = crate::BitReader;
-#[doc = "Field `DOTXIEN` writer - Data transmit acting interrupt enable"]
-pub type DOTXIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as DOTXIEN_R;
 #[doc = "Field `DORXIEN` reader - Data receive acting interrupt enable"]
-pub type DORXIEN_R = crate::BitReader;
-#[doc = "Field `DORXIEN` writer - Data receive acting interrupt enable"]
-pub type DORXIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as DORXIEN_R;
 #[doc = "Field `TXBUFHIEN` reader - Tx buffer half empty interrupt enable"]
-pub type TXBUFHIEN_R = crate::BitReader;
-#[doc = "Field `TXBUFHIEN` writer - Tx buffer half empty interrupt enable"]
-pub type TXBUFHIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as TXBUFHIEN_R;
 #[doc = "Field `RXBUFHIEN` reader - Rx buffer half empty interrupt enable"]
-pub type RXBUFHIEN_R = crate::BitReader;
-#[doc = "Field `RXBUFHIEN` writer - Rx buffer half empty interrupt enable"]
-pub type RXBUFHIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as RXBUFHIEN_R;
 #[doc = "Field `TXBUFFIEN` reader - Tx buffer full interrupt enable"]
-pub type TXBUFFIEN_R = crate::BitReader;
-#[doc = "Field `TXBUFFIEN` writer - Tx buffer full interrupt enable"]
-pub type TXBUFFIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as TXBUFFIEN_R;
 #[doc = "Field `RXBUFFIEN` reader - Rx buffer full interrupt enable"]
-pub type RXBUFFIEN_R = crate::BitReader;
-#[doc = "Field `RXBUFFIEN` writer - Rx buffer full interrupt enable"]
-pub type RXBUFFIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as RXBUFFIEN_R;
 #[doc = "Field `TXBUFEIEN` reader - Tx buffer empty interrupt enable"]
-pub type TXBUFEIEN_R = crate::BitReader;
-#[doc = "Field `TXBUFEIEN` writer - Tx buffer empty interrupt enable"]
-pub type TXBUFEIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as TXBUFEIEN_R;
 #[doc = "Field `RXBUFEIEN` reader - Rx buffer empty interrupt enable"]
-pub type RXBUFEIEN_R = crate::BitReader;
-#[doc = "Field `RXBUFEIEN` writer - Rx buffer empty interrupt enable"]
-pub type RXBUFEIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as RXBUFEIEN_R;
 #[doc = "Field `TXBUFIEN` reader - Tx buffer data vaild interrupt enable"]
-pub type TXBUFIEN_R = crate::BitReader;
-#[doc = "Field `TXBUFIEN` writer - Tx buffer data vaild interrupt enable"]
-pub type TXBUFIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as TXBUFIEN_R;
 #[doc = "Field `RXBUFIEN` reader - Rx buffer data vaild interrupt enable"]
-pub type RXBUFIEN_R = crate::BitReader;
-#[doc = "Field `RXBUFIEN` writer - Rx buffer data vaild interrupt enable"]
-pub type RXBUFIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_R as RXBUFIEN_R;
 #[doc = "Field `IOIFIEN` reader - SD I/O interrupt enable"]
-pub type IOIFIEN_R = crate::BitReader;
+pub use CMDFAILIEN_R as IOIFIEN_R;
+#[doc = "Field `DTFAILIEN` writer - Data crc fail interrupt enable"]
+pub use CMDFAILIEN_W as DTFAILIEN_W;
+#[doc = "Field `CMDTIMEOUTIEN` writer - Command timeout interrupt enable"]
+pub use CMDFAILIEN_W as CMDTIMEOUTIEN_W;
+#[doc = "Field `DTTIMEOUTIEN` writer - Data timeout interrupt enable"]
+pub use CMDFAILIEN_W as DTTIMEOUTIEN_W;
+#[doc = "Field `TXERRUIEN` writer - Tx under run interrupt enable"]
+pub use CMDFAILIEN_W as TXERRUIEN_W;
+#[doc = "Field `RXERRUIEN` writer - Rx over run interrupt enable"]
+pub use CMDFAILIEN_W as RXERRUIEN_W;
+#[doc = "Field `CMDRSPCMPLIEN` writer - Command response complete interrupt enable"]
+pub use CMDFAILIEN_W as CMDRSPCMPLIEN_W;
+#[doc = "Field `CMDCMPLIEN` writer - Command sent complete interrupt enable"]
+pub use CMDFAILIEN_W as CMDCMPLIEN_W;
+#[doc = "Field `DTCMPLIEN` writer - Data sent complete interrupt enable"]
+pub use CMDFAILIEN_W as DTCMPLIEN_W;
+#[doc = "Field `SBITERRIEN` writer - Start bit error interrupt enable"]
+pub use CMDFAILIEN_W as SBITERRIEN_W;
+#[doc = "Field `DTBLKCMPLIEN` writer - Data block sent complete interrupt enable"]
+pub use CMDFAILIEN_W as DTBLKCMPLIEN_W;
+#[doc = "Field `DOCMDIEN` writer - Command acting interrupt enable"]
+pub use CMDFAILIEN_W as DOCMDIEN_W;
+#[doc = "Field `DOTXIEN` writer - Data transmit acting interrupt enable"]
+pub use CMDFAILIEN_W as DOTXIEN_W;
+#[doc = "Field `DORXIEN` writer - Data receive acting interrupt enable"]
+pub use CMDFAILIEN_W as DORXIEN_W;
+#[doc = "Field `TXBUFHIEN` writer - Tx buffer half empty interrupt enable"]
+pub use CMDFAILIEN_W as TXBUFHIEN_W;
+#[doc = "Field `RXBUFHIEN` writer - Rx buffer half empty interrupt enable"]
+pub use CMDFAILIEN_W as RXBUFHIEN_W;
+#[doc = "Field `TXBUFFIEN` writer - Tx buffer full interrupt enable"]
+pub use CMDFAILIEN_W as TXBUFFIEN_W;
+#[doc = "Field `RXBUFFIEN` writer - Rx buffer full interrupt enable"]
+pub use CMDFAILIEN_W as RXBUFFIEN_W;
+#[doc = "Field `TXBUFEIEN` writer - Tx buffer empty interrupt enable"]
+pub use CMDFAILIEN_W as TXBUFEIEN_W;
+#[doc = "Field `RXBUFEIEN` writer - Rx buffer empty interrupt enable"]
+pub use CMDFAILIEN_W as RXBUFEIEN_W;
+#[doc = "Field `TXBUFIEN` writer - Tx buffer data vaild interrupt enable"]
+pub use CMDFAILIEN_W as TXBUFIEN_W;
+#[doc = "Field `RXBUFIEN` writer - Rx buffer data vaild interrupt enable"]
+pub use CMDFAILIEN_W as RXBUFIEN_W;
 #[doc = "Field `IOIFIEN` writer - SD I/O interrupt enable"]
-pub type IOIFIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use CMDFAILIEN_W as IOIFIEN_W;
 impl R {
     #[doc = "Bit 0 - Command crc fail interrupt enable"]
     #[inline(always)]

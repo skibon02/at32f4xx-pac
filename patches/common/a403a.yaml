@@ -13,3 +13,4 @@ _include:
   - iomux/iomux_gpioe.yaml
   - acc/common.yaml
   - emac.yaml
+  - sdio/v2.yaml

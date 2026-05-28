@@ -5,7 +5,7 @@ pub type W = crate::W<DTLEN_SPEC>;
 #[doc = "Field `DTLEN` reader - Data length value"]
 pub type DTLEN_R = crate::FieldReader<u32>;
 #[doc = "Field `DTLEN` writer - Data length value"]
-pub type DTLEN_W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
+pub type DTLEN_W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32, crate::Safe>;
 impl R {
     #[doc = "Bits 0:24 - Data length value"]
     #[inline(always)]

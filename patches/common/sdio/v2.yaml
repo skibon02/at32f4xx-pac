@@ -1,0 +1,115 @@
+SDIO?:
+  PWRCTRL:
+    PS:
+      PoweredOff: [0, "Power off, card clock stopped"]
+      PoweredOn: [1, "Power on, card clock started"]
+  CLKCTRL:
+    _modify:
+      CLKDIV98:
+        description: "8-9 bits of CLKDIV. SDIO_CK = SDIOCLK / (CLKDIV + 2)"
+      CLKDIV:
+        description: "0-7 bits of CLKDIV. SDIO_CK = SDIOCLK / (CLKDIV + 2)"
+    CLKDIV98: [0, 3]
+    CLKDIV: [0, 255]
+    HFCEN:
+      Disabled: [0, "Hardware flow control disabled"]
+      Enabled: [1, "Hardware flow control enabled"]
+    CLKEDS:
+      Rising: [0, "SDIO_CK is generated on the rising edge of the SDIOCLK"]
+      Falling: [1, "SDIO_CK is generated on the falling edge of the SDIOCLK"]
+    BUSWS:
+      OneBit: [0, "1-bit data transfer"]
+      FourBit: [1, "4-bit data transfer"]
+      EightBit: [2, "8-bit data transfer"]
+    BYPSEN:
+      NotBypassed: [0, "SDIO_CK output signal is driven by the SDIOCLK that is divided according to the CLKDIV value"]
+      Bypassed: [1, "SDIO_CK output signal is directly driven by the SDIOCLK"]
+    PWRSVEN:
+      Normal: [0, "SDIO_CK is disabled when the bus is idle"]
+      PowerSaving: [1, "SDIO_CK is enabled when the bus is idle"]
+    CLKOEN:
+      Disabled: [0, "SDIO_CK output signal is disabled"]
+      Enabled: [1, "SDIO_CK output signal is enabled"]
+
+  CMDCTRL:
+    IOSUSP:
+      NotSuspended: [0, "SD I/O suspend command disabled"]
+      Suspended: [1, "Next command is SD I/O suspend command"]
+    CCSMEN:
+      _read:
+        Disabled: [0, "Command channel state machine disabled"]
+        Enabled: [1, "Command channel state machine enabled"]
+      _write:
+        Disable: [0, "Disable command channel state machine"]
+        Enable: [1, "Enable command channel state machine"]
+    PNDWT:
+      Disabled: [0, "Wait for transfer before sending command disabled"]
+      Enabled: [1, "Wait for transfer before sending command enabled"]
+    INTWT:
+      Disabled: [0, "Wait for interrupt before sending command disabled"]
+      Enabled: [1, "Wait for interrupt before sending command enabled, CCSM command timeout disabled"]
+    RSPWT:
+      NoResponse: [-1, "No response"]
+      ShortResponse: [1, "Short response"]
+      LongResponse: [3, "Long response"]
+    CMDIDX: [0, 0x3F]
+  RSPCMD:
+    RSPCMD: [0, 0x3F]
+  DTLEN:
+    DTLEN: [0, 0x1FFFFFF]
+  DTCTRL:
+    IOEN:
+      Disabled: [0, "SD I/O disabled"]
+      Enabled: [1, "SD I/O enabled"]
+    RDWTMODE:
+      SdioD2: [0, "SDIO_D2 controls data read wait"]
+      SdioCk: [1, "SDIO_CK controls data read wait"]
+    RDWTSTOP:
+      InProgress: [0, "Read wait is in progress if the RDWTSTART is set."]
+      Stopped: [1, "Read wait is stopped if the RDWTSTART is set."]
+    RDWTSTART:
+      Disabled: [0, "Read wait disabled"]
+      Enabled: [1, "Read wait enabled"]
+    BLKSIZE:
+      B1: [0, "1-byte data transfer"]
+      B2: [1, "2-byte data transfer"]
+      B4: [2, "4-byte data transfer"]
+      B8: [3, "8-byte data transfer"]
+      B16: [4, "16-byte data transfer"]
+      B32: [5, "32-byte data transfer"]
+      B64: [6, "64-byte data transfer"]
+      B128: [7, "128-byte data transfer"]
+      B256: [8, "256-byte data transfer"]
+      B512: [9, "512-byte data transfer"]
+      B1024: [10, "1024-byte data transfer"]
+      B2048: [11, "2048-byte data transfer"]
+      B4096: [12, "4096-byte data transfer"]
+      B8192: [13, "8192-byte data transfer"]
+      B16384: [14, "16384-byte data transfer"]
+    DMAEN:
+      Disabled: [0, "DMA disabled"]
+      Enabled: [1, "DMA enabled"]
+    TFRMODE:
+      Block: [0, "Block data transfer mode"]
+      Stream: [1, "Stream data transfer mode"]
+    TFRDIR:
+      ToCard: [0, "Data transfer direction: to card"]
+      FromCard: [1, "Data transfer direction: from card"]
+    TFREN:
+      Disabled: [0, "Data transfer disabled"]
+      Enabled: [1, "Data transfer enabled. DCSM enterst the Wait_S or Wait_R state"]
+  DTCNT:
+    CNT: [0, 0x1FFFF]
+  STS:
+    "*":
+      NotSet: [0, "Flag is not set"]
+      Set: [1, "Flag is set"]
+  INTCLR:
+    "*":
+      Clear: [1, "Clear the corresponding flag in STS"]
+  INTEN:
+    "*":
+      Disabled: [0, "Interrupt disabled"]
+      Enabled: [1, "Interrupt enabled"]
+  BUFCNT:
+    CNT: [0, 0xFFFF]
