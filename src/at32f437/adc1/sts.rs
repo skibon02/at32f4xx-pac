@@ -196,12 +196,105 @@ where
 pub use PCCS_R as OCCS_R;
 #[doc = "Field `OCCS` writer - Ordinary channel conversion start flag"]
 pub use PCCS_W as OCCS_W;
+#[doc = "Ordinary channel conversion overflow flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Occor {
+    #[doc = "0: No ordinary conversion overrun occurred"]
+    NoOverflow = 0,
+    #[doc = "1: Ordinary conversion overrun occurred"]
+    Overflow = 1,
+}
+impl From<Occor> for bool {
+    #[inline(always)]
+    fn from(variant: Occor) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `OCCO` reader - Ordinary channel conversion overflow flag"]
-pub type OCCO_R = crate::BitReader;
+pub type OCCO_R = crate::BitReader<Occor>;
+impl OCCO_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Occor {
+        match self.bits {
+            false => Occor::NoOverflow,
+            true => Occor::Overflow,
+        }
+    }
+    #[doc = "No ordinary conversion overrun occurred"]
+    #[inline(always)]
+    pub fn is_no_overflow(&self) -> bool {
+        *self == Occor::NoOverflow
+    }
+    #[doc = "Ordinary conversion overrun occurred"]
+    #[inline(always)]
+    pub fn is_overflow(&self) -> bool {
+        *self == Occor::Overflow
+    }
+}
+#[doc = "Ordinary channel conversion overflow flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OccowWO {
+    #[doc = "0: Clear ordinary conversion overrun flag"]
+    Clear = 0,
+}
+impl From<OccowWO> for bool {
+    #[inline(always)]
+    fn from(variant: OccowWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `OCCO` writer - Ordinary channel conversion overflow flag"]
-pub type OCCO_W<'a, REG> = crate::BitWriter0C<'a, REG>;
+pub type OCCO_W<'a, REG> = crate::BitWriter0C<'a, REG, OccowWO>;
+impl<'a, REG> OCCO_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear ordinary conversion overrun flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(OccowWO::Clear)
+    }
+}
+#[doc = "ADC ready to conversion flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RDYR_A {
+    #[doc = "0: Not ready for ADC conversion data read"]
+    NotReady = 0,
+    #[doc = "1: Ready for ADC conversion data read"]
+    Ready = 1,
+}
+impl From<RDYR_A> for bool {
+    #[inline(always)]
+    fn from(variant: RDYR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `RDY` reader - ADC ready to conversion flag"]
-pub type RDY_R = crate::BitReader;
+pub type RDY_R = crate::BitReader<RDYR_A>;
+impl RDY_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> RDYR_A {
+        match self.bits {
+            false => RDYR_A::NotReady,
+            true => RDYR_A::Ready,
+        }
+    }
+    #[doc = "Not ready for ADC conversion data read"]
+    #[inline(always)]
+    pub fn is_not_ready(&self) -> bool {
+        *self == RDYR_A::NotReady
+    }
+    #[doc = "Ready for ADC conversion data read"]
+    #[inline(always)]
+    pub fn is_ready(&self) -> bool {
+        *self == RDYR_A::Ready
+    }
+}
 impl R {
     #[doc = "Bit 0 - Voltage monitoring out of range flag"]
     #[inline(always)]

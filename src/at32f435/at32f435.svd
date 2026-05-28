@@ -28888,6 +28888,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>RDYR</name>
+                <enumeratedValue>
+                  <name>NotReady</name>
+                  <description>Not ready for ADC conversion data read</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Ready</name>
+                  <description>Ready for ADC conversion data read</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OCCO</name>
@@ -28895,6 +28908,29 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>zeroToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>OCCOR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoOverflow</name>
+                  <description>No ordinary conversion overrun occurred</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Overflow</name>
+                  <description>Ordinary conversion overrun occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>OCCOW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear ordinary conversion overrun flag</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PCCS</name>
@@ -29028,12 +29064,63 @@ If TPFLT&gt;0: High level</description>
               <description>Ordinary channel conversion overflow interrupt enable</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>OCCOIENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Ordinary conversion overrun interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Ordinary conversion overrun interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>OCCOIENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Ordinary conversion overrun interrupt disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Ordinary conversion overrun interrupt enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CRSEL</name>
               <description>Conversion resolution select</description>
               <bitOffset>24</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>CRSEL</name>
+                <enumeratedValue>
+                  <name>bit12</name>
+                  <description>12-bit resolution</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bit10</name>
+                  <description>10-bit resolution</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bit8</name>
+                  <description>8-bit resolution</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bit6</name>
+                  <description>6-bit resolution</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PCVMEN</name>
@@ -29816,6 +29903,99 @@ If TPFLT&gt;0: High level</description>
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -29836,6 +30016,99 @@ If TPFLT&gt;0: High level</description>
               <description>Number of %sth conversion in ordinary sequence</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
+              <enumeratedValues>
+                <name>AdcChannel</name>
+                <enumeratedValue>
+                  <name>AdcIn0</name>
+                  <description>ADC_IN0</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn1</name>
+                  <description>ADC_IN1</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn2</name>
+                  <description>ADC_IN2</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn3</name>
+                  <description>ADC_IN3</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn4</name>
+                  <description>ADC_IN4</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn5</name>
+                  <description>ADC_IN5</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn6</name>
+                  <description>ADC_IN6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn7</name>
+                  <description>ADC_IN7</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn8</name>
+                  <description>ADC_IN8</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn9</name>
+                  <description>ADC_IN9</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn10</name>
+                  <description>ADC_IN10</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn11</name>
+                  <description>ADC_IN11</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn12</name>
+                  <description>ADC_IN12</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn13</name>
+                  <description>ADC_IN13</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn14</name>
+                  <description>ADC_IN14</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn15</name>
+                  <description>ADC_IN15</description>
+                  <value>15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn16</name>
+                  <description>ADC_IN16</description>
+                  <value>16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AdcIn17</name>
+                  <description>ADC_IN17</description>
+                  <value>17</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>

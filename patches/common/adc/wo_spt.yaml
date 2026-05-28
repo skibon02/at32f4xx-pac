@@ -121,8 +121,7 @@ ADC?:
       Triggered: [1, "Conversion of ordinary channels triggered"]
   SPT?:
     CSPT*: [0, 7]
-  OSQ1:
-    OCLEN: [0, 15]
+  OSQ?:
     OSN*:
       _name: AdcChannel
       AdcIn0: [0, "ADC_IN0"]
@@ -143,6 +142,8 @@ ADC?:
       AdcIn15: [15, "ADC_IN15"]
       AdcIn16: [16, "ADC_IN16"]
       AdcIn17: [17, "ADC_IN17"]
+  OSQ1:
+    OCLEN: [0, 15]
     _array:
       OSN*:
         dimIndex: "13,14,15,16"

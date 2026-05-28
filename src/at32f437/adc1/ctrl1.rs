@@ -490,14 +490,162 @@ where
 pub use PCVMEN_R as OCVMEN_R;
 #[doc = "Field `OCVMEN` writer - Voltage monitoring enable on ordinary channels"]
 pub use PCVMEN_W as OCVMEN_W;
+#[doc = "Conversion resolution select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum CRSEL_A {
+    #[doc = "0: 12-bit resolution"]
+    Bit12 = 0,
+    #[doc = "1: 10-bit resolution"]
+    Bit10 = 1,
+    #[doc = "2: 8-bit resolution"]
+    Bit8 = 2,
+    #[doc = "3: 6-bit resolution"]
+    Bit6 = 3,
+}
+impl From<CRSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CRSEL_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for CRSEL_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for CRSEL_A {}
 #[doc = "Field `CRSEL` reader - Conversion resolution select"]
-pub type CRSEL_R = crate::FieldReader;
+pub type CRSEL_R = crate::FieldReader<CRSEL_A>;
+impl CRSEL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> CRSEL_A {
+        match self.bits {
+            0 => CRSEL_A::Bit12,
+            1 => CRSEL_A::Bit10,
+            2 => CRSEL_A::Bit8,
+            3 => CRSEL_A::Bit6,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "12-bit resolution"]
+    #[inline(always)]
+    pub fn is_bit12(&self) -> bool {
+        *self == CRSEL_A::Bit12
+    }
+    #[doc = "10-bit resolution"]
+    #[inline(always)]
+    pub fn is_bit10(&self) -> bool {
+        *self == CRSEL_A::Bit10
+    }
+    #[doc = "8-bit resolution"]
+    #[inline(always)]
+    pub fn is_bit8(&self) -> bool {
+        *self == CRSEL_A::Bit8
+    }
+    #[doc = "6-bit resolution"]
+    #[inline(always)]
+    pub fn is_bit6(&self) -> bool {
+        *self == CRSEL_A::Bit6
+    }
+}
 #[doc = "Field `CRSEL` writer - Conversion resolution select"]
-pub type CRSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type CRSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 2, CRSEL_A, crate::Safe>;
+impl<'a, REG> CRSEL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "12-bit resolution"]
+    #[inline(always)]
+    pub fn bit12(self) -> &'a mut crate::W<REG> {
+        self.variant(CRSEL_A::Bit12)
+    }
+    #[doc = "10-bit resolution"]
+    #[inline(always)]
+    pub fn bit10(self) -> &'a mut crate::W<REG> {
+        self.variant(CRSEL_A::Bit10)
+    }
+    #[doc = "8-bit resolution"]
+    #[inline(always)]
+    pub fn bit8(self) -> &'a mut crate::W<REG> {
+        self.variant(CRSEL_A::Bit8)
+    }
+    #[doc = "6-bit resolution"]
+    #[inline(always)]
+    pub fn bit6(self) -> &'a mut crate::W<REG> {
+        self.variant(CRSEL_A::Bit6)
+    }
+}
+#[doc = "Ordinary channel conversion overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Occoienr {
+    #[doc = "0: Ordinary conversion overrun interrupt is disabled"]
+    Disabled = 0,
+    #[doc = "1: Ordinary conversion overrun interrupt is enabled"]
+    Enabled = 1,
+}
+impl From<Occoienr> for bool {
+    #[inline(always)]
+    fn from(variant: Occoienr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `OCCOIEN` reader - Ordinary channel conversion overflow interrupt enable"]
-pub type OCCOIEN_R = crate::BitReader;
+pub type OCCOIEN_R = crate::BitReader<Occoienr>;
+impl OCCOIEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Occoienr {
+        match self.bits {
+            false => Occoienr::Disabled,
+            true => Occoienr::Enabled,
+        }
+    }
+    #[doc = "Ordinary conversion overrun interrupt is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Occoienr::Disabled
+    }
+    #[doc = "Ordinary conversion overrun interrupt is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Occoienr::Enabled
+    }
+}
+#[doc = "Ordinary channel conversion overflow interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OccoienwWO {
+    #[doc = "0: Ordinary conversion overrun interrupt disable"]
+    Disable = 0,
+    #[doc = "1: Ordinary conversion overrun interrupt enable"]
+    Enable = 1,
+}
+impl From<OccoienwWO> for bool {
+    #[inline(always)]
+    fn from(variant: OccoienwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `OCCOIEN` writer - Ordinary channel conversion overflow interrupt enable"]
-pub type OCCOIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type OCCOIEN_W<'a, REG> = crate::BitWriter<'a, REG, OccoienwWO>;
+impl<'a, REG> OCCOIEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Ordinary conversion overrun interrupt disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(OccoienwWO::Disable)
+    }
+    #[doc = "Ordinary conversion overrun interrupt enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(OccoienwWO::Enable)
+    }
+}
 impl R {
     #[doc = "Bits 0:4 - Voltage monitoring channel select"]
     #[inline(always)]

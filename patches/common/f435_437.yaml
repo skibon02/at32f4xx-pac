@@ -125,6 +125,31 @@ CRM:
     CLK_TO_TMR:
       Disconnected: [0, "Disconnected"]
       Connected: [1, "CLKOUT1 internal connected to timer10 channel1"]
+ADC?:
+  CTRL1:
+    CRSEL:
+      bit12: [0, "12-bit resolution"]
+      bit10: [1, "10-bit resolution"]
+      bit8: [2, "8-bit resolution"]
+      bit6: [3, "6-bit resolution"]
+    OCCOIEN:
+      _read:
+        Disabled: [0, "Ordinary conversion overrun interrupt is disabled"]
+        Enabled: [1, "Ordinary conversion overrun interrupt is enabled"]
+      _write:
+        Disable: [0, "Ordinary conversion overrun interrupt disable"]
+        Enable: [1, "Ordinary conversion overrun interrupt enable"]
+  STS:
+    RDY:
+      _read:
+        NotReady: [0, "Not ready for ADC conversion data read"]
+        Ready: [1, "Ready for ADC conversion data read"]
+    OCCO:
+      _read:
+        NoOverflow: [0, "No ordinary conversion overrun occurred"]
+        Overflow: [1, "Ordinary conversion overrun occurred"]
+      _W0C:
+        Clear: [0, "Clear ordinary conversion overrun flag"]
 ADCCOM:
   CSTS:
     _array:
