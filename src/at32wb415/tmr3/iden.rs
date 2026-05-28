@@ -347,10 +347,75 @@ where
         self.variant(C1denwWO::Enable)
     }
 }
+#[doc = "Trigger DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tdenr {
+    #[doc = "0: Trigger DMA request is disabled"]
+    Disabled = 0,
+    #[doc = "1: Trigger DMA request is enabled"]
+    Enabled = 1,
+}
+impl From<Tdenr> for bool {
+    #[inline(always)]
+    fn from(variant: Tdenr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TDEN` reader - Trigger DMA request enable"]
-pub type TDEN_R = crate::BitReader;
+pub type TDEN_R = crate::BitReader<Tdenr>;
+impl TDEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Tdenr {
+        match self.bits {
+            false => Tdenr::Disabled,
+            true => Tdenr::Enabled,
+        }
+    }
+    #[doc = "Trigger DMA request is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Tdenr::Disabled
+    }
+    #[doc = "Trigger DMA request is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Tdenr::Enabled
+    }
+}
+#[doc = "Trigger DMA request enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TdenwWO {
+    #[doc = "0: Trigger DMA request disable"]
+    Disable = 0,
+    #[doc = "1: Trigger DMA request enable"]
+    Enable = 1,
+}
+impl From<TdenwWO> for bool {
+    #[inline(always)]
+    fn from(variant: TdenwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TDEN` writer - Trigger DMA request enable"]
-pub type TDEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TDEN_W<'a, REG> = crate::BitWriter<'a, REG, TdenwWO>;
+impl<'a, REG> TDEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Trigger DMA request disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(TdenwWO::Disable)
+    }
+    #[doc = "Trigger DMA request enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(TdenwWO::Enable)
+    }
+}
 impl R {
     #[doc = "Bit 0 - Overflow interrupt enable"]
     #[inline(always)]

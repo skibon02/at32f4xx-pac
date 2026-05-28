@@ -5,7 +5,7 @@ pub type W = crate::W<PR_SPEC>;
 #[doc = "Field `PR` reader - Period value"]
 pub type PR_R = crate::FieldReader<u16>;
 #[doc = "Field `PR` writer - Period value"]
-pub type PR_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type PR_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 impl R {
     #[doc = "Bits 0:15 - Period value"]
     #[inline(always)]
@@ -36,5 +36,7 @@ impl crate::Readable for PR_SPEC {}
 impl crate::Writable for PR_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets PR to value 0"]
-impl crate::Resettable for PR_SPEC {}
+#[doc = "`reset()` method sets PR to value 0xffff"]
+impl crate::Resettable for PR_SPEC {
+    const RESET_VALUE: u32 = 0xffff;
+}

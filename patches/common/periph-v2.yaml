@@ -3,3 +3,4 @@ _include:
   - gpio/gpio-v2.yaml
   - i2c/v2.yaml
   - wdt/with_win.yaml
+  - tmr/basic.yaml

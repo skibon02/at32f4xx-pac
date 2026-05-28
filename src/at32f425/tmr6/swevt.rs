@@ -7,7 +7,7 @@ pub type W = crate::W<SWEVT_SPEC>;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OVFSWTRW_A {
     #[doc = "1: Generate an overflow event"]
-    Overflow = 1,
+    OverflowEvent = 1,
 }
 impl From<OVFSWTRW_A> for bool {
     #[inline(always)]
@@ -22,14 +22,14 @@ impl OVFSWTR_R {
     #[inline(always)]
     pub const fn variant(&self) -> Option<OVFSWTRW_A> {
         match self.bits {
-            true => Some(OVFSWTRW_A::Overflow),
+            true => Some(OVFSWTRW_A::OverflowEvent),
             _ => None,
         }
     }
     #[doc = "Generate an overflow event"]
     #[inline(always)]
-    pub fn is_overflow(&self) -> bool {
-        *self == OVFSWTRW_A::Overflow
+    pub fn is_overflow_event(&self) -> bool {
+        *self == OVFSWTRW_A::OverflowEvent
     }
 }
 #[doc = "Field `OVFSWTR` writer - Overflow event triggered by software"]
@@ -40,8 +40,8 @@ where
 {
     #[doc = "Generate an overflow event"]
     #[inline(always)]
-    pub fn overflow(self) -> &'a mut crate::W<REG> {
-        self.variant(OVFSWTRW_A::Overflow)
+    pub fn overflow_event(self) -> &'a mut crate::W<REG> {
+        self.variant(OVFSWTRW_A::OverflowEvent)
     }
 }
 impl R {

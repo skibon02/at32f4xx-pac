@@ -212,10 +212,145 @@ where
         self.variant(C3obenwWO::Enable)
     }
 }
+#[doc = "Channel %s output control\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum COCTRL_A {
+    #[doc = "0: Disconnected. CxORAW is disconnected from CxOUT"]
+    Disconnected = 0,
+    #[doc = "1: CxORAW is high when TMRx_CVAL=TMRx_CxDT"]
+    High = 1,
+    #[doc = "2: CxORAW is low when TMRx_CVAL=TMRx_CxDT"]
+    Low = 2,
+    #[doc = "3: Switch CxORAW level when TMRx_CVAL=TMRx_CxDT"]
+    Toggle = 3,
+    #[doc = "4: CxORAW is forced low"]
+    ForceLow = 4,
+    #[doc = "5: CxORAW is forced high"]
+    ForceHigh = 5,
+    #[doc = "6: PWM mode A"]
+    PwmA = 6,
+    #[doc = "7: PWM mode B"]
+    PwmB = 7,
+}
+impl From<COCTRL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: COCTRL_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for COCTRL_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for COCTRL_A {}
 #[doc = "Field `COCTRL(3-4)` reader - Channel %s output control"]
-pub type COCTRL_R = crate::FieldReader;
+pub type COCTRL_R = crate::FieldReader<COCTRL_A>;
+impl COCTRL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> COCTRL_A {
+        match self.bits {
+            0 => COCTRL_A::Disconnected,
+            1 => COCTRL_A::High,
+            2 => COCTRL_A::Low,
+            3 => COCTRL_A::Toggle,
+            4 => COCTRL_A::ForceLow,
+            5 => COCTRL_A::ForceHigh,
+            6 => COCTRL_A::PwmA,
+            7 => COCTRL_A::PwmB,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Disconnected. CxORAW is disconnected from CxOUT"]
+    #[inline(always)]
+    pub fn is_disconnected(&self) -> bool {
+        *self == COCTRL_A::Disconnected
+    }
+    #[doc = "CxORAW is high when TMRx_CVAL=TMRx_CxDT"]
+    #[inline(always)]
+    pub fn is_high(&self) -> bool {
+        *self == COCTRL_A::High
+    }
+    #[doc = "CxORAW is low when TMRx_CVAL=TMRx_CxDT"]
+    #[inline(always)]
+    pub fn is_low(&self) -> bool {
+        *self == COCTRL_A::Low
+    }
+    #[doc = "Switch CxORAW level when TMRx_CVAL=TMRx_CxDT"]
+    #[inline(always)]
+    pub fn is_toggle(&self) -> bool {
+        *self == COCTRL_A::Toggle
+    }
+    #[doc = "CxORAW is forced low"]
+    #[inline(always)]
+    pub fn is_force_low(&self) -> bool {
+        *self == COCTRL_A::ForceLow
+    }
+    #[doc = "CxORAW is forced high"]
+    #[inline(always)]
+    pub fn is_force_high(&self) -> bool {
+        *self == COCTRL_A::ForceHigh
+    }
+    #[doc = "PWM mode A"]
+    #[inline(always)]
+    pub fn is_pwm_a(&self) -> bool {
+        *self == COCTRL_A::PwmA
+    }
+    #[doc = "PWM mode B"]
+    #[inline(always)]
+    pub fn is_pwm_b(&self) -> bool {
+        *self == COCTRL_A::PwmB
+    }
+}
 #[doc = "Field `COCTRL(3-4)` writer - Channel %s output control"]
-pub type COCTRL_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+pub type COCTRL_W<'a, REG> = crate::FieldWriter<'a, REG, 3, COCTRL_A, crate::Safe>;
+impl<'a, REG> COCTRL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Disconnected. CxORAW is disconnected from CxOUT"]
+    #[inline(always)]
+    pub fn disconnected(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::Disconnected)
+    }
+    #[doc = "CxORAW is high when TMRx_CVAL=TMRx_CxDT"]
+    #[inline(always)]
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::High)
+    }
+    #[doc = "CxORAW is low when TMRx_CVAL=TMRx_CxDT"]
+    #[inline(always)]
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::Low)
+    }
+    #[doc = "Switch CxORAW level when TMRx_CVAL=TMRx_CxDT"]
+    #[inline(always)]
+    pub fn toggle(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::Toggle)
+    }
+    #[doc = "CxORAW is forced low"]
+    #[inline(always)]
+    pub fn force_low(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::ForceLow)
+    }
+    #[doc = "CxORAW is forced high"]
+    #[inline(always)]
+    pub fn force_high(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::ForceHigh)
+    }
+    #[doc = "PWM mode A"]
+    #[inline(always)]
+    pub fn pwm_a(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::PwmA)
+    }
+    #[doc = "PWM mode B"]
+    #[inline(always)]
+    pub fn pwm_b(self) -> &'a mut crate::W<REG> {
+        self.variant(COCTRL_A::PwmB)
+    }
+}
 #[doc = "Channel %s output switch enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

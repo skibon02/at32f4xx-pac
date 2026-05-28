@@ -5,7 +5,7 @@ pub type W = crate::W<SWEVT_SPEC>;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OVFSWTRW_A {
     #[doc = "1: Generate an overflow event"]
-    Overflow = 1,
+    OverflowEvent = 1,
 }
 impl From<OVFSWTRW_A> for bool {
     #[inline(always)]
@@ -21,8 +21,8 @@ where
 {
     #[doc = "Generate an overflow event"]
     #[inline(always)]
-    pub fn overflow(self) -> &'a mut crate::W<REG> {
-        self.variant(OVFSWTRW_A::Overflow)
+    pub fn overflow_event(self) -> &'a mut crate::W<REG> {
+        self.variant(OVFSWTRW_A::OverflowEvent)
     }
 }
 #[doc = "Channel %s event triggered by software\n\nValue on reset: 0"]
@@ -30,7 +30,7 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1SWTRW_A {
     #[doc = "1: Generate a channel event"]
-    Event = 1,
+    ChannelEvent = 1,
 }
 impl From<C1SWTRW_A> for bool {
     #[inline(always)]
@@ -46,8 +46,8 @@ where
 {
     #[doc = "Generate a channel event"]
     #[inline(always)]
-    pub fn event(self) -> &'a mut crate::W<REG> {
-        self.variant(C1SWTRW_A::Event)
+    pub fn channel_event(self) -> &'a mut crate::W<REG> {
+        self.variant(C1SWTRW_A::ChannelEvent)
     }
 }
 #[doc = "HALL event triggered by software\n\nValue on reset: 0"]
@@ -80,7 +80,7 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TRGSWTRW_A {
     #[doc = "1: Generate a trigger event"]
-    Event = 1,
+    TriggerEvent = 1,
 }
 impl From<TRGSWTRW_A> for bool {
     #[inline(always)]
@@ -96,8 +96,8 @@ where
 {
     #[doc = "Generate a trigger event"]
     #[inline(always)]
-    pub fn event(self) -> &'a mut crate::W<REG> {
-        self.variant(TRGSWTRW_A::Event)
+    pub fn trigger_event(self) -> &'a mut crate::W<REG> {
+        self.variant(TRGSWTRW_A::TriggerEvent)
     }
 }
 #[doc = "Brake event triggered by software\n\nValue on reset: 0"]

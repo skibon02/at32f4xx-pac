@@ -12,3 +12,4 @@ _include:
   - iomux/common.yaml
   - pwc/vrsel.yaml
   - acc/common.yaml
+  - tmr/basic.yaml

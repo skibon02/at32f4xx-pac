@@ -32,7 +32,7 @@ TMR2:
 
 _add:
   TMR2_RMP:
-    description: "TMR2 channel 1 input remap register"
+    description: "TMR2 remap register"
     baseAddress: "0x40000050"
     addressBlock:
       offset: 0x0
@@ -40,18 +40,18 @@ _add:
       usage: registers
     registers:
       RMP:
-        description: "TMR2 channel 1 input remap"
+        description: "TMR2 remap remap"
         addressOffset: 0x0
         size: 32
         access: read-write
         resetValue: 0x00000000
         fields:
-          TMR2_CH1_IRMP:
-            description: "TMR2 channel 1 input remap"
+          TMR2_IS1_IRMP:
+            description: "TMR2 IS1 input remap"
             bitOffset: 10
             bitWidth: 2
   TMR5_RMP:
-    description: "TMR5 channel 4 input remap register"
+    description: "TMR5 remap register"
     baseAddress: "0x40000C50"
     addressBlock:
       offset: 0x0
@@ -59,7 +59,7 @@ _add:
       usage: registers
     registers:
       RMP:
-        description: "TMR5 channel 4 input remap"
+        description: "TMR5 remap"
         addressOffset: 0x0
         size: 32
         access: read-write
@@ -69,6 +69,20 @@ _add:
             description: "TMR5 channel 4 input remap"
             bitOffset: 6
             bitWidth: 2
+TMR2_RMP:
+  RMP:
+    TMR2_IS1_IRMP:
+      Tmr8TrgOut: [0, "TMR8_TRGO output"]
+      EthPTP: [1, "Ethernet PTP event"]
+      Otg1FsSof: [2, "OTG1_FS SOF signal"]
+      Otg2FsSof: [3, "OTG2_FS SOF signal"]
+TMR5_RMP:
+  RMP:
+    TMR5_CH4_IRMP:
+      Gpio: [0, "GPIO"]
+      Lick: [1, "LICK clock"]
+      Lext: [2, "LEXT clock"]
+      ErtcWakeup: [3, "ERTC wakeup interrupt"]
 
 CRM:
   CFG:

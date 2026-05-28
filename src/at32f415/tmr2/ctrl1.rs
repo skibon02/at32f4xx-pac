@@ -75,10 +75,10 @@ where
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovfenr {
-    #[doc = "0: Overflow is disabled"]
-    Disabled = 0,
-    #[doc = "1: Overflow is enabled"]
-    Enabled = 1,
+    #[doc = "0: Overflow is enabled"]
+    Enabled = 0,
+    #[doc = "1: Overflow is disabled"]
+    Disabled = 1,
 }
 impl From<Ovfenr> for bool {
     #[inline(always)]
@@ -93,29 +93,29 @@ impl OVFEN_R {
     #[inline(always)]
     pub const fn variant(&self) -> Ovfenr {
         match self.bits {
-            false => Ovfenr::Disabled,
-            true => Ovfenr::Enabled,
+            false => Ovfenr::Enabled,
+            true => Ovfenr::Disabled,
         }
-    }
-    #[doc = "Overflow is disabled"]
-    #[inline(always)]
-    pub fn is_disabled(&self) -> bool {
-        *self == Ovfenr::Disabled
     }
     #[doc = "Overflow is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == Ovfenr::Enabled
     }
+    #[doc = "Overflow is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Ovfenr::Disabled
+    }
 }
 #[doc = "Overflow event enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OvfenwWO {
-    #[doc = "0: Overflow disable"]
-    Disable = 0,
-    #[doc = "1: Overflow enable"]
-    Enable = 1,
+    #[doc = "0: Overflow enable"]
+    Enable = 0,
+    #[doc = "1: Overflow disable"]
+    Disable = 1,
 }
 impl From<OvfenwWO> for bool {
     #[inline(always)]
@@ -129,15 +129,15 @@ impl<'a, REG> OVFEN_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Overflow disable"]
-    #[inline(always)]
-    pub fn disable(self) -> &'a mut crate::W<REG> {
-        self.variant(OvfenwWO::Disable)
-    }
     #[doc = "Overflow enable"]
     #[inline(always)]
     pub fn enable(self) -> &'a mut crate::W<REG> {
         self.variant(OvfenwWO::Enable)
+    }
+    #[doc = "Overflow disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(OvfenwWO::Disable)
     }
 }
 #[doc = "Overflow event source\n\nValue on reset: 0"]

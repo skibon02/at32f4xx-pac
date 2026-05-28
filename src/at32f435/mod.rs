@@ -724,14 +724,14 @@ impl core::fmt::Debug for TMR2 {
 }
 #[doc = "General purpose timer"]
 pub mod tmr2;
-#[doc = "TMR2 channel 1 input remap register"]
+#[doc = "TMR2 remap register"]
 pub type TMR2_RMP = crate::Periph<tmr2_rmp::RegisterBlock, 0x4000_0050>;
 impl core::fmt::Debug for TMR2_RMP {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TMR2_RMP").finish()
     }
 }
-#[doc = "TMR2 channel 1 input remap register"]
+#[doc = "TMR2 remap register"]
 pub mod tmr2_rmp;
 #[doc = "General purpose timer"]
 pub type TMR3 = crate::Periph<tmr3::RegisterBlock, 0x4000_0400>;
@@ -760,14 +760,14 @@ impl core::fmt::Debug for TMR5 {
 }
 #[doc = "General purpose timer"]
 pub use self::tmr2 as tmr5;
-#[doc = "TMR5 channel 4 input remap register"]
+#[doc = "TMR5 remap register"]
 pub type TMR5_RMP = crate::Periph<tmr5_rmp::RegisterBlock, 0x4000_0c50>;
 impl core::fmt::Debug for TMR5_RMP {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TMR5_RMP").finish()
     }
 }
-#[doc = "TMR5 channel 4 input remap register"]
+#[doc = "TMR5 remap register"]
 pub mod tmr5_rmp;
 #[doc = "General purpose timer"]
 pub type TMR9 = crate::Periph<tmr9::RegisterBlock, 0x4001_4000>;

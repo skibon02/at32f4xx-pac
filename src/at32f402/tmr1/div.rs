@@ -2,12 +2,12 @@
 pub type R = crate::R<DIV_SPEC>;
 #[doc = "Register `DIV` writer"]
 pub type W = crate::W<DIV_SPEC>;
-#[doc = "Field `DIV` reader - Divider value"]
+#[doc = "Field `DIV` reader - The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1)."]
 pub type DIV_R = crate::FieldReader<u16>;
-#[doc = "Field `DIV` writer - Divider value"]
-pub type DIV_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+#[doc = "Field `DIV` writer - The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1)."]
+pub type DIV_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 impl R {
-    #[doc = "Bits 0:15 - Divider value"]
+    #[doc = "Bits 0:15 - The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1)."]
     #[inline(always)]
     pub fn div(&self) -> DIV_R {
         DIV_R::new((self.bits & 0xffff) as u16)
@@ -19,7 +19,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - Divider value"]
+    #[doc = "Bits 0:15 - The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1)."]
     #[inline(always)]
     pub fn div(&mut self) -> DIV_W<'_, DIV_SPEC> {
         DIV_W::new(self, 0)

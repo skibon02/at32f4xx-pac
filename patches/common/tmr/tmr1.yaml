@@ -23,44 +23,9 @@ TMR1:
       _write:
         Disable: [0, "HALL DMA request disable"]
         Enable: [1, "HALL DMA request enable"]
-    TDEN:
-      _read:
-        Disabled: [0, "Trigger DMA request is disabled"]
-        Enabled: [1, "Trigger DMA request is enabled"]
-      _write:
-        Disable: [0, "Trigger DMA request disable"]
-        Enable: [1, "Trigger DMA request enable"]
   _modify:
     SWEVT:
       access: write-only
-  CM?_OUTPUT:
-    C%sOCTRL:
-      Disconnected: [0, "Disconnected. CxORAW is disconnected from CxOUT"]
-      High: [1, "CxORAW is high when TMRx_CVAL=TMRx_CxDT"]
-      Low: [2, "CxORAW is low when TMRx_CVAL=TMRx_CxDT"]
-      Toggle: [3, "Switch CxORAW level when TMRx_CVAL=TMRx_CxDT"]
-      ForceLow: [4, "CxORAW is forced low"]
-      ForceHigh: [5, "CxORAW is forced high"]
-      PWM_A: [6, "PWM mode A"]
-      PWM_B: [7, "PWM mode B"]
-  CM?_INPUT:
-    C%sDF:
-      NoFilter: [0, "No filter, sampling is done at f_DTS"]
-      N2: [1, "f_sampling = f_DTS, N=2"]
-      N4: [2, "f_sampling = f_DTS, N=4"]
-      N8: [3, "f_sampling = f_DTS, N=8"]
-      div2N6: [4, "f_sampling = f_DTS/2, N=6"]
-      div2N8: [5, "f_sampling = f_DTS/2, N=8"]
-      div4N6: [6, "f_sampling = f_DTS/4, N=6"]
-      div4N8: [7, "f_sampling = f_DTS/4, N=8"]
-      div8N6: [8, "f_sampling = f_DTS/8, N=6"]
-      div8N8: [9, "f_sampling = f_DTS/8, N=8"]
-      div16N5: [10, "f_sampling = f_DTS/16, N=5"]
-      div16N6: [11, "f_sampling = f_DTS/16, N=6"]
-      div16N8: [12, "f_sampling = f_DTS/16, N=8"]
-      div32N5: [13, "f_sampling = f_DTS/32, N=5"]
-      div32N6: [14, "f_sampling = f_DTS/32, N=6"]
-      div32N8: [15, "f_sampling = f_DTS/32, N=8"]
   CCTRL:
     _array:
       C?CEN:

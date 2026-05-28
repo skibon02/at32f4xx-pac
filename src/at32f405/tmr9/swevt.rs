@@ -7,7 +7,7 @@ pub type W = crate::W<SWEVT_SPEC>;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OVFSWTRW_A {
     #[doc = "1: Generate an overflow event"]
-    Overflow = 1,
+    OverflowEvent = 1,
 }
 impl From<OVFSWTRW_A> for bool {
     #[inline(always)]
@@ -22,14 +22,14 @@ impl OVFSWTR_R {
     #[inline(always)]
     pub const fn variant(&self) -> Option<OVFSWTRW_A> {
         match self.bits {
-            true => Some(OVFSWTRW_A::Overflow),
+            true => Some(OVFSWTRW_A::OverflowEvent),
             _ => None,
         }
     }
     #[doc = "Generate an overflow event"]
     #[inline(always)]
-    pub fn is_overflow(&self) -> bool {
-        *self == OVFSWTRW_A::Overflow
+    pub fn is_overflow_event(&self) -> bool {
+        *self == OVFSWTRW_A::OverflowEvent
     }
 }
 #[doc = "Field `OVFSWTR` writer - Overflow event triggered by software"]
@@ -40,8 +40,8 @@ where
 {
     #[doc = "Generate an overflow event"]
     #[inline(always)]
-    pub fn overflow(self) -> &'a mut crate::W<REG> {
-        self.variant(OVFSWTRW_A::Overflow)
+    pub fn overflow_event(self) -> &'a mut crate::W<REG> {
+        self.variant(OVFSWTRW_A::OverflowEvent)
     }
 }
 #[doc = "Channel %s event triggered by software\n\nValue on reset: 0"]
@@ -49,7 +49,7 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum C1SWTRW_A {
     #[doc = "1: Generate a channel event"]
-    Event = 1,
+    ChannelEvent = 1,
 }
 impl From<C1SWTRW_A> for bool {
     #[inline(always)]
@@ -64,14 +64,14 @@ impl CSWTR_R {
     #[inline(always)]
     pub const fn variant(&self) -> Option<C1SWTRW_A> {
         match self.bits {
-            true => Some(C1SWTRW_A::Event),
+            true => Some(C1SWTRW_A::ChannelEvent),
             _ => None,
         }
     }
     #[doc = "Generate a channel event"]
     #[inline(always)]
-    pub fn is_event(&self) -> bool {
-        *self == C1SWTRW_A::Event
+    pub fn is_channel_event(&self) -> bool {
+        *self == C1SWTRW_A::ChannelEvent
     }
 }
 #[doc = "Field `CSWTR(1-2)` writer - Channel %s event triggered by software"]
@@ -82,8 +82,8 @@ where
 {
     #[doc = "Generate a channel event"]
     #[inline(always)]
-    pub fn event(self) -> &'a mut crate::W<REG> {
-        self.variant(C1SWTRW_A::Event)
+    pub fn channel_event(self) -> &'a mut crate::W<REG> {
+        self.variant(C1SWTRW_A::ChannelEvent)
     }
 }
 #[doc = "Field `HALLSWTR` reader - HALL event triggered by software"]

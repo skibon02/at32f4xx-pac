@@ -1,0 +1,6 @@
+TMR6:
+  CTRL2:
+    PTOS:
+      Reset: [0, "Reset"]
+      Enable: [1, "Enable"]
+      Update: [2, "Update"]

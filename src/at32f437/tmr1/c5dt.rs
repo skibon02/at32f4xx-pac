@@ -5,7 +5,7 @@ pub type W = crate::W<C5DT_SPEC>;
 #[doc = "Field `C5DT` reader - Channel 5 data register"]
 pub type C5DT_R = crate::FieldReader<u16>;
 #[doc = "Field `C5DT` writer - Channel 5 data register"]
-pub type C5DT_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type C5DT_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 impl R {
     #[doc = "Bits 0:15 - Channel 5 data register"]
     #[inline(always)]

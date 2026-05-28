@@ -9690,13 +9690,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENR</name>
                 <usage>read</usage>
                 <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>Overflow is disabled</description>
+                  <name>Enabled</name>
+                  <description>Overflow is enabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>Overflow is enabled</description>
+                  <name>Disabled</name>
+                  <description>Overflow is disabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -9704,13 +9704,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Overflow disable</description>
+                  <name>Enable</name>
+                  <description>Overflow enable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Overflow enable</description>
+                  <name>Disable</name>
+                  <description>Overflow disable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -10820,7 +10820,7 @@ If TPFLT&gt;0: High level</description>
                 <name>TRGSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>TriggerEvent</name>
                   <description>Generate a trigger event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -10854,7 +10854,7 @@ If TPFLT&gt;0: High level</description>
                 <name>C1SWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>ChannelEvent</name>
                   <description>Generate a channel event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -10870,7 +10870,7 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Overflow</name>
+                  <name>OverflowEvent</name>
                   <description>Generate an overflow event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -11810,6 +11810,12 @@ If TPFLT&gt;0: High level</description>
               <description>Counter value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -11824,9 +11830,15 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DIV</name>
-              <description>Divider value</description>
+              <description>The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1).</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -11837,13 +11849,19 @@ If TPFLT&gt;0: High level</description>
           <addressOffset>0x2C</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <fields>
             <field>
               <name>PR</name>
               <description>Period value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -11881,6 +11899,12 @@ If TPFLT&gt;0: High level</description>
               <description>Channel 1 data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -12150,7 +12174,7 @@ If TPFLT&gt;0: High level</description>
               <writeConstraint>
                 <range>
                   <minimum>0</minimum>
-                  <maximum>31</maximum>
+                  <maximum>17</maximum>
                 </range>
               </writeConstraint>
             </field>
@@ -12159,12 +12183,6 @@ If TPFLT&gt;0: High level</description>
               <description>DMA transfer address offset</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>31</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -12182,12 +12200,6 @@ If TPFLT&gt;0: High level</description>
               <description>DMA data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>65535</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -12364,6 +12376,12 @@ If TPFLT&gt;0: High level</description>
               <description>Channel 5 data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -12567,13 +12585,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENR</name>
                 <usage>read</usage>
                 <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>Overflow is disabled</description>
+                  <name>Enabled</name>
+                  <description>Overflow is enabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>Overflow is enabled</description>
+                  <name>Disabled</name>
+                  <description>Overflow is disabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -12581,13 +12599,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Overflow disable</description>
+                  <name>Enable</name>
+                  <description>Overflow enable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Overflow enable</description>
+                  <name>Disable</name>
+                  <description>Overflow disable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -13054,6 +13072,34 @@ If TPFLT&gt;0: High level</description>
               <description>Trigger DMA request enable</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TDENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Trigger DMA request is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Trigger DMA request is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>TDENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Trigger DMA request disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Trigger DMA request enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>4</dim>
@@ -13389,7 +13435,7 @@ If TPFLT&gt;0: High level</description>
                 <name>TRGSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>TriggerEvent</name>
                   <description>Generate a trigger event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -13408,7 +13454,7 @@ If TPFLT&gt;0: High level</description>
                 <name>C1SWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>ChannelEvent</name>
                   <description>Generate a channel event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -13424,7 +13470,7 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Overflow</name>
+                  <name>OverflowEvent</name>
                   <description>Generate an overflow event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -13486,6 +13532,49 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s output control</description>
               <bitOffset>4</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>COCTRL</name>
+                <enumeratedValue>
+                  <name>Disconnected</name>
+                  <description>Disconnected. CxORAW is disconnected from CxOUT</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>High</name>
+                  <description>CxORAW is high when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Low</name>
+                  <description>CxORAW is low when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Toggle</name>
+                  <description>Switch CxORAW level when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceLow</name>
+                  <description>CxORAW is forced low</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceHigh</name>
+                  <description>CxORAW is forced high</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_A</name>
+                  <description>PWM mode A</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_B</name>
+                  <description>PWM mode B</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -13624,6 +13713,89 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s digital filter</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
+              <enumeratedValues>
+                <name>CDF</name>
+                <enumeratedValue>
+                  <name>NoFilter</name>
+                  <description>No filter, sampling is done at f_DTS</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N2</name>
+                  <description>f_sampling = f_DTS, N=2</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N4</name>
+                  <description>f_sampling = f_DTS, N=4</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N8</name>
+                  <description>f_sampling = f_DTS, N=8</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N6</name>
+                  <description>f_sampling = f_DTS/2, N=6</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N8</name>
+                  <description>f_sampling = f_DTS/2, N=8</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N6</name>
+                  <description>f_sampling = f_DTS/4, N=6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N8</name>
+                  <description>f_sampling = f_DTS/4, N=8</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N6</name>
+                  <description>f_sampling = f_DTS/8, N=6</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N8</name>
+                  <description>f_sampling = f_DTS/8, N=8</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N5</name>
+                  <description>f_sampling = f_DTS/16, N=5</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N6</name>
+                  <description>f_sampling = f_DTS/16, N=6</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N8</name>
+                  <description>f_sampling = f_DTS/16, N=8</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N5</name>
+                  <description>f_sampling = f_DTS/32, N=5</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N6</name>
+                  <description>f_sampling = f_DTS/32, N=6</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N8</name>
+                  <description>f_sampling = f_DTS/32, N=8</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -13771,6 +13943,49 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s output control</description>
               <bitOffset>4</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>COCTRL</name>
+                <enumeratedValue>
+                  <name>Disconnected</name>
+                  <description>Disconnected. CxORAW is disconnected from CxOUT</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>High</name>
+                  <description>CxORAW is high when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Low</name>
+                  <description>CxORAW is low when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Toggle</name>
+                  <description>Switch CxORAW level when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceLow</name>
+                  <description>CxORAW is forced low</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceHigh</name>
+                  <description>CxORAW is forced high</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_A</name>
+                  <description>PWM mode A</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_B</name>
+                  <description>PWM mode B</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -13909,6 +14124,89 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s digital filter</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
+              <enumeratedValues>
+                <name>CDF</name>
+                <enumeratedValue>
+                  <name>NoFilter</name>
+                  <description>No filter, sampling is done at f_DTS</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N2</name>
+                  <description>f_sampling = f_DTS, N=2</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N4</name>
+                  <description>f_sampling = f_DTS, N=4</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N8</name>
+                  <description>f_sampling = f_DTS, N=8</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N6</name>
+                  <description>f_sampling = f_DTS/2, N=6</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N8</name>
+                  <description>f_sampling = f_DTS/2, N=8</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N6</name>
+                  <description>f_sampling = f_DTS/4, N=6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N8</name>
+                  <description>f_sampling = f_DTS/4, N=8</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N6</name>
+                  <description>f_sampling = f_DTS/8, N=6</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N8</name>
+                  <description>f_sampling = f_DTS/8, N=8</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N5</name>
+                  <description>f_sampling = f_DTS/16, N=5</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N6</name>
+                  <description>f_sampling = f_DTS/16, N=6</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N8</name>
+                  <description>f_sampling = f_DTS/16, N=8</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N5</name>
+                  <description>f_sampling = f_DTS/32, N=5</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N6</name>
+                  <description>f_sampling = f_DTS/32, N=6</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N8</name>
+                  <description>f_sampling = f_DTS/32, N=8</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -14099,9 +14397,15 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DIV</name>
-              <description>Divider value</description>
+              <description>The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1).</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -14137,14 +14441,6 @@ If TPFLT&gt;0: High level</description>
               <maximum>4294967295</maximum>
             </range>
           </writeConstraint>
-          <fields>
-            <field>
-              <name>C1DT</name>
-              <description>Channel 1 data register</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>DMACTRL</name>
@@ -14163,7 +14459,7 @@ If TPFLT&gt;0: High level</description>
               <writeConstraint>
                 <range>
                   <minimum>0</minimum>
-                  <maximum>31</maximum>
+                  <maximum>17</maximum>
                 </range>
               </writeConstraint>
             </field>
@@ -14172,12 +14468,6 @@ If TPFLT&gt;0: High level</description>
               <description>DMA transfer address offset</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>31</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -14195,12 +14485,6 @@ If TPFLT&gt;0: High level</description>
               <description>DMA data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>65535</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -14402,13 +14686,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENR</name>
                 <usage>read</usage>
                 <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>Overflow is disabled</description>
+                  <name>Enabled</name>
+                  <description>Overflow is enabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>Overflow is enabled</description>
+                  <name>Disabled</name>
+                  <description>Overflow is disabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -14416,13 +14700,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Overflow disable</description>
+                  <name>Enable</name>
+                  <description>Overflow enable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Overflow enable</description>
+                  <name>Disable</name>
+                  <description>Overflow disable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -14889,6 +15173,34 @@ If TPFLT&gt;0: High level</description>
               <description>Trigger DMA request enable</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TDENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Trigger DMA request is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Trigger DMA request is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>TDENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Trigger DMA request disable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Trigger DMA request enable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>4</dim>
@@ -15224,7 +15536,7 @@ If TPFLT&gt;0: High level</description>
                 <name>TRGSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>TriggerEvent</name>
                   <description>Generate a trigger event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -15243,7 +15555,7 @@ If TPFLT&gt;0: High level</description>
                 <name>C1SWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>ChannelEvent</name>
                   <description>Generate a channel event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -15259,7 +15571,7 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Overflow</name>
+                  <name>OverflowEvent</name>
                   <description>Generate an overflow event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -15321,6 +15633,49 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s output control</description>
               <bitOffset>4</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>COCTRL</name>
+                <enumeratedValue>
+                  <name>Disconnected</name>
+                  <description>Disconnected. CxORAW is disconnected from CxOUT</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>High</name>
+                  <description>CxORAW is high when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Low</name>
+                  <description>CxORAW is low when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Toggle</name>
+                  <description>Switch CxORAW level when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceLow</name>
+                  <description>CxORAW is forced low</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceHigh</name>
+                  <description>CxORAW is forced high</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_A</name>
+                  <description>PWM mode A</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_B</name>
+                  <description>PWM mode B</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -15459,6 +15814,89 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s digital filter</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
+              <enumeratedValues>
+                <name>CDF</name>
+                <enumeratedValue>
+                  <name>NoFilter</name>
+                  <description>No filter, sampling is done at f_DTS</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N2</name>
+                  <description>f_sampling = f_DTS, N=2</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N4</name>
+                  <description>f_sampling = f_DTS, N=4</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N8</name>
+                  <description>f_sampling = f_DTS, N=8</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N6</name>
+                  <description>f_sampling = f_DTS/2, N=6</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N8</name>
+                  <description>f_sampling = f_DTS/2, N=8</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N6</name>
+                  <description>f_sampling = f_DTS/4, N=6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N8</name>
+                  <description>f_sampling = f_DTS/4, N=8</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N6</name>
+                  <description>f_sampling = f_DTS/8, N=6</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N8</name>
+                  <description>f_sampling = f_DTS/8, N=8</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N5</name>
+                  <description>f_sampling = f_DTS/16, N=5</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N6</name>
+                  <description>f_sampling = f_DTS/16, N=6</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N8</name>
+                  <description>f_sampling = f_DTS/16, N=8</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N5</name>
+                  <description>f_sampling = f_DTS/32, N=5</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N6</name>
+                  <description>f_sampling = f_DTS/32, N=6</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N8</name>
+                  <description>f_sampling = f_DTS/32, N=8</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -15606,6 +16044,49 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s output control</description>
               <bitOffset>4</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>COCTRL</name>
+                <enumeratedValue>
+                  <name>Disconnected</name>
+                  <description>Disconnected. CxORAW is disconnected from CxOUT</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>High</name>
+                  <description>CxORAW is high when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Low</name>
+                  <description>CxORAW is low when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Toggle</name>
+                  <description>Switch CxORAW level when TMRx_CVAL=TMRx_CxDT</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceLow</name>
+                  <description>CxORAW is forced low</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForceHigh</name>
+                  <description>CxORAW is forced high</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_A</name>
+                  <description>PWM mode A</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PWM_B</name>
+                  <description>PWM mode B</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -15744,6 +16225,89 @@ If TPFLT&gt;0: High level</description>
               <description>Channel %s digital filter</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
+              <enumeratedValues>
+                <name>CDF</name>
+                <enumeratedValue>
+                  <name>NoFilter</name>
+                  <description>No filter, sampling is done at f_DTS</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N2</name>
+                  <description>f_sampling = f_DTS, N=2</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N4</name>
+                  <description>f_sampling = f_DTS, N=4</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>N8</name>
+                  <description>f_sampling = f_DTS, N=8</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N6</name>
+                  <description>f_sampling = f_DTS/2, N=6</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div2N8</name>
+                  <description>f_sampling = f_DTS/2, N=8</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N6</name>
+                  <description>f_sampling = f_DTS/4, N=6</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div4N8</name>
+                  <description>f_sampling = f_DTS/4, N=8</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N6</name>
+                  <description>f_sampling = f_DTS/8, N=6</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div8N8</name>
+                  <description>f_sampling = f_DTS/8, N=8</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N5</name>
+                  <description>f_sampling = f_DTS/16, N=5</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N6</name>
+                  <description>f_sampling = f_DTS/16, N=6</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div16N8</name>
+                  <description>f_sampling = f_DTS/16, N=8</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N5</name>
+                  <description>f_sampling = f_DTS/32, N=5</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N6</name>
+                  <description>f_sampling = f_DTS/32, N=6</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>div32N8</name>
+                  <description>f_sampling = f_DTS/32, N=8</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <dim>2</dim>
@@ -15922,6 +16486,12 @@ If TPFLT&gt;0: High level</description>
               <description>Counter value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -15936,9 +16506,15 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DIV</name>
-              <description>Divider value</description>
+              <description>The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1).</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -15949,13 +16525,19 @@ If TPFLT&gt;0: High level</description>
           <addressOffset>0x2C</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <fields>
             <field>
               <name>PR</name>
               <description>Period value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -15976,6 +16558,12 @@ If TPFLT&gt;0: High level</description>
               <description>Channel 1 data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -15996,7 +16584,7 @@ If TPFLT&gt;0: High level</description>
               <writeConstraint>
                 <range>
                   <minimum>0</minimum>
-                  <maximum>31</maximum>
+                  <maximum>17</maximum>
                 </range>
               </writeConstraint>
             </field>
@@ -16005,12 +16593,6 @@ If TPFLT&gt;0: High level</description>
               <description>DMA transfer address offset</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>31</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -16028,12 +16610,6 @@ If TPFLT&gt;0: High level</description>
               <description>DMA data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>65535</maximum>
-                </range>
-              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -16221,13 +16797,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENR</name>
                 <usage>read</usage>
                 <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>Overflow is disabled</description>
+                  <name>Enabled</name>
+                  <description>Overflow is enabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>Overflow is enabled</description>
+                  <name>Disabled</name>
+                  <description>Overflow is disabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -16235,13 +16811,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Overflow disable</description>
+                  <name>Enable</name>
+                  <description>Overflow enable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Overflow enable</description>
+                  <name>Disable</name>
+                  <description>Overflow disable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -16753,7 +17329,7 @@ If TPFLT&gt;0: High level</description>
                 <name>C1SWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>ChannelEvent</name>
                   <description>Generate a channel event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -16769,7 +17345,7 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Overflow</name>
+                  <name>OverflowEvent</name>
                   <description>Generate an overflow event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -17040,6 +17616,12 @@ If TPFLT&gt;0: High level</description>
               <description>Counter value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -17054,9 +17636,15 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DIV</name>
-              <description>Divider value</description>
+              <description>The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1).</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -17067,13 +17655,19 @@ If TPFLT&gt;0: High level</description>
           <addressOffset>0x2C</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <fields>
             <field>
               <name>PR</name>
               <description>Period value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -17111,6 +17705,12 @@ If TPFLT&gt;0: High level</description>
               <description>Channel 1 data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -17406,13 +18006,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENR</name>
                 <usage>read</usage>
                 <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>Overflow is disabled</description>
+                  <name>Enabled</name>
+                  <description>Overflow is enabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>Overflow is enabled</description>
+                  <name>Disabled</name>
+                  <description>Overflow is disabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -17420,13 +18020,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Overflow disable</description>
+                  <name>Enable</name>
+                  <description>Overflow enable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Overflow enable</description>
+                  <name>Disable</name>
+                  <description>Overflow disable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -17768,7 +18368,7 @@ If TPFLT&gt;0: High level</description>
                 <name>C1SWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Event</name>
+                  <name>ChannelEvent</name>
                   <description>Generate a channel event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -17784,7 +18384,7 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Overflow</name>
+                  <name>OverflowEvent</name>
                   <description>Generate an overflow event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -18063,6 +18663,12 @@ If TPFLT&gt;0: High level</description>
               <description>Counter value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18077,9 +18683,15 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DIV</name>
-              <description>Divider value</description>
+              <description>The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1).</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18090,13 +18702,19 @@ If TPFLT&gt;0: High level</description>
           <addressOffset>0x2C</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <fields>
             <field>
               <name>PR</name>
               <description>Period value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18134,6 +18752,12 @@ If TPFLT&gt;0: High level</description>
               <description>Channel 1 data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18405,13 +19029,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENR</name>
                 <usage>read</usage>
                 <enumeratedValue>
-                  <name>Disabled</name>
-                  <description>Overflow is disabled</description>
+                  <name>Enabled</name>
+                  <description>Overflow is enabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enabled</name>
-                  <description>Overflow is enabled</description>
+                  <name>Disabled</name>
+                  <description>Overflow is disabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -18419,13 +19043,13 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFENW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Overflow disable</description>
+                  <name>Enable</name>
+                  <description>Overflow enable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Overflow enable</description>
+                  <name>Disable</name>
+                  <description>Overflow disable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -18496,31 +19120,6 @@ If TPFLT&gt;0: High level</description>
                   <name>Update</name>
                   <description>Update</description>
                   <value>2</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>ComparePulse</name>
-                  <description>Compare pulse</description>
-                  <value>3</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>C1ORAW</name>
-                  <description>C1ORAW signal</description>
-                  <value>4</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>C2ORAW</name>
-                  <description>C2ORAW signal</description>
-                  <value>5</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>C3ORAW</name>
-                  <description>C3ORAW signal</description>
-                  <value>6</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>C4ORAW</name>
-                  <description>C4ORAW signal</description>
-                  <value>7</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -18665,7 +19264,7 @@ If TPFLT&gt;0: High level</description>
                 <name>OVFSWTRW</name>
                 <usage>write</usage>
                 <enumeratedValue>
-                  <name>Overflow</name>
+                  <name>OverflowEvent</name>
                   <description>Generate an overflow event</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -18687,6 +19286,12 @@ If TPFLT&gt;0: High level</description>
               <description>Counter value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18701,9 +19306,15 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>DIV</name>
-              <description>Divider value</description>
+              <description>The counter clock frequency Fck_cnt = Ftmr_clk /({value}+1).</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18714,13 +19325,19 @@ If TPFLT&gt;0: High level</description>
           <addressOffset>0x2C</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
+          <resetValue>0x0000FFFF</resetValue>
           <fields>
             <field>
               <name>PR</name>
               <description>Period value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
