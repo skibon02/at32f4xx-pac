@@ -6,14 +6,114 @@ pub type W = crate::W<OADDR1_SPEC>;
 pub type ADDR1_R = crate::FieldReader<u16>;
 #[doc = "Field `ADDR1` writer - Interface address"]
 pub type ADDR1_W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16, crate::Safe>;
+#[doc = "Own Address mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ADDR1MODE_A {
+    #[doc = "0: 7-bit address mode"]
+    Bit7 = 0,
+    #[doc = "1: 10-bit address mode"]
+    Bit10 = 1,
+}
+impl From<ADDR1MODE_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADDR1MODE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ADDR1MODE` reader - Own Address mode"]
-pub type ADDR1MODE_R = crate::BitReader;
+pub type ADDR1MODE_R = crate::BitReader<ADDR1MODE_A>;
+impl ADDR1MODE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ADDR1MODE_A {
+        match self.bits {
+            false => ADDR1MODE_A::Bit7,
+            true => ADDR1MODE_A::Bit10,
+        }
+    }
+    #[doc = "7-bit address mode"]
+    #[inline(always)]
+    pub fn is_bit7(&self) -> bool {
+        *self == ADDR1MODE_A::Bit7
+    }
+    #[doc = "10-bit address mode"]
+    #[inline(always)]
+    pub fn is_bit10(&self) -> bool {
+        *self == ADDR1MODE_A::Bit10
+    }
+}
 #[doc = "Field `ADDR1MODE` writer - Own Address mode"]
-pub type ADDR1MODE_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ADDR1MODE_W<'a, REG> = crate::BitWriter<'a, REG, ADDR1MODE_A>;
+impl<'a, REG> ADDR1MODE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "7-bit address mode"]
+    #[inline(always)]
+    pub fn bit7(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR1MODE_A::Bit7)
+    }
+    #[doc = "10-bit address mode"]
+    #[inline(always)]
+    pub fn bit10(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR1MODE_A::Bit10)
+    }
+}
+#[doc = "Own address 1 enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ADDR1EN_A {
+    #[doc = "0: Own address 1 disabled"]
+    Disabled = 0,
+    #[doc = "1: Own address 1 enabled"]
+    Enabled = 1,
+}
+impl From<ADDR1EN_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADDR1EN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ADDR1EN` reader - Own address 1 enable"]
-pub type ADDR1EN_R = crate::BitReader;
+pub type ADDR1EN_R = crate::BitReader<ADDR1EN_A>;
+impl ADDR1EN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ADDR1EN_A {
+        match self.bits {
+            false => ADDR1EN_A::Disabled,
+            true => ADDR1EN_A::Enabled,
+        }
+    }
+    #[doc = "Own address 1 disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ADDR1EN_A::Disabled
+    }
+    #[doc = "Own address 1 enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ADDR1EN_A::Enabled
+    }
+}
 #[doc = "Field `ADDR1EN` writer - Own address 1 enable"]
-pub type ADDR1EN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ADDR1EN_W<'a, REG> = crate::BitWriter<'a, REG, ADDR1EN_A>;
+impl<'a, REG> ADDR1EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Own address 1 disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR1EN_A::Disabled)
+    }
+    #[doc = "Own address 1 enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR1EN_A::Enabled)
+    }
+}
 impl R {
     #[doc = "Bits 0:9 - Interface address"]
     #[inline(always)]

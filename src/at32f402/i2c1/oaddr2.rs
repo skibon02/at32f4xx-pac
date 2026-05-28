@@ -9,11 +9,61 @@ pub type ADDR2_W<'a, REG> = crate::FieldWriter<'a, REG, 7, u8, crate::Safe>;
 #[doc = "Field `ADDR2MASK` reader - Own address 2-bit mask"]
 pub type ADDR2MASK_R = crate::FieldReader;
 #[doc = "Field `ADDR2MASK` writer - Own address 2-bit mask"]
-pub type ADDR2MASK_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+pub type ADDR2MASK_W<'a, REG> = crate::FieldWriter<'a, REG, 3, u8, crate::Safe>;
+#[doc = "Own address 2 enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ADDR2EN_A {
+    #[doc = "0: Own address 2 disabled"]
+    Disabled = 0,
+    #[doc = "1: Own address 2 enabled"]
+    Enabled = 1,
+}
+impl From<ADDR2EN_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADDR2EN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ADDR2EN` reader - Own address 2 enable"]
-pub type ADDR2EN_R = crate::BitReader;
+pub type ADDR2EN_R = crate::BitReader<ADDR2EN_A>;
+impl ADDR2EN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ADDR2EN_A {
+        match self.bits {
+            false => ADDR2EN_A::Disabled,
+            true => ADDR2EN_A::Enabled,
+        }
+    }
+    #[doc = "Own address 2 disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ADDR2EN_A::Disabled
+    }
+    #[doc = "Own address 2 enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ADDR2EN_A::Enabled
+    }
+}
 #[doc = "Field `ADDR2EN` writer - Own address 2 enable"]
-pub type ADDR2EN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ADDR2EN_W<'a, REG> = crate::BitWriter<'a, REG, ADDR2EN_A>;
+impl<'a, REG> ADDR2EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Own address 2 disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR2EN_A::Disabled)
+    }
+    #[doc = "Own address 2 enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR2EN_A::Enabled)
+    }
+}
 impl R {
     #[doc = "Bits 1:7 - Own address 2"]
     #[inline(always)]

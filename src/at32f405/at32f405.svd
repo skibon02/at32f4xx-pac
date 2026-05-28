@@ -18565,12 +18565,12 @@ If TPFLT&gt;0: High level</description>
                 <usage>read</usage>
                 <enumeratedValue>
                   <name>Disabled</name>
-                  <description>Data transmit data interrupt is disabled</description>
+                  <description>Data transmit interrupt is disabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Data transmit data interrupt is enabled</description>
+                  <description>Data transmit interrupt is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -18579,12 +18579,12 @@ If TPFLT&gt;0: High level</description>
                 <usage>write</usage>
                 <enumeratedValue>
                   <name>Disable</name>
-                  <description>Disable Data transmit data interrupt</description>
+                  <description>Disable Data transmit interrupt</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enable</name>
-                  <description>Enable Data transmit data interrupt</description>
+                  <description>Enable Data transmit interrupt</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -18595,6 +18595,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>RDIENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Data receive interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Data receive interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>RDIENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable Data receive interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable Data receive interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ADDRIEN</name>
@@ -18602,6 +18630,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>ADDRIENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Address match interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Address match interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>ADDRIENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable Address match interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable Address match interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ACKFAILIEN</name>
@@ -18609,6 +18665,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>ACKFAILIENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Acknowledge failure interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Acknowledge failure interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>ACKFAILIENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable Acknowledge failure interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable Acknowledge failure interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>STOPIEN</name>
@@ -18616,6 +18700,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>STOPIENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Stop generation complete interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Stop generation complete interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>STOPIENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable Stop generation complete interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable Stop generation complete interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TDCIEN</name>
@@ -18623,6 +18735,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>TDCIENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Data transfer complete interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Data transfer complete interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>TDCIENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable Data transfer complete interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable Data transfer complete interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ERRIEN</name>
@@ -18630,6 +18770,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>ERRIENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Error interrupt is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Error interrupt is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>ERRIENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable error interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable error interrupt</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DFLT</name>
@@ -18637,6 +18805,12 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>DMATEN</name>
@@ -18644,6 +18818,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>DMATEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>DMA transmit data request disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>DMA transmit data request enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DMAREN</name>
@@ -18651,6 +18838,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>DMAREN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>DMA receive data request disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>DMA receive data request enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SCTRL</name>
@@ -18658,6 +18858,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>SCTRL</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Slave receive data control disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Slave receive data control enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>STRETCH</name>
@@ -18665,6 +18878,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>STRETCHR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Clock stretching mode is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Clock stretching mode is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>STRETCHW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable clock stretching mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable clock stretching mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>GCAEN</name>
@@ -18672,6 +18913,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>19</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>GCAENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>General call address is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>General call address is enabled, response 0000000x</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>GCAENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable general call address</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable general call address, response 0000000x</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HADDREN</name>
@@ -18679,6 +18948,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>20</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>HADDREN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>SMBus host address disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>SMBus host address enabled, response with host address 0001000x</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DEVADDREN</name>
@@ -18686,6 +18968,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>DEVADDREN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>SMBus device default address disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>SMBus device default address enabled, response with default address 1100001x</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SMBALERT</name>
@@ -18693,6 +18988,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>SMBALERT</name>
+                <enumeratedValue>
+                  <name>HighDisabled</name>
+                  <description>Slave SMBus alert pin high / Master SMBus alert disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LowEnabled</name>
+                  <description>Slave SMBus alert pin low, response address 0001100x / Master SMBus alert enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PECEN</name>
@@ -18700,6 +19008,34 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>PECENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>PEC calculation is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>PEC calculation is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>PECENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable PEC calculation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable PEC calculation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -18717,66 +19053,192 @@ If TPFLT&gt;0: High level</description>
               <description>Request PEC transmission enable</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PECTENR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>PEC transmission is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>PEC transmission is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>PECTENW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable PEC transmission</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable PEC transmission</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ASTOPEN</name>
               <description>Automatically send stop condition enable</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ASTOPEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Automatic end mode disabled, software sends STOP condition</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Automatic end mode enabled. automatically send STOP condition</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RLDEN</name>
               <description>Send data reload mode enable</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>RLDEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Send data reload mode disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Send data reload mode disabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>CNT</name>
               <description>Transmit data counter</description>
               <bitOffset>16</bitOffset>
               <bitWidth>8</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>NACKEN</name>
               <description>Not acknowledge enable</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>NACKEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>NACK generation disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>NACK generation enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>GENSTOP</name>
               <description>Generate stop condition</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToSet</modifiedWriteValues>
+              <enumeratedValues>
+                <name>GENSTOPW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Stop</name>
+                  <description>Generate stop condition in master mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>GENSTART</name>
               <description>Generate start condition</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>READH10</name>
-              <description>10-bit address header read enable</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToSet</modifiedWriteValues>
+              <enumeratedValues>
+                <name>GENSTARTW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Generate start condition in master mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ADDR10</name>
               <description>Host send 10-bit address mode enable</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ADDR10</name>
+                <enumeratedValue>
+                  <name>bit7</name>
+                  <description>7-bit addres mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bit10</name>
+                  <description>10-bit address mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>READH10</name>
+              <description>10-bit address header read enable</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ADDR10"/>
             </field>
             <field>
               <name>DIR</name>
               <description>Master data transmission direction</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DIR</name>
+                <enumeratedValue>
+                  <name>Receive</name>
+                  <description>Data byte received from slave</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Transmit</name>
+                  <description>Data byte transmitted to slave</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SADDR</name>
               <description>Slave address</description>
               <bitOffset>0</bitOffset>
               <bitWidth>10</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>1023</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18806,12 +19268,38 @@ If TPFLT&gt;0: High level</description>
               <description>Own Address mode</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ADDR1MODE</name>
+                <enumeratedValue>
+                  <name>bit7</name>
+                  <description>7-bit address mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>bit10</name>
+                  <description>10-bit address mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ADDR1EN</name>
               <description>Own address 1 enable</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ADDR1EN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Own address 1 disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Own address 1 enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -18841,12 +19329,31 @@ If TPFLT&gt;0: High level</description>
               <description>Own address 2-bit mask</description>
               <bitOffset>8</bitOffset>
               <bitWidth>3</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>7</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>ADDR2EN</name>
               <description>Own address 2 enable</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ADDR2EN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Own address 2 disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Own address 2 enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -18861,39 +19368,75 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>SCLL</name>
-              <description>SCL low level</description>
+              <description>SCL low level. TSCLL = (SCLL + 1) x (DIV + 1) x TI2C_CLK</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SCLH</name>
-              <description>SCL high level</description>
+              <description>SCL high level. TSCLH = (SCLH + 1) x (DIV + 1) x TI2C_CLK</description>
               <bitOffset>8</bitOffset>
               <bitWidth>8</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SDAD</name>
-              <description>SDA output delay</description>
+              <description>SDA delay. TSDAD = (SDAD + 1) x (DIV + 1) x TI2C_CLK</description>
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SCLD</name>
-              <description>SCL output delay</description>
+              <description>SCL delay. TSCLD = (SCLD + 1) x (DIV + 1) x TI2C_CLK</description>
               <bitOffset>20</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>DIVH</name>
-              <description>High 4 bits of clock divider value</description>
+              <description>Clock prescaler high. DIV = (DIVH &lt;&lt; 4) + DIVL</description>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>DIVL</name>
-              <description>Low 4 bits of clock divider value</description>
+              <description>Clock prescaler low. DIV = (DIVH &lt;&lt; 4) + DIVL</description>
               <bitOffset>28</bitOffset>
               <bitWidth>4</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>15</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -18908,33 +19451,84 @@ If TPFLT&gt;0: High level</description>
           <fields>
             <field>
               <name>TOTIME</name>
-              <description>Clock timeout detection time</description>
+              <description>Clock timeout. For low level: (TOTIME + 1) x 2048 x TI2C_CLK. For high level: (TOTIME + 1) x 4 x TI2C_CLK.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>12</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>63</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
-              <name>TOMOED</name>
+              <name>TOMODE</name>
               <description>Clock timeout detection mode</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TOMODE</name>
+                <enumeratedValue>
+                  <name>LowLevel</name>
+                  <description>Clock low level detection timeout</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HighLevel</name>
+                  <description>Clock high level detection timeout</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TOEN</name>
               <description>Detect clock low/high timeout enable</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TOEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Clock timeout detection disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Clock timeout detection enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>EXTTIME</name>
-              <description>Cumulative clock low extend timeout value</description>
+              <description>Cumulative clock low extend timeout value. (EXTTIME + 1) x 2048 x TI2C_CLK.</description>
               <bitOffset>16</bitOffset>
               <bitWidth>12</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>63</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>EXTEN</name>
               <description>Cumulative clock low extend timeout enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>EXTEN</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Cumulative clock low extend timeout disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Cumulative clock low extend timeout enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -18952,6 +19546,12 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>17</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-only</access>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>127</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SDIR</name>
@@ -18959,6 +19559,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>SDIR</name>
+                <enumeratedValue>
+                  <name>Receive</name>
+                  <description>Data byte received from slave</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Transmit</name>
+                  <description>Data byte transmitted to slave</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>BUSYF</name>
@@ -18966,6 +19579,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>BUSYF</name>
+                <enumeratedValue>
+                  <name>Idle</name>
+                  <description>I2C bus is idle</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Busy</name>
+                  <description>I2C bus is busy. Start condition was set</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ALERTF</name>
@@ -18973,6 +19599,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>ALERTF</name>
+                <enumeratedValue>
+                  <name>NoAlert</name>
+                  <description>No SMBus alert</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Alert</name>
+                  <description>SMBus alert occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TMOUT</name>
@@ -18980,6 +19619,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>TMOUT</name>
+                <enumeratedValue>
+                  <name>NoTimeout</name>
+                  <description>No SMBus timeout occurred</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Timeout</name>
+                  <description>SMBus timeout occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PECERR</name>
@@ -18987,6 +19639,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>PECERR</name>
+                <enumeratedValue>
+                  <name>NoError</name>
+                  <description>PEC error in reception or transmission</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Error</name>
+                  <description>PEC error in reception or transmission</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OUF</name>
@@ -18994,6 +19659,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>OUF</name>
+                <enumeratedValue>
+                  <name>NoOverrun</name>
+                  <description>No overrun/underrun occurred</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Overrun</name>
+                  <description>Overrun/underrun occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ARLOST</name>
@@ -19001,6 +19679,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>ARLOST</name>
+                <enumeratedValue>
+                  <name>NoLost</name>
+                  <description>No arbitration lost detected</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Lost</name>
+                  <description>Arbitration lost detected</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>BUSERR</name>
@@ -19008,6 +19699,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>BUSERR</name>
+                <enumeratedValue>
+                  <name>NoError</name>
+                  <description>No bus error detected</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Error</name>
+                  <description>Bus error detected</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TCRLD</name>
@@ -19015,6 +19719,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>TCRLD</name>
+                <enumeratedValue>
+                  <name>NotComplete</name>
+                  <description>Data transfer not complete yet</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Complete</name>
+                  <description>Data transfer complete, waiting for data load</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TDC</name>
@@ -19022,6 +19739,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>TDC</name>
+                <enumeratedValue>
+                  <name>NotComplete</name>
+                  <description>Data transfer not complete yet</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Complete</name>
+                  <description>Data transfer complete, data loaded</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>STOPF</name>
@@ -19029,6 +19759,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>STOPF</name>
+                <enumeratedValue>
+                  <name>NoStop</name>
+                  <description>No Stop condition detected</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Stop</name>
+                  <description>Stop condition detected</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ACKFAIL</name>
@@ -19036,6 +19779,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>ACKFAIL</name>
+                <enumeratedValue>
+                  <name>NoFailure</name>
+                  <description>No acknowledge failure</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Failure</name>
+                  <description>Acknowledge failure</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ADDRF</name>
@@ -19043,6 +19799,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>ADDRF</name>
+                <enumeratedValue>
+                  <name>NoMatch</name>
+                  <description>No address matched</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Matched</name>
+                  <description>Address matched</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RDBF</name>
@@ -19050,6 +19819,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>RDBF</name>
+                <enumeratedValue>
+                  <name>Empty</name>
+                  <description>Data register empty</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HasData</name>
+                  <description>Data register not empty</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TDIS</name>
@@ -19058,6 +19840,29 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToSet</modifiedWriteValues>
+              <enumeratedValues>
+                <name>TDISR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotEmpty</name>
+                  <description>Data has been written to the I2C_TXDT</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Empty</name>
+                  <description>Data has been sent from the I2C_TXDT to the shift register. I2C_TXDT become empty, and thus the to-be- transferred data must be written to the I2C_TXDT</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>TDISW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Tdis</name>
+                  <description>Write 1 to generate TDIS event when clock stretching is disabled.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TDBE</name>
@@ -19066,6 +19871,29 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>TDBER</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotEmpty</name>
+                  <description>Data register not empty</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Empty</name>
+                  <description>Data register empty</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>TDBEW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Write 1 to clear TDBE flag when clock stretching is disabled.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -19079,11 +19907,27 @@ If TPFLT&gt;0: High level</description>
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
+              <name>ADDRC</name>
+              <description>Clear 0~7 bit address match flag</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>ADDRCW</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Write 1 to clear flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
               <name>ALERTC</name>
               <description>Clear SMBus alert flag</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
             <field>
               <name>TMOUTC</name>
@@ -19091,6 +19935,7 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
             <field>
               <name>PECERRC</name>
@@ -19098,6 +19943,7 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
             <field>
               <name>OUFC</name>
@@ -19105,6 +19951,7 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
             <field>
               <name>ARLOSTC</name>
@@ -19112,6 +19959,7 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
             <field>
               <name>BUSERRC</name>
@@ -19119,6 +19967,7 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
             <field>
               <name>STOPC</name>
@@ -19126,6 +19975,7 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
             <field>
               <name>ACKFAILC</name>
@@ -19133,13 +19983,7 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
-            </field>
-            <field>
-              <name>ADDRC</name>
-              <description>Clear 0~7 bit address match flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="ADDRCW"/>
             </field>
           </fields>
         </register>
@@ -19157,6 +20001,12 @@ If TPFLT&gt;0: High level</description>
               <description>PEC value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -19197,6 +20047,12 @@ If TPFLT&gt;0: High level</description>
               <description>Transmit data register</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>

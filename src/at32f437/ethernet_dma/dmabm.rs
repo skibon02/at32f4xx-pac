@@ -128,11 +128,65 @@ where
 #[doc = "Field `DSL` reader - Descriptor skip length"]
 pub type DSL_R = crate::FieldReader;
 #[doc = "Field `DSL` writer - Descriptor skip length"]
-pub type DSL_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type DSL_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
+#[doc = "Enhanced descriptor enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum EDE_A {
+    #[doc = "0: Normal descriptor format"]
+    Normal = 0,
+    #[doc = "1: Enhanced descriptor format, descriptor size increased to 8 words"]
+    Enhanced = 1,
+}
+impl From<EDE_A> for bool {
+    #[inline(always)]
+    fn from(variant: EDE_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `EDE` reader - Enhanced descriptor enable"]
+pub type EDE_R = crate::BitReader<EDE_A>;
+impl EDE_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> EDE_A {
+        match self.bits {
+            false => EDE_A::Normal,
+            true => EDE_A::Enhanced,
+        }
+    }
+    #[doc = "Normal descriptor format"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        *self == EDE_A::Normal
+    }
+    #[doc = "Enhanced descriptor format, descriptor size increased to 8 words"]
+    #[inline(always)]
+    pub fn is_enhanced(&self) -> bool {
+        *self == EDE_A::Enhanced
+    }
+}
+#[doc = "Field `EDE` writer - Enhanced descriptor enable"]
+pub type EDE_W<'a, REG> = crate::BitWriter<'a, REG, EDE_A>;
+impl<'a, REG> EDE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Normal descriptor format"]
+    #[inline(always)]
+    pub fn normal(self) -> &'a mut crate::W<REG> {
+        self.variant(EDE_A::Normal)
+    }
+    #[doc = "Enhanced descriptor format, descriptor size increased to 8 words"]
+    #[inline(always)]
+    pub fn enhanced(self) -> &'a mut crate::W<REG> {
+        self.variant(EDE_A::Enhanced)
+    }
+}
 #[doc = "Field `PBL` reader - Programmable burst length"]
 pub type PBL_R = crate::FieldReader;
 #[doc = "Field `PBL` writer - Programmable burst length"]
-pub type PBL_W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+pub type PBL_W<'a, REG> = crate::FieldWriter<'a, REG, 6, u8, crate::Safe>;
 #[doc = "Priority ratio\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -220,26 +274,226 @@ where
         self.variant(PR_A::Ratio1_4)
     }
 }
+#[doc = "Fixed burst\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FB_A {
+    #[doc = "0: Allow using INCR bursts for higher throughput"]
+    AllowIncr = 0,
+    #[doc = "1: Use only SINGLE/INCR4/INCR8/INCR16 bursts. The DMA does not use INCR burst transfers, making bus occupation more predictable"]
+    OnlyFixed = 1,
+}
+impl From<FB_A> for bool {
+    #[inline(always)]
+    fn from(variant: FB_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `FB` reader - Fixed burst"]
-pub type FB_R = crate::BitReader;
+pub type FB_R = crate::BitReader<FB_A>;
+impl FB_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> FB_A {
+        match self.bits {
+            false => FB_A::AllowIncr,
+            true => FB_A::OnlyFixed,
+        }
+    }
+    #[doc = "Allow using INCR bursts for higher throughput"]
+    #[inline(always)]
+    pub fn is_allow_incr(&self) -> bool {
+        *self == FB_A::AllowIncr
+    }
+    #[doc = "Use only SINGLE/INCR4/INCR8/INCR16 bursts. The DMA does not use INCR burst transfers, making bus occupation more predictable"]
+    #[inline(always)]
+    pub fn is_only_fixed(&self) -> bool {
+        *self == FB_A::OnlyFixed
+    }
+}
 #[doc = "Field `FB` writer - Fixed burst"]
-pub type FB_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type FB_W<'a, REG> = crate::BitWriter<'a, REG, FB_A>;
+impl<'a, REG> FB_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Allow using INCR bursts for higher throughput"]
+    #[inline(always)]
+    pub fn allow_incr(self) -> &'a mut crate::W<REG> {
+        self.variant(FB_A::AllowIncr)
+    }
+    #[doc = "Use only SINGLE/INCR4/INCR8/INCR16 bursts. The DMA does not use INCR burst transfers, making bus occupation more predictable"]
+    #[inline(always)]
+    pub fn only_fixed(self) -> &'a mut crate::W<REG> {
+        self.variant(FB_A::OnlyFixed)
+    }
+}
 #[doc = "Field `RDP` reader - Rx DMA PBL"]
 pub type RDP_R = crate::FieldReader;
 #[doc = "Field `RDP` writer - Rx DMA PBL"]
-pub type RDP_W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+pub type RDP_W<'a, REG> = crate::FieldWriter<'a, REG, 6, u8, crate::Safe>;
+#[doc = "Use separate PBL\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum USP_A {
+    #[doc = "0: PBL value is applicable to both transmit and receive DMA"]
+    Shared = 0,
+    #[doc = "1: Separate PBL value for transmit and receive DMA. RX uses RDB, TX uses PBL"]
+    Separate = 1,
+}
+impl From<USP_A> for bool {
+    #[inline(always)]
+    fn from(variant: USP_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `USP` reader - Use separate PBL"]
-pub type USP_R = crate::BitReader;
+pub type USP_R = crate::BitReader<USP_A>;
+impl USP_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> USP_A {
+        match self.bits {
+            false => USP_A::Shared,
+            true => USP_A::Separate,
+        }
+    }
+    #[doc = "PBL value is applicable to both transmit and receive DMA"]
+    #[inline(always)]
+    pub fn is_shared(&self) -> bool {
+        *self == USP_A::Shared
+    }
+    #[doc = "Separate PBL value for transmit and receive DMA. RX uses RDB, TX uses PBL"]
+    #[inline(always)]
+    pub fn is_separate(&self) -> bool {
+        *self == USP_A::Separate
+    }
+}
 #[doc = "Field `USP` writer - Use separate PBL"]
-pub type USP_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type USP_W<'a, REG> = crate::BitWriter<'a, REG, USP_A>;
+impl<'a, REG> USP_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "PBL value is applicable to both transmit and receive DMA"]
+    #[inline(always)]
+    pub fn shared(self) -> &'a mut crate::W<REG> {
+        self.variant(USP_A::Shared)
+    }
+    #[doc = "Separate PBL value for transmit and receive DMA. RX uses RDB, TX uses PBL"]
+    #[inline(always)]
+    pub fn separate(self) -> &'a mut crate::W<REG> {
+        self.variant(USP_A::Separate)
+    }
+}
+#[doc = "PNLx8 mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PBLX8_A {
+    #[doc = "0: Not multiply PBL value"]
+    Normal = 0,
+    #[doc = "1: Multiply PBL value by 8 for the DMA burst length"]
+    Mul8 = 1,
+}
+impl From<PBLX8_A> for bool {
+    #[inline(always)]
+    fn from(variant: PBLX8_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `PBLx8` reader - PNLx8 mode"]
-pub type PBLX8_R = crate::BitReader;
+pub type PBLX8_R = crate::BitReader<PBLX8_A>;
+impl PBLX8_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> PBLX8_A {
+        match self.bits {
+            false => PBLX8_A::Normal,
+            true => PBLX8_A::Mul8,
+        }
+    }
+    #[doc = "Not multiply PBL value"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        *self == PBLX8_A::Normal
+    }
+    #[doc = "Multiply PBL value by 8 for the DMA burst length"]
+    #[inline(always)]
+    pub fn is_mul8(&self) -> bool {
+        *self == PBLX8_A::Mul8
+    }
+}
 #[doc = "Field `PBLx8` writer - PNLx8 mode"]
-pub type PBLX8_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PBLX8_W<'a, REG> = crate::BitWriter<'a, REG, PBLX8_A>;
+impl<'a, REG> PBLX8_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Not multiply PBL value"]
+    #[inline(always)]
+    pub fn normal(self) -> &'a mut crate::W<REG> {
+        self.variant(PBLX8_A::Normal)
+    }
+    #[doc = "Multiply PBL value by 8 for the DMA burst length"]
+    #[inline(always)]
+    pub fn mul8(self) -> &'a mut crate::W<REG> {
+        self.variant(PBLX8_A::Mul8)
+    }
+}
+#[doc = "Address-aligned beats\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AAB_A {
+    #[doc = "0: Address aligned beats disabled"]
+    Disabled = 0,
+    #[doc = "1: Address aligned beats enabled. Applicable to GMAC only"]
+    Enabled = 1,
+}
+impl From<AAB_A> for bool {
+    #[inline(always)]
+    fn from(variant: AAB_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `AAB` reader - Address-aligned beats"]
-pub type AAB_R = crate::BitReader;
+pub type AAB_R = crate::BitReader<AAB_A>;
+impl AAB_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> AAB_A {
+        match self.bits {
+            false => AAB_A::Disabled,
+            true => AAB_A::Enabled,
+        }
+    }
+    #[doc = "Address aligned beats disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == AAB_A::Disabled
+    }
+    #[doc = "Address aligned beats enabled. Applicable to GMAC only"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == AAB_A::Enabled
+    }
+}
 #[doc = "Field `AAB` writer - Address-aligned beats"]
-pub type AAB_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type AAB_W<'a, REG> = crate::BitWriter<'a, REG, AAB_A>;
+impl<'a, REG> AAB_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Address aligned beats disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AAB_A::Disabled)
+    }
+    #[doc = "Address aligned beats enabled. Applicable to GMAC only"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(AAB_A::Enabled)
+    }
+}
 impl R {
     #[doc = "Bit 0 - Software reset"]
     #[inline(always)]
@@ -255,6 +509,11 @@ impl R {
     #[inline(always)]
     pub fn dsl(&self) -> DSL_R {
         DSL_R::new(((self.bits >> 2) & 0x1f) as u8)
+    }
+    #[doc = "Bit 7 - Enhanced descriptor enable"]
+    #[inline(always)]
+    pub fn ede(&self) -> EDE_R {
+        EDE_R::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bits 8:13 - Programmable burst length"]
     #[inline(always)]
@@ -305,6 +564,7 @@ impl core::fmt::Debug for R {
             .field("usp", &self.usp())
             .field("pblx8", &self.pblx8())
             .field("aab", &self.aab())
+            .field("ede", &self.ede())
             .finish()
     }
 }
@@ -323,6 +583,11 @@ impl W {
     #[inline(always)]
     pub fn dsl(&mut self) -> DSL_W<'_, DMABM_SPEC> {
         DSL_W::new(self, 2)
+    }
+    #[doc = "Bit 7 - Enhanced descriptor enable"]
+    #[inline(always)]
+    pub fn ede(&mut self) -> EDE_W<'_, DMABM_SPEC> {
+        EDE_W::new(self, 7)
     }
     #[doc = "Bits 8:13 - Programmable burst length"]
     #[inline(always)]

@@ -2,66 +2,240 @@
 pub type R = crate::R<DMASTS_SPEC>;
 #[doc = "Register `DMASTS` writer"]
 pub type W = crate::W<DMASTS_SPEC>;
+#[doc = "Transmit interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tir {
+    #[doc = "0: No interrupt"]
+    NoInterrupt = 0,
+    #[doc = "1: Interrupt occurred"]
+    Interrupt = 1,
+}
+impl From<Tir> for bool {
+    #[inline(always)]
+    fn from(variant: Tir) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TI` reader - Transmit interrupt"]
-pub type TI_R = crate::BitReader;
+pub type TI_R = crate::BitReader<Tir>;
+impl TI_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Tir {
+        match self.bits {
+            false => Tir::NoInterrupt,
+            true => Tir::Interrupt,
+        }
+    }
+    #[doc = "No interrupt"]
+    #[inline(always)]
+    pub fn is_no_interrupt(&self) -> bool {
+        *self == Tir::NoInterrupt
+    }
+    #[doc = "Interrupt occurred"]
+    #[inline(always)]
+    pub fn is_interrupt(&self) -> bool {
+        *self == Tir::Interrupt
+    }
+}
+#[doc = "Transmit interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TiwWO {
+    #[doc = "1: Clear this interrupt flag by writing 1 to it"]
+    Clear = 1,
+}
+impl From<TiwWO> for bool {
+    #[inline(always)]
+    fn from(variant: TiwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TI` writer - Transmit interrupt"]
-pub type TI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type TI_W<'a, REG> = crate::BitWriter1C<'a, REG, TiwWO>;
+impl<'a, REG> TI_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear this interrupt flag by writing 1 to it"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(TiwWO::Clear)
+    }
+}
 #[doc = "Field `TPS` reader - Transmit process stopped"]
-pub type TPS_R = crate::BitReader;
-#[doc = "Field `TPS` writer - Transmit process stopped"]
-pub type TPS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as TPS_R;
 #[doc = "Field `TBU` reader - Transmit buffer unavailable"]
-pub type TBU_R = crate::BitReader;
-#[doc = "Field `TBU` writer - Transmit buffer unavailable"]
-pub type TBU_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as TBU_R;
 #[doc = "Field `TJT` reader - Transmit jabber timeout"]
-pub type TJT_R = crate::BitReader;
-#[doc = "Field `TJT` writer - Transmit jabber timeout"]
-pub type TJT_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as TJT_R;
 #[doc = "Field `OVF` reader - Receive overflow"]
-pub type OVF_R = crate::BitReader;
-#[doc = "Field `OVF` writer - Receive overflow"]
-pub type OVF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as OVF_R;
 #[doc = "Field `UNF` reader - Transmit underflow"]
-pub type UNF_R = crate::BitReader;
-#[doc = "Field `UNF` writer - Transmit underflow"]
-pub type UNF_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as UNF_R;
 #[doc = "Field `RI` reader - Receive interrupt"]
-pub type RI_R = crate::BitReader;
-#[doc = "Field `RI` writer - Receive interrupt"]
-pub type RI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as RI_R;
 #[doc = "Field `RBU` reader - Receive buffer unavailable"]
-pub type RBU_R = crate::BitReader;
-#[doc = "Field `RBU` writer - Receive buffer unavailable"]
-pub type RBU_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as RBU_R;
 #[doc = "Field `RPS` reader - Receive process stopped"]
-pub type RPS_R = crate::BitReader;
-#[doc = "Field `RPS` writer - Receive process stopped"]
-pub type RPS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as RPS_R;
 #[doc = "Field `RWT` reader - Receive watchdog timeout"]
-pub type RWT_R = crate::BitReader;
-#[doc = "Field `RWT` writer - Receive watchdog timeout"]
-pub type RWT_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as RWT_R;
 #[doc = "Field `ETI` reader - Early transmit interrupt"]
-pub type ETI_R = crate::BitReader;
-#[doc = "Field `ETI` writer - Early transmit interrupt"]
-pub type ETI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as ETI_R;
 #[doc = "Field `FBEI` reader - Fatal bus error interrupt"]
-pub type FBEI_R = crate::BitReader;
-#[doc = "Field `FBEI` writer - Fatal bus error interrupt"]
-pub type FBEI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_R as FBEI_R;
 #[doc = "Field `ERI` reader - Early receive interrupt"]
-pub type ERI_R = crate::BitReader;
+pub use TI_R as ERI_R;
+#[doc = "Field `TPS` writer - Transmit process stopped"]
+pub use TI_W as TPS_W;
+#[doc = "Field `TBU` writer - Transmit buffer unavailable"]
+pub use TI_W as TBU_W;
+#[doc = "Field `TJT` writer - Transmit jabber timeout"]
+pub use TI_W as TJT_W;
+#[doc = "Field `OVF` writer - Receive overflow"]
+pub use TI_W as OVF_W;
+#[doc = "Field `UNF` writer - Transmit underflow"]
+pub use TI_W as UNF_W;
+#[doc = "Field `RI` writer - Receive interrupt"]
+pub use TI_W as RI_W;
+#[doc = "Field `RBU` writer - Receive buffer unavailable"]
+pub use TI_W as RBU_W;
+#[doc = "Field `RPS` writer - Receive process stopped"]
+pub use TI_W as RPS_W;
+#[doc = "Field `RWT` writer - Receive watchdog timeout"]
+pub use TI_W as RWT_W;
+#[doc = "Field `ETI` writer - Early transmit interrupt"]
+pub use TI_W as ETI_W;
+#[doc = "Field `FBEI` writer - Fatal bus error interrupt"]
+pub use TI_W as FBEI_W;
 #[doc = "Field `ERI` writer - Early receive interrupt"]
-pub type ERI_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use TI_W as ERI_W;
+#[doc = "Abnormal interrupt summary\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Aisr {
+    #[doc = "0: No abnormal interrupt"]
+    NoInterrupt = 0,
+    #[doc = "1: TPS | TJT | OVF | UNF | RBU | RPS | RWT | ETI | FBEI"]
+    AbnormalInterrupt = 1,
+}
+impl From<Aisr> for bool {
+    #[inline(always)]
+    fn from(variant: Aisr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `AIS` reader - Abnormal interrupt summary"]
-pub type AIS_R = crate::BitReader;
+pub type AIS_R = crate::BitReader<Aisr>;
+impl AIS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Aisr {
+        match self.bits {
+            false => Aisr::NoInterrupt,
+            true => Aisr::AbnormalInterrupt,
+        }
+    }
+    #[doc = "No abnormal interrupt"]
+    #[inline(always)]
+    pub fn is_no_interrupt(&self) -> bool {
+        *self == Aisr::NoInterrupt
+    }
+    #[doc = "TPS | TJT | OVF | UNF | RBU | RPS | RWT | ETI | FBEI"]
+    #[inline(always)]
+    pub fn is_abnormal_interrupt(&self) -> bool {
+        *self == Aisr::AbnormalInterrupt
+    }
+}
+#[doc = "Abnormal interrupt summary\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AiswWO {
+    #[doc = "1: Clear this interrupt flag by writing 1 to it"]
+    Clear = 1,
+}
+impl From<AiswWO> for bool {
+    #[inline(always)]
+    fn from(variant: AiswWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `AIS` writer - Abnormal interrupt summary"]
-pub type AIS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type AIS_W<'a, REG> = crate::BitWriter1C<'a, REG, AiswWO>;
+impl<'a, REG> AIS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear this interrupt flag by writing 1 to it"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(AiswWO::Clear)
+    }
+}
+#[doc = "Normal interrupt summary\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Nisr {
+    #[doc = "0: No normal interrupt"]
+    NoInterrupt = 0,
+    #[doc = "1: TI | TBU | RI | ERI"]
+    NormalInterrupt = 1,
+}
+impl From<Nisr> for bool {
+    #[inline(always)]
+    fn from(variant: Nisr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `NIS` reader - Normal interrupt summary"]
-pub type NIS_R = crate::BitReader;
+pub type NIS_R = crate::BitReader<Nisr>;
+impl NIS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Nisr {
+        match self.bits {
+            false => Nisr::NoInterrupt,
+            true => Nisr::NormalInterrupt,
+        }
+    }
+    #[doc = "No normal interrupt"]
+    #[inline(always)]
+    pub fn is_no_interrupt(&self) -> bool {
+        *self == Nisr::NoInterrupt
+    }
+    #[doc = "TI | TBU | RI | ERI"]
+    #[inline(always)]
+    pub fn is_normal_interrupt(&self) -> bool {
+        *self == Nisr::NormalInterrupt
+    }
+}
+#[doc = "Normal interrupt summary\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum NiswWO {
+    #[doc = "1: Clear this interrupt flag by writing 1 to it"]
+    Clear = 1,
+}
+impl From<NiswWO> for bool {
+    #[inline(always)]
+    fn from(variant: NiswWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `NIS` writer - Normal interrupt summary"]
-pub type NIS_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type NIS_W<'a, REG> = crate::BitWriter1C<'a, REG, NiswWO>;
+impl<'a, REG> NIS_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear this interrupt flag by writing 1 to it"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(NiswWO::Clear)
+    }
+}
 #[doc = "Receive process state\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -303,12 +477,117 @@ impl EB_R {
         *self == EB_A::TxDmaDescriptorReadAccess
     }
 }
+#[doc = "MAC MMC interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MMIR_A {
+    #[doc = "0: No MMC interrupt"]
+    NoMmcInterrupt = 0,
+    #[doc = "1: MMC interrupt occurred"]
+    MmcInterrupt = 1,
+}
+impl From<MMIR_A> for bool {
+    #[inline(always)]
+    fn from(variant: MMIR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `MMI` reader - MAC MMC interrupt"]
-pub type MMI_R = crate::BitReader;
+pub type MMI_R = crate::BitReader<MMIR_A>;
+impl MMI_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> MMIR_A {
+        match self.bits {
+            false => MMIR_A::NoMmcInterrupt,
+            true => MMIR_A::MmcInterrupt,
+        }
+    }
+    #[doc = "No MMC interrupt"]
+    #[inline(always)]
+    pub fn is_no_mmc_interrupt(&self) -> bool {
+        *self == MMIR_A::NoMmcInterrupt
+    }
+    #[doc = "MMC interrupt occurred"]
+    #[inline(always)]
+    pub fn is_mmc_interrupt(&self) -> bool {
+        *self == MMIR_A::MmcInterrupt
+    }
+}
+#[doc = "MAC PMT interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MPIR_A {
+    #[doc = "0: No PMT interrupt"]
+    NoPmtInterrupt = 0,
+    #[doc = "1: PMT interrupt occurred"]
+    PmtInterrupt = 1,
+}
+impl From<MPIR_A> for bool {
+    #[inline(always)]
+    fn from(variant: MPIR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `MPI` reader - MAC PMT interrupt"]
-pub type MPI_R = crate::BitReader;
+pub type MPI_R = crate::BitReader<MPIR_A>;
+impl MPI_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> MPIR_A {
+        match self.bits {
+            false => MPIR_A::NoPmtInterrupt,
+            true => MPIR_A::PmtInterrupt,
+        }
+    }
+    #[doc = "No PMT interrupt"]
+    #[inline(always)]
+    pub fn is_no_pmt_interrupt(&self) -> bool {
+        *self == MPIR_A::NoPmtInterrupt
+    }
+    #[doc = "PMT interrupt occurred"]
+    #[inline(always)]
+    pub fn is_pmt_interrupt(&self) -> bool {
+        *self == MPIR_A::PmtInterrupt
+    }
+}
+#[doc = "Timestamp trigger interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TTIR_A {
+    #[doc = "0: No timestamp interrupt"]
+    NoTimestampInterrupt = 0,
+    #[doc = "1: Timestamp interrupt occurred"]
+    TimestampInterrupt = 1,
+}
+impl From<TTIR_A> for bool {
+    #[inline(always)]
+    fn from(variant: TTIR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TTI` reader - Timestamp trigger interrupt"]
-pub type TTI_R = crate::BitReader;
+pub type TTI_R = crate::BitReader<TTIR_A>;
+impl TTI_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TTIR_A {
+        match self.bits {
+            false => TTIR_A::NoTimestampInterrupt,
+            true => TTIR_A::TimestampInterrupt,
+        }
+    }
+    #[doc = "No timestamp interrupt"]
+    #[inline(always)]
+    pub fn is_no_timestamp_interrupt(&self) -> bool {
+        *self == TTIR_A::NoTimestampInterrupt
+    }
+    #[doc = "Timestamp interrupt occurred"]
+    #[inline(always)]
+    pub fn is_timestamp_interrupt(&self) -> bool {
+        *self == TTIR_A::TimestampInterrupt
+    }
+}
 impl R {
     #[doc = "Bit 0 - Transmit interrupt"]
     #[inline(always)]

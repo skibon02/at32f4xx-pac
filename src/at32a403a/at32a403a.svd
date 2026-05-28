@@ -29080,7 +29080,7 @@
             </field>
             <field>
               <name>CST</name>
-              <description>When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application.</description>
+              <description>CRC stripping for type frames</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
@@ -30995,12 +30995,24 @@
               <description>Descriptor skip length</description>
               <bitOffset>2</bitOffset>
               <bitWidth>5</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>31</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>PBL</name>
               <description>Programmable burst length</description>
               <bitOffset>8</bitOffset>
               <bitWidth>6</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>63</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>PR</name>
@@ -31036,30 +31048,107 @@
               <description>Fixed burst</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FB</name>
+                <enumeratedValue>
+                  <name>AllowIncr</name>
+                  <description>Allow using INCR bursts for higher throughput</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>OnlyFixed</name>
+                  <description>Use only SINGLE/INCR4/INCR8/INCR16 bursts. The DMA does not use INCR burst transfers, making bus occupation more predictable</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RDP</name>
               <description>Rx DMA PBL</description>
               <bitOffset>17</bitOffset>
               <bitWidth>6</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>63</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>USP</name>
               <description>Use separate PBL</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>USP</name>
+                <enumeratedValue>
+                  <name>Shared</name>
+                  <description>PBL value is applicable to both transmit and receive DMA</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Separate</name>
+                  <description>Separate PBL value for transmit and receive DMA. RX uses RDB, TX uses PBL</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PBLx8</name>
               <description>PNLx8 mode</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PBLx8</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Not multiply PBL value</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Mul8</name>
+                  <description>Multiply PBL value by 8 for the DMA burst length</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>AAB</name>
               <description>Address-aligned beats</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>AAB</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Address aligned beats disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Address aligned beats enabled. Applicable to GMAC only</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>EDE</name>
+              <description>Enhanced descriptor enable</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>EDE</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal descriptor format</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enhanced</name>
+                  <description>Enhanced descriptor format, descriptor size increased to 8 words</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -31148,6 +31237,29 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>TIR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoInterrupt</name>
+                  <description>No interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Interrupt</name>
+                  <description>Interrupt occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>TIW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear this interrupt flag by writing 1 to it</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TPS</name>
@@ -31156,6 +31268,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>TBU</name>
@@ -31164,6 +31282,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>TJT</name>
@@ -31172,6 +31296,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>OVF</name>
@@ -31180,6 +31310,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>UNF</name>
@@ -31188,6 +31324,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>RI</name>
@@ -31196,6 +31338,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>RBU</name>
@@ -31204,6 +31352,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>RPS</name>
@@ -31212,6 +31366,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>RWT</name>
@@ -31220,6 +31380,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>ETI</name>
@@ -31228,6 +31394,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>FBEI</name>
@@ -31236,6 +31408,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>ERI</name>
@@ -31244,6 +31422,12 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues derivedFrom="TIR">
+                <usage>read</usage>
+              </enumeratedValues>
+              <enumeratedValues derivedFrom="TIW">
+                <usage>write</usage>
+              </enumeratedValues>
             </field>
             <field>
               <name>AIS</name>
@@ -31252,6 +31436,29 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>AISR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoInterrupt</name>
+                  <description>No abnormal interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AbnormalInterrupt</name>
+                  <description>TPS | TJT | OVF | UNF | RBU | RPS | RWT | ETI | FBEI</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>AISW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear this interrupt flag by writing 1 to it</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>NIS</name>
@@ -31260,6 +31467,29 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>NISR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NoInterrupt</name>
+                  <description>No normal interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>NormalInterrupt</name>
+                  <description>TI | TBU | RI | ERI</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>NISW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear this interrupt flag by writing 1 to it</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RS</name>
@@ -31397,6 +31627,19 @@
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>MMIR</name>
+                <enumeratedValue>
+                  <name>NoMmcInterrupt</name>
+                  <description>No MMC interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MmcInterrupt</name>
+                  <description>MMC interrupt occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MPI</name>
@@ -31404,6 +31647,19 @@
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>MPIR</name>
+                <enumeratedValue>
+                  <name>NoPmtInterrupt</name>
+                  <description>No PMT interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PmtInterrupt</name>
+                  <description>PMT interrupt occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TTI</name>
@@ -31411,6 +31667,19 @@
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>TTIR</name>
+                <enumeratedValue>
+                  <name>NoTimestampInterrupt</name>
+                  <description>No timestamp interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TimestampInterrupt</name>
+                  <description>Timestamp interrupt occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -31428,54 +31697,208 @@
               <description>Start or stop receive</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SSR</name>
+                <enumeratedValue>
+                  <name>Stop</name>
+                  <description>Receive is stopped</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Receive is started or resumed</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OSF</name>
               <description>Operate on second frame</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>OSF</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Operate on the first descriptor in the list of receive descriptors</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Next</name>
+                  <description>Process second frame before status of first is obtained</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RTC</name>
               <description>Receive threshold control</description>
               <bitOffset>3</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>RTC</name>
+                <enumeratedValue>
+                  <name>Thr64</name>
+                  <description>Threshold for short frames is 64 bytes</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr32</name>
+                  <description>Threshold for short frames is 32 bytes</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr96</name>
+                  <description>Threshold for short frames is 96 bytes</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr128</name>
+                  <description>Threshold for short frames is 128 bytes</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FUGF</name>
               <description>Forward undersized good frames</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FUGF</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Drop frames less than 64 bytes</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PassUndersized</name>
+                  <description>Forward undersized frames &lt; 64 bytes if no error</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FEF</name>
               <description>Forward error frames</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FEF</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Forward all frames except those with errors</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PassError</name>
+                  <description>Forward all frames including those with CRC/collision/watchdog/overflow errors</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SSTC</name>
               <description>Start of stop transmission command</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SSTC</name>
+                <enumeratedValue>
+                  <name>Stop</name>
+                  <description>Transmit is stopped</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Transmit is started or resumed</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TTC</name>
               <description>Transmit threshold control</description>
               <bitOffset>14</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <name>TTC</name>
+                <enumeratedValue>
+                  <name>Thr64</name>
+                  <description>Threshold for short frames is 64 bytes</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr128</name>
+                  <description>Threshold for short frames is 128 bytes</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr192</name>
+                  <description>Threshold for short frames is 192 bytes</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr256</name>
+                  <description>Threshold for short frames is 256 bytes</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr40</name>
+                  <description>Threshold for short frames is 40 bytes</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr32</name>
+                  <description>Threshold for short frames is 32 bytes</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr24</name>
+                  <description>Threshold for short frames is 24 bytes</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Thr16</name>
+                  <description>Threshold for short frames is 16 bytes</description>
+                  <value>7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FTF</name>
               <description>Flush transmit FIFO</description>
               <bitOffset>20</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToSet</modifiedWriteValues>
+              <enumeratedValues>
+                <name>FTFW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Flush</name>
+                  <description>Flush the transmit FIFO. This bit is automatically cleared by hardware when the flush operation is completed</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TSF</name>
               <description>Transmit store and forward</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>TSF</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Transmit store and forward disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Transmit store and forward enabled. Transmission starts when a full frame resides in the Tx FIFO, and the TTC values specified in the bit [16: 14] are ignored</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DFRF</name>
@@ -31483,12 +31906,38 @@
               frames</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DFRF</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal operation, flush RX DMA if descriptors are unavailable</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DontFlush</name>
+                  <description>Rx DMA does not flush any receive frame due to the unavailability of receive descriptors or receive buffers</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RSF</name>
               <description>Receive store and forward</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>RSF</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Receive store and forward disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Receive store and forward enabled. The MTL reads the Rx FIFO only after a full frame is written to the Rx FIFO, ignoring the RTC bit</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DT</name>
@@ -31496,6 +31945,19 @@
               checksum error frames</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DT</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DontDropErrorFrames</name>
+                  <description>Don't drop frames with checksum errors in encapsulated payload. However ethernet checksum (FCS) must be valid</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -31642,6 +32104,12 @@
               <description>Missed frames control</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
               <readAction>clear</readAction>
             </field>
             <field>
@@ -31651,12 +32119,31 @@
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <readAction>clear</readAction>
+              <enumeratedValues>
+                <name>OBMFC</name>
+                <enumeratedValue>
+                  <name>NoOverflow</name>
+                  <description>No overflow of MFC field</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Overflow</name>
+                  <description>Overflow of MFC field. The MFC field is reset to 0 when this bit is set</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OFC</name>
               <description>Overflow frame counter</description>
               <bitOffset>17</bitOffset>
               <bitWidth>11</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>2047</maximum>
+                </range>
+              </writeConstraint>
               <readAction>clear</readAction>
             </field>
             <field>
@@ -31666,6 +32153,19 @@
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <readAction>clear</readAction>
+              <enumeratedValues>
+                <name>OBFOC</name>
+                <enumeratedValue>
+                  <name>NoOverflow</name>
+                  <description>No overflow of OFC field</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Overflow</name>
+                  <description>Overflow of OFC field. The OFC field is reset to 0 when this bit is set</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>

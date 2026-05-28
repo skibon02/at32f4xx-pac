@@ -1,20 +1,241 @@
 I2C?:
   CTRL1:
+    PECEN:
+      _read:
+        Disabled: [0, "PEC calculation is disabled"]
+        Enabled: [1, "PEC calculation is enabled"]
+      _write:
+        Disable: [0, "Disable PEC calculation"]
+        Enable: [1, "Enable PEC calculation"]
+    SMBALERT:
+      HighDisabled: [0, "Slave SMBus alert pin high / Master SMBus alert disabled"]
+      LowEnabled: [1, "Slave SMBus alert pin low, response address 0001100x / Master SMBus alert enabled"]
+    DEVADDREN:
+      Disabled: [0, "SMBus device default address disabled"]
+      Enabled: [1, "SMBus device default address enabled, response with default address 1100001x"]
+    HADDREN:
+      Disabled: [0, "SMBus host address disabled"]
+      Enabled: [1, "SMBus host address enabled, response with host address 0001000x"]
+    GCAEN:
+      _read:
+        Disabled: [0, "General call address is disabled"]
+        Enabled: [1, "General call address is enabled, response 0000000x"]
+      _write:
+        Disable: [0, "Disable general call address"]
+        Enable: [1, "Enable general call address, response 0000000x"]
+    STRETCH:
+      _read:
+        Disabled: [0, "Clock stretching mode is disabled"]
+        Enabled: [1, "Clock stretching mode is enabled"]
+      _write:
+        Enable: [1, "Enable clock stretching mode"]
+        Disable: [0, "Disable clock stretching mode"]
+    SCTRL:
+      Disabled: [0, "Slave receive data control disabled"]
+      Enabled: [1, "Slave receive data control enabled"]
+    DMAREN:
+      Disabled: [0, "DMA receive data request disabled"]
+      Enabled: [1, "DMA receive data request enabled"]
+    DMATEN:
+      Disabled: [0, "DMA transmit data request disabled"]
+      Enabled: [1, "DMA transmit data request enabled"]
+    DFLT: [0, 0xF]
+    ERRIEN:
+      _read:
+        Disabled: [0, "Error interrupt is disabled"]
+        Enabled: [1, "Error interrupt is enabled"]
+      _write:
+        Disable: [0, "Disable error interrupt"]
+        Enable: [1, "Enable error interrupt"]
+    TDCIEN:
+      _read:
+        Disabled: [0, "Data transfer complete interrupt is disabled"]
+        Enabled: [1, "Data transfer complete interrupt is enabled"]
+      _write:
+        Disable: [0, "Disable Data transfer complete interrupt"]
+        Enable: [1, "Enable Data transfer complete interrupt"]
+    STOPIEN:
+      _read:
+        Disabled: [0, "Stop generation complete interrupt is disabled"]
+        Enabled: [1, "Stop generation complete interrupt is enabled"]
+      _write:
+        Disable: [0, "Disable Stop generation complete interrupt"]
+        Enable: [1, "Enable Stop generation complete interrupt"]
+    ACKFAILIEN:
+      _read:
+        Disabled: [0, "Acknowledge failure interrupt is disabled"]
+        Enabled: [1, "Acknowledge failure interrupt is enabled"]
+      _write:
+        Disable: [0, "Disable Acknowledge failure interrupt"]
+        Enable: [1, "Enable Acknowledge failure interrupt"]
+    ADDRIEN:
+      _read:
+        Disabled: [0, "Address match interrupt is disabled"]
+        Enabled: [1, "Address match interrupt is enabled"]
+      _write:
+        Disable: [0, "Disable Address match interrupt"]
+        Enable: [1, "Enable Address match interrupt"]
+    RDIEN:
+      _read:
+        Disabled: [0, "Data receive interrupt is disabled"]
+        Enabled: [1, "Data receive interrupt is enabled"]
+      _write:
+        Disable: [0, "Disable Data receive interrupt"]
+        Enable: [1, "Enable Data receive interrupt"]
     TDIEN:
       _read:
-        Disabled: [0, "Data transmit data interrupt is disabled"]
-        Enabled: [1, "Data transmit data interrupt is enabled"]
+        Disabled: [0, "Data transmit interrupt is disabled"]
+        Enabled: [1, "Data transmit interrupt is enabled"]
       _write:
-        Disable: [0, "Disable Data transmit data interrupt"]
-        Enable: [1, "Enable Data transmit data interrupt"]
-  RXDT, TXDT:
-    DT: [0, 0xFF]
-
+        Disable: [0, "Disable Data transmit interrupt"]
+        Enable: [1, "Enable Data transmit interrupt"]
+    I2CEN:
+      Disabled: [0, "I2C peripheral disabled"]
+      Enabled: [1, "I2C peripheral enabled"]
+  CTRL2:
+    PECTEN:
+      _read:
+        Disabled: [0, "PEC transmission is disabled"]
+        Enabled: [1, "PEC transmission is enabled"]
+      _write:
+        Disable: [0, "Disable PEC transmission"]
+        Enable: [1, "Enable PEC transmission"]
+    ASTOPEN:
+      Disabled: [0, "Automatic end mode disabled, software sends STOP condition"]
+      Enabled: [1, "Automatic end mode enabled. automatically send STOP condition"]
+    RLDEN:
+      Disabled: [0, "Send data reload mode disabled"]
+      Enabled: [1, "Send data reload mode disabled"]
+    CNT: [0, 0xF]
+    NACKEN:
+      Disabled: [0, "NACK generation disabled"]
+      Enabled: [1, "NACK generation enabled"]
+    GENSTOP:
+      _W1S:
+        Stop: [1, "Generate stop condition in master mode"]
+    GENSTART:
+      _W1S:
+        Start: [1, "Generate start condition in master mode"]
+    READH10,ADDR10:
+      bit7: [0, "7-bit addres mode"]
+      bit10: [1, "10-bit address mode"]
+    DIR:
+      Receive: [0, "Data byte received from slave"]
+      Transmit: [1, "Data byte transmitted to slave"]
+    SADDR: [0, 0x3FF]
+  OADDR1:
+    ADDR1EN:
+      Disabled: [0, "Own address 1 disabled"]
+      Enabled: [1, "Own address 1 enabled"]
+    ADDR1MODE:
+      bit7: [0, "7-bit address mode"]
+      bit10: [1, "10-bit address mode"]
+  OADDR2:
+    ADDR2EN:
+      Disabled: [0, "Own address 2 disabled"]
+      Enabled: [1, "Own address 2 enabled"]
+    ADDR2MASK: [0, 0x7]
+  CLKCTRL:
+    _modify:
+      SCLL:
+        description: "SCL low level. TSCLL = (SCLL + 1) x (DIV + 1) x TI2C_CLK"
+      SCLH:
+        description: "SCL high level. TSCLH = (SCLH + 1) x (DIV + 1) x TI2C_CLK"
+      SDAD:
+        description: "SDA delay. TSDAD = (SDAD + 1) x (DIV + 1) x TI2C_CLK"
+      SCLD:
+        description: "SCL delay. TSCLD = (SCLD + 1) x (DIV + 1) x TI2C_CLK"
+      DIVH:
+        description: "Clock prescaler high. DIV = (DIVH << 4) + DIVL"
+      DIVL:
+        description: "Clock prescaler low. DIV = (DIVH << 4) + DIVL"
+    SCLL: [0, 0xFF]
+    SCLH: [0, 0xFF]
+    SDAD: [0, 0xF]
+    SCLD: [0, 0xF]
+    DIVH: [0, 0xF]
+    DIVL: [0, 0xF]
+  TIMEOUT:
+    _modify:
+      TOTIME:
+        description: "Clock timeout. For low level: (TOTIME + 1) x 2048 x TI2C_CLK. For high level: (TOTIME + 1) x 4 x TI2C_CLK."
+      EXTTIME:
+        description: "Cumulative clock low extend timeout value. (EXTTIME + 1) x 2048 x TI2C_CLK."
+      TOMOED:
+        name: TOMODE
+    TOTIME: [0, 0x3F]
+    TOMODE:
+      LowLevel: [0, "Clock low level detection timeout"]
+      HighLevel: [1, "Clock high level detection timeout"]
+    TOEN:
+      Disabled: [0, "Clock timeout detection disabled"]
+      Enabled: [1, "Clock timeout detection enabled"]
+    EXTTIME: [0, 0x3F]
+    EXTEN:
+      Disabled: [0, "Cumulative clock low extend timeout disabled"]
+      Enabled: [1, "Cumulative clock low extend timeout enabled"]
   STS:
+    ADDR: [0, 0x7F]
+    SDIR:
+      Receive: [0, "Data byte received from slave"]
+      Transmit: [1, "Data byte transmitted to slave"]
+    BUSYF:
+      Idle: [0, "I2C bus is idle"]
+      Busy: [1, "I2C bus is busy. Start condition was set"]
+    ALERTF:
+      NoAlert: [0, "No SMBus alert"]
+      Alert: [1, "SMBus alert occurred"]
+    TMOUT:
+      NoTimeout: [0, "No SMBus timeout occurred"]
+      Timeout: [1, "SMBus timeout occurred"]
+    PECERR:
+      NoError: [0, "PEC error in reception or transmission"]
+      Error: [1, "PEC error in reception or transmission"]
+    OUF:
+      NoOverrun: [0, "No overrun/underrun occurred"]
+      Overrun: [1, "Overrun/underrun occurred"]
+    ARLOST:
+      NoLost: [0, "No arbitration lost detected"]
+      Lost: [1, "Arbitration lost detected"]
+    BUSERR:
+      NoError: [0, "No bus error detected"]
+      Error: [1, "Bus error detected"]
+    TCRLD:
+      NotComplete: [0, "Data transfer not complete yet"]
+      Complete: [1, "Data transfer complete, waiting for data load"]
+    TDC:
+      NotComplete: [0, "Data transfer not complete yet"]
+      Complete: [1, "Data transfer complete, data loaded"]
+    STOPF:
+      NoStop: [0, "No Stop condition detected"]
+      Stop: [1, "Stop condition detected"]
+    ACKFAIL:
+      NoFailure: [0, "No acknowledge failure"]
+      Failure: [1, "Acknowledge failure"]
+    ADDRF:
+      NoMatch: [0, "No address matched"]
+      Matched: [1, "Address matched"]
+    RDBF:
+      Empty: [0, "Data register empty"]
+      HasData: [1, "Data register not empty"]
     TDIS:
-      _W1S: {}
+      _W1S:
+        Tdis: [1, "Write 1 to generate TDIS event when clock stretching is disabled."]
+      _read:
+        NotEmpty: [0, "Data has been written to the I2C_TXDT"]
+        Empty: [1, "Data has been sent from the I2C_TXDT to the shift register. I2C_TXDT become empty, and thus the to-be- transferred data must be written to the I2C_TXDT"]
     TDBE:
-      _W1C: {}
+      _W1C:
+        Clear: [1, "Write 1 to clear TDBE flag when clock stretching is disabled."]
+      _read:
+        NotEmpty: [0, "Data register not empty"]
+        Empty: [1, "Data register empty"]
   CLR:
     "*":
-      _W1C: {}
+      _W1C:
+        Clear: [1, "Write 1 to clear flag"]
+
+  PEC:
+    PECVAL: [0, 0xFF]
+  RXDT,TXDT:
+    DT: [0, 0xFF]

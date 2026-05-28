@@ -647,7 +647,7 @@ where
         self.variant(WD_A::WatchdogDisabled)
     }
 }
-#[doc = "When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application.\n\nValue on reset: 0"]
+#[doc = "CRC stripping for type frames\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CST_A {
@@ -662,7 +662,7 @@ impl From<CST_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `CST` reader - When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application."]
+#[doc = "Field `CST` reader - CRC stripping for type frames"]
 pub type CST_R = crate::BitReader<CST_A>;
 impl CST_R {
     #[doc = "Get enumerated values variant"]
@@ -684,7 +684,7 @@ impl CST_R {
         *self == CST_A::StrippingEnabled
     }
 }
-#[doc = "Field `CST` writer - When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application."]
+#[doc = "Field `CST` writer - CRC stripping for type frames"]
 pub type CST_W<'a, REG> = crate::BitWriter<'a, REG, CST_A>;
 impl<'a, REG> CST_W<'a, REG>
 where
@@ -777,7 +777,7 @@ impl R {
     pub fn wd(&self) -> WD_R {
         WD_R::new(((self.bits >> 23) & 1) != 0)
     }
-    #[doc = "Bit 25 - When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application."]
+    #[doc = "Bit 25 - CRC stripping for type frames"]
     #[inline(always)]
     pub fn cst(&self) -> CST_R {
         CST_R::new(((self.bits >> 25) & 1) != 0)
@@ -881,7 +881,7 @@ impl W {
     pub fn wd(&mut self) -> WD_W<'_, MACCTRL_SPEC> {
         WD_W::new(self, 23)
     }
-    #[doc = "Bit 25 - When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application."]
+    #[doc = "Bit 25 - CRC stripping for type frames"]
     #[inline(always)]
     pub fn cst(&mut self) -> CST_W<'_, MACCTRL_SPEC> {
         CST_W::new(self, 25)

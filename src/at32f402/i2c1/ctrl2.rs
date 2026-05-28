@@ -5,47 +5,438 @@ pub type W = crate::W<CTRL2_SPEC>;
 #[doc = "Field `SADDR` reader - Slave address"]
 pub type SADDR_R = crate::FieldReader<u16>;
 #[doc = "Field `SADDR` writer - Slave address"]
-pub type SADDR_W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
+pub type SADDR_W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16, crate::Safe>;
+#[doc = "Master data transmission direction\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DIR_A {
+    #[doc = "0: Data byte received from slave"]
+    Receive = 0,
+    #[doc = "1: Data byte transmitted to slave"]
+    Transmit = 1,
+}
+impl From<DIR_A> for bool {
+    #[inline(always)]
+    fn from(variant: DIR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `DIR` reader - Master data transmission direction"]
-pub type DIR_R = crate::BitReader;
+pub type DIR_R = crate::BitReader<DIR_A>;
+impl DIR_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> DIR_A {
+        match self.bits {
+            false => DIR_A::Receive,
+            true => DIR_A::Transmit,
+        }
+    }
+    #[doc = "Data byte received from slave"]
+    #[inline(always)]
+    pub fn is_receive(&self) -> bool {
+        *self == DIR_A::Receive
+    }
+    #[doc = "Data byte transmitted to slave"]
+    #[inline(always)]
+    pub fn is_transmit(&self) -> bool {
+        *self == DIR_A::Transmit
+    }
+}
 #[doc = "Field `DIR` writer - Master data transmission direction"]
-pub type DIR_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type DIR_W<'a, REG> = crate::BitWriter<'a, REG, DIR_A>;
+impl<'a, REG> DIR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Data byte received from slave"]
+    #[inline(always)]
+    pub fn receive(self) -> &'a mut crate::W<REG> {
+        self.variant(DIR_A::Receive)
+    }
+    #[doc = "Data byte transmitted to slave"]
+    #[inline(always)]
+    pub fn transmit(self) -> &'a mut crate::W<REG> {
+        self.variant(DIR_A::Transmit)
+    }
+}
+#[doc = "Host send 10-bit address mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ADDR10_A {
+    #[doc = "0: 7-bit addres mode"]
+    Bit7 = 0,
+    #[doc = "1: 10-bit address mode"]
+    Bit10 = 1,
+}
+impl From<ADDR10_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADDR10_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ADDR10` reader - Host send 10-bit address mode enable"]
-pub type ADDR10_R = crate::BitReader;
+pub type ADDR10_R = crate::BitReader<ADDR10_A>;
+impl ADDR10_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ADDR10_A {
+        match self.bits {
+            false => ADDR10_A::Bit7,
+            true => ADDR10_A::Bit10,
+        }
+    }
+    #[doc = "7-bit addres mode"]
+    #[inline(always)]
+    pub fn is_bit7(&self) -> bool {
+        *self == ADDR10_A::Bit7
+    }
+    #[doc = "10-bit address mode"]
+    #[inline(always)]
+    pub fn is_bit10(&self) -> bool {
+        *self == ADDR10_A::Bit10
+    }
+}
 #[doc = "Field `ADDR10` writer - Host send 10-bit address mode enable"]
-pub type ADDR10_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ADDR10_W<'a, REG> = crate::BitWriter<'a, REG, ADDR10_A>;
+impl<'a, REG> ADDR10_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "7-bit addres mode"]
+    #[inline(always)]
+    pub fn bit7(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR10_A::Bit7)
+    }
+    #[doc = "10-bit address mode"]
+    #[inline(always)]
+    pub fn bit10(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR10_A::Bit10)
+    }
+}
 #[doc = "Field `READH10` reader - 10-bit address header read enable"]
-pub type READH10_R = crate::BitReader;
+pub use ADDR10_R as READH10_R;
 #[doc = "Field `READH10` writer - 10-bit address header read enable"]
-pub type READH10_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use ADDR10_W as READH10_W;
+#[doc = "Generate start condition\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum GENSTARTW_A {
+    #[doc = "1: Generate start condition in master mode"]
+    Start = 1,
+}
+impl From<GENSTARTW_A> for bool {
+    #[inline(always)]
+    fn from(variant: GENSTARTW_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `GENSTART` reader - Generate start condition"]
-pub type GENSTART_R = crate::BitReader;
+pub type GENSTART_R = crate::BitReader<GENSTARTW_A>;
+impl GENSTART_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<GENSTARTW_A> {
+        match self.bits {
+            true => Some(GENSTARTW_A::Start),
+            _ => None,
+        }
+    }
+    #[doc = "Generate start condition in master mode"]
+    #[inline(always)]
+    pub fn is_start(&self) -> bool {
+        *self == GENSTARTW_A::Start
+    }
+}
 #[doc = "Field `GENSTART` writer - Generate start condition"]
-pub type GENSTART_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type GENSTART_W<'a, REG> = crate::BitWriter1S<'a, REG, GENSTARTW_A>;
+impl<'a, REG> GENSTART_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Generate start condition in master mode"]
+    #[inline(always)]
+    pub fn start(self) -> &'a mut crate::W<REG> {
+        self.variant(GENSTARTW_A::Start)
+    }
+}
+#[doc = "Generate stop condition\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum GENSTOPW_A {
+    #[doc = "1: Generate stop condition in master mode"]
+    Stop = 1,
+}
+impl From<GENSTOPW_A> for bool {
+    #[inline(always)]
+    fn from(variant: GENSTOPW_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `GENSTOP` reader - Generate stop condition"]
-pub type GENSTOP_R = crate::BitReader;
+pub type GENSTOP_R = crate::BitReader<GENSTOPW_A>;
+impl GENSTOP_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<GENSTOPW_A> {
+        match self.bits {
+            true => Some(GENSTOPW_A::Stop),
+            _ => None,
+        }
+    }
+    #[doc = "Generate stop condition in master mode"]
+    #[inline(always)]
+    pub fn is_stop(&self) -> bool {
+        *self == GENSTOPW_A::Stop
+    }
+}
 #[doc = "Field `GENSTOP` writer - Generate stop condition"]
-pub type GENSTOP_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type GENSTOP_W<'a, REG> = crate::BitWriter1S<'a, REG, GENSTOPW_A>;
+impl<'a, REG> GENSTOP_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Generate stop condition in master mode"]
+    #[inline(always)]
+    pub fn stop(self) -> &'a mut crate::W<REG> {
+        self.variant(GENSTOPW_A::Stop)
+    }
+}
+#[doc = "Not acknowledge enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum NACKEN_A {
+    #[doc = "0: NACK generation disabled"]
+    Disabled = 0,
+    #[doc = "1: NACK generation enabled"]
+    Enabled = 1,
+}
+impl From<NACKEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: NACKEN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `NACKEN` reader - Not acknowledge enable"]
-pub type NACKEN_R = crate::BitReader;
+pub type NACKEN_R = crate::BitReader<NACKEN_A>;
+impl NACKEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> NACKEN_A {
+        match self.bits {
+            false => NACKEN_A::Disabled,
+            true => NACKEN_A::Enabled,
+        }
+    }
+    #[doc = "NACK generation disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == NACKEN_A::Disabled
+    }
+    #[doc = "NACK generation enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == NACKEN_A::Enabled
+    }
+}
 #[doc = "Field `NACKEN` writer - Not acknowledge enable"]
-pub type NACKEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type NACKEN_W<'a, REG> = crate::BitWriter<'a, REG, NACKEN_A>;
+impl<'a, REG> NACKEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "NACK generation disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(NACKEN_A::Disabled)
+    }
+    #[doc = "NACK generation enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(NACKEN_A::Enabled)
+    }
+}
 #[doc = "Field `CNT` reader - Transmit data counter"]
 pub type CNT_R = crate::FieldReader;
 #[doc = "Field `CNT` writer - Transmit data counter"]
 pub type CNT_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+#[doc = "Send data reload mode enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RLDEN_A {
+    #[doc = "0: Send data reload mode disabled"]
+    Disabled = 0,
+    #[doc = "1: Send data reload mode disabled"]
+    Enabled = 1,
+}
+impl From<RLDEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RLDEN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `RLDEN` reader - Send data reload mode enable"]
-pub type RLDEN_R = crate::BitReader;
+pub type RLDEN_R = crate::BitReader<RLDEN_A>;
+impl RLDEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> RLDEN_A {
+        match self.bits {
+            false => RLDEN_A::Disabled,
+            true => RLDEN_A::Enabled,
+        }
+    }
+    #[doc = "Send data reload mode disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == RLDEN_A::Disabled
+    }
+    #[doc = "Send data reload mode disabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == RLDEN_A::Enabled
+    }
+}
 #[doc = "Field `RLDEN` writer - Send data reload mode enable"]
-pub type RLDEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type RLDEN_W<'a, REG> = crate::BitWriter<'a, REG, RLDEN_A>;
+impl<'a, REG> RLDEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Send data reload mode disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(RLDEN_A::Disabled)
+    }
+    #[doc = "Send data reload mode disabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(RLDEN_A::Enabled)
+    }
+}
+#[doc = "Automatically send stop condition enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ASTOPEN_A {
+    #[doc = "0: Automatic end mode disabled, software sends STOP condition"]
+    Disabled = 0,
+    #[doc = "1: Automatic end mode enabled. automatically send STOP condition"]
+    Enabled = 1,
+}
+impl From<ASTOPEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: ASTOPEN_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ASTOPEN` reader - Automatically send stop condition enable"]
-pub type ASTOPEN_R = crate::BitReader;
+pub type ASTOPEN_R = crate::BitReader<ASTOPEN_A>;
+impl ASTOPEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ASTOPEN_A {
+        match self.bits {
+            false => ASTOPEN_A::Disabled,
+            true => ASTOPEN_A::Enabled,
+        }
+    }
+    #[doc = "Automatic end mode disabled, software sends STOP condition"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ASTOPEN_A::Disabled
+    }
+    #[doc = "Automatic end mode enabled. automatically send STOP condition"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ASTOPEN_A::Enabled
+    }
+}
 #[doc = "Field `ASTOPEN` writer - Automatically send stop condition enable"]
-pub type ASTOPEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ASTOPEN_W<'a, REG> = crate::BitWriter<'a, REG, ASTOPEN_A>;
+impl<'a, REG> ASTOPEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Automatic end mode disabled, software sends STOP condition"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ASTOPEN_A::Disabled)
+    }
+    #[doc = "Automatic end mode enabled. automatically send STOP condition"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(ASTOPEN_A::Enabled)
+    }
+}
+#[doc = "Request PEC transmission enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Pectenr {
+    #[doc = "0: PEC transmission is disabled"]
+    Disabled = 0,
+    #[doc = "1: PEC transmission is enabled"]
+    Enabled = 1,
+}
+impl From<Pectenr> for bool {
+    #[inline(always)]
+    fn from(variant: Pectenr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `PECTEN` reader - Request PEC transmission enable"]
-pub type PECTEN_R = crate::BitReader;
+pub type PECTEN_R = crate::BitReader<Pectenr>;
+impl PECTEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Pectenr {
+        match self.bits {
+            false => Pectenr::Disabled,
+            true => Pectenr::Enabled,
+        }
+    }
+    #[doc = "PEC transmission is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Pectenr::Disabled
+    }
+    #[doc = "PEC transmission is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Pectenr::Enabled
+    }
+}
+#[doc = "Request PEC transmission enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PectenwWO {
+    #[doc = "0: Disable PEC transmission"]
+    Disable = 0,
+    #[doc = "1: Enable PEC transmission"]
+    Enable = 1,
+}
+impl From<PectenwWO> for bool {
+    #[inline(always)]
+    fn from(variant: PectenwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `PECTEN` writer - Request PEC transmission enable"]
-pub type PECTEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type PECTEN_W<'a, REG> = crate::BitWriter<'a, REG, PectenwWO>;
+impl<'a, REG> PECTEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Disable PEC transmission"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(PectenwWO::Disable)
+    }
+    #[doc = "Enable PEC transmission"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(PectenwWO::Enable)
+    }
+}
 impl R {
     #[doc = "Bits 0:9 - Slave address"]
     #[inline(always)]
@@ -113,8 +504,8 @@ impl core::fmt::Debug for R {
             .field("nacken", &self.nacken())
             .field("genstop", &self.genstop())
             .field("genstart", &self.genstart())
-            .field("readh10", &self.readh10())
             .field("addr10", &self.addr10())
+            .field("readh10", &self.readh10())
             .field("dir", &self.dir())
             .field("saddr", &self.saddr())
             .finish()
@@ -187,6 +578,7 @@ impl crate::Readable for CTRL2_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`ctrl2::W`](W) writer structure"]
 impl crate::Writable for CTRL2_SPEC {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x6000;
 }
 #[doc = "`reset()` method sets CTRL2 to value 0"]
 impl crate::Resettable for CTRL2_SPEC {}

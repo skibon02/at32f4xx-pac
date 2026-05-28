@@ -2,8 +2,7 @@ ETHERNET_MAC:
   MACCTRL:
     _add:
       CST:
-        name: "CRC stripping for type frames."
-        description: "When this bit is set, the last four bytes (FCS) of the Ethernet type frame is stripped before being transmitted to the application."
+        description: "CRC stripping for type frames"
         bitOffset: 25
         bitWidth: 1
     CST:
@@ -226,11 +225,34 @@ ETHERNET_MAC:
       PmtInterrupt: [1, "Magic packet or a remote wakeup event is received in power-down mode"]
 ETHERNET_DMA:
   DMABM:
+    AAB:
+      Disabled: [0, "Address aligned beats disabled"]
+      Enabled: [1, "Address aligned beats enabled. Applicable to GMAC only"]
+    PBLx8:
+      Normal: [0, "Not multiply PBL value"]
+      Mul8: [1, "Multiply PBL value by 8 for the DMA burst length"]
+    USP:
+      Shared: [0, "PBL value is applicable to both transmit and receive DMA"]
+      Separate: [1, "Separate PBL value for transmit and receive DMA. RX uses RDB, TX uses PBL"]
+    RDP: [0, 0x3F]
+    FB:
+      AllowIncr: [0, "Allow using INCR bursts for higher throughput"]
+      OnlyFixed: [1, "Use only SINGLE/INCR4/INCR8/INCR16 bursts. The DMA does not use INCR burst transfers, making bus occupation more predictable"]
     PR:
       Ratio1_1: [0, "1:1"]
       Ratio1_2: [1, "1:2"]
       Ratio1_3: [2, "1:3"]
       Ratio1_4: [3, "1:4"]
+    PBL: [0, 0x3F]
+    _add:
+      EDE:
+        description: "Enhanced descriptor enable"
+        bitOffset: 7
+        bitWidth: 1
+    EDE:
+      Normal: [0, "Normal descriptor format"]
+      Enhanced: [1, "Enhanced descriptor format, descriptor size increased to 8 words"]
+    DSL: [0, 0x1F]
     DA:
       CustomPriority: [0, "Custom priority ration between RX and TX. Controlled by PR"]
       FixedPriority: [1, "Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)"]
@@ -267,15 +289,80 @@ ETHERNET_DMA:
       Timestamp: [6, "Time stamp write status"]
       RunningTransferring: [7, "Running. Transferring the receive buffer data to host memory"]
     NIS:
-      _W1C: {}
-      NoInterrupt: [0, "No normal interrupt"]
-      NormalInterrupt: [1, "TI | TBU | RI | ERI"]
+      _W1C:
+        Clear: [1, "Clear this interrupt flag by writing 1 to it"]
+      _read:
+        NoInterrupt: [0, "No normal interrupt"]
+        NormalInterrupt: [1, "TI | TBU | RI | ERI"]
     AIS:
-      _W1C: {}
-      NoInterrupt: [0, "No abnormal interrupt"]
-      AbnormalInterrupt: [1, "TPS | TJT | OVF | UNF | RBU | RPS | RWT | ETI | FBEI"]
-    "ERI,FBEI,ETI,RWT,RPS,RBU,RI,UNF,OVF,TJT,TBU,TPS,TI":
-      _W1C: {}
+      _W1C:
+        Clear: [1, "Clear this interrupt flag by writing 1 to it"]
+      _read:
+        NoInterrupt: [0, "No abnormal interrupt"]
+        AbnormalInterrupt: [1, "TPS | TJT | OVF | UNF | RBU | RPS | RWT | ETI | FBEI"]
+    ERI,FBEI,ETI,RWT,RPS,RBU,RI,UNF,OVF,TJT,TBU,TPS,TI:
+      _W1C:
+        Clear: [1, "Clear this interrupt flag by writing 1 to it"]
+      _read:
+        NoInterrupt: [0, "No interrupt"]
+        Interrupt: [1, "Interrupt occurred"]
+    MMI:
+      _read:
+        NoMmcInterrupt: [0, "No MMC interrupt"]
+        MmcInterrupt: [1, "MMC interrupt occurred"]
+    MPI:
+      _read:
+        NoPmtInterrupt: [0, "No PMT interrupt"]
+        PmtInterrupt: [1, "PMT interrupt occurred"]
+    TTI:
+      _read:
+        NoTimestampInterrupt: [0, "No timestamp interrupt"]
+        TimestampInterrupt: [1, "Timestamp interrupt occurred"]
+  DMAOPM:
+    SSR:
+      Stop: [0, "Receive is stopped"]
+      Start: [1, "Receive is started or resumed"]
+    OSF:
+      Normal: [0, "Operate on the first descriptor in the list of receive descriptors"]
+      Next: [1, "Process second frame before status of first is obtained"]
+    RTC:
+      Thr64: [0, "Threshold for short frames is 64 bytes"]
+      Thr32: [1, "Threshold for short frames is 32 bytes"]
+      Thr96: [2, "Threshold for short frames is 96 bytes"]
+      Thr128: [3, "Threshold for short frames is 128 bytes"]
+    FUGF:
+      Normal: [0, "Drop frames less than 64 bytes"]
+      PassUndersized: [1, "Forward undersized frames < 64 bytes if no error"]
+    FEF:
+      Normal: [0, "Forward all frames except those with errors"]
+      PassError: [1, "Forward all frames including those with CRC/collision/watchdog/overflow errors"]
+    SSTC:
+      Stop: [0, "Transmit is stopped"]
+      Start: [1, "Transmit is started or resumed"]
+    TTC:
+      Thr64: [0, "Threshold for short frames is 64 bytes"]
+      Thr128: [1, "Threshold for short frames is 128 bytes"]
+      Thr192: [2, "Threshold for short frames is 192 bytes"]
+      Thr256: [3, "Threshold for short frames is 256 bytes"]
+      Thr40: [4, "Threshold for short frames is 40 bytes"]
+      Thr32: [5, "Threshold for short frames is 32 bytes"]
+      Thr24: [6, "Threshold for short frames is 24 bytes"]
+      Thr16: [7, "Threshold for short frames is 16 bytes"]
+    FTF:
+      _W1S:
+        Flush: [1, "Flush the transmit FIFO. This bit is automatically cleared by hardware when the flush operation is completed"]
+    TSF:
+      Disable: [0, "Transmit store and forward disabled"]
+      Enable: [1, "Transmit store and forward enabled. Transmission starts when a full frame resides in the Tx FIFO, and the TTC values specified in the bit [16: 14] are ignored"]
+    DFRF:
+      Normal: [0, "Normal operation, flush RX DMA if descriptors are unavailable"]
+      DontFlush: [1, "Rx DMA does not flush any receive frame due to the unavailability of receive descriptors or receive buffers"]
+    RSF:
+      Disable: [0, "Receive store and forward disabled"]
+      Enable: [1, "Receive store and forward enabled. The MTL reads the Rx FIFO only after a full frame is written to the Rx FIFO, ignoring the RTC bit"]
+    DT:
+      Normal: [0, "Normal operation"]
+      DontDropErrorFrames: [1, "Don't drop frames with checksum errors in encapsulated payload. However ethernet checksum (FCS) must be valid"]
   DMAIE:
     "*":
       Disabled: [0, "Interrupt disabled"]
@@ -321,3 +408,11 @@ ETHERNET_DMA:
   DMAMFBOCNT:
     "*":
       _RC: {}
+    MFC: [0, 0xFFFF]
+    OBMFC:
+      NoOverflow: [0, "No overflow of MFC field"]
+      Overflow: [1, "Overflow of MFC field. The MFC field is reset to 0 when this bit is set"]
+    OFC: [0, 0x7FF]
+    OBFOC:
+      NoOverflow: [0, "No overflow of OFC field"]
+      Overflow: [1, "Overflow of OFC field. The OFC field is reset to 0 when this bit is set"]

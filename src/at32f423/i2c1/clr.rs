@@ -1,23 +1,46 @@
 #[doc = "Register `CLR` writer"]
 pub type W = crate::W<CLR_SPEC>;
+#[doc = "Clear 0~7 bit address match flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ADDRCW_A {
+    #[doc = "1: Write 1 to clear flag"]
+    Clear = 1,
+}
+impl From<ADDRCW_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADDRCW_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ADDRC` writer - Clear 0~7 bit address match flag"]
-pub type ADDRC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type ADDRC_W<'a, REG> = crate::BitWriter1C<'a, REG, ADDRCW_A>;
+impl<'a, REG> ADDRC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Write 1 to clear flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDRCW_A::Clear)
+    }
+}
 #[doc = "Field `ACKFAILC` writer - Clear acknowledge failure flag"]
-pub type ACKFAILC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as ACKFAILC_W;
 #[doc = "Field `STOPC` writer - Clear stop condition generation complete flag"]
-pub type STOPC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as STOPC_W;
 #[doc = "Field `BUSERRC` writer - Clear bus error flag"]
-pub type BUSERRC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as BUSERRC_W;
 #[doc = "Field `ARLOSTC` writer - Clear arbitration lost flag"]
-pub type ARLOSTC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as ARLOSTC_W;
 #[doc = "Field `OUFC` writer - Clear overload / underload flag"]
-pub type OUFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as OUFC_W;
 #[doc = "Field `PECERRC` writer - Clear PEC receive error flag"]
-pub type PECERRC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as PECERRC_W;
 #[doc = "Field `TMOUTC` writer - Clear SMBus timeout flag"]
-pub type TMOUTC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as TMOUTC_W;
 #[doc = "Field `ALERTC` writer - Clear SMBus alert flag"]
-pub type ALERTC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub use ADDRC_W as ALERTC_W;
 impl core::fmt::Debug for crate::generic::Reg<CLR_SPEC> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "(not readable)")
