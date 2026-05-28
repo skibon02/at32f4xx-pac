@@ -1,5 +1,7 @@
+# Peripheral for f403, f403a, a403a, f413, f415, wb415
 _include:
   - gpio/gpio-v1.yaml
   - i2c/v1.yaml
   - wdt/common.yaml
   - debug/v1_ctrl.yaml
+  - flash/v1.yaml

@@ -11,6 +11,7 @@ _include:
   - common/adc/occe.yaml
   - common/comms.yaml
   - common/bpr/common.yaml
+  - common/flash/banks2-3.yaml
   - common/tmr/advanced.yaml
   - common/iomux/common.yaml
   - common/iomux/iomux_gpiof.yaml

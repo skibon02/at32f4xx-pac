@@ -24,6 +24,7 @@ _include:
   - common/adc/occe.yaml
   - common/adc/odt_vm.yaml
   - common/comms.yaml
+  - common/flash/v1.yaml
   - common/usart/dbn.yaml
   - common/spi/sts_cspas.yaml
   - common/pwc/vrsel.yaml

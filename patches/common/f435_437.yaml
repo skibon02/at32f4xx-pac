@@ -9,8 +9,9 @@ _include:
   - periph-v2.yaml
   - adc/common.yaml
   - adc/odt_vm.yaml
+  - flash/v2.yaml
+  - flash/banks2-3.yaml
   - flash/f435_437.yaml
-  - flash/unlock.yaml
   - comms.yaml
   - usart/dbn.yaml
   - spi/sts_cspas.yaml

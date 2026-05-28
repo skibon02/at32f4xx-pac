@@ -1,9 +1,79 @@
 #[doc = "Register `USD` reader"]
 pub type R = crate::R<USD_SPEC>;
+#[doc = "User system data error\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum USDERR_A {
+    #[doc = "0: No user system data error"]
+    NoError = 0,
+    #[doc = "1: User system data error occurred. Some byte does not match it's inverse code. They both will be forced to 0xFF when read"]
+    Error = 1,
+}
+impl From<USDERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: USDERR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `USDERR` reader - User system data error"]
-pub type USDERR_R = crate::BitReader;
+pub type USDERR_R = crate::BitReader<USDERR_A>;
+impl USDERR_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> USDERR_A {
+        match self.bits {
+            false => USDERR_A::NoError,
+            true => USDERR_A::Error,
+        }
+    }
+    #[doc = "No user system data error"]
+    #[inline(always)]
+    pub fn is_no_error(&self) -> bool {
+        *self == USDERR_A::NoError
+    }
+    #[doc = "User system data error occurred. Some byte does not match it's inverse code. They both will be forced to 0xFF when read"]
+    #[inline(always)]
+    pub fn is_error(&self) -> bool {
+        *self == USDERR_A::Error
+    }
+}
+#[doc = "FLASH access protection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FAP_A {
+    #[doc = "0: Flash access protection disabled"]
+    Disabled = 0,
+    #[doc = "1: Flash access protection enabled"]
+    Enabled = 1,
+}
+impl From<FAP_A> for bool {
+    #[inline(always)]
+    fn from(variant: FAP_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `FAP` reader - FLASH access protection"]
-pub type FAP_R = crate::BitReader;
+pub type FAP_R = crate::BitReader<FAP_A>;
+impl FAP_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> FAP_A {
+        match self.bits {
+            false => FAP_A::Disabled,
+            true => FAP_A::Enabled,
+        }
+    }
+    #[doc = "Flash access protection disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == FAP_A::Disabled
+    }
+    #[doc = "Flash access protection enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == FAP_A::Enabled
+    }
+}
 #[doc = "Field `nWDT_ATO_EN` reader - WDT auto enable"]
 pub type N_WDT_ATO_EN_R = crate::BitReader;
 #[doc = "Field `nDEPSLP_RST` reader - Deepsleep reset"]
@@ -16,10 +86,8 @@ pub type N_BOOT1_R = crate::BitReader;
 pub type N_DEPSLP_WDT_R = crate::BitReader;
 #[doc = "Field `nSTDBY_WDT` reader - Standby wdt stop count"]
 pub type N_STDBY_WDT_R = crate::BitReader;
-#[doc = "Field `USER_D0` reader - User data 0"]
-pub type USER_D0_R = crate::FieldReader;
-#[doc = "Field `USER_D1` reader - User data 1"]
-pub type USER_D1_R = crate::FieldReader;
+#[doc = "Field `USER_D(0-1)` reader - User data byte %s"]
+pub type USER_D_R = crate::FieldReader;
 #[doc = "Field `FAP_HL` reader - FAP high level"]
 pub type FAP_HL_R = crate::BitReader;
 impl R {
@@ -63,15 +131,30 @@ impl R {
     pub fn n_stdby_wdt(&self) -> N_STDBY_WDT_R {
         N_STDBY_WDT_R::new(((self.bits >> 8) & 1) != 0)
     }
-    #[doc = "Bits 10:17 - User data 0"]
+    #[doc = "User data byte (0-1)"]
+    #[doc = ""]
+    #[doc = "<div class=\"warning\">`n` is number of field in register. `n == 0` corresponds to `USER_D0` field.</div>"]
     #[inline(always)]
-    pub fn user_d0(&self) -> USER_D0_R {
-        USER_D0_R::new(((self.bits >> 10) & 0xff) as u8)
+    pub fn user_d(&self, n: u8) -> USER_D_R {
+        #[allow(clippy::no_effect)]
+        [(); 2][n as usize];
+        USER_D_R::new(((self.bits >> (n * 8 + 10)) & 0xff) as u8)
     }
-    #[doc = "Bits 18:25 - User data 1"]
+    #[doc = "Iterator for array of:"]
+    #[doc = "User data byte (0-1)"]
     #[inline(always)]
-    pub fn user_d1(&self) -> USER_D1_R {
-        USER_D1_R::new(((self.bits >> 18) & 0xff) as u8)
+    pub fn user_d_iter(&self) -> impl Iterator<Item = USER_D_R> + '_ {
+        (0..2).map(move |n| USER_D_R::new(((self.bits >> (n * 8 + 10)) & 0xff) as u8))
+    }
+    #[doc = "Bits 10:17 - User data byte 0"]
+    #[inline(always)]
+    pub fn user_d0(&self) -> USER_D_R {
+        USER_D_R::new(((self.bits >> 10) & 0xff) as u8)
+    }
+    #[doc = "Bits 18:25 - User data byte 1"]
+    #[inline(always)]
+    pub fn user_d1(&self) -> USER_D_R {
+        USER_D_R::new(((self.bits >> 18) & 0xff) as u8)
     }
     #[doc = "Bit 26 - FAP high level"]
     #[inline(always)]

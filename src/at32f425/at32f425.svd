@@ -24389,6 +24389,19 @@ If TPFLT&gt;0: High level</description>
               <description>User system data Unlock key value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
+              <enumeratedValues>
+                <name>USD_UKVALW</name>
+                <enumeratedValue>
+                  <name>Key1</name>
+                  <description>Unlock key 1</description>
+                  <value>1164378403</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Key2</name>
+                  <description>Unlock key 2</description>
+                  <value>3455027627</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -24406,6 +24419,20 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>ODF</name>
+                <enumeratedValue>
+                  <name>NotSet</name>
+                  <description>Flash operation done flag not set</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Done</name>
+                  <description>Flash/erase operation done</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>EPPERR</name>
@@ -24413,6 +24440,20 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>EPPERR</name>
+                <enumeratedValue>
+                  <name>NoError</name>
+                  <description>No erase/program error</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Error</name>
+                  <description>Erase/program error occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PRGMERR</name>
@@ -24420,6 +24461,20 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>PRGMERR</name>
+                <enumeratedValue>
+                  <name>NoError</name>
+                  <description>No program error</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Error</name>
+                  <description>Program error occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OBF</name>
@@ -24427,6 +24482,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>OBF</name>
+                <enumeratedValue>
+                  <name>Idle</name>
+                  <description>Flash is idle</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Busy</name>
+                  <description>Flash operation is in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -24444,12 +24512,53 @@ If TPFLT&gt;0: High level</description>
               <description>Flash program</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FPRGMR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotStarted</name>
+                  <description>Flash program not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Started</name>
+                  <description>Flash program is in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>FPRGMW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoStart</name>
+                  <description>Flash program not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Start of flash program operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SECERS</name>
               <description>Sector erase</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SECERS</name>
+                <enumeratedValue>
+                  <name>NotSectorErase</name>
+                  <description>Not sector erase operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SectorErase</name>
+                  <description>Erase operation is sector erase operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>BANKERS</name>
@@ -24474,12 +24583,53 @@ If TPFLT&gt;0: High level</description>
               <description>Erasing start</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ERSTRR</name>
+                <usage>read</usage>
+                <enumeratedValue>
+                  <name>NotStarted</name>
+                  <description>Erase operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Started</name>
+                  <description>Erase operation is in progress</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+              <enumeratedValues>
+                <name>ERSTRW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>NoStart</name>
+                  <description>Erase operation not started</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Start</name>
+                  <description>Start of erase operation</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OPLK</name>
               <description>Operation lock</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>OPLK</name>
+                <enumeratedValue>
+                  <name>Unlocked</name>
+                  <description>Flash operations unlocked</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Locked</name>
+                  <description>Flash operations locked</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>USDULKS</name>
@@ -24492,12 +24642,38 @@ If TPFLT&gt;0: High level</description>
               <description>Error interrupt enable</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ERRIE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Error interrupt disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Error interrupt enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ODFIE</name>
               <description>Operation done flag interrupt enable</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ODFIE</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Operation done interrupt disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Operation done interrupt enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>LPMEN</name>
@@ -24536,12 +24712,38 @@ If TPFLT&gt;0: High level</description>
               <description>User system data error</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>USDERR</name>
+                <enumeratedValue>
+                  <name>NoError</name>
+                  <description>No user system data error</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Error</name>
+                  <description>User system data error occurred. Some byte does not match it's inverse code. They both will be forced to 0xFF when read</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FAP</name>
               <description>FLASH access protection</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FAP</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Flash access protection disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Flash access protection enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>nWDT_ATO_EN</name>
@@ -24580,16 +24782,19 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>USER_D0</name>
-              <description>User data 0</description>
+              <dim>2</dim>
+              <dimIncrement>0x8</dimIncrement>
+              <dimIndex>0-1</dimIndex>
+              <name>USER_D%s</name>
+              <description>User data byte %s</description>
               <bitOffset>10</bitOffset>
               <bitWidth>8</bitWidth>
-            </field>
-            <field>
-              <name>USER_D1</name>
-              <description>User data 1</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>8</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>FAP_HL</name>
@@ -24607,20 +24812,12 @@ If TPFLT&gt;0: High level</description>
           <size>0x20</size>
           <access>read-only</access>
           <resetValue>0xFFFFFFFF</resetValue>
-          <fields>
-            <field>
-              <name>EPPS</name>
-              <description>Erase/program protection status</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>4294967295</maximum>
-                </range>
-              </writeConstraint>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>SLIB_STS0</name>

@@ -1,0 +1,24 @@
+# if have bank2 or bank3, rename registers for bank1
+FLASH:
+  _modify:
+    ADDR:
+      name: ADDR1
+    STS:
+      name: STS1
+    CTRL:
+      name: CTRL1
+    UNLOCK:
+      name: UNLOCK1
+  _cluster:
+    Bank%s:
+      description: "Bank %s registers"
+      # not include CTRL* because it has some fields different
+      UNLOCK?:
+        name: UNLOCK
+        description: "Bank unlock register"
+      STS?:
+        name: STS
+        description: "Bank status register"
+      ADDR?:
+        name: ADDR
+        description: "Bank address register"

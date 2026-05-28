@@ -5,6 +5,7 @@ _include:
   - ertc/alarmb.yaml
   - ertc/wat.yaml
   - ertc/tspin.yaml
+  - flash/v2.yaml
   - periph-v2.yaml
   - adc/common.yaml
   - adc/occe.yaml

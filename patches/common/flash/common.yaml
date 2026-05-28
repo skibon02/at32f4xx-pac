@@ -1,14 +1,74 @@
 FLASH:
-  UNLOCK:
-    UKVAL:
+  _modify:
+    ADDR,ADDR?:
+      size: 32
+      writeConstraint: [ 0, 0xFFFFFFFF ]
+    EPPS,EPPS?:
+      size: 32
+      writeConstraint: [ 0, 0xFFFFFFFF ]
+    USD_UNLOCK:
+      size: 32
+  ADDR,ADDR?:
+    _delete: [FA]
+  EPPS,EPPS?:
+    _delete: [EPPS]
+
+  UNLOCK,UNLOCK?,USD_UNLOCK:
+    UKVAL,USD_UKVAL:
       _write:
         Key1: [ 0x45670123, "Unlock key 1" ]
         Key2: [ 0xCDEF89AB, "Unlock key 2" ]
-  "EPPS,EPPS?":
-    EPPS: [0, 0xffffffff]
-  _modify:
-    ADDR:
-      size: 32
-      writeConstraint: [ 0, 0xFFFFFFFF ]
-  ADDR:
-    _delete: [FA]
+  STS,STS?:
+    ODF,EPPERR,PRGMERR:
+      _W1C: {}
+    OBF:
+      Idle: [0, "Flash is idle"]
+      Busy: [1, "Flash operation is in progress"]
+    PRGMERR:
+      NoError: [0, "No program error"]
+      Error: [1, "Program error occurred"]
+    EPPERR:
+      NoError: [0, "No erase/program error"]
+      Error: [1, "Erase/program error occurred"]
+    ODF:
+      NotSet: [0, "Flash operation done flag not set"]
+      Done: [1, "Flash/erase operation done"]
+  CTRL,CTRL?:
+    SECERS:
+      NotSectorErase: [0, "Not sector erase operation"]
+      SectorErase: [1, "Erase operation is sector erase operation"]
+    FPRGM:
+      _write:
+        NoStart: [0, "Flash program not started"]
+        Start: [1, "Start of flash program operation"]
+      _read:
+        NotStarted: [0, "Flash program not started"]
+        Started: [1, "Flash program is in progress"]
+    ODFIE:
+      Disabled: [0, "Operation done interrupt disabled"]
+      Enabled: [1, "Operation done interrupt enabled"]
+    ERRIE:
+      Disabled: [0, "Error interrupt disabled"]
+      Enabled: [1, "Error interrupt enabled"]
+    OPLK:
+      Unlocked: [0, "Flash operations unlocked"]
+      Locked: [1, "Flash operations locked"]
+    ERSTR:
+      _write:
+        NoStart: [0, "Erase operation not started"]
+        Start: [1, "Start of erase operation"]
+      _read:
+        NotStarted: [0, "Erase operation not started"]
+        Started: [1, "Erase operation is in progress"]
+
+  USD:
+    USDERR:
+      NoError: [0, "No user system data error"]
+      Error: [1, "User system data error occurred. Some byte does not match it's inverse code. They both will be forced to 0xFF when read"]
+    FAP:
+      Disabled: [0, "Flash access protection disabled"]
+      Enabled: [1, "Flash access protection enabled"]
+    _array:
+      USER_D?:
+        description: "User data byte %s"
+    USER_D?: [0, 0xFF]

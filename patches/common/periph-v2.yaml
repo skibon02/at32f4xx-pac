@@ -1,3 +1,4 @@
+# Peripheral for f402, f405, f423, f425, f435, f437
 _include:
   - gpio/gpio-v2.yaml
   - i2c/v2.yaml

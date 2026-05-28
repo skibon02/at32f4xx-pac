@@ -6,6 +6,7 @@ _include:
   - adc/occe.yaml
   - comms.yaml
   - bpr/common.yaml
+  - flash/banks2-3.yaml
   - tmr/advanced.yaml
   - iomux/iomux_gpioe.yaml
   - iomux/common.yaml
