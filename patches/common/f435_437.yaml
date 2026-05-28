@@ -6,6 +6,7 @@ _include:
   - ertc/wat.yaml
   - ertc/tspin.yaml
   - debug/pause_id.yaml
+  - dma/extended.yaml
   - periph-v2.yaml
   - adc/common.yaml
   - adc/odt_vm.yaml
@@ -124,79 +125,6 @@ CRM:
     CLK_TO_TMR:
       Disconnected: [0, "Disconnected"]
       Connected: [1, "CLKOUT1 internal connected to timer10 channel1"]
-DMA?:
-  STS:
-    _array:
-      "DTERRF*":
-        description: "Channel %s data transfer error event flag"
-        dimIndex: "1,2,3,4,5,6,7"
-      "HDTF*":
-        description: "Channel %s half transfer event flag"
-        dimIndex: "1,2,3,4,5,6,7"
-      "FDTF*":
-        description: "Channel %s data transfer complete event flag"
-        dimIndex: "1,2,3,4,5,6,7"
-      "GF*":
-        description: "Channel %s global event flag"
-        dimIndex: "1,2,3,4,5,6,7"
-
-  CLR:
-    "*":
-      _W1C: {}
-
-    _array:
-      "DTERRFC*":
-        description: "Channel %s data transfer error flag clear"
-        dimIndex: "1,2,3,4,5,6,7"
-      "HDTFC*":
-        description: "Channel %s half transfer flag clear"
-        dimIndex: "1,2,3,4,5,6,7"
-      "FDTFC*":
-        description: "Channel %s data transfer complete flag clear"
-        dimIndex: "1,2,3,4,5,6,7"
-      "GFC*":
-        description: "Channel %s global flag clear"
-        dimIndex: "1,2,3,4,5,6,7"
-
-  _cluster:
-    ChannelMux%s:
-      description: "Channel %s mux"
-      MUXC?CTRL:
-        name: MUXCTRL
-        description: "DMA channel mux control register"
-        SYNCPOL:
-          NoEvents: [ 0, "No events" ]
-          RisingEdge: [ 1, "Rising edge" ]
-          FallingEdge: [ 2, "Falling edge" ]
-          BothEdges: [ 3, "Rising and falling edges" ]
-  MUXSYNCSTS:
-    _array:
-      SYNCOVF?:
-        description: "Channel %s synchronization overrun flag"
-        dimIndex: "1,2,3,4,5,6,7"
-  MUXSYNCCLR:
-    _array:
-      SYNCOVFC?:
-        description: "Channel %s synchronization overrun flag clear"
-        dimIndex: "1,2,3,4,5,6,7"
-    SYNCOVFC?:
-      _W1C: {}
-  MUXGSTS:
-    _array:
-      TRGOVF?:
-        description: "Channel %s trigger overrun flag"
-        dimIndex: "1,2,3,4,5,6,7"
-    _modify:
-      TRGOVF?:
-        access: "read-only"
-  MUXGCLR:
-    _array:
-      TRGOVFC?:
-        description: "Channel %s trigger overrun flag clear"
-        dimIndex: "1,2,3,4,5,6,7"
-    TRGOVFC?:
-      _W1C: {}
-
 ADCCOM:
   CSTS:
     _array:

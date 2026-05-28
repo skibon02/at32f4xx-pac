@@ -2,8 +2,43 @@
 pub type R = crate::R<MUXSYNCSTS_SPEC>;
 #[doc = "Register `MUXSYNCSTS` writer"]
 pub type W = crate::W<MUXSYNCSTS_SPEC>;
+#[doc = "Channel %s synchronization overrun flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SYNCOVF1_A {
+    #[doc = "0: No synchronization overrun"]
+    NoOverrun = 0,
+    #[doc = "1: A synchronization overrun occurred (DMA request count < REQCNT)"]
+    Overrun = 1,
+}
+impl From<SYNCOVF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: SYNCOVF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SYNCOVF(1-7)` reader - Channel %s synchronization overrun flag"]
-pub type SYNCOVF_R = crate::BitReader;
+pub type SYNCOVF_R = crate::BitReader<SYNCOVF1_A>;
+impl SYNCOVF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SYNCOVF1_A {
+        match self.bits {
+            false => SYNCOVF1_A::NoOverrun,
+            true => SYNCOVF1_A::Overrun,
+        }
+    }
+    #[doc = "No synchronization overrun"]
+    #[inline(always)]
+    pub fn is_no_overrun(&self) -> bool {
+        *self == SYNCOVF1_A::NoOverrun
+    }
+    #[doc = "A synchronization overrun occurred (DMA request count < REQCNT)"]
+    #[inline(always)]
+    pub fn is_overrun(&self) -> bool {
+        *self == SYNCOVF1_A::Overrun
+    }
+}
 impl R {
     #[doc = "Channel (1-7) synchronization overrun flag"]
     #[doc = ""]

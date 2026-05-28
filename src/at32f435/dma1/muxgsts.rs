@@ -2,8 +2,43 @@
 pub type R = crate::R<MUXGSTS_SPEC>;
 #[doc = "Register `MUXGSTS` writer"]
 pub type W = crate::W<MUXGSTS_SPEC>;
+#[doc = "Channel %s trigger overrun flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TRGOVF1_A {
+    #[doc = "0: No trigger overrun"]
+    NoOverrun = 0,
+    #[doc = "1: A trigger overrun occurred (DMA request count < GREQCNT)"]
+    Overrun = 1,
+}
+impl From<TRGOVF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: TRGOVF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TRGOVF(1-4)` reader - Channel %s trigger overrun flag"]
-pub type TRGOVF_R = crate::BitReader;
+pub type TRGOVF_R = crate::BitReader<TRGOVF1_A>;
+impl TRGOVF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TRGOVF1_A {
+        match self.bits {
+            false => TRGOVF1_A::NoOverrun,
+            true => TRGOVF1_A::Overrun,
+        }
+    }
+    #[doc = "No trigger overrun"]
+    #[inline(always)]
+    pub fn is_no_overrun(&self) -> bool {
+        *self == TRGOVF1_A::NoOverrun
+    }
+    #[doc = "A trigger overrun occurred (DMA request count < GREQCNT)"]
+    #[inline(always)]
+    pub fn is_overrun(&self) -> bool {
+        *self == TRGOVF1_A::Overrun
+    }
+}
 impl R {
     #[doc = "Channel (1-4) trigger overrun flag"]
     #[doc = ""]

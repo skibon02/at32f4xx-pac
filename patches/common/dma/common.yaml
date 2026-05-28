@@ -1,9 +1,4 @@
 DMA?:
-  _modify:
-    C?PADDR:
-      writeConstraint: [0, 0xFFFFFFFF]
-    C?MADDR:
-      writeConstraint: [0, 0xFFFFFFFF]
   _cluster:
     Channel%s:
       description: "DMA Channel %s"
@@ -74,13 +69,11 @@ DMA?:
           _write:
             Disable: [0, "Memory address increment disable"]
             Enable: [1, "Memory address increment enable"]
-        PWIDTH:
+        PWIDTH,MWIDTH:
           _name: BitWidth
           bit8: [0, "8 bits"]
           bit16: [1, "16 bits"]
           bit32: [2, "32 bits"]
-        MWIDTH:
-          _derivedFrom: BitWidth
         CHPL:
           Low: [0, "Low"]
           Medium: [1, "Medium"]
@@ -93,9 +86,63 @@ DMA?:
           _write:
             Disable: [0, "Memory to memory mode disable"]
             Enable: [1, "Memory to memory mode enable"]
+      DTCNT:
+        CNT: [0, 0xFFFF]
+      # MADDR and PADDR not filled intentionally, because their use is initially unsafe as they allow to write any value to any address
       PADDR:
         _delete:
           - PADDR
       MADDR:
         _delete:
           - MADDR
+  STS:
+    _array:
+      "DTERRF*":
+        description: "Channel %s data transfer error event flag"
+        dimIndex: "1,2,3,4,5,6,7"
+      "HDTF*":
+        description: "Channel %s half transfer event flag"
+        dimIndex: "1,2,3,4,5,6,7"
+      "FDTF*":
+        description: "Channel %s data transfer complete event flag"
+        dimIndex: "1,2,3,4,5,6,7"
+      "GF*":
+        description: "Channel %s global event flag"
+        dimIndex: "1,2,3,4,5,6,7"
+    DTERRF*:
+      NoTransferError: [0, "No transfer error"]
+      TransferError: [1, "A transfer error occurred"]
+    HDTF*:
+      NoHalfTransfer: [0, "No half transfer"]
+      HalfTransfer: [1, "A half transfer occurred"]
+    FDTF*:
+      NoTransferComplete: [0, "No transfer complete"]
+      TransferComplete: [1, "A transfer complete occurred"]
+    GF*:
+      NoEvent: [0, "No event"]
+      Event: [1, "An event occurred (transfer error, half transfer or transfer complete)"]
+  CLR:
+    _array:
+      "DTERRFC*":
+        description: "Channel %s data transfer error flag clear"
+        dimIndex: "1,2,3,4,5,6,7"
+      "HDTFC*":
+        description: "Channel %s half transfer flag clear"
+        dimIndex: "1,2,3,4,5,6,7"
+      "FDTFC*":
+        description: "Channel %s data transfer complete flag clear"
+        dimIndex: "1,2,3,4,5,6,7"
+      "GFC*":
+        description: "Channel %s global flag clear"
+        dimIndex: "1,2,3,4,5,6,7"
+    "*":
+      _W1C: {}
+
+    DTERRFC*:
+      Clear: [1, "Clear the transfer error flag"]
+    HDTFC*:
+      Clear: [1, "Clear the half transfer flag"]
+    FDTFC*:
+      Clear: [1, "Clear the transfer complete flag"]
+    GFC*:
+      Clear: [1, "Clear all flags DTERRFx, HDTFx, FDTFx and GFx"]

@@ -8,10 +8,7 @@ pub struct RegisterBlock {
     _reserved3: [u8; 0x6c],
     dma_muxsel: DMA_MUXSEL,
     channel_mux: [ChannelMux; 7],
-    muxg1ctrl: MUXG1CTRL,
-    muxg2ctrl: MUXG2CTRL,
-    muxg3ctrl: MUXG3CTRL,
-    muxg4ctrl: MUXG4CTRL,
+    generator_channel_mux: [GeneratorChannelMux; 4],
     muxsyncsts: MUXSYNCSTS,
     muxsyncclr: MUXSYNCCLR,
     muxgsts: MUXGSTS,
@@ -129,25 +126,38 @@ impl RegisterBlock {
     pub const fn channel_mux7(&self) -> &ChannelMux {
         self.channel_mux(6)
     }
-    #[doc = "0x120 - Generator 1 Configuration Register"]
+    #[doc = "0x120..0x130 - Cluster GeneratorChannelMux%s, containing MUXG?CTRL"]
+    #[doc = ""]
+    #[doc = "<div class=\"warning\">`n` is the index of cluster in the array. `n == 0` corresponds to `GeneratorChannelMux1` cluster.</div>"]
     #[inline(always)]
-    pub const fn muxg1ctrl(&self) -> &MUXG1CTRL {
-        &self.muxg1ctrl
+    pub const fn generator_channel_mux(&self, n: usize) -> &GeneratorChannelMux {
+        &self.generator_channel_mux[n]
     }
-    #[doc = "0x124 - Generator 2 Configuration Register"]
+    #[doc = "Iterator for array of:"]
+    #[doc = "0x120..0x130 - Cluster GeneratorChannelMux%s, containing MUXG?CTRL"]
     #[inline(always)]
-    pub const fn muxg2ctrl(&self) -> &MUXG2CTRL {
-        &self.muxg2ctrl
+    pub fn generator_channel_mux_iter(&self) -> impl Iterator<Item = &GeneratorChannelMux> {
+        self.generator_channel_mux.iter()
     }
-    #[doc = "0x128 - Generator 3 Configuration Register"]
+    #[doc = "0x120 - Cluster GeneratorChannelMux1, containing MUXG?CTRL"]
     #[inline(always)]
-    pub const fn muxg3ctrl(&self) -> &MUXG3CTRL {
-        &self.muxg3ctrl
+    pub const fn generator_channel_mux1(&self) -> &GeneratorChannelMux {
+        self.generator_channel_mux(0)
     }
-    #[doc = "0x12c - Generator 4 Configuration Register"]
+    #[doc = "0x124 - Cluster GeneratorChannelMux2, containing MUXG?CTRL"]
     #[inline(always)]
-    pub const fn muxg4ctrl(&self) -> &MUXG4CTRL {
-        &self.muxg4ctrl
+    pub const fn generator_channel_mux2(&self) -> &GeneratorChannelMux {
+        self.generator_channel_mux(1)
+    }
+    #[doc = "0x128 - Cluster GeneratorChannelMux3, containing MUXG?CTRL"]
+    #[inline(always)]
+    pub const fn generator_channel_mux3(&self) -> &GeneratorChannelMux {
+        self.generator_channel_mux(2)
+    }
+    #[doc = "0x12c - Cluster GeneratorChannelMux4, containing MUXG?CTRL"]
+    #[inline(always)]
+    pub const fn generator_channel_mux4(&self) -> &GeneratorChannelMux {
+        self.generator_channel_mux(3)
     }
     #[doc = "0x130 - Channel Interrupt Status Register"]
     #[inline(always)]
@@ -192,22 +202,11 @@ pub use self::channel_mux::ChannelMux;
 #[doc = r"Cluster"]
 #[doc = "Channel %s mux"]
 pub mod channel_mux;
-#[doc = "MUXG1CTRL (rw) register accessor: Generator 1 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxg1ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxg1ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxg1ctrl`] module"]
-pub type MUXG1CTRL = crate::Reg<muxg1ctrl::MUXG1CTRL_SPEC>;
-#[doc = "Generator 1 Configuration Register"]
-pub mod muxg1ctrl;
-#[doc = "MUXG2CTRL (rw) register accessor: Generator 2 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxg2ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxg2ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxg2ctrl`] module"]
-pub type MUXG2CTRL = crate::Reg<muxg2ctrl::MUXG2CTRL_SPEC>;
-#[doc = "Generator 2 Configuration Register"]
-pub mod muxg2ctrl;
-#[doc = "MUXG3CTRL (rw) register accessor: Generator 3 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxg3ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxg3ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxg3ctrl`] module"]
-pub type MUXG3CTRL = crate::Reg<muxg3ctrl::MUXG3CTRL_SPEC>;
-#[doc = "Generator 3 Configuration Register"]
-pub mod muxg3ctrl;
-#[doc = "MUXG4CTRL (rw) register accessor: Generator 4 Configuration Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxg4ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxg4ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxg4ctrl`] module"]
-pub type MUXG4CTRL = crate::Reg<muxg4ctrl::MUXG4CTRL_SPEC>;
-#[doc = "Generator 4 Configuration Register"]
-pub mod muxg4ctrl;
+#[doc = "Cluster GeneratorChannelMux%s, containing MUXG?CTRL"]
+pub use self::generator_channel_mux::GeneratorChannelMux;
+#[doc = r"Cluster"]
+#[doc = "Cluster GeneratorChannelMux%s, containing MUXG?CTRL"]
+pub mod generator_channel_mux;
 #[doc = "MUXSYNCSTS (rw) register accessor: Channel Interrupt Status Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxsyncsts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxsyncsts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@muxsyncsts`] module"]
 pub type MUXSYNCSTS = crate::Reg<muxsyncsts::MUXSYNCSTS_SPEC>;
 #[doc = "Channel Interrupt Status Register"]

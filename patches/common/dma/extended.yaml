@@ -1,0 +1,102 @@
+DMA?:
+  _cluster:
+    ChannelMux%s:
+      description: "Channel %s mux"
+      MUXC?CTRL:
+        name: MUXCTRL
+        description: "DMA channel mux control register"
+        REQSEL: [0, 0x7F]
+        SYNCOVIEN:
+          _read:
+            Disabled: [0, "Channel synchronization overrun interrupt is disabled"]
+            Enabled: [1, "Channel synchronization overrun interrupt is enabled"]
+          _write:
+            Disable: [0, "Channel synchronization overrun interrupt disable"]
+            Enable: [1, "Channel synchronization overrun interrupt enable"]
+        EVTGEN:
+          _read:
+            Disabled: [0, "Event generation is disabled"]
+            Enabled: [1, "Event generation is enabled"]
+          _write:
+            Disable: [0, "Event generation disable"]
+            Enable: [1, "Event generation enable"]
+        SYNCEN:
+          _read:
+            Disabled: [0, "Channel synchronization is disabled"]
+            Enabled: [1, "Channel synchronization is enabled"]
+          _write:
+            Disable: [0, "Channel synchronization disable"]
+            Enable: [1, "Channel synchronization enable"]
+        SYNCPOL:
+          NoEvents: [ 0, "No events" ]
+          RisingEdge: [ 1, "Rising edge" ]
+          FallingEdge: [ 2, "Falling edge" ]
+          BothEdges: [ 3, "Rising and falling edges" ]
+        REQCNT: [0, 0x1F]
+        SYNCSEL: [0, 0x1F]
+    GeneratorChannelMux%s:
+      MUXG?CTRL:
+        name: MUXGCTRL
+        description: "DMA generator channel mux control register"
+        SIGSEL: [0, 0x1F]
+        TRGOVIEN:
+          _read:
+            Disabled: [0, "Trigger overrun interrupt is disabled"]
+            Enabled: [1, "Trigger overrun interrupt is enabled"]
+          _write:
+            Disable: [0, "Trigger overrun interrupt disable"]
+            Enable: [1, "Trigger overrun interrupt enable"]
+        GEN:
+          _read:
+            Disabled: [0, "DMA request generation is disabled"]
+            Enabled: [1, "DMA request generation is enabled"]
+          _write:
+            Disable: [0, "DMA request generation disable"]
+            Enable: [1, "DMA request generation enable"]
+        GPOL:
+          NoEvents: [ 0, "No events" ]
+          RisingEdge: [ 1, "Rising edge" ]
+          FallingEdge: [ 2, "Falling edge" ]
+          BothEdges: [ 3, "Rising and falling edges" ]
+        GREQCNT: [0, 0x1F]
+
+  DMA_MUXSEL:
+    TBL_SEL:
+      Normal: [0, "Normal table"]
+      Flexible: [1, "Flexible mapping table"]
+  MUXSYNCSTS:
+    _array:
+      SYNCOVF?:
+        description: "Channel %s synchronization overrun flag"
+        dimIndex: "1,2,3,4,5,6,7"
+    SYNCOVF?:
+      NoOverrun: [0, "No synchronization overrun"]
+      Overrun: [1, "A synchronization overrun occurred (DMA request count < REQCNT)"]
+  MUXSYNCCLR:
+    _array:
+      SYNCOVFC?:
+        description: "Channel %s synchronization overrun flag clear"
+        dimIndex: "1,2,3,4,5,6,7"
+    SYNCOVFC?:
+      _W1C:
+        Clear: [1, "Clear synchronization overrun flag"]
+  MUXGSTS:
+    _array:
+      TRGOVF?:
+        description: "Channel %s trigger overrun flag"
+        dimIndex: "1,2,3,4,5,6,7"
+    _modify:
+      TRGOVF?:
+        access: "read-only"
+    TRGOVF?:
+      NoOverrun: [0, "No trigger overrun"]
+      Overrun: [1, "A trigger overrun occurred (DMA request count < GREQCNT)"]
+  MUXGCLR:
+    _array:
+      TRGOVFC?:
+        description: "Channel %s trigger overrun flag clear"
+        dimIndex: "1,2,3,4,5,6,7"
+    TRGOVFC?:
+      _W1C:
+        Clear: [1, "Clear trigger overrun flag"]
+

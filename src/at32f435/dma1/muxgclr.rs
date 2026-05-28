@@ -2,10 +2,48 @@
 pub type R = crate::R<MUXGCLR_SPEC>;
 #[doc = "Register `MUXGCLR` writer"]
 pub type W = crate::W<MUXGCLR_SPEC>;
+#[doc = "Channel %s trigger overrun flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TRGOVFC1W_A {
+    #[doc = "1: Clear trigger overrun flag"]
+    Clear = 1,
+}
+impl From<TRGOVFC1W_A> for bool {
+    #[inline(always)]
+    fn from(variant: TRGOVFC1W_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TRGOVFC(1-4)` reader - Channel %s trigger overrun flag clear"]
-pub type TRGOVFC_R = crate::BitReader;
+pub type TRGOVFC_R = crate::BitReader<TRGOVFC1W_A>;
+impl TRGOVFC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<TRGOVFC1W_A> {
+        match self.bits {
+            true => Some(TRGOVFC1W_A::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear trigger overrun flag"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == TRGOVFC1W_A::Clear
+    }
+}
 #[doc = "Field `TRGOVFC(1-4)` writer - Channel %s trigger overrun flag clear"]
-pub type TRGOVFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type TRGOVFC_W<'a, REG> = crate::BitWriter1C<'a, REG, TRGOVFC1W_A>;
+impl<'a, REG> TRGOVFC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear trigger overrun flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(TRGOVFC1W_A::Clear)
+    }
+}
 impl R {
     #[doc = "Channel (1-4) trigger overrun flag clear"]
     #[doc = ""]

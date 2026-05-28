@@ -2,22 +2,174 @@
 pub type R = crate::R<CLR_SPEC>;
 #[doc = "Register `CLR` writer"]
 pub type W = crate::W<CLR_SPEC>;
+#[doc = "Channel %s global flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum GFC1_A {
+    #[doc = "1: Clear all flags DTERRFx, HDTFx, FDTFx and GFx"]
+    Clear = 1,
+}
+impl From<GFC1_A> for bool {
+    #[inline(always)]
+    fn from(variant: GFC1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `GFC(1-7)` reader - Channel %s global flag clear"]
-pub type GFC_R = crate::BitReader;
+pub type GFC_R = crate::BitReader<GFC1_A>;
+impl GFC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<GFC1_A> {
+        match self.bits {
+            true => Some(GFC1_A::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear all flags DTERRFx, HDTFx, FDTFx and GFx"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == GFC1_A::Clear
+    }
+}
 #[doc = "Field `GFC(1-7)` writer - Channel %s global flag clear"]
-pub type GFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type GFC_W<'a, REG> = crate::BitWriter1C<'a, REG, GFC1_A>;
+impl<'a, REG> GFC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear all flags DTERRFx, HDTFx, FDTFx and GFx"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(GFC1_A::Clear)
+    }
+}
+#[doc = "Channel %s data transfer complete flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FDTFC1_A {
+    #[doc = "1: Clear the transfer complete flag"]
+    Clear = 1,
+}
+impl From<FDTFC1_A> for bool {
+    #[inline(always)]
+    fn from(variant: FDTFC1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `FDTFC(1-7)` reader - Channel %s data transfer complete flag clear"]
-pub type FDTFC_R = crate::BitReader;
+pub type FDTFC_R = crate::BitReader<FDTFC1_A>;
+impl FDTFC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<FDTFC1_A> {
+        match self.bits {
+            true => Some(FDTFC1_A::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear the transfer complete flag"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == FDTFC1_A::Clear
+    }
+}
 #[doc = "Field `FDTFC(1-7)` writer - Channel %s data transfer complete flag clear"]
-pub type FDTFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type FDTFC_W<'a, REG> = crate::BitWriter1C<'a, REG, FDTFC1_A>;
+impl<'a, REG> FDTFC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear the transfer complete flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(FDTFC1_A::Clear)
+    }
+}
+#[doc = "Channel %s half transfer flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HDTFC1_A {
+    #[doc = "1: Clear the half transfer flag"]
+    Clear = 1,
+}
+impl From<HDTFC1_A> for bool {
+    #[inline(always)]
+    fn from(variant: HDTFC1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `HDTFC(1-7)` reader - Channel %s half transfer flag clear"]
-pub type HDTFC_R = crate::BitReader;
+pub type HDTFC_R = crate::BitReader<HDTFC1_A>;
+impl HDTFC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<HDTFC1_A> {
+        match self.bits {
+            true => Some(HDTFC1_A::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear the half transfer flag"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == HDTFC1_A::Clear
+    }
+}
 #[doc = "Field `HDTFC(1-7)` writer - Channel %s half transfer flag clear"]
-pub type HDTFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type HDTFC_W<'a, REG> = crate::BitWriter1C<'a, REG, HDTFC1_A>;
+impl<'a, REG> HDTFC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear the half transfer flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(HDTFC1_A::Clear)
+    }
+}
+#[doc = "Channel %s data transfer error flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DTERRFC1_A {
+    #[doc = "1: Clear the transfer error flag"]
+    Clear = 1,
+}
+impl From<DTERRFC1_A> for bool {
+    #[inline(always)]
+    fn from(variant: DTERRFC1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `DTERRFC(1-7)` reader - Channel %s data transfer error flag clear"]
-pub type DTERRFC_R = crate::BitReader;
+pub type DTERRFC_R = crate::BitReader<DTERRFC1_A>;
+impl DTERRFC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<DTERRFC1_A> {
+        match self.bits {
+            true => Some(DTERRFC1_A::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear the transfer error flag"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == DTERRFC1_A::Clear
+    }
+}
 #[doc = "Field `DTERRFC(1-7)` writer - Channel %s data transfer error flag clear"]
-pub type DTERRFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type DTERRFC_W<'a, REG> = crate::BitWriter1C<'a, REG, DTERRFC1_A>;
+impl<'a, REG> DTERRFC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear the transfer error flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(DTERRFC1_A::Clear)
+    }
+}
 impl R {
     #[doc = "Channel (1-7) global flag clear"]
     #[doc = ""]

@@ -1,6 +1,7 @@
 _include:
   - crm/crm_v2.yaml
   - debug/pause_id.yaml
+  - dma/extended.yaml
   - ertc/common.yaml
   - ertc/alarmb.yaml
   - ertc/wat.yaml

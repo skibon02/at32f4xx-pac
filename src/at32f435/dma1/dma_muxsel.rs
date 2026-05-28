@@ -2,10 +2,60 @@
 pub type R = crate::R<DMA_MUXSEL_SPEC>;
 #[doc = "Register `DMA_MUXSEL` writer"]
 pub type W = crate::W<DMA_MUXSEL_SPEC>;
+#[doc = "Multiplexer Table Select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TBL_SEL_A {
+    #[doc = "0: Normal table"]
+    Normal = 0,
+    #[doc = "1: Flexible mapping table"]
+    Flexible = 1,
+}
+impl From<TBL_SEL_A> for bool {
+    #[inline(always)]
+    fn from(variant: TBL_SEL_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `TBL_SEL` reader - Multiplexer Table Select"]
-pub type TBL_SEL_R = crate::BitReader;
+pub type TBL_SEL_R = crate::BitReader<TBL_SEL_A>;
+impl TBL_SEL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TBL_SEL_A {
+        match self.bits {
+            false => TBL_SEL_A::Normal,
+            true => TBL_SEL_A::Flexible,
+        }
+    }
+    #[doc = "Normal table"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        *self == TBL_SEL_A::Normal
+    }
+    #[doc = "Flexible mapping table"]
+    #[inline(always)]
+    pub fn is_flexible(&self) -> bool {
+        *self == TBL_SEL_A::Flexible
+    }
+}
 #[doc = "Field `TBL_SEL` writer - Multiplexer Table Select"]
-pub type TBL_SEL_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type TBL_SEL_W<'a, REG> = crate::BitWriter<'a, REG, TBL_SEL_A>;
+impl<'a, REG> TBL_SEL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Normal table"]
+    #[inline(always)]
+    pub fn normal(self) -> &'a mut crate::W<REG> {
+        self.variant(TBL_SEL_A::Normal)
+    }
+    #[doc = "Flexible mapping table"]
+    #[inline(always)]
+    pub fn flexible(self) -> &'a mut crate::W<REG> {
+        self.variant(TBL_SEL_A::Flexible)
+    }
+}
 impl R {
     #[doc = "Bit 0 - Multiplexer Table Select"]
     #[inline(always)]

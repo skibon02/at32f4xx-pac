@@ -3754,172 +3754,92 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>GF1</name>
-              <description>Channel 1 Global event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>GF%s</name>
+              <description>Channel %s global event flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>GF1</name>
+                <enumeratedValue>
+                  <name>NoEvent</name>
+                  <description>No event</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Event</name>
+                  <description>An event occurred (transfer error, half transfer or transfer complete)</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>GF2</name>
-              <description>Channel 2 Global event flag</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF3</name>
-              <description>Channel 3 Global event flag</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF4</name>
-              <description>Channel 4 Global event flag</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF5</name>
-              <description>Channel 5 Global event flag</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF6</name>
-              <description>Channel 6 Global event flag</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF7</name>
-              <description>Channel 7 Global event flag</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF1</name>
-              <description>Channel 1 full  data transfer event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>FDTF%s</name>
+              <description>Channel %s data transfer complete event flag</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FDTF1</name>
+                <enumeratedValue>
+                  <name>NoTransferComplete</name>
+                  <description>No transfer complete</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TransferComplete</name>
+                  <description>A transfer complete occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>FDTF2</name>
-              <description>Channel 2 full  data transfer event flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF3</name>
-              <description>Channel 3 full data transfer event flag</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF4</name>
-              <description>Channel 4 full data transfer event flag</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF5</name>
-              <description>Channel 5 full data transfer event flag</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF6</name>
-              <description>Channel 6 full data transfer event flag</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF7</name>
-              <description>Channel 7 full data transfer event flag</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF1</name>
-              <description>Channel 1 half data transfer event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>HDTF%s</name>
+              <description>Channel %s half transfer event flag</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>HDTF1</name>
+                <enumeratedValue>
+                  <name>NoHalfTransfer</name>
+                  <description>No half transfer</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HalfTransfer</name>
+                  <description>A half transfer occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>HDTF2</name>
-              <description>Channel 2 half data transfer event flag</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF3</name>
-              <description>Channel 3 half data transfer event flag</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF4</name>
-              <description>Channel 4 half data transfer event flag</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF5</name>
-              <description>Channel 5 half data transfer event flag</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF6</name>
-              <description>Channel 6 half data transfer event flag</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF7</name>
-              <description>Channel 7 half data transfer event flag</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF1</name>
-              <description>Channel 1 data transfer error event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>DTERRF%s</name>
+              <description>Channel %s data transfer error event flag</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF2</name>
-              <description>Channel 2 data transfer error event flag</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF3</name>
-              <description>Channel 3 data transfer error event flag</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF4</name>
-              <description>Channel 4 data transfer error event flag</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF5</name>
-              <description>Channel 5 data transfer error event flag</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF6</name>
-              <description>Channel 6 data transfer error event flag</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF7</name>
-              <description>Channel 7 data transfer error event flag</description>
-              <bitOffset>27</bitOffset>
-              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DTERRF1</name>
+                <enumeratedValue>
+                  <name>NoTransferError</name>
+                  <description>No transfer error</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TransferError</name>
+                  <description>A transfer error occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -3933,172 +3853,76 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>GFC1</name>
-              <description>Channel 1 Global flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>GFC%s</name>
+              <description>Channel %s global flag clear</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>GFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear all flags DTERRFx, HDTFx, FDTFx and GFx</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>GFC2</name>
-              <description>Channel 2 Global flag clear</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC3</name>
-              <description>Channel 3 Global flag clear</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC4</name>
-              <description>Channel 4 Global flag clear</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC5</name>
-              <description>Channel 5 Global flag clear</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC6</name>
-              <description>Channel 6 Global flag clear</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC7</name>
-              <description>Channel 7 Global flag clear</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC1</name>
-              <description>Channel 1 full data transfer flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>FDTFC%s</name>
+              <description>Channel %s data transfer complete flag clear</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>FDTFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear the transfer complete flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>FDTFC2</name>
-              <description>Channel 2 full data transfer flag clear</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC3</name>
-              <description>Channel 3 full data transfer flag clear</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC4</name>
-              <description>Channel 4 full data transfer flag clear</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC5</name>
-              <description>Channel 5 full data transfer flag clear</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC6</name>
-              <description>Channel 6 full data transfer flag clear</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC7</name>
-              <description>Channel 7 full data transfer flag clear</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC1</name>
-              <description>Channel 1 half data transfer flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>HDTFC%s</name>
+              <description>Channel %s half transfer flag clear</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>HDTFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear the half transfer flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>HDTFC2</name>
-              <description>Channel 2 half data transfer flag clear</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC3</name>
-              <description>Channel 3 half data transfer flag clear</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC4</name>
-              <description>Channel 4 half data transfer flag clear</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC5</name>
-              <description>Channel 5 half data transfer flag clear</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC6</name>
-              <description>Channel 6 half data transfer flag clear</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC7</name>
-              <description>Channel 7 half data transfer flag clear</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC1</name>
-              <description>Channel 1 data transfer error flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>DTERRFC%s</name>
+              <description>Channel %s data transfer error flag clear</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC2</name>
-              <description>Channel 2 data transfer error flag clear</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC3</name>
-              <description>Channel 3 data transfer error flag clear</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC4</name>
-              <description>Channel 4 data transfer error flag clear</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC5</name>
-              <description>Channel 5 data transfer error flag clear</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC6</name>
-              <description>Channel 6 data transfer error flag clear</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC7</name>
-              <description>Channel 7 data transfer error flag clear</description>
-              <bitOffset>27</bitOffset>
-              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>DTERRFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear the transfer error flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -4485,6 +4309,12 @@
                 <description>Number of data to transfer</description>
                 <bitOffset>0</bitOffset>
                 <bitWidth>16</bitWidth>
+                <writeConstraint>
+                  <range>
+                    <minimum>0</minimum>
+                    <maximum>65535</maximum>
+                  </range>
+                </writeConstraint>
               </field>
             </fields>
           </register>
@@ -4496,12 +4326,6 @@
             <size>0x20</size>
             <access>read-write</access>
             <resetValue>0x00000000</resetValue>
-            <writeConstraint>
-              <range>
-                <minimum>0</minimum>
-                <maximum>4294967295</maximum>
-              </range>
-            </writeConstraint>
           </register>
           <register>
             <name>MADDR</name>
@@ -4511,12 +4335,6 @@
             <size>0x20</size>
             <access>read-write</access>
             <resetValue>0x00000000</resetValue>
-            <writeConstraint>
-              <range>
-                <minimum>0</minimum>
-                <maximum>4294967295</maximum>
-              </range>
-            </writeConstraint>
           </register>
         </cluster>
         <register>

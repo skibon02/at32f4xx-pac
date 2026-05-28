@@ -3956,172 +3956,92 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>GF1</name>
-              <description>Channel 1 Global event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>GF%s</name>
+              <description>Channel %s global event flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>GF1</name>
+                <enumeratedValue>
+                  <name>NoEvent</name>
+                  <description>No event</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Event</name>
+                  <description>An event occurred (transfer error, half transfer or transfer complete)</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>FDTF1</name>
-              <description>Channel 1 full  data transfer event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>FDTF%s</name>
+              <description>Channel %s data transfer complete event flag</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>FDTF1</name>
+                <enumeratedValue>
+                  <name>NoTransferComplete</name>
+                  <description>No transfer complete</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TransferComplete</name>
+                  <description>A transfer complete occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>HDTF1</name>
-              <description>Channel 1 half data transfer event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>HDTF%s</name>
+              <description>Channel %s half transfer event flag</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>HDTF1</name>
+                <enumeratedValue>
+                  <name>NoHalfTransfer</name>
+                  <description>No half transfer</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HalfTransfer</name>
+                  <description>A half transfer occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>DTERRF1</name>
-              <description>Channel 1 data transfer error event flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>DTERRF%s</name>
+              <description>Channel %s data transfer error event flag</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF2</name>
-              <description>Channel 2 Global event flag</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF2</name>
-              <description>Channel 2 full  data transfer event flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF2</name>
-              <description>Channel 2 half data transfer event flag</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF2</name>
-              <description>Channel 2 data transfer error event flag</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF3</name>
-              <description>Channel 3 Global event flag</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF3</name>
-              <description>Channel 3 full data transfer event flag</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF3</name>
-              <description>Channel 3 half data transfer event flag</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF3</name>
-              <description>Channel 3 data transfer error event flag</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF4</name>
-              <description>Channel 4 Global event flag</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF4</name>
-              <description>Channel 4 full data transfer event flag</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF4</name>
-              <description>Channel 4 half data transfer event flag</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF4</name>
-              <description>Channel 4 data transfer error event flag</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF5</name>
-              <description>Channel 5 Global event flag</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF5</name>
-              <description>Channel 5 full data transfer event flag</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF5</name>
-              <description>Channel 5 half data transfer event flag</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF5</name>
-              <description>Channel 5 data transfer error event flag</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF6</name>
-              <description>Channel 6 Global event flag</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF6</name>
-              <description>Channel 6 full data transfer event flag</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF6</name>
-              <description>Channel 6 half data transfer event flag</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF6</name>
-              <description>Channel 6 data transfer error event flag</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GF7</name>
-              <description>Channel 7 Global event flag</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTF7</name>
-              <description>Channel 7 full data transfer event flag</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTF7</name>
-              <description>Channel 7 half data transfer event flag</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRF7</name>
-              <description>Channel 7 data transfer error event flag</description>
-              <bitOffset>27</bitOffset>
-              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DTERRF1</name>
+                <enumeratedValue>
+                  <name>NoTransferError</name>
+                  <description>No transfer error</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TransferError</name>
+                  <description>A transfer error occurred</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -4136,172 +4056,76 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>GFC1</name>
-              <description>Channel 1 Global flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>GFC%s</name>
+              <description>Channel %s global flag clear</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>GFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear all flags DTERRFx, HDTFx, FDTFx and GFx</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>GFC2</name>
-              <description>Channel 2 Global flag clear</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC3</name>
-              <description>Channel 3 Global flag clear</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC4</name>
-              <description>Channel 4 Global flag clear</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC5</name>
-              <description>Channel 5 Global flag clear</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC6</name>
-              <description>Channel 6 Global flag clear</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>GFC7</name>
-              <description>Channel 7 Global flag clear</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC1</name>
-              <description>Channel 1 full data transfer flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>FDTFC%s</name>
+              <description>Channel %s data transfer complete flag clear</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>FDTFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear the transfer complete flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>FDTFC2</name>
-              <description>Channel 2 full data transfer flag clear</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC3</name>
-              <description>Channel 3 full data transfer flag clear</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC4</name>
-              <description>Channel 4 full data transfer flag clear</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC5</name>
-              <description>Channel 5 full data transfer flag clear</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC6</name>
-              <description>Channel 6 full data transfer flag clear</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>FDTFC7</name>
-              <description>Channel 7 full data transfer flag clear</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC1</name>
-              <description>Channel 1 half data transfer flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>HDTFC%s</name>
+              <description>Channel %s half transfer flag clear</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>HDTFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear the half transfer flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
-              <name>HDTFC2</name>
-              <description>Channel 2 half data transfer flag clear</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC3</name>
-              <description>Channel 3 half data transfer flag clear</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC4</name>
-              <description>Channel 4 half data transfer flag clear</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC5</name>
-              <description>Channel 5 half data transfer flag clear</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC6</name>
-              <description>Channel 6 half data transfer flag clear</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>HDTFC7</name>
-              <description>Channel 7 half data transfer flag clear</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC1</name>
-              <description>Channel 1 data transfer error flag clear</description>
+              <dim>7</dim>
+              <dimIncrement>0x4</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>DTERRFC%s</name>
+              <description>Channel %s data transfer error flag clear</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC2</name>
-              <description>Channel 2 data transfer error flag clear</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC3</name>
-              <description>Channel 3 data transfer error flag clear</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC4</name>
-              <description>Channel 4 data transfer error flag clear</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC5</name>
-              <description>Channel 5 data transfer error flag clear</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC6</name>
-              <description>Channel 6 data transfer error flag clear</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>DTERRFC7</name>
-              <description>Channel 7 data transfer error flag clear</description>
-              <bitOffset>27</bitOffset>
-              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>DTERRFC1</name>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear the transfer error flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -4688,6 +4512,12 @@
                 <description>Number of data to transfer</description>
                 <bitOffset>0</bitOffset>
                 <bitWidth>16</bitWidth>
+                <writeConstraint>
+                  <range>
+                    <minimum>0</minimum>
+                    <maximum>65535</maximum>
+                  </range>
+                </writeConstraint>
               </field>
             </fields>
           </register>
@@ -4699,12 +4529,6 @@
             <size>0x20</size>
             <access>read-write</access>
             <resetValue>0x00000000</resetValue>
-            <writeConstraint>
-              <range>
-                <minimum>0</minimum>
-                <maximum>4294967295</maximum>
-              </range>
-            </writeConstraint>
           </register>
           <register>
             <name>MADDR</name>
@@ -4714,12 +4538,6 @@
             <size>0x20</size>
             <access>read-write</access>
             <resetValue>0x00000000</resetValue>
-            <writeConstraint>
-              <range>
-                <minimum>0</minimum>
-                <maximum>4294967295</maximum>
-              </range>
-            </writeConstraint>
           </register>
         </cluster>
         <register>
@@ -4736,602 +4554,358 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>TBL_SEL</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal table</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Flexible</name>
+                  <description>Flexible mapping table</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
-        <register>
-          <name>MUXC1CTRL</name>
-          <displayName>MUXC1CTRL</displayName>
-          <description>Channel 1 Configuration Register</description>
+        <cluster>
+          <dim>7</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <dimIndex>1-7</dimIndex>
+          <name>ChannelMux%s</name>
+          <description>Channel %s mux</description>
           <addressOffset>0x104</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC2CTRL</name>
-          <displayName>MUXC2CTRL</displayName>
-          <description>Channel 2 Configuration Register</description>
-          <addressOffset>0x108</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC3CTRL</name>
-          <displayName>MUXC3CTRL</displayName>
-          <description>Channel 3 Configuration Register</description>
-          <addressOffset>0x10C</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC4CTRL</name>
-          <displayName>MUXC4CTRL</displayName>
-          <description>Channel 4 Configuration Register</description>
-          <addressOffset>0x110</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC5CTRL</name>
-          <displayName>MUXC5CTRL</displayName>
-          <description>Channel 5 Configuration Register</description>
-          <addressOffset>0x114</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC6CTRL</name>
-          <displayName>MUXC6CTRL</displayName>
-          <description>Channel 6 Configuration Register</description>
-          <addressOffset>0x118</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXC7CTRL</name>
-          <displayName>MUXC7CTRL</displayName>
-          <description>Channel 7 Configuration Register</description>
-          <addressOffset>0x11C</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>REQSEL</name>
-              <description>DMA request select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVIEN</name>
-              <description>Synchronization overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>EVTGEN</name>
-              <description>Event generation enable</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCEN</name>
-              <description>Synchroniztion enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCPOL</name>
-              <description>Synchronization polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>REQCNT</name>
-              <description>Number of DMA requests</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCSEL</name>
-              <description>Synchronization Identification</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXG1CTRL</name>
-          <displayName>MUXG1CTRL</displayName>
-          <description>Generator 1 Configuration Register</description>
+          <register>
+            <name>MUXCTRL</name>
+            <displayName>MUXC1CTRL</displayName>
+            <description>DMA channel mux control register</description>
+            <addressOffset>0x0</addressOffset>
+            <size>0x20</size>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+              <field>
+                <name>REQSEL</name>
+                <description>DMA request select</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>7</bitWidth>
+                <access>read-write</access>
+                <writeConstraint>
+                  <range>
+                    <minimum>0</minimum>
+                    <maximum>127</maximum>
+                  </range>
+                </writeConstraint>
+              </field>
+              <field>
+                <name>SYNCOVIEN</name>
+                <description>Synchronization overrun interrupt enable</description>
+                <bitOffset>8</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>SYNCOVIENR</name>
+                  <usage>read</usage>
+                  <enumeratedValue>
+                    <name>Disabled</name>
+                    <description>Channel synchronization overrun interrupt is disabled</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enabled</name>
+                    <description>Channel synchronization overrun interrupt is enabled</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+                <enumeratedValues>
+                  <name>SYNCOVIENW</name>
+                  <usage>write</usage>
+                  <enumeratedValue>
+                    <name>Disable</name>
+                    <description>Channel synchronization overrun interrupt disable</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enable</name>
+                    <description>Channel synchronization overrun interrupt enable</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>EVTGEN</name>
+                <description>Event generation enable</description>
+                <bitOffset>9</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>EVTGENR</name>
+                  <usage>read</usage>
+                  <enumeratedValue>
+                    <name>Disabled</name>
+                    <description>Event generation is disabled</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enabled</name>
+                    <description>Event generation is enabled</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+                <enumeratedValues>
+                  <name>EVTGENW</name>
+                  <usage>write</usage>
+                  <enumeratedValue>
+                    <name>Disable</name>
+                    <description>Event generation disable</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enable</name>
+                    <description>Event generation enable</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>SYNCEN</name>
+                <description>Synchroniztion enable</description>
+                <bitOffset>16</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>SYNCENR</name>
+                  <usage>read</usage>
+                  <enumeratedValue>
+                    <name>Disabled</name>
+                    <description>Channel synchronization is disabled</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enabled</name>
+                    <description>Channel synchronization is enabled</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+                <enumeratedValues>
+                  <name>SYNCENW</name>
+                  <usage>write</usage>
+                  <enumeratedValue>
+                    <name>Disable</name>
+                    <description>Channel synchronization disable</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enable</name>
+                    <description>Channel synchronization enable</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>SYNCPOL</name>
+                <description>Synchronization polarity</description>
+                <bitOffset>17</bitOffset>
+                <bitWidth>2</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>SYNCPOL</name>
+                  <enumeratedValue>
+                    <name>NoEvents</name>
+                    <description>No events</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>RisingEdge</name>
+                    <description>Rising edge</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>FallingEdge</name>
+                    <description>Falling edge</description>
+                    <value>2</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>BothEdges</name>
+                    <description>Rising and falling edges</description>
+                    <value>3</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>REQCNT</name>
+                <description>Number of DMA requests</description>
+                <bitOffset>19</bitOffset>
+                <bitWidth>5</bitWidth>
+                <access>read-write</access>
+                <writeConstraint>
+                  <range>
+                    <minimum>0</minimum>
+                    <maximum>31</maximum>
+                  </range>
+                </writeConstraint>
+              </field>
+              <field>
+                <name>SYNCSEL</name>
+                <description>Synchronization Identification</description>
+                <bitOffset>24</bitOffset>
+                <bitWidth>5</bitWidth>
+                <access>read-write</access>
+                <writeConstraint>
+                  <range>
+                    <minimum>0</minimum>
+                    <maximum>31</maximum>
+                  </range>
+                </writeConstraint>
+              </field>
+            </fields>
+          </register>
+        </cluster>
+        <cluster>
+          <dim>4</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <dimIndex>1-4</dimIndex>
+          <name>GeneratorChannelMux%s</name>
+          <description>Cluster GeneratorChannelMux%s, containing MUXG?CTRL</description>
           <addressOffset>0x120</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>SIGSEL</name>
-              <description>Signal select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVIEN</name>
-              <description>Trigger overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GEN</name>
-              <description>DMA request generator enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GPOL</name>
-              <description>DMA request generator trigger polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GREQCNT</name>
-              <description>Number of DMA requests to be generated</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXG2CTRL</name>
-          <displayName>MUXG2CTRL</displayName>
-          <description>Generator 2 Configuration Register</description>
-          <addressOffset>0x124</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>SIGSEL</name>
-              <description>Signal select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVIEN</name>
-              <description>Trigger overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GEN</name>
-              <description>DMA request generator enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GPOL</name>
-              <description>DMA request generator trigger polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GREQCNT</name>
-              <description>Number of DMA requests to be generated</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXG3CTRL</name>
-          <displayName>MUXG3CTRL</displayName>
-          <description>Generator 3 Configuration Register</description>
-          <addressOffset>0x128</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>SIGSEL</name>
-              <description>Signal select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVIEN</name>
-              <description>Trigger overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GEN</name>
-              <description>DMA request generator enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GPOL</name>
-              <description>DMA request generator trigger polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GREQCNT</name>
-              <description>Number of DMA requests to be generated</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>MUXG4CTRL</name>
-          <displayName>MUXG4CTRL</displayName>
-          <description>Generator 4 Configuration Register</description>
-          <addressOffset>0x12C</addressOffset>
-          <size>0x20</size>
-          <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>SIGSEL</name>
-              <description>Signal select</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVIEN</name>
-              <description>Trigger overrun interrupt enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GEN</name>
-              <description>DMA request generator enable</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GPOL</name>
-              <description>DMA request generator trigger polarity</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>GREQCNT</name>
-              <description>Number of DMA requests to be generated</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
+          <register>
+            <name>MUXGCTRL</name>
+            <displayName>MUXG1CTRL</displayName>
+            <description>DMA generator channel mux control register</description>
+            <addressOffset>0x0</addressOffset>
+            <size>0x20</size>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+              <field>
+                <name>SIGSEL</name>
+                <description>Signal select</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>5</bitWidth>
+                <access>read-write</access>
+                <writeConstraint>
+                  <range>
+                    <minimum>0</minimum>
+                    <maximum>31</maximum>
+                  </range>
+                </writeConstraint>
+              </field>
+              <field>
+                <name>TRGOVIEN</name>
+                <description>Trigger overrun interrupt enable</description>
+                <bitOffset>8</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>TRGOVIENR</name>
+                  <usage>read</usage>
+                  <enumeratedValue>
+                    <name>Disabled</name>
+                    <description>Trigger overrun interrupt is disabled</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enabled</name>
+                    <description>Trigger overrun interrupt is enabled</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+                <enumeratedValues>
+                  <name>TRGOVIENW</name>
+                  <usage>write</usage>
+                  <enumeratedValue>
+                    <name>Disable</name>
+                    <description>Trigger overrun interrupt disable</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enable</name>
+                    <description>Trigger overrun interrupt enable</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>GEN</name>
+                <description>DMA request generator enable</description>
+                <bitOffset>16</bitOffset>
+                <bitWidth>1</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>GENR</name>
+                  <usage>read</usage>
+                  <enumeratedValue>
+                    <name>Disabled</name>
+                    <description>DMA request generation is disabled</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enabled</name>
+                    <description>DMA request generation is enabled</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+                <enumeratedValues>
+                  <name>GENW</name>
+                  <usage>write</usage>
+                  <enumeratedValue>
+                    <name>Disable</name>
+                    <description>DMA request generation disable</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>Enable</name>
+                    <description>DMA request generation enable</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>GPOL</name>
+                <description>DMA request generator trigger polarity</description>
+                <bitOffset>17</bitOffset>
+                <bitWidth>2</bitWidth>
+                <access>read-write</access>
+                <enumeratedValues>
+                  <name>GPOL</name>
+                  <enumeratedValue>
+                    <name>NoEvents</name>
+                    <description>No events</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>RisingEdge</name>
+                    <description>Rising edge</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>FallingEdge</name>
+                    <description>Falling edge</description>
+                    <value>2</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>BothEdges</name>
+                    <description>Rising and falling edges</description>
+                    <value>3</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>GREQCNT</name>
+                <description>Number of DMA requests to be generated</description>
+                <bitOffset>19</bitOffset>
+                <bitWidth>5</bitWidth>
+                <access>read-write</access>
+                <writeConstraint>
+                  <range>
+                    <minimum>0</minimum>
+                    <maximum>31</maximum>
+                  </range>
+                </writeConstraint>
+              </field>
+            </fields>
+          </register>
+        </cluster>
         <register>
           <name>MUXSYNCSTS</name>
           <displayName>MUXSYNCSTS</displayName>
@@ -5341,53 +4915,27 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>SYNCOVF1</name>
-              <description>Synchronizaton overrun interrupt flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>SYNCOVF%s</name>
+              <description>Channel %s synchronization overrun flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF2</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF3</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF4</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF5</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF6</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>SYNCOVF7</name>
-              <description>Synchronizaton overrun interrupt flag</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
+              <enumeratedValues>
+                <name>SYNCOVF1</name>
+                <enumeratedValue>
+                  <name>NoOverrun</name>
+                  <description>No synchronization overrun</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Overrun</name>
+                  <description>A synchronization overrun occurred (DMA request count &lt; REQCNT)</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -5400,53 +4948,24 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>SYNCOVFC1</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
+              <dim>7</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-7</dimIndex>
+              <name>SYNCOVFC%s</name>
+              <description>Channel %s synchronization overrun flag clear</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC2</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC3</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC4</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC5</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC6</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SYNCOVFC7</name>
-              <description>Clear synchronizaton overrun interrupt flag</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>SYNCOVFC1W</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear synchronization overrun flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -5459,32 +4978,27 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>TRGOVF1</name>
-              <description>Trigger overrun interrupt flag</description>
+              <dim>4</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-4</dimIndex>
+              <name>TRGOVF%s</name>
+              <description>Channel %s trigger overrun flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVF2</name>
-              <description>Trigger overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVF3</name>
-              <description>Trigger overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVF4</name>
-              <description>Trigger overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
+              <enumeratedValues>
+                <name>TRGOVF1</name>
+                <enumeratedValue>
+                  <name>NoOverrun</name>
+                  <description>No trigger overrun</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Overrun</name>
+                  <description>A trigger overrun occurred (DMA request count &lt; GREQCNT)</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -5497,32 +5011,24 @@
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>TRGOVFC1</name>
-              <description>Clear trigger overrun interrupt flag</description>
+              <dim>4</dim>
+              <dimIncrement>0x1</dimIncrement>
+              <dimIndex>1-4</dimIndex>
+              <name>TRGOVFC%s</name>
+              <description>Channel %s trigger overrun flag clear</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVFC2</name>
-              <description>Clear trigger overrun interrupt flag</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVFC3</name>
-              <description>Clear trigger overrun interrupt flag</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>TRGOVFC4</name>
-              <description>Clear trigger overrun interrupt flag</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+              <enumeratedValues>
+                <name>TRGOVFC1W</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>Clear</name>
+                  <description>Clear trigger overrun flag</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>

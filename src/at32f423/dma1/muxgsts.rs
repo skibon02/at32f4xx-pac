@@ -2,42 +2,78 @@
 pub type R = crate::R<MUXGSTS_SPEC>;
 #[doc = "Register `MUXGSTS` writer"]
 pub type W = crate::W<MUXGSTS_SPEC>;
-#[doc = "Field `TRGOVF1` reader - Trigger overrun interrupt flag"]
-pub type TRGOVF1_R = crate::BitReader;
-#[doc = "Field `TRGOVF1` writer - Trigger overrun interrupt flag"]
-pub type TRGOVF1_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TRGOVF2` reader - Trigger overrun interrupt flag"]
-pub type TRGOVF2_R = crate::BitReader;
-#[doc = "Field `TRGOVF2` writer - Trigger overrun interrupt flag"]
-pub type TRGOVF2_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TRGOVF3` reader - Trigger overrun interrupt flag"]
-pub type TRGOVF3_R = crate::BitReader;
-#[doc = "Field `TRGOVF3` writer - Trigger overrun interrupt flag"]
-pub type TRGOVF3_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TRGOVF4` reader - Trigger overrun interrupt flag"]
-pub type TRGOVF4_R = crate::BitReader;
-#[doc = "Field `TRGOVF4` writer - Trigger overrun interrupt flag"]
-pub type TRGOVF4_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Channel %s trigger overrun flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TRGOVF1_A {
+    #[doc = "0: No trigger overrun"]
+    NoOverrun = 0,
+    #[doc = "1: A trigger overrun occurred (DMA request count < GREQCNT)"]
+    Overrun = 1,
+}
+impl From<TRGOVF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: TRGOVF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `TRGOVF(1-4)` reader - Channel %s trigger overrun flag"]
+pub type TRGOVF_R = crate::BitReader<TRGOVF1_A>;
+impl TRGOVF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> TRGOVF1_A {
+        match self.bits {
+            false => TRGOVF1_A::NoOverrun,
+            true => TRGOVF1_A::Overrun,
+        }
+    }
+    #[doc = "No trigger overrun"]
+    #[inline(always)]
+    pub fn is_no_overrun(&self) -> bool {
+        *self == TRGOVF1_A::NoOverrun
+    }
+    #[doc = "A trigger overrun occurred (DMA request count < GREQCNT)"]
+    #[inline(always)]
+    pub fn is_overrun(&self) -> bool {
+        *self == TRGOVF1_A::Overrun
+    }
+}
 impl R {
-    #[doc = "Bit 0 - Trigger overrun interrupt flag"]
+    #[doc = "Channel (1-4) trigger overrun flag"]
+    #[doc = ""]
+    #[doc = "<div class=\"warning\">`n` is number of field in register. `n == 0` corresponds to `TRGOVF1` field.</div>"]
     #[inline(always)]
-    pub fn trgovf1(&self) -> TRGOVF1_R {
-        TRGOVF1_R::new((self.bits & 1) != 0)
+    pub fn trgovf(&self, n: u8) -> TRGOVF_R {
+        #[allow(clippy::no_effect)]
+        [(); 4][n as usize];
+        TRGOVF_R::new(((self.bits >> n) & 1) != 0)
     }
-    #[doc = "Bit 1 - Trigger overrun interrupt flag"]
+    #[doc = "Iterator for array of:"]
+    #[doc = "Channel (1-4) trigger overrun flag"]
     #[inline(always)]
-    pub fn trgovf2(&self) -> TRGOVF2_R {
-        TRGOVF2_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn trgovf_iter(&self) -> impl Iterator<Item = TRGOVF_R> + '_ {
+        (0..4).map(move |n| TRGOVF_R::new(((self.bits >> n) & 1) != 0))
     }
-    #[doc = "Bit 2 - Trigger overrun interrupt flag"]
+    #[doc = "Bit 0 - Channel 1 trigger overrun flag"]
     #[inline(always)]
-    pub fn trgovf3(&self) -> TRGOVF3_R {
-        TRGOVF3_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn trgovf1(&self) -> TRGOVF_R {
+        TRGOVF_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 3 - Trigger overrun interrupt flag"]
+    #[doc = "Bit 1 - Channel 2 trigger overrun flag"]
     #[inline(always)]
-    pub fn trgovf4(&self) -> TRGOVF4_R {
-        TRGOVF4_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn trgovf2(&self) -> TRGOVF_R {
+        TRGOVF_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    #[doc = "Bit 2 - Channel 3 trigger overrun flag"]
+    #[inline(always)]
+    pub fn trgovf3(&self) -> TRGOVF_R {
+        TRGOVF_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Channel 4 trigger overrun flag"]
+    #[inline(always)]
+    pub fn trgovf4(&self) -> TRGOVF_R {
+        TRGOVF_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 impl core::fmt::Debug for R {
@@ -50,28 +86,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-impl W {
-    #[doc = "Bit 0 - Trigger overrun interrupt flag"]
-    #[inline(always)]
-    pub fn trgovf1(&mut self) -> TRGOVF1_W<'_, MUXGSTS_SPEC> {
-        TRGOVF1_W::new(self, 0)
-    }
-    #[doc = "Bit 1 - Trigger overrun interrupt flag"]
-    #[inline(always)]
-    pub fn trgovf2(&mut self) -> TRGOVF2_W<'_, MUXGSTS_SPEC> {
-        TRGOVF2_W::new(self, 1)
-    }
-    #[doc = "Bit 2 - Trigger overrun interrupt flag"]
-    #[inline(always)]
-    pub fn trgovf3(&mut self) -> TRGOVF3_W<'_, MUXGSTS_SPEC> {
-        TRGOVF3_W::new(self, 2)
-    }
-    #[doc = "Bit 3 - Trigger overrun interrupt flag"]
-    #[inline(always)]
-    pub fn trgovf4(&mut self) -> TRGOVF4_W<'_, MUXGSTS_SPEC> {
-        TRGOVF4_W::new(self, 3)
-    }
-}
+impl W {}
 #[doc = "Generator Interrupt Status Register\n\nYou can [`read`](crate::Reg::read) this register and get [`muxgsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`muxgsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MUXGSTS_SPEC;
 impl crate::RegisterSpec for MUXGSTS_SPEC {

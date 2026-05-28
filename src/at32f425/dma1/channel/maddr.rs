@@ -17,7 +17,7 @@ impl crate::RegisterSpec for MADDR_SPEC {
 impl crate::Readable for MADDR_SPEC {}
 #[doc = "`write(|w| ..)` method takes [`maddr::W`](W) writer structure"]
 impl crate::Writable for MADDR_SPEC {
-    type Safety = crate::Safe;
+    type Safety = crate::Unsafe;
 }
 #[doc = "`reset()` method sets MADDR to value 0"]
 impl crate::Resettable for MADDR_SPEC {}

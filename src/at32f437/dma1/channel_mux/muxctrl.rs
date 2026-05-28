@@ -5,19 +5,214 @@ pub type W = crate::W<MUXCTRL_SPEC>;
 #[doc = "Field `REQSEL` reader - DMA request select"]
 pub type REQSEL_R = crate::FieldReader;
 #[doc = "Field `REQSEL` writer - DMA request select"]
-pub type REQSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
+pub type REQSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 7, u8, crate::Safe>;
+#[doc = "Synchronization overrun interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Syncovienr {
+    #[doc = "0: Channel synchronization overrun interrupt is disabled"]
+    Disabled = 0,
+    #[doc = "1: Channel synchronization overrun interrupt is enabled"]
+    Enabled = 1,
+}
+impl From<Syncovienr> for bool {
+    #[inline(always)]
+    fn from(variant: Syncovienr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SYNCOVIEN` reader - Synchronization overrun interrupt enable"]
-pub type SYNCOVIEN_R = crate::BitReader;
+pub type SYNCOVIEN_R = crate::BitReader<Syncovienr>;
+impl SYNCOVIEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Syncovienr {
+        match self.bits {
+            false => Syncovienr::Disabled,
+            true => Syncovienr::Enabled,
+        }
+    }
+    #[doc = "Channel synchronization overrun interrupt is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Syncovienr::Disabled
+    }
+    #[doc = "Channel synchronization overrun interrupt is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Syncovienr::Enabled
+    }
+}
+#[doc = "Synchronization overrun interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SyncovienwWO {
+    #[doc = "0: Channel synchronization overrun interrupt disable"]
+    Disable = 0,
+    #[doc = "1: Channel synchronization overrun interrupt enable"]
+    Enable = 1,
+}
+impl From<SyncovienwWO> for bool {
+    #[inline(always)]
+    fn from(variant: SyncovienwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SYNCOVIEN` writer - Synchronization overrun interrupt enable"]
-pub type SYNCOVIEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SYNCOVIEN_W<'a, REG> = crate::BitWriter<'a, REG, SyncovienwWO>;
+impl<'a, REG> SYNCOVIEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Channel synchronization overrun interrupt disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(SyncovienwWO::Disable)
+    }
+    #[doc = "Channel synchronization overrun interrupt enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(SyncovienwWO::Enable)
+    }
+}
+#[doc = "Event generation enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Evtgenr {
+    #[doc = "0: Event generation is disabled"]
+    Disabled = 0,
+    #[doc = "1: Event generation is enabled"]
+    Enabled = 1,
+}
+impl From<Evtgenr> for bool {
+    #[inline(always)]
+    fn from(variant: Evtgenr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `EVTGEN` reader - Event generation enable"]
-pub type EVTGEN_R = crate::BitReader;
+pub type EVTGEN_R = crate::BitReader<Evtgenr>;
+impl EVTGEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Evtgenr {
+        match self.bits {
+            false => Evtgenr::Disabled,
+            true => Evtgenr::Enabled,
+        }
+    }
+    #[doc = "Event generation is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Evtgenr::Disabled
+    }
+    #[doc = "Event generation is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Evtgenr::Enabled
+    }
+}
+#[doc = "Event generation enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum EvtgenwWO {
+    #[doc = "0: Event generation disable"]
+    Disable = 0,
+    #[doc = "1: Event generation enable"]
+    Enable = 1,
+}
+impl From<EvtgenwWO> for bool {
+    #[inline(always)]
+    fn from(variant: EvtgenwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `EVTGEN` writer - Event generation enable"]
-pub type EVTGEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type EVTGEN_W<'a, REG> = crate::BitWriter<'a, REG, EvtgenwWO>;
+impl<'a, REG> EVTGEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Event generation disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(EvtgenwWO::Disable)
+    }
+    #[doc = "Event generation enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(EvtgenwWO::Enable)
+    }
+}
+#[doc = "Synchroniztion enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Syncenr {
+    #[doc = "0: Channel synchronization is disabled"]
+    Disabled = 0,
+    #[doc = "1: Channel synchronization is enabled"]
+    Enabled = 1,
+}
+impl From<Syncenr> for bool {
+    #[inline(always)]
+    fn from(variant: Syncenr) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SYNCEN` reader - Synchroniztion enable"]
-pub type SYNCEN_R = crate::BitReader;
+pub type SYNCEN_R = crate::BitReader<Syncenr>;
+impl SYNCEN_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Syncenr {
+        match self.bits {
+            false => Syncenr::Disabled,
+            true => Syncenr::Enabled,
+        }
+    }
+    #[doc = "Channel synchronization is disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == Syncenr::Disabled
+    }
+    #[doc = "Channel synchronization is enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == Syncenr::Enabled
+    }
+}
+#[doc = "Synchroniztion enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SyncenwWO {
+    #[doc = "0: Channel synchronization disable"]
+    Disable = 0,
+    #[doc = "1: Channel synchronization enable"]
+    Enable = 1,
+}
+impl From<SyncenwWO> for bool {
+    #[inline(always)]
+    fn from(variant: SyncenwWO) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SYNCEN` writer - Synchroniztion enable"]
-pub type SYNCEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type SYNCEN_W<'a, REG> = crate::BitWriter<'a, REG, SyncenwWO>;
+impl<'a, REG> SYNCEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Channel synchronization disable"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(SyncenwWO::Disable)
+    }
+    #[doc = "Channel synchronization enable"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(SyncenwWO::Enable)
+    }
+}
 #[doc = "Synchronization polarity\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -108,11 +303,11 @@ where
 #[doc = "Field `REQCNT` reader - Number of DMA requests"]
 pub type REQCNT_R = crate::FieldReader;
 #[doc = "Field `REQCNT` writer - Number of DMA requests"]
-pub type REQCNT_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type REQCNT_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
 #[doc = "Field `SYNCSEL` reader - Synchronization Identification"]
 pub type SYNCSEL_R = crate::FieldReader;
 #[doc = "Field `SYNCSEL` writer - Synchronization Identification"]
-pub type SYNCSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type SYNCSEL_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
 impl R {
     #[doc = "Bits 0:6 - DMA request select"]
     #[inline(always)]

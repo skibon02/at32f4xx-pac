@@ -15,6 +15,7 @@ _include:
   - common/f423_435_437.yaml
   - common/crm/crm_v2.yaml
   - common/debug/pause_id.yaml
+  - common/dma/extended.yaml
   - common/ertc/common.yaml
   - common/ertc/alarmb.yaml
   - common/ertc/wat.yaml

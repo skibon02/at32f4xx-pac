@@ -1,13 +1,153 @@
 #[doc = "Register `STS` reader"]
 pub type R = crate::R<STS_SPEC>;
+#[doc = "Channel %s global event flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum GF1_A {
+    #[doc = "0: No event"]
+    NoEvent = 0,
+    #[doc = "1: An event occurred (transfer error, half transfer or transfer complete)"]
+    Event = 1,
+}
+impl From<GF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: GF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `GF(1-7)` reader - Channel %s global event flag"]
-pub type GF_R = crate::BitReader;
+pub type GF_R = crate::BitReader<GF1_A>;
+impl GF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> GF1_A {
+        match self.bits {
+            false => GF1_A::NoEvent,
+            true => GF1_A::Event,
+        }
+    }
+    #[doc = "No event"]
+    #[inline(always)]
+    pub fn is_no_event(&self) -> bool {
+        *self == GF1_A::NoEvent
+    }
+    #[doc = "An event occurred (transfer error, half transfer or transfer complete)"]
+    #[inline(always)]
+    pub fn is_event(&self) -> bool {
+        *self == GF1_A::Event
+    }
+}
+#[doc = "Channel %s data transfer complete event flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FDTF1_A {
+    #[doc = "0: No transfer complete"]
+    NoTransferComplete = 0,
+    #[doc = "1: A transfer complete occurred"]
+    TransferComplete = 1,
+}
+impl From<FDTF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: FDTF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `FDTF(1-7)` reader - Channel %s data transfer complete event flag"]
-pub type FDTF_R = crate::BitReader;
+pub type FDTF_R = crate::BitReader<FDTF1_A>;
+impl FDTF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> FDTF1_A {
+        match self.bits {
+            false => FDTF1_A::NoTransferComplete,
+            true => FDTF1_A::TransferComplete,
+        }
+    }
+    #[doc = "No transfer complete"]
+    #[inline(always)]
+    pub fn is_no_transfer_complete(&self) -> bool {
+        *self == FDTF1_A::NoTransferComplete
+    }
+    #[doc = "A transfer complete occurred"]
+    #[inline(always)]
+    pub fn is_transfer_complete(&self) -> bool {
+        *self == FDTF1_A::TransferComplete
+    }
+}
+#[doc = "Channel %s half transfer event flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HDTF1_A {
+    #[doc = "0: No half transfer"]
+    NoHalfTransfer = 0,
+    #[doc = "1: A half transfer occurred"]
+    HalfTransfer = 1,
+}
+impl From<HDTF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: HDTF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `HDTF(1-7)` reader - Channel %s half transfer event flag"]
-pub type HDTF_R = crate::BitReader;
+pub type HDTF_R = crate::BitReader<HDTF1_A>;
+impl HDTF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> HDTF1_A {
+        match self.bits {
+            false => HDTF1_A::NoHalfTransfer,
+            true => HDTF1_A::HalfTransfer,
+        }
+    }
+    #[doc = "No half transfer"]
+    #[inline(always)]
+    pub fn is_no_half_transfer(&self) -> bool {
+        *self == HDTF1_A::NoHalfTransfer
+    }
+    #[doc = "A half transfer occurred"]
+    #[inline(always)]
+    pub fn is_half_transfer(&self) -> bool {
+        *self == HDTF1_A::HalfTransfer
+    }
+}
+#[doc = "Channel %s data transfer error event flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DTERRF1_A {
+    #[doc = "0: No transfer error"]
+    NoTransferError = 0,
+    #[doc = "1: A transfer error occurred"]
+    TransferError = 1,
+}
+impl From<DTERRF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: DTERRF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `DTERRF(1-7)` reader - Channel %s data transfer error event flag"]
-pub type DTERRF_R = crate::BitReader;
+pub type DTERRF_R = crate::BitReader<DTERRF1_A>;
+impl DTERRF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> DTERRF1_A {
+        match self.bits {
+            false => DTERRF1_A::NoTransferError,
+            true => DTERRF1_A::TransferError,
+        }
+    }
+    #[doc = "No transfer error"]
+    #[inline(always)]
+    pub fn is_no_transfer_error(&self) -> bool {
+        *self == DTERRF1_A::NoTransferError
+    }
+    #[doc = "A transfer error occurred"]
+    #[inline(always)]
+    pub fn is_transfer_error(&self) -> bool {
+        *self == DTERRF1_A::TransferError
+    }
+}
 impl R {
     #[doc = "Channel (1-7) global event flag"]
     #[doc = ""]

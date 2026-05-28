@@ -2,55 +2,93 @@
 pub type R = crate::R<MUXSYNCSTS_SPEC>;
 #[doc = "Register `MUXSYNCSTS` writer"]
 pub type W = crate::W<MUXSYNCSTS_SPEC>;
-#[doc = "Field `SYNCOVF1` reader - Synchronizaton overrun interrupt flag"]
-pub type SYNCOVF1_R = crate::BitReader;
-#[doc = "Field `SYNCOVF2` reader - Synchronizaton overrun interrupt flag"]
-pub type SYNCOVF2_R = crate::BitReader;
-#[doc = "Field `SYNCOVF3` reader - Synchronizaton overrun interrupt flag"]
-pub type SYNCOVF3_R = crate::BitReader;
-#[doc = "Field `SYNCOVF4` reader - Synchronizaton overrun interrupt flag"]
-pub type SYNCOVF4_R = crate::BitReader;
-#[doc = "Field `SYNCOVF5` reader - Synchronizaton overrun interrupt flag"]
-pub type SYNCOVF5_R = crate::BitReader;
-#[doc = "Field `SYNCOVF6` reader - Synchronizaton overrun interrupt flag"]
-pub type SYNCOVF6_R = crate::BitReader;
-#[doc = "Field `SYNCOVF7` reader - Synchronizaton overrun interrupt flag"]
-pub type SYNCOVF7_R = crate::BitReader;
+#[doc = "Channel %s synchronization overrun flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SYNCOVF1_A {
+    #[doc = "0: No synchronization overrun"]
+    NoOverrun = 0,
+    #[doc = "1: A synchronization overrun occurred (DMA request count < REQCNT)"]
+    Overrun = 1,
+}
+impl From<SYNCOVF1_A> for bool {
+    #[inline(always)]
+    fn from(variant: SYNCOVF1_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `SYNCOVF(1-7)` reader - Channel %s synchronization overrun flag"]
+pub type SYNCOVF_R = crate::BitReader<SYNCOVF1_A>;
+impl SYNCOVF_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> SYNCOVF1_A {
+        match self.bits {
+            false => SYNCOVF1_A::NoOverrun,
+            true => SYNCOVF1_A::Overrun,
+        }
+    }
+    #[doc = "No synchronization overrun"]
+    #[inline(always)]
+    pub fn is_no_overrun(&self) -> bool {
+        *self == SYNCOVF1_A::NoOverrun
+    }
+    #[doc = "A synchronization overrun occurred (DMA request count < REQCNT)"]
+    #[inline(always)]
+    pub fn is_overrun(&self) -> bool {
+        *self == SYNCOVF1_A::Overrun
+    }
+}
 impl R {
-    #[doc = "Bit 0 - Synchronizaton overrun interrupt flag"]
+    #[doc = "Channel (1-7) synchronization overrun flag"]
+    #[doc = ""]
+    #[doc = "<div class=\"warning\">`n` is number of field in register. `n == 0` corresponds to `SYNCOVF1` field.</div>"]
     #[inline(always)]
-    pub fn syncovf1(&self) -> SYNCOVF1_R {
-        SYNCOVF1_R::new((self.bits & 1) != 0)
+    pub fn syncovf(&self, n: u8) -> SYNCOVF_R {
+        #[allow(clippy::no_effect)]
+        [(); 7][n as usize];
+        SYNCOVF_R::new(((self.bits >> n) & 1) != 0)
     }
-    #[doc = "Bit 1 - Synchronizaton overrun interrupt flag"]
+    #[doc = "Iterator for array of:"]
+    #[doc = "Channel (1-7) synchronization overrun flag"]
     #[inline(always)]
-    pub fn syncovf2(&self) -> SYNCOVF2_R {
-        SYNCOVF2_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn syncovf_iter(&self) -> impl Iterator<Item = SYNCOVF_R> + '_ {
+        (0..7).map(move |n| SYNCOVF_R::new(((self.bits >> n) & 1) != 0))
     }
-    #[doc = "Bit 2 - Synchronizaton overrun interrupt flag"]
+    #[doc = "Bit 0 - Channel 1 synchronization overrun flag"]
     #[inline(always)]
-    pub fn syncovf3(&self) -> SYNCOVF3_R {
-        SYNCOVF3_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn syncovf1(&self) -> SYNCOVF_R {
+        SYNCOVF_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 3 - Synchronizaton overrun interrupt flag"]
+    #[doc = "Bit 1 - Channel 2 synchronization overrun flag"]
     #[inline(always)]
-    pub fn syncovf4(&self) -> SYNCOVF4_R {
-        SYNCOVF4_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn syncovf2(&self) -> SYNCOVF_R {
+        SYNCOVF_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 4 - Synchronizaton overrun interrupt flag"]
+    #[doc = "Bit 2 - Channel 3 synchronization overrun flag"]
     #[inline(always)]
-    pub fn syncovf5(&self) -> SYNCOVF5_R {
-        SYNCOVF5_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn syncovf3(&self) -> SYNCOVF_R {
+        SYNCOVF_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 5 - Synchronizaton overrun interrupt flag"]
+    #[doc = "Bit 3 - Channel 4 synchronization overrun flag"]
     #[inline(always)]
-    pub fn syncovf6(&self) -> SYNCOVF6_R {
-        SYNCOVF6_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn syncovf4(&self) -> SYNCOVF_R {
+        SYNCOVF_R::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 6 - Synchronizaton overrun interrupt flag"]
+    #[doc = "Bit 4 - Channel 5 synchronization overrun flag"]
     #[inline(always)]
-    pub fn syncovf7(&self) -> SYNCOVF7_R {
-        SYNCOVF7_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn syncovf5(&self) -> SYNCOVF_R {
+        SYNCOVF_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    #[doc = "Bit 5 - Channel 6 synchronization overrun flag"]
+    #[inline(always)]
+    pub fn syncovf6(&self) -> SYNCOVF_R {
+        SYNCOVF_R::new(((self.bits >> 5) & 1) != 0)
+    }
+    #[doc = "Bit 6 - Channel 7 synchronization overrun flag"]
+    #[inline(always)]
+    pub fn syncovf7(&self) -> SYNCOVF_R {
+        SYNCOVF_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
 impl core::fmt::Debug for R {

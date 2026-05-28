@@ -5,7 +5,7 @@ pub type W = crate::W<DTCNT_SPEC>;
 #[doc = "Field `CNT` reader - Number of data to transfer"]
 pub type CNT_R = crate::FieldReader<u16>;
 #[doc = "Field `CNT` writer - Number of data to transfer"]
-pub type CNT_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type CNT_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 impl R {
     #[doc = "Bits 0:15 - Number of data to transfer"]
     #[inline(always)]

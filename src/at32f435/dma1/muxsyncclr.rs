@@ -2,10 +2,48 @@
 pub type R = crate::R<MUXSYNCCLR_SPEC>;
 #[doc = "Register `MUXSYNCCLR` writer"]
 pub type W = crate::W<MUXSYNCCLR_SPEC>;
+#[doc = "Channel %s synchronization overrun flag clear\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SYNCOVFC1W_A {
+    #[doc = "1: Clear synchronization overrun flag"]
+    Clear = 1,
+}
+impl From<SYNCOVFC1W_A> for bool {
+    #[inline(always)]
+    fn from(variant: SYNCOVFC1W_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `SYNCOVFC(1-7)` reader - Channel %s synchronization overrun flag clear"]
-pub type SYNCOVFC_R = crate::BitReader;
+pub type SYNCOVFC_R = crate::BitReader<SYNCOVFC1W_A>;
+impl SYNCOVFC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<SYNCOVFC1W_A> {
+        match self.bits {
+            true => Some(SYNCOVFC1W_A::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear synchronization overrun flag"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == SYNCOVFC1W_A::Clear
+    }
+}
 #[doc = "Field `SYNCOVFC(1-7)` writer - Channel %s synchronization overrun flag clear"]
-pub type SYNCOVFC_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+pub type SYNCOVFC_W<'a, REG> = crate::BitWriter1C<'a, REG, SYNCOVFC1W_A>;
+impl<'a, REG> SYNCOVFC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear synchronization overrun flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(SYNCOVFC1W_A::Clear)
+    }
+}
 impl R {
     #[doc = "Channel (1-7) synchronization overrun flag clear"]
     #[doc = ""]
