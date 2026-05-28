@@ -241,11 +241,11 @@ where
 #[doc = "Field `MII` reader - MII register"]
 pub type MII_R = crate::FieldReader;
 #[doc = "Field `MII` writer - MII register"]
-pub type MII_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type MII_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
 #[doc = "Field `PA` reader - PHY address"]
 pub type PA_R = crate::FieldReader;
 #[doc = "Field `PA` writer - PHY address"]
-pub type PA_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type PA_W<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
 impl R {
     #[doc = "Bit 0 - MII busy"]
     #[inline(always)]

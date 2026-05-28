@@ -51,13 +51,73 @@ ETHERNET_MAC:
       DCS:
         description: "Only in half-duplex mode! Disable Carrier Sense"
       DRO:
-        description: "Only in half-duplex mode! Disable Receive Own."
+        description: "Only in half-duplex mode! Disable Receive Own"
       DR:
         description: "Only in half-duplex mode! Disable Retry"
       BL:
         description: "Only in half-duplex mode! Back-off Limit"
       DC:
         description: "Only in half-duplex mode! Deferral check"
+  MACFRMF:
+    PR:
+      Disable: [0, "Promiscuos mode disabled."]
+      PassAll: [1, "The MAC passes all frames to the application"]
+    HUC:
+      Disable: [0, "Direct destination address comparison for unicast"]
+      EnableHash: [1, "The MAC performs destination address filtering for unicast frames according to the hash table"]
+    HMC:
+      Disable: [0, "Direct destination address comparison for multicast"]
+      EnableHash: [1, "The MAC performs destination address filtering for multicast frames according to the hash table"]
+    DAIF:
+      Normal: [0, "Work normally"]
+      Inverse: [1, "The address check block operates in inverse filtering mode for the destination address comparison for both unicast and multicast frames"]
+    PMC:
+      Normal: [0, "Normal operation"]
+      PassAll: [1, "All frames with a multicast destination address (first bit in the destination address is set) are passed"]
+    DBF:
+      PassBroadcast: [0, "The MAC passes all received broadcast frames to the application"]
+      FilterBroadcast: [1, "The MAC filters all received broadcast frames and does not pass them to the application"]
+    PCF:
+      FilterAll: [0, "MAC filters all control frames and prevents them from reaching the application"]
+      ForwardAllExceptPause: [1, "MAC forwards all control frames, except Pause frame, to the application even if they fail the address filter"]
+      ForwardAll: [2, "MAC forwards all control frames to the application even if they fail the address filter"]
+      ForwardFilter: [3, "MAC forwards control frames that pass the address filter to the application"]
+    SAIF:
+      Normal: [0, "Work normally"]
+      Inverse: [1, "The address check block operates in inverse filtering mode for the source address comparison"]
+    SAF:
+      UpdateBit: [0, "If source address filter mismatches, updates the source address filter bit (SAF) in the receive status"]
+      Drop: [1, "If source address filter mismatches, frame is dropped"]
+    HPF:
+      HashFilter: [0, "The MAC performs destination address filtering according to the hash table"]
+      HashOrPerfectFilter: [1, "The MAC performs destination address filtering according to the hash table and perfect address filter. A frame is passed if it matches either the hash filter or the perfect address filter"]
+    RA:
+      Normal: [0, "Normal operation"]
+      PassAll: [1, "Disable filters and pass all incoming frames"]
+  MACFCTRL:
+    FCB_BPA:
+      _W1S:
+        InitiatePause: [1, "Initiate a pause frame. After the completion of the Pause frame, this bit resets to 0"]
+    ETF:
+      Disabled: [0, "Transmit flow control disabled"]
+      Enabled: [1, "Transmit flow control enabled"]
+    ERF:
+      Disabled: [0, "Receive flow control disabled"]
+      Enabled: [1, "Receive flow control enabled"]
+    DUP:
+      OnlyMulticast: [0, "The MAC detects only a Pause frame with a unique multicast address"]
+      AnyPause: [1, "The MAC detects the Pause frames with a unicast address specified in the MAC address0 high and MAC address0 low registers"]
+    PLT:
+      Minus4Slot: [0, "Pause time minus 4 slot times"]
+      Minus28Slot: [1, "Pause time minus 28 slot times"]
+      Minus144Slot: [2, "Pause time minus 144 slot times"]
+      Minus256Slot: [3, "Pause time minus 256 slot times"]
+    DZQP:
+      Normal: [0, "Normal operation"]
+      DisableZeroQuanta: [1, "Disables the automatic generation of Zero-quanta Pause frame while the flow control signal of the FIFO layer is disabled"]
+    PT: [0, 0xFF]
+  MACHTH,MACHTL:
+    _delete: [HTH,HTL]
   MACMIIADDR:
     CR:
       CsrFreq60_100: [0, "CSR clock frequency is 60-100 MHz and MDC clock frequency is CSR/42 MHz"]
@@ -76,6 +136,15 @@ ETHERNET_MAC:
       _write:
         NoBusy: [0, "The MII is not busy, new operation can be started"]
         StartOperation: [1, "Start an MII operation by writing 1 to this bit. This bit is automatically cleared by hardware when the operation is completed"]
+    MII: [0, 0x1F]
+    PA: [0, 0x1F]
+  MACMIIDT:
+    MD: [0, 0xFF]
+  MACVLT:
+    VTI: [0, 0xFF]
+    ETV:
+      Normal16bit: [0, "Full 16-bit VLAN tag is used for filtering"]
+      Compressed12bit: [1, "12-bit VLAN tag is used for comparison and filtering."]
   MACIMR:
     TIM:
       InterruptDisabled: [0, "Timestamp interrupt is disabled"]
@@ -84,6 +153,8 @@ ETHERNET_MAC:
       InterruptDisabled: [0, "PMT interrupt is disabled"]
       InterruptEnabled: [1, "PMT interrupt is enabled"]
   _modify:
+    MACHTH,MACHTL:
+      writeConstraint: [0, 0xFFFFFFFF]
     MACA0H:
       description: "Ethernet MAC address 0 high register. This register changed to 16 bits wide, because the only available another field is bit 31 - AE, but it is restricted to be always 1."
       resetValue: 0xFFFF
@@ -103,20 +174,56 @@ ETHERNET_MAC:
     SA:
       Source: [0, "Second MAC address filter is used for source address filtering"]
       Destination: [1, "Second MAC address filter is used for destination address filtering"]
+    MBC: [0, 0x3F]
+  MACA?H:
+    MA?H: [0, 0xFFFF]
   MACPMTCTRLSTS:
     _modify:
       RRWF,RMP:
         access: "read-only"
     RRWF,RMP:
       _RC: {}
-    RWFFPR,PD:
-      _W1S: {}
+    RRWF:
+      NoWakeup: [0, "No remote wakeup frame has been received since the last read of this register"]
+      WakeupReceived: [1, "Remote wakeup frame has been received since the last read of this register"]
+    RMP:
+      NoMagicPacket: [0, "No Magic Packet has been received since the last read of this register"]
+      MagicPacketReceived: [1, "Magic Packet has been received since the last read of this register"]
+    GUC:
+      Disable: [0, "Normal operation"]
+      GlobalUnicast: [1, "All unicast packets filtered by the MAC address filters are treated as wakeup frames. If any of these packets is received, a PMT event is generated"]
+    RWFFPR:
+      _W1S:
+        ResetPointer: [1, "Resets the remote frame filter register pointer to 3’b000"]
+    PD:
+      _W1S:
+        PowerDown: [1, "Power down. Power back up when receive expected Magic packet or clear this bit"]
+    EMP:
+      Disable: [0, "Disable magic packet detection"]
+      Enable: [1, "Enable magic packet detection. Power management event is generated when a magic packet is received."]
+    ERWF:
+      Disable: [0, "Disable remote wakeup frame detection"]
+      Enable: [1, "Enable remote wakeup frame detection. Power management event is generated when a remote wakeup frame is received."]
   MACISTS:
     _modify:
       "*":
         access: "read-only"
     TIS:
-      _RC: {}
+      _RC:
+        NoTimestamp: [0, "No timestamp interrupt"]
+        TimestampInterrupt: [1, "System time value equals or exceeds the value programmed in the destination time registers"]
+    MTIS:
+      NoMmcTransmit: [0, "No MMC transmit interrupt"]
+      MmcTransmitInterrupt: [1, "Interrupt event is generated in the EMAC_MMCTI register."]
+    MRIS:
+      NoMmcReceive: [0, "No MMC receive interrupt"]
+      MmcReceiveInterrupt: [1, "Interrupt event is generated in the EMAC_MMCRI register."]
+    MIS:
+      NoMmc: [0, "No MMC interrupt"]
+      MmcInterrupt: [1, "Interrupt event is generated in the EMAC_MMCRI or EMAC_MMCTI register."]
+    PIS:
+      NoPMT: [0, "No PMT interrupt"]
+      PmtInterrupt: [1, "Magic packet or a remote wakeup event is received in power-down mode"]
 ETHERNET_DMA:
   DMABM:
     PR:

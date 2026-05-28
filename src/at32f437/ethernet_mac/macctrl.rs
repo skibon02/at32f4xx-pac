@@ -338,9 +338,9 @@ where
         self.variant(LM_A::Loopback)
     }
 }
-#[doc = "Field `DRO` reader - Only in half-duplex mode! Disable Receive Own."]
+#[doc = "Field `DRO` reader - Only in half-duplex mode! Disable Receive Own"]
 pub type DRO_R = crate::BitReader;
-#[doc = "Field `DRO` writer - Only in half-duplex mode! Disable Receive Own."]
+#[doc = "Field `DRO` writer - Only in half-duplex mode! Disable Receive Own"]
 pub type DRO_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Fast EMAC speed\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
@@ -747,7 +747,7 @@ impl R {
     pub fn lm(&self) -> LM_R {
         LM_R::new(((self.bits >> 12) & 1) != 0)
     }
-    #[doc = "Bit 13 - Only in half-duplex mode! Disable Receive Own."]
+    #[doc = "Bit 13 - Only in half-duplex mode! Disable Receive Own"]
     #[inline(always)]
     pub fn dro(&self) -> DRO_R {
         DRO_R::new(((self.bits >> 13) & 1) != 0)
@@ -851,7 +851,7 @@ impl W {
     pub fn lm(&mut self) -> LM_W<'_, MACCTRL_SPEC> {
         LM_W::new(self, 12)
     }
-    #[doc = "Bit 13 - Only in half-duplex mode! Disable Receive Own."]
+    #[doc = "Bit 13 - Only in half-duplex mode! Disable Receive Own"]
     #[inline(always)]
     pub fn dro(&mut self) -> DRO_W<'_, MACCTRL_SPEC> {
         DRO_W::new(self, 13)

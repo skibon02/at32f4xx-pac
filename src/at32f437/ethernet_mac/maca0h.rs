@@ -5,7 +5,7 @@ pub type W = crate::W<MACA0H_SPEC>;
 #[doc = "Field `MA0H` reader - MAC address0 high"]
 pub type MA0H_R = crate::FieldReader<u16>;
 #[doc = "Field `MA0H` writer - MAC address0 high"]
-pub type MA0H_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type MA0H_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 impl R {
     #[doc = "Bits 0:15 - MAC address0 high"]
     #[inline(always)]

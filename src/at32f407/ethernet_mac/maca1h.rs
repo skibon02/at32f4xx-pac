@@ -5,11 +5,11 @@ pub type W = crate::W<MACA1H_SPEC>;
 #[doc = "Field `MA1H` reader - MAC address1 high"]
 pub type MA1H_R = crate::FieldReader<u16>;
 #[doc = "Field `MA1H` writer - MAC address1 high"]
-pub type MA1H_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type MA1H_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 #[doc = "Field `MBC` reader - Mask byte control"]
 pub type MBC_R = crate::FieldReader;
 #[doc = "Field `MBC` writer - Mask byte control"]
-pub type MBC_W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+pub type MBC_W<'a, REG> = crate::FieldWriter<'a, REG, 6, u8, crate::Safe>;
 #[doc = "Source address\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

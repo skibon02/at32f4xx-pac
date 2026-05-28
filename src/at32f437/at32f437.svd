@@ -53158,7 +53158,7 @@ If TPFLT&gt;0: High level</description>
             </field>
             <field>
               <name>DRO</name>
-              <description>Only in half-duplex mode! Disable Receive Own.</description>
+              <description>Only in half-duplex mode! Disable Receive Own</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -53309,18 +53309,57 @@ If TPFLT&gt;0: High level</description>
               <description>Promiscuous mode</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PR</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Promiscuos mode disabled.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PassAll</name>
+                  <description>The MAC passes all frames to the application</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HUC</name>
               <description>Hash unicast</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>HUC</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Direct destination address comparison for unicast</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>EnableHash</name>
+                  <description>The MAC performs destination address filtering for unicast frames according to the hash table</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HMC</name>
               <description>Hash multicast</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>HMC</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Direct destination address comparison for multicast</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>EnableHash</name>
+                  <description>The MAC performs destination address filtering for multicast frames according to the hash table</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DAIF</name>
@@ -53328,24 +53367,86 @@ If TPFLT&gt;0: High level</description>
               filtering</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DAIF</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Work normally</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Inverse</name>
+                  <description>The address check block operates in inverse filtering mode for the destination address comparison for both unicast and multicast frames</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PMC</name>
               <description>Pass multicast</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PMC</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PassAll</name>
+                  <description>All frames with a multicast destination address (first bit in the destination address is set) are passed</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DBF</name>
               <description>Disable broadcast frames</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DBF</name>
+                <enumeratedValue>
+                  <name>PassBroadcast</name>
+                  <description>The MAC passes all received broadcast frames to the application</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>FilterBroadcast</name>
+                  <description>The MAC filters all received broadcast frames and does not pass them to the application</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PCF</name>
               <description>Pass control frames</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>PCF</name>
+                <enumeratedValue>
+                  <name>FilterAll</name>
+                  <description>MAC filters all control frames and prevents them from reaching the application</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForwardAllExceptPause</name>
+                  <description>MAC forwards all control frames, except Pause frame, to the application even if they fail the address filter</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForwardAll</name>
+                  <description>MAC forwards all control frames to the application even if they fail the address filter</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ForwardFilter</name>
+                  <description>MAC forwards control frames that pass the address filter to the application</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SAIF</name>
@@ -53353,24 +53454,76 @@ If TPFLT&gt;0: High level</description>
               filtering</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SAIF</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Work normally</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Inverse</name>
+                  <description>The address check block operates in inverse filtering mode for the source address comparison</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SAF</name>
               <description>Source address filter</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>SAF</name>
+                <enumeratedValue>
+                  <name>UpdateBit</name>
+                  <description>If source address filter mismatches, updates the source address filter bit (SAF) in the receive status</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Drop</name>
+                  <description>If source address filter mismatches, frame is dropped</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HPF</name>
               <description>Hash or perfect filter</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>HPF</name>
+                <enumeratedValue>
+                  <name>HashFilter</name>
+                  <description>The MAC performs destination address filtering according to the hash table</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HashOrPerfectFilter</name>
+                  <description>The MAC performs destination address filtering according to the hash table and perfect address filter. A frame is passed if it matches either the hash filter or the perfect address filter</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RA</name>
               <description>Receive all</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>RA</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PassAll</name>
+                  <description>Disable filters and pass all incoming frames</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -53382,14 +53535,12 @@ If TPFLT&gt;0: High level</description>
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>HTH</name>
-              <description>Hash table high</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACHTL</name>
@@ -53399,14 +53550,12 @@ If TPFLT&gt;0: High level</description>
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <fields>
-            <field>
-              <name>HTL</name>
-              <description>Hash table low</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
         </register>
         <register>
           <name>MACMIIADDR</name>
@@ -53514,12 +53663,24 @@ If TPFLT&gt;0: High level</description>
               <description>MII register</description>
               <bitOffset>6</bitOffset>
               <bitWidth>5</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>31</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>PA</name>
               <description>PHY address</description>
               <bitOffset>11</bitOffset>
               <bitWidth>5</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>31</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -53537,6 +53698,12 @@ If TPFLT&gt;0: High level</description>
               <description>MII data</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -53555,42 +53722,133 @@ If TPFLT&gt;0: High level</description>
               activate</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToSet</modifiedWriteValues>
+              <enumeratedValues>
+                <name>FCB_BPAW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>InitiatePause</name>
+                  <description>Initiate a pause frame. After the completion of the Pause frame, this bit resets to 0</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ETF</name>
               <description>Enable transmit flow control</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ETF</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Transmit flow control disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Transmit flow control enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ERF</name>
               <description>Enable receive flow control</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ERF</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>Receive flow control disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Receive flow control enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DUP</name>
               <description>Detect unicast pause frame</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DUP</name>
+                <enumeratedValue>
+                  <name>OnlyMulticast</name>
+                  <description>The MAC detects only a Pause frame with a unique multicast address</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AnyPause</name>
+                  <description>The MAC detects the Pause frames with a unicast address specified in the MAC address0 high and MAC address0 low registers</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PLT</name>
               <description>Pause low threshold</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>PLT</name>
+                <enumeratedValue>
+                  <name>Minus4Slot</name>
+                  <description>Pause time minus 4 slot times</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Minus28Slot</name>
+                  <description>Pause time minus 28 slot times</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Minus144Slot</name>
+                  <description>Pause time minus 144 slot times</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Minus256Slot</name>
+                  <description>Pause time minus 256 slot times</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DZQP</name>
               <description>Disable zero-quanta pause</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>DZQP</name>
+                <enumeratedValue>
+                  <name>Normal</name>
+                  <description>Normal operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DisableZeroQuanta</name>
+                  <description>Disables the automatic generation of Zero-quanta Pause frame while the flow control signal of the FIFO layer is disabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PT</name>
               <description>Pass time</description>
               <bitOffset>16</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -53609,12 +53867,31 @@ If TPFLT&gt;0: High level</description>
               frames)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>255</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>ETV</name>
               <description>Enable 12-bit VLAN tag comparison</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ETV</name>
+                <enumeratedValue>
+                  <name>Normal16bit</name>
+                  <description>Full 16-bit VLAN tag is used for filtering</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Compressed12bit</name>
+                  <description>12-bit VLAN tag is used for comparison and filtering.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -53642,18 +53919,53 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToSet</modifiedWriteValues>
+              <enumeratedValues>
+                <name>PDW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>PowerDown</name>
+                  <description>Power down. Power back up when receive expected Magic packet or clear this bit</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>EMP</name>
               <description>Enable magic packet</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>EMP</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable magic packet detection</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable magic packet detection. Power management event is generated when a magic packet is received.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>ERWF</name>
               <description>Enable remote wakeup frame</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ERWF</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Disable remote wakeup frame detection</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Enable remote wakeup frame detection. Power management event is generated when a remote wakeup frame is received.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RMP</name>
@@ -53662,6 +53974,19 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
               <readAction>clear</readAction>
+              <enumeratedValues>
+                <name>RMP</name>
+                <enumeratedValue>
+                  <name>NoMagicPacket</name>
+                  <description>No Magic Packet has been received since the last read of this register</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MagicPacketReceived</name>
+                  <description>Magic Packet has been received since the last read of this register</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RRWF</name>
@@ -53670,12 +53995,38 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
               <readAction>clear</readAction>
+              <enumeratedValues>
+                <name>RRWF</name>
+                <enumeratedValue>
+                  <name>NoWakeup</name>
+                  <description>No remote wakeup frame has been received since the last read of this register</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>WakeupReceived</name>
+                  <description>Remote wakeup frame has been received since the last read of this register</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>GUC</name>
               <description>Global unicast</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>GUC</name>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Normal operation</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GlobalUnicast</name>
+                  <description>All unicast packets filtered by the MAC address filters are treated as wakeup frames. If any of these packets is received, a PMT event is generated</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RWFFPR</name>
@@ -53684,6 +54035,15 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
               <modifiedWriteValues>oneToSet</modifiedWriteValues>
+              <enumeratedValues>
+                <name>RWFFPRW</name>
+                <usage>write</usage>
+                <enumeratedValue>
+                  <name>ResetPointer</name>
+                  <description>Resets the remote frame filter register pointer to 3’b000</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -53702,6 +54062,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>PIS</name>
+                <enumeratedValue>
+                  <name>NoPMT</name>
+                  <description>No PMT interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PmtInterrupt</name>
+                  <description>Magic packet or a remote wakeup event is received in power-down mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MIS</name>
@@ -53709,6 +54082,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>MIS</name>
+                <enumeratedValue>
+                  <name>NoMmc</name>
+                  <description>No MMC interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MmcInterrupt</name>
+                  <description>Interrupt event is generated in the EMAC_MMCRI or EMAC_MMCTI register.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MRIS</name>
@@ -53716,6 +54102,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>MRIS</name>
+                <enumeratedValue>
+                  <name>NoMmcReceive</name>
+                  <description>No MMC receive interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MmcReceiveInterrupt</name>
+                  <description>Interrupt event is generated in the EMAC_MMCRI register.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MTIS</name>
@@ -53723,6 +54122,19 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <name>MTIS</name>
+                <enumeratedValue>
+                  <name>NoMmcTransmit</name>
+                  <description>No MMC transmit interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MmcTransmitInterrupt</name>
+                  <description>Interrupt event is generated in the EMAC_MMCTI register.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>TIS</name>
@@ -53731,6 +54143,19 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
               <readAction>clear</readAction>
+              <enumeratedValues>
+                <name>TISR</name>
+                <enumeratedValue>
+                  <name>NoTimestamp</name>
+                  <description>No timestamp interrupt</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>TimestampInterrupt</name>
+                  <description>System time value equals or exceeds the value programmed in the destination time registers</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -53797,6 +54222,12 @@ If TPFLT&gt;0: High level</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
@@ -53829,12 +54260,24 @@ If TPFLT&gt;0: High level</description>
               <description>MAC address1 high</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MBC</name>
               <description>Mask byte control</description>
               <bitOffset>24</bitOffset>
               <bitWidth>6</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>63</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SA</name>
@@ -53905,12 +54348,24 @@ If TPFLT&gt;0: High level</description>
               <description>MAC address 2 high</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MBC</name>
               <description>Mask byte control</description>
               <bitOffset>24</bitOffset>
               <bitWidth>6</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>63</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SA</name>
@@ -53981,12 +54436,24 @@ If TPFLT&gt;0: High level</description>
               <description>MAC address3 high</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>65535</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>MBC</name>
               <description>Mask byte control</description>
               <bitOffset>24</bitOffset>
               <bitWidth>6</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0</minimum>
+                  <maximum>63</maximum>
+                </range>
+              </writeConstraint>
             </field>
             <field>
               <name>SA</name>

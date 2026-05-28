@@ -6,10 +6,60 @@ pub type W = crate::W<MACVLT_SPEC>;
 pub type VTI_R = crate::FieldReader<u16>;
 #[doc = "Field `VTI` writer - VLAN tag identifier (for receive frames)"]
 pub type VTI_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+#[doc = "Enable 12-bit VLAN tag comparison\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ETV_A {
+    #[doc = "0: Full 16-bit VLAN tag is used for filtering"]
+    Normal16bit = 0,
+    #[doc = "1: 12-bit VLAN tag is used for comparison and filtering."]
+    Compressed12bit = 1,
+}
+impl From<ETV_A> for bool {
+    #[inline(always)]
+    fn from(variant: ETV_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ETV` reader - Enable 12-bit VLAN tag comparison"]
-pub type ETV_R = crate::BitReader;
+pub type ETV_R = crate::BitReader<ETV_A>;
+impl ETV_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> ETV_A {
+        match self.bits {
+            false => ETV_A::Normal16bit,
+            true => ETV_A::Compressed12bit,
+        }
+    }
+    #[doc = "Full 16-bit VLAN tag is used for filtering"]
+    #[inline(always)]
+    pub fn is_normal16bit(&self) -> bool {
+        *self == ETV_A::Normal16bit
+    }
+    #[doc = "12-bit VLAN tag is used for comparison and filtering."]
+    #[inline(always)]
+    pub fn is_compressed12bit(&self) -> bool {
+        *self == ETV_A::Compressed12bit
+    }
+}
 #[doc = "Field `ETV` writer - Enable 12-bit VLAN tag comparison"]
-pub type ETV_W<'a, REG> = crate::BitWriter<'a, REG>;
+pub type ETV_W<'a, REG> = crate::BitWriter<'a, REG, ETV_A>;
+impl<'a, REG> ETV_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Full 16-bit VLAN tag is used for filtering"]
+    #[inline(always)]
+    pub fn normal16bit(self) -> &'a mut crate::W<REG> {
+        self.variant(ETV_A::Normal16bit)
+    }
+    #[doc = "12-bit VLAN tag is used for comparison and filtering."]
+    #[inline(always)]
+    pub fn compressed12bit(self) -> &'a mut crate::W<REG> {
+        self.variant(ETV_A::Compressed12bit)
+    }
+}
 impl R {
     #[doc = "Bits 0:15 - VLAN tag identifier (for receive frames)"]
     #[inline(always)]
