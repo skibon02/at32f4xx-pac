@@ -53834,7 +53834,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SwapSDRAM</name>
-                  <description>SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000</description>
+                  <description>SDRAM addresses are mapped at 0x60000000 and 0x70000000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC0000000 and 0xD0000000</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -53853,7 +53853,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SwapQSPI_NAND3</name>
-                  <description>QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000</description>
+                  <description>QSPI2 memory addresses are mapped at 0x80000000. NAND3 memory is mapped at 0xB0000000</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>

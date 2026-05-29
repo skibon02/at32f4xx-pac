@@ -26,10 +26,10 @@ SCFG:
         bitWidth: 1
     SWAP_XMC_10:
       NoSwap: [0, "No XMC address mapping swap"]
-      SwapSDRAM: [1, "SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000"]
+      SwapSDRAM: [1, "SDRAM addresses are mapped at 0x60000000 and 0x70000000. NOR/PSRAM/SRAM/NAND2 memory addresses are mapped at 0xC0000000 and 0xD0000000"]
     SWAP_XMC_11:
       NoSwap: [0, "No XMC address mapping swap"]
-      SwapQSPI_NAND3: [1, "QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped to 0xB000 0000"]
+      SwapQSPI_NAND3: [1, "QSPI2 memory addresses are mapped at 0x80000000. NAND3 memory is mapped at 0xB0000000"]
   CFG2:
     MII_RMII_SEL:
       MII: [0, "MII interface selected"]
