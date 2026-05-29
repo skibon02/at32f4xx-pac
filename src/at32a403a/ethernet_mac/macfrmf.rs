@@ -6,7 +6,7 @@ pub type W = crate::W<MACFRMF_SPEC>;
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PR_A {
-    #[doc = "0: Promiscuos mode disabled."]
+    #[doc = "0: Promiscuous mode disabled."]
     Disable = 0,
     #[doc = "1: The MAC passes all frames to the application"]
     PassAll = 1,
@@ -28,7 +28,7 @@ impl PR_R {
             true => PR_A::PassAll,
         }
     }
-    #[doc = "Promiscuos mode disabled."]
+    #[doc = "Promiscuous mode disabled."]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
         *self == PR_A::Disable
@@ -45,7 +45,7 @@ impl<'a, REG> PR_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Promiscuos mode disabled."]
+    #[doc = "Promiscuous mode disabled."]
     #[inline(always)]
     pub fn disable(self) -> &'a mut crate::W<REG> {
         self.variant(PR_A::Disable)

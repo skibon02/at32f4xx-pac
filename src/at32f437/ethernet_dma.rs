@@ -28,7 +28,7 @@ impl RegisterBlock {
     pub const fn dmatpd(&self) -> &DMATPD {
         &self.dmatpd
     }
-    #[doc = "0x08 - EHERNET DMA receive poll demand register"]
+    #[doc = "0x08 - Ethernet DMA receive poll demand register"]
     #[inline(always)]
     pub const fn dmarpd(&self) -> &DMARPD {
         &self.dmarpd
@@ -92,9 +92,9 @@ pub mod dmabm;
 pub type DMATPD = crate::Reg<dmatpd::DMATPD_SPEC>;
 #[doc = "Ethernet DMA transmit poll demand register"]
 pub mod dmatpd;
-#[doc = "DMARPD (w) register accessor: EHERNET DMA receive poll demand register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmarpd::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmarpd`] module"]
+#[doc = "DMARPD (w) register accessor: Ethernet DMA receive poll demand register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmarpd::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmarpd`] module"]
 pub type DMARPD = crate::Reg<dmarpd::DMARPD_SPEC>;
-#[doc = "EHERNET DMA receive poll demand register"]
+#[doc = "Ethernet DMA receive poll demand register"]
 pub mod dmarpd;
 #[doc = "DMARDLADDR (rw) register accessor: Ethernet DMA receive descriptor list address register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmardladdr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmardladdr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmardladdr`] module"]
 pub type DMARDLADDR = crate::Reg<dmardladdr::DMARDLADDR_SPEC>;

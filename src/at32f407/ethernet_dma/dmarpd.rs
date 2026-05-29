@@ -43,7 +43,7 @@ impl W {
         RPD_W::new(self, 0)
     }
 }
-#[doc = "EHERNET DMA receive poll demand register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmarpd::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Ethernet DMA receive poll demand register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmarpd::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DMARPD_SPEC;
 impl crate::RegisterSpec for DMARPD_SPEC {
     type Ux = u32;

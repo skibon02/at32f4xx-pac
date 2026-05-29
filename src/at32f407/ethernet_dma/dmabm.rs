@@ -75,7 +75,7 @@ where
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DA_A {
-    #[doc = "0: Custom priority ration between RX and TX. Controlled by PR"]
+    #[doc = "0: Custom priority ratio between RX and TX. Controlled by PR"]
     CustomPriority = 0,
     #[doc = "1: Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)"]
     FixedPriority = 1,
@@ -97,7 +97,7 @@ impl DA_R {
             true => DA_A::FixedPriority,
         }
     }
-    #[doc = "Custom priority ration between RX and TX. Controlled by PR"]
+    #[doc = "Custom priority ratio between RX and TX. Controlled by PR"]
     #[inline(always)]
     pub fn is_custom_priority(&self) -> bool {
         *self == DA_A::CustomPriority
@@ -114,7 +114,7 @@ impl<'a, REG> DA_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Custom priority ration between RX and TX. Controlled by PR"]
+    #[doc = "Custom priority ratio between RX and TX. Controlled by PR"]
     #[inline(always)]
     pub fn custom_priority(self) -> &'a mut crate::W<REG> {
         self.variant(DA_A::CustomPriority)
@@ -386,7 +386,7 @@ where
         self.variant(USP_A::Separate)
     }
 }
-#[doc = "PNLx8 mode\n\nValue on reset: 0"]
+#[doc = "PBLx8 mode\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PBLX8_A {
@@ -401,7 +401,7 @@ impl From<PBLX8_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `PBLx8` reader - PNLx8 mode"]
+#[doc = "Field `PBLx8` reader - PBLx8 mode"]
 pub type PBLX8_R = crate::BitReader<PBLX8_A>;
 impl PBLX8_R {
     #[doc = "Get enumerated values variant"]
@@ -423,7 +423,7 @@ impl PBLX8_R {
         *self == PBLX8_A::Mul8
     }
 }
-#[doc = "Field `PBLx8` writer - PNLx8 mode"]
+#[doc = "Field `PBLx8` writer - PBLx8 mode"]
 pub type PBLX8_W<'a, REG> = crate::BitWriter<'a, REG, PBLX8_A>;
 impl<'a, REG> PBLX8_W<'a, REG>
 where
@@ -540,7 +540,7 @@ impl R {
     pub fn usp(&self) -> USP_R {
         USP_R::new(((self.bits >> 23) & 1) != 0)
     }
-    #[doc = "Bit 24 - PNLx8 mode"]
+    #[doc = "Bit 24 - PBLx8 mode"]
     #[inline(always)]
     pub fn pblx8(&self) -> PBLX8_R {
         PBLX8_R::new(((self.bits >> 24) & 1) != 0)
@@ -614,7 +614,7 @@ impl W {
     pub fn usp(&mut self) -> USP_W<'_, DMABM_SPEC> {
         USP_W::new(self, 23)
     }
-    #[doc = "Bit 24 - PNLx8 mode"]
+    #[doc = "Bit 24 - PBLx8 mode"]
     #[inline(always)]
     pub fn pblx8(&mut self) -> PBLX8_W<'_, DMABM_SPEC> {
         PBLX8_W::new(self, 24)

@@ -59,7 +59,7 @@ ETHERNET_MAC:
         description: "Only in half-duplex mode! Deferral check"
   MACFRMF:
     PR:
-      Disable: [0, "Promiscuos mode disabled."]
+      Disable: [0, "Promiscuous mode disabled."]
       PassAll: [1, "The MAC passes all frames to the application"]
     HUC:
       Disable: [0, "Direct destination address comparison for unicast"]
@@ -231,6 +231,9 @@ ETHERNET_DMA:
     PBLx8:
       Normal: [0, "Not multiply PBL value"]
       Mul8: [1, "Multiply PBL value by 8 for the DMA burst length"]
+    _modify:
+      PBLx8:
+        description: "PBLx8 mode"
     USP:
       Shared: [0, "PBL value is applicable to both transmit and receive DMA"]
       Separate: [1, "Separate PBL value for transmit and receive DMA. RX uses RDB, TX uses PBL"]
@@ -254,7 +257,7 @@ ETHERNET_DMA:
       Enhanced: [1, "Enhanced descriptor format, descriptor size increased to 8 words"]
     DSL: [0, 0x1F]
     DA:
-      CustomPriority: [0, "Custom priority ration between RX and TX. Controlled by PR"]
+      CustomPriority: [0, "Custom priority ratio between RX and TX. Controlled by PR"]
       FixedPriority: [1, "Tx has priority over Rx. Or otherwise, depending on bit 27 (TXPR)"]
     SWR:
       _read:
@@ -378,6 +381,8 @@ ETHERNET_DMA:
       size: 32
     DMARPD,DMATPD:
       access: "write-only"
+    DMARPD:
+      description: "Ethernet DMA receive poll demand register"
 
   DMARDLADDR:
     _delete: [SRL]

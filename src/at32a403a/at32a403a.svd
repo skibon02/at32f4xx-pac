@@ -30169,7 +30169,7 @@
                 <name>PR</name>
                 <enumeratedValue>
                   <name>Disable</name>
-                  <description>Promiscuos mode disabled.</description>
+                  <description>Promiscuous mode disabled.</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -32032,7 +32032,7 @@
                 <name>DA</name>
                 <enumeratedValue>
                   <name>CustomPriority</name>
-                  <description>Custom priority ration between RX and TX. Controlled by PR</description>
+                  <description>Custom priority ratio between RX and TX. Controlled by PR</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -32147,7 +32147,7 @@
             </field>
             <field>
               <name>PBLx8</name>
-              <description>PNLx8 mode</description>
+              <description>PBLx8 mode</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
@@ -32233,7 +32233,7 @@
         <register>
           <name>DMARPD</name>
           <displayName>DMARPD</displayName>
-          <description>EHERNET DMA receive poll demand register</description>
+          <description>Ethernet DMA receive poll demand register</description>
           <addressOffset>0x8</addressOffset>
           <size>0x20</size>
           <access>write-only</access>
