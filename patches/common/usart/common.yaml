@@ -249,4 +249,4 @@ UART?,USART?:
     DIV: [0, 0xFFFF]
   GDIV:
     ISDIV: [1, 0xFF]
-    SCGT: [1, 0xFF]
+    SCGT: [0, 0xFF]
