@@ -38,11 +38,14 @@ EXINT:
         description: "Falling polarity configuration bit on line %s"
     FP*:
       _read:
-        Disabled: [0, "Falling polarity is disabled"]
-        Enabled: [1, "Falling polarity is enabled"]
+        Disabled: [0, "Falling trigger is disabled"]
+        Enabled: [1, "Falling trigger is enabled"]
       _write:
-        Disable: [0, "Falling polarity disable"]
-        Enable: [1, "Falling polarity enable"]
+        Disable: [0, "Falling trigger disable"]
+        Enable: [1, "Falling trigger enable"]
+  _modify:
+    SWTRG:
+      description: "Software trigger register"
   SWTRG:
     _array:
       SWT*:
