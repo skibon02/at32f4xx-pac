@@ -22,8 +22,8 @@ FLASH:
   CTRL1:
     USDULKS:
       _read:
-        Locked: [0, "User system data unlocked"]
-        Unlocked: [1, "User system data locked"]
+        Locked: [0, "User system data is locked"]
+        Unlocked: [1, "User system data is unlocked"]
       _write:
         Relock: [0, "Lock user system data"]
     USDERS:
@@ -48,6 +48,9 @@ FLASH:
       NotBankErase: [0, "Not bank erase operation"]
       BankErase: [1, "Erase operation is bank erase operation"]
   CRC_CTRL:
+    _modify:
+      CRC_SN:
+        description: "CRC sector number"
     CRC_SS: [0, 0xFFF]
     CRC_SN: [0, 0xFFF]
     CRC_STRT:

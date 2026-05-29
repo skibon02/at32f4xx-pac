@@ -498,9 +498,9 @@ where
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usdulksr {
-    #[doc = "0: User system data unlocked"]
+    #[doc = "0: User system data is locked"]
     Locked = 0,
-    #[doc = "1: User system data locked"]
+    #[doc = "1: User system data is unlocked"]
     Unlocked = 1,
 }
 impl From<Usdulksr> for bool {
@@ -520,12 +520,12 @@ impl USDULKS_R {
             true => Usdulksr::Unlocked,
         }
     }
-    #[doc = "User system data unlocked"]
+    #[doc = "User system data is locked"]
     #[inline(always)]
     pub fn is_locked(&self) -> bool {
         *self == Usdulksr::Locked
     }
-    #[doc = "User system data locked"]
+    #[doc = "User system data is unlocked"]
     #[inline(always)]
     pub fn is_unlocked(&self) -> bool {
         *self == Usdulksr::Unlocked

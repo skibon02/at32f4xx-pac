@@ -2,7 +2,7 @@
 pub type W = crate::W<CRC_CTRL_SPEC>;
 #[doc = "Field `CRC_SS` writer - CRC start sector"]
 pub type CRC_SS_W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16, crate::Safe>;
-#[doc = "Field `CRC_SN` writer - CRC sector numbler"]
+#[doc = "Field `CRC_SN` writer - CRC sector number"]
 pub type CRC_SN_W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16, crate::Safe>;
 #[doc = "CRC start\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
@@ -40,7 +40,7 @@ impl W {
     pub fn crc_ss(&mut self) -> CRC_SS_W<'_, CRC_CTRL_SPEC> {
         CRC_SS_W::new(self, 0)
     }
-    #[doc = "Bits 12:23 - CRC sector numbler"]
+    #[doc = "Bits 12:23 - CRC sector number"]
     #[inline(always)]
     pub fn crc_sn(&mut self) -> CRC_SN_W<'_, CRC_CTRL_SPEC> {
         CRC_SN_W::new(self, 12)

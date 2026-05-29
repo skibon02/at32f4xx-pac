@@ -34748,12 +34748,12 @@ If TPFLT&gt;0: High level</description>
                 <usage>read</usage>
                 <enumeratedValue>
                   <name>Locked</name>
-                  <description>User system data unlocked</description>
+                  <description>User system data is locked</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Unlocked</name>
-                  <description>User system data locked</description>
+                  <description>User system data is unlocked</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -35419,7 +35419,7 @@ If TPFLT&gt;0: High level</description>
             </field>
             <field>
               <name>CRC_SN</name>
-              <description>CRC sector numbler</description>
+              <description>CRC sector number</description>
               <bitOffset>12</bitOffset>
               <bitWidth>12</bitWidth>
               <writeConstraint>
