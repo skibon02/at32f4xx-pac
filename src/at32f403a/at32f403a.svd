@@ -4891,7 +4891,7 @@
                 <enumeratedValue>
                   <name>PoweredOn</name>
                   <description>Power on, card clock started</description>
-                  <value>1</value>
+                  <value>3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -4947,12 +4947,12 @@
                 <name>PWRSVEN</name>
                 <enumeratedValue>
                   <name>Normal</name>
-                  <description>SDIO_CK is disabled when the bus is idle</description>
+                  <description>SDIO_CK is always output</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PowerSaving</name>
-                  <description>SDIO_CK is enabled when the bus is idle</description>
+                  <description>SDIO_CK is only output when the bus is active</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5366,7 +5366,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Data transfer enabled. DCSM enterst the Wait_S or Wait_R state</description>
+                  <description>Data transfer enabled. DCSM enters the Wait_S or Wait_R state</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>

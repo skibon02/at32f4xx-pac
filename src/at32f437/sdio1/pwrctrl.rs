@@ -9,8 +9,8 @@ pub type W = crate::W<PWRCTRL_SPEC>;
 pub enum PS_A {
     #[doc = "0: Power off, card clock stopped"]
     PoweredOff = 0,
-    #[doc = "1: Power on, card clock started"]
-    PoweredOn = 1,
+    #[doc = "3: Power on, card clock started"]
+    PoweredOn = 3,
 }
 impl From<PS_A> for u8 {
     #[inline(always)]
@@ -30,7 +30,7 @@ impl PS_R {
     pub const fn variant(&self) -> Option<PS_A> {
         match self.bits {
             0 => Some(PS_A::PoweredOff),
-            1 => Some(PS_A::PoweredOn),
+            3 => Some(PS_A::PoweredOn),
             _ => None,
         }
     }

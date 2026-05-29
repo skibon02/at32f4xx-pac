@@ -8,7 +8,7 @@ pub type W = crate::W<DTCTRL_SPEC>;
 pub enum TFREN_A {
     #[doc = "0: Data transfer disabled"]
     Disabled = 0,
-    #[doc = "1: Data transfer enabled. DCSM enterst the Wait_S or Wait_R state"]
+    #[doc = "1: Data transfer enabled. DCSM enters the Wait_S or Wait_R state"]
     Enabled = 1,
 }
 impl From<TFREN_A> for bool {
@@ -33,7 +33,7 @@ impl TFREN_R {
     pub fn is_disabled(&self) -> bool {
         *self == TFREN_A::Disabled
     }
-    #[doc = "Data transfer enabled. DCSM enterst the Wait_S or Wait_R state"]
+    #[doc = "Data transfer enabled. DCSM enters the Wait_S or Wait_R state"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == TFREN_A::Enabled
@@ -50,7 +50,7 @@ where
     pub fn disabled(self) -> &'a mut crate::W<REG> {
         self.variant(TFREN_A::Disabled)
     }
-    #[doc = "Data transfer enabled. DCSM enterst the Wait_S or Wait_R state"]
+    #[doc = "Data transfer enabled. DCSM enters the Wait_S or Wait_R state"]
     #[inline(always)]
     pub fn enabled(self) -> &'a mut crate::W<REG> {
         self.variant(TFREN_A::Enabled)

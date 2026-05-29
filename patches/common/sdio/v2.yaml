@@ -2,7 +2,7 @@ SDIO?:
   PWRCTRL:
     PS:
       PoweredOff: [0, "Power off, card clock stopped"]
-      PoweredOn: [1, "Power on, card clock started"]
+      PoweredOn: [3, "Power on, card clock started"]
   CLKCTRL:
     _modify:
       CLKDIV98:
@@ -25,8 +25,8 @@ SDIO?:
       NotBypassed: [0, "SDIO_CK output signal is driven by the SDIOCLK that is divided according to the CLKDIV value"]
       Bypassed: [1, "SDIO_CK output signal is directly driven by the SDIOCLK"]
     PWRSVEN:
-      Normal: [0, "SDIO_CK is disabled when the bus is idle"]
-      PowerSaving: [1, "SDIO_CK is enabled when the bus is idle"]
+      Normal: [0, "SDIO_CK is always output"]
+      PowerSaving: [1, "SDIO_CK is only output when the bus is active"]
     CLKOEN:
       Disabled: [0, "SDIO_CK output signal is disabled"]
       Enabled: [1, "SDIO_CK output signal is enabled"]
@@ -97,7 +97,7 @@ SDIO?:
       FromCard: [1, "Data transfer direction: from card"]
     TFREN:
       Disabled: [0, "Data transfer disabled"]
-      Enabled: [1, "Data transfer enabled. DCSM enterst the Wait_S or Wait_R state"]
+      Enabled: [1, "Data transfer enabled. DCSM enters the Wait_S or Wait_R state"]
   DTCNT:
     CNT: [0, 0x1FFFF]
   STS:

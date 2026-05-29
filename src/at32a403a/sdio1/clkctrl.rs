@@ -64,9 +64,9 @@ where
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PWRSVEN_A {
-    #[doc = "0: SDIO_CK is disabled when the bus is idle"]
+    #[doc = "0: SDIO_CK is always output"]
     Normal = 0,
-    #[doc = "1: SDIO_CK is enabled when the bus is idle"]
+    #[doc = "1: SDIO_CK is only output when the bus is active"]
     PowerSaving = 1,
 }
 impl From<PWRSVEN_A> for bool {
@@ -86,12 +86,12 @@ impl PWRSVEN_R {
             true => PWRSVEN_A::PowerSaving,
         }
     }
-    #[doc = "SDIO_CK is disabled when the bus is idle"]
+    #[doc = "SDIO_CK is always output"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
         *self == PWRSVEN_A::Normal
     }
-    #[doc = "SDIO_CK is enabled when the bus is idle"]
+    #[doc = "SDIO_CK is only output when the bus is active"]
     #[inline(always)]
     pub fn is_power_saving(&self) -> bool {
         *self == PWRSVEN_A::PowerSaving
@@ -103,12 +103,12 @@ impl<'a, REG> PWRSVEN_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "SDIO_CK is disabled when the bus is idle"]
+    #[doc = "SDIO_CK is always output"]
     #[inline(always)]
     pub fn normal(self) -> &'a mut crate::W<REG> {
         self.variant(PWRSVEN_A::Normal)
     }
-    #[doc = "SDIO_CK is enabled when the bus is idle"]
+    #[doc = "SDIO_CK is only output when the bus is active"]
     #[inline(always)]
     pub fn power_saving(self) -> &'a mut crate::W<REG> {
         self.variant(PWRSVEN_A::PowerSaving)
