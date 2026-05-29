@@ -17615,7 +17615,7 @@ If TPFLT&gt;0: High level</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Send data reload mode disabled</description>
+                  <description>Send data reload mode enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -17628,7 +17628,7 @@ If TPFLT&gt;0: High level</description>
               <writeConstraint>
                 <range>
                   <minimum>0</minimum>
-                  <maximum>15</maximum>
+                  <maximum>255</maximum>
                 </range>
               </writeConstraint>
             </field>
@@ -17684,6 +17684,25 @@ If TPFLT&gt;0: High level</description>
               </enumeratedValues>
             </field>
             <field>
+              <name>READH10</name>
+              <description>10-bit address header read enable</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>READH10</name>
+                <enumeratedValue>
+                  <name>Disabled</name>
+                  <description>10-bit address header read disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>10-bit address header read enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
               <name>ADDR10</name>
               <description>Host send 10-bit address mode enable</description>
               <bitOffset>11</bitOffset>
@@ -17691,23 +17710,16 @@ If TPFLT&gt;0: High level</description>
               <enumeratedValues>
                 <name>ADDR10</name>
                 <enumeratedValue>
-                  <name>bit7</name>
-                  <description>7-bit addres mode</description>
+                  <name>Mode7Bit</name>
+                  <description>7-bit address mode</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>bit10</name>
+                  <name>Mode10Bit</name>
                   <description>10-bit address mode</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>READH10</name>
-              <description>10-bit address header read enable</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <enumeratedValues derivedFrom="ADDR10"/>
             </field>
             <field>
               <name>DIR</name>
@@ -17717,13 +17729,13 @@ If TPFLT&gt;0: High level</description>
               <enumeratedValues>
                 <name>DIR</name>
                 <enumeratedValue>
-                  <name>Receive</name>
-                  <description>Data byte received from slave</description>
+                  <name>Transmit</name>
+                  <description>Master transmits data to slave</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Transmit</name>
-                  <description>Data byte transmitted to slave</description>
+                  <name>Receive</name>
+                  <description>Master receives data from slave</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -17771,12 +17783,12 @@ If TPFLT&gt;0: High level</description>
               <enumeratedValues>
                 <name>ADDR1MODE</name>
                 <enumeratedValue>
-                  <name>bit7</name>
+                  <name>Mode7Bit</name>
                   <description>7-bit address mode</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>bit10</name>
+                  <name>Mode10Bit</name>
                   <description>10-bit address mode</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -17957,7 +17969,7 @@ If TPFLT&gt;0: High level</description>
               <writeConstraint>
                 <range>
                   <minimum>0</minimum>
-                  <maximum>63</maximum>
+                  <maximum>4095</maximum>
                 </range>
               </writeConstraint>
             </field>
@@ -18007,7 +18019,7 @@ If TPFLT&gt;0: High level</description>
               <writeConstraint>
                 <range>
                   <minimum>0</minimum>
-                  <maximum>63</maximum>
+                  <maximum>4095</maximum>
                 </range>
               </writeConstraint>
             </field>
@@ -18143,7 +18155,7 @@ If TPFLT&gt;0: High level</description>
                 <name>PECERR</name>
                 <enumeratedValue>
                   <name>NoError</name>
-                  <description>PEC error in reception or transmission</description>
+                  <description>No PEC error</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>

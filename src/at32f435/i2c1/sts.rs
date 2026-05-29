@@ -463,7 +463,7 @@ impl OUF_R {
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PECERR_A {
-    #[doc = "0: PEC error in reception or transmission"]
+    #[doc = "0: No PEC error"]
     NoError = 0,
     #[doc = "1: PEC error in reception or transmission"]
     Error = 1,
@@ -485,7 +485,7 @@ impl PECERR_R {
             true => PECERR_A::Error,
         }
     }
-    #[doc = "PEC error in reception or transmission"]
+    #[doc = "No PEC error"]
     #[inline(always)]
     pub fn is_no_error(&self) -> bool {
         *self == PECERR_A::NoError

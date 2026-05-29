@@ -10,10 +10,10 @@ pub type SADDR_W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16, crate::Safe>;
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DIR_A {
-    #[doc = "0: Data byte received from slave"]
-    Receive = 0,
-    #[doc = "1: Data byte transmitted to slave"]
-    Transmit = 1,
+    #[doc = "0: Master transmits data to slave"]
+    Transmit = 0,
+    #[doc = "1: Master receives data from slave"]
+    Receive = 1,
 }
 impl From<DIR_A> for bool {
     #[inline(always)]
@@ -28,19 +28,19 @@ impl DIR_R {
     #[inline(always)]
     pub const fn variant(&self) -> DIR_A {
         match self.bits {
-            false => DIR_A::Receive,
-            true => DIR_A::Transmit,
+            false => DIR_A::Transmit,
+            true => DIR_A::Receive,
         }
     }
-    #[doc = "Data byte received from slave"]
-    #[inline(always)]
-    pub fn is_receive(&self) -> bool {
-        *self == DIR_A::Receive
-    }
-    #[doc = "Data byte transmitted to slave"]
+    #[doc = "Master transmits data to slave"]
     #[inline(always)]
     pub fn is_transmit(&self) -> bool {
         *self == DIR_A::Transmit
+    }
+    #[doc = "Master receives data from slave"]
+    #[inline(always)]
+    pub fn is_receive(&self) -> bool {
+        *self == DIR_A::Receive
     }
 }
 #[doc = "Field `DIR` writer - Master data transmission direction"]
@@ -49,25 +49,25 @@ impl<'a, REG> DIR_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Data byte received from slave"]
-    #[inline(always)]
-    pub fn receive(self) -> &'a mut crate::W<REG> {
-        self.variant(DIR_A::Receive)
-    }
-    #[doc = "Data byte transmitted to slave"]
+    #[doc = "Master transmits data to slave"]
     #[inline(always)]
     pub fn transmit(self) -> &'a mut crate::W<REG> {
         self.variant(DIR_A::Transmit)
+    }
+    #[doc = "Master receives data from slave"]
+    #[inline(always)]
+    pub fn receive(self) -> &'a mut crate::W<REG> {
+        self.variant(DIR_A::Receive)
     }
 }
 #[doc = "Host send 10-bit address mode enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADDR10_A {
-    #[doc = "0: 7-bit addres mode"]
-    Bit7 = 0,
+    #[doc = "0: 7-bit address mode"]
+    Mode7bit = 0,
     #[doc = "1: 10-bit address mode"]
-    Bit10 = 1,
+    Mode10bit = 1,
 }
 impl From<ADDR10_A> for bool {
     #[inline(always)]
@@ -82,19 +82,19 @@ impl ADDR10_R {
     #[inline(always)]
     pub const fn variant(&self) -> ADDR10_A {
         match self.bits {
-            false => ADDR10_A::Bit7,
-            true => ADDR10_A::Bit10,
+            false => ADDR10_A::Mode7bit,
+            true => ADDR10_A::Mode10bit,
         }
     }
-    #[doc = "7-bit addres mode"]
+    #[doc = "7-bit address mode"]
     #[inline(always)]
-    pub fn is_bit7(&self) -> bool {
-        *self == ADDR10_A::Bit7
+    pub fn is_mode7bit(&self) -> bool {
+        *self == ADDR10_A::Mode7bit
     }
     #[doc = "10-bit address mode"]
     #[inline(always)]
-    pub fn is_bit10(&self) -> bool {
-        *self == ADDR10_A::Bit10
+    pub fn is_mode10bit(&self) -> bool {
+        *self == ADDR10_A::Mode10bit
     }
 }
 #[doc = "Field `ADDR10` writer - Host send 10-bit address mode enable"]
@@ -103,21 +103,71 @@ impl<'a, REG> ADDR10_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "7-bit addres mode"]
+    #[doc = "7-bit address mode"]
     #[inline(always)]
-    pub fn bit7(self) -> &'a mut crate::W<REG> {
-        self.variant(ADDR10_A::Bit7)
+    pub fn mode7bit(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR10_A::Mode7bit)
     }
     #[doc = "10-bit address mode"]
     #[inline(always)]
-    pub fn bit10(self) -> &'a mut crate::W<REG> {
-        self.variant(ADDR10_A::Bit10)
+    pub fn mode10bit(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR10_A::Mode10bit)
+    }
+}
+#[doc = "10-bit address header read enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum READH10_A {
+    #[doc = "0: 10-bit address header read disabled"]
+    Disabled = 0,
+    #[doc = "1: 10-bit address header read enabled"]
+    Enabled = 1,
+}
+impl From<READH10_A> for bool {
+    #[inline(always)]
+    fn from(variant: READH10_A) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `READH10` reader - 10-bit address header read enable"]
-pub use ADDR10_R as READH10_R;
+pub type READH10_R = crate::BitReader<READH10_A>;
+impl READH10_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> READH10_A {
+        match self.bits {
+            false => READH10_A::Disabled,
+            true => READH10_A::Enabled,
+        }
+    }
+    #[doc = "10-bit address header read disabled"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == READH10_A::Disabled
+    }
+    #[doc = "10-bit address header read enabled"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == READH10_A::Enabled
+    }
+}
 #[doc = "Field `READH10` writer - 10-bit address header read enable"]
-pub use ADDR10_W as READH10_W;
+pub type READH10_W<'a, REG> = crate::BitWriter<'a, REG, READH10_A>;
+impl<'a, REG> READH10_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "10-bit address header read disabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(READH10_A::Disabled)
+    }
+    #[doc = "10-bit address header read enabled"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(READH10_A::Enabled)
+    }
+}
 #[doc = "Generate start condition\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -259,14 +309,14 @@ where
 #[doc = "Field `CNT` reader - Transmit data counter"]
 pub type CNT_R = crate::FieldReader;
 #[doc = "Field `CNT` writer - Transmit data counter"]
-pub type CNT_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+pub type CNT_W<'a, REG> = crate::FieldWriter<'a, REG, 8, u8, crate::Safe>;
 #[doc = "Send data reload mode enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RLDEN_A {
     #[doc = "0: Send data reload mode disabled"]
     Disabled = 0,
-    #[doc = "1: Send data reload mode disabled"]
+    #[doc = "1: Send data reload mode enabled"]
     Enabled = 1,
 }
 impl From<RLDEN_A> for bool {
@@ -291,7 +341,7 @@ impl RLDEN_R {
     pub fn is_disabled(&self) -> bool {
         *self == RLDEN_A::Disabled
     }
-    #[doc = "Send data reload mode disabled"]
+    #[doc = "Send data reload mode enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == RLDEN_A::Enabled
@@ -308,7 +358,7 @@ where
     pub fn disabled(self) -> &'a mut crate::W<REG> {
         self.variant(RLDEN_A::Disabled)
     }
-    #[doc = "Send data reload mode disabled"]
+    #[doc = "Send data reload mode enabled"]
     #[inline(always)]
     pub fn enabled(self) -> &'a mut crate::W<REG> {
         self.variant(RLDEN_A::Enabled)
@@ -504,8 +554,8 @@ impl core::fmt::Debug for R {
             .field("nacken", &self.nacken())
             .field("genstop", &self.genstop())
             .field("genstart", &self.genstart())
-            .field("addr10", &self.addr10())
             .field("readh10", &self.readh10())
+            .field("addr10", &self.addr10())
             .field("dir", &self.dir())
             .field("saddr", &self.saddr())
             .finish()

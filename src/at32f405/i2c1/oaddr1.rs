@@ -11,9 +11,9 @@ pub type ADDR1_W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16, crate::Safe>;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADDR1MODE_A {
     #[doc = "0: 7-bit address mode"]
-    Bit7 = 0,
+    Mode7bit = 0,
     #[doc = "1: 10-bit address mode"]
-    Bit10 = 1,
+    Mode10bit = 1,
 }
 impl From<ADDR1MODE_A> for bool {
     #[inline(always)]
@@ -28,19 +28,19 @@ impl ADDR1MODE_R {
     #[inline(always)]
     pub const fn variant(&self) -> ADDR1MODE_A {
         match self.bits {
-            false => ADDR1MODE_A::Bit7,
-            true => ADDR1MODE_A::Bit10,
+            false => ADDR1MODE_A::Mode7bit,
+            true => ADDR1MODE_A::Mode10bit,
         }
     }
     #[doc = "7-bit address mode"]
     #[inline(always)]
-    pub fn is_bit7(&self) -> bool {
-        *self == ADDR1MODE_A::Bit7
+    pub fn is_mode7bit(&self) -> bool {
+        *self == ADDR1MODE_A::Mode7bit
     }
     #[doc = "10-bit address mode"]
     #[inline(always)]
-    pub fn is_bit10(&self) -> bool {
-        *self == ADDR1MODE_A::Bit10
+    pub fn is_mode10bit(&self) -> bool {
+        *self == ADDR1MODE_A::Mode10bit
     }
 }
 #[doc = "Field `ADDR1MODE` writer - Own Address mode"]
@@ -51,13 +51,13 @@ where
 {
     #[doc = "7-bit address mode"]
     #[inline(always)]
-    pub fn bit7(self) -> &'a mut crate::W<REG> {
-        self.variant(ADDR1MODE_A::Bit7)
+    pub fn mode7bit(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR1MODE_A::Mode7bit)
     }
     #[doc = "10-bit address mode"]
     #[inline(always)]
-    pub fn bit10(self) -> &'a mut crate::W<REG> {
-        self.variant(ADDR1MODE_A::Bit10)
+    pub fn mode10bit(self) -> &'a mut crate::W<REG> {
+        self.variant(ADDR1MODE_A::Mode10bit)
     }
 }
 #[doc = "Own address 1 enable\n\nValue on reset: 0"]

@@ -89,9 +89,6 @@ I2C?:
       _write:
         Disable: [0, "Disable Data transmit interrupt"]
         Enable: [1, "Enable Data transmit interrupt"]
-    I2CEN:
-      Disabled: [0, "I2C peripheral disabled"]
-      Enabled: [1, "I2C peripheral enabled"]
   CTRL2:
     PECTEN:
       _read:
@@ -105,8 +102,8 @@ I2C?:
       Enabled: [1, "Automatic end mode enabled. automatically send STOP condition"]
     RLDEN:
       Disabled: [0, "Send data reload mode disabled"]
-      Enabled: [1, "Send data reload mode disabled"]
-    CNT: [0, 0xF]
+      Enabled: [1, "Send data reload mode enabled"]
+    CNT: [0, 0xFF]
     NACKEN:
       Disabled: [0, "NACK generation disabled"]
       Enabled: [1, "NACK generation enabled"]
@@ -116,20 +113,23 @@ I2C?:
     GENSTART:
       _W1S:
         Start: [1, "Generate start condition in master mode"]
-    READH10,ADDR10:
-      bit7: [0, "7-bit addres mode"]
-      bit10: [1, "10-bit address mode"]
+    READH10:
+      Disabled: [0, "10-bit address header read disabled"]
+      Enabled: [1, "10-bit address header read enabled"]
+    ADDR10:
+      Mode7Bit: [0, "7-bit address mode"]
+      Mode10Bit: [1, "10-bit address mode"]
     DIR:
-      Receive: [0, "Data byte received from slave"]
-      Transmit: [1, "Data byte transmitted to slave"]
+      Transmit: [0, "Master transmits data to slave"]
+      Receive: [1, "Master receives data from slave"]
     SADDR: [0, 0x3FF]
   OADDR1:
     ADDR1EN:
       Disabled: [0, "Own address 1 disabled"]
       Enabled: [1, "Own address 1 enabled"]
     ADDR1MODE:
-      bit7: [0, "7-bit address mode"]
-      bit10: [1, "10-bit address mode"]
+      Mode7Bit: [0, "7-bit address mode"]
+      Mode10Bit: [1, "10-bit address mode"]
   OADDR2:
     ADDR2EN:
       Disabled: [0, "Own address 2 disabled"]
@@ -163,14 +163,14 @@ I2C?:
         description: "Cumulative clock low extend timeout value. (EXTTIME + 1) x 2048 x TI2C_CLK."
       TOMOED:
         name: TOMODE
-    TOTIME: [0, 0x3F]
+    TOTIME: [0, 0xFFF]
     TOMODE:
       LowLevel: [0, "Clock low level detection timeout"]
       HighLevel: [1, "Clock high level detection timeout"]
     TOEN:
       Disabled: [0, "Clock timeout detection disabled"]
       Enabled: [1, "Clock timeout detection enabled"]
-    EXTTIME: [0, 0x3F]
+    EXTTIME: [0, 0xFFF]
     EXTEN:
       Disabled: [0, "Cumulative clock low extend timeout disabled"]
       Enabled: [1, "Cumulative clock low extend timeout enabled"]
@@ -189,7 +189,7 @@ I2C?:
       NoTimeout: [0, "No SMBus timeout occurred"]
       Timeout: [1, "SMBus timeout occurred"]
     PECERR:
-      NoError: [0, "PEC error in reception or transmission"]
+      NoError: [0, "No PEC error"]
       Error: [1, "PEC error in reception or transmission"]
     OUF:
       NoOverrun: [0, "No overrun/underrun occurred"]

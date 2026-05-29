@@ -5,7 +5,7 @@ pub type W = crate::W<TIMEOUT_SPEC>;
 #[doc = "Field `TOTIME` reader - Clock timeout. For low level: (TOTIME + 1) x 2048 x TI2C_CLK. For high level: (TOTIME + 1) x 4 x TI2C_CLK."]
 pub type TOTIME_R = crate::FieldReader<u16>;
 #[doc = "Field `TOTIME` writer - Clock timeout. For low level: (TOTIME + 1) x 2048 x TI2C_CLK. For high level: (TOTIME + 1) x 4 x TI2C_CLK."]
-pub type TOTIME_W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
+pub type TOTIME_W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16, crate::Safe>;
 #[doc = "Clock timeout detection mode\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -117,7 +117,7 @@ where
 #[doc = "Field `EXTTIME` reader - Cumulative clock low extend timeout value. (EXTTIME + 1) x 2048 x TI2C_CLK."]
 pub type EXTTIME_R = crate::FieldReader<u16>;
 #[doc = "Field `EXTTIME` writer - Cumulative clock low extend timeout value. (EXTTIME + 1) x 2048 x TI2C_CLK."]
-pub type EXTTIME_W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
+pub type EXTTIME_W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16, crate::Safe>;
 #[doc = "Cumulative clock low extend timeout enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
