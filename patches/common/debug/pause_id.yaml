@@ -8,5 +8,6 @@ DEBUG:
       Run: [ 0, "I2C SMBUS timeout control works normally"]
       Stop: [1, "I2C SMBUS timeout control stops running"]
   SER_ID:
-    REV_ID: [0, 7]
-    SER_ID: [0; 0xF]
+    REV_ID:
+      _read:
+        A: [0, "Revision A"]

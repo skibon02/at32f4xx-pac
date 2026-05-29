@@ -1,0 +1,5 @@
+DEBUG:
+  APB2_PAUSE:
+    _modify:
+      TMR20_PAUSE:
+        description: "TMR20_PAUSE"

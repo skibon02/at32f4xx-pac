@@ -6,6 +6,7 @@ _include:
   - ertc/wat.yaml
   - ertc/tspin.yaml
   - debug/pause_id.yaml
+  - debug/tmr20_fix.yaml
   - dma/extended.yaml
   - periph-v2.yaml
   - adc/common.yaml
