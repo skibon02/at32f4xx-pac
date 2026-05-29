@@ -10,6 +10,7 @@ SPI?:
     _modify:
       CSPAS:
         access: "read-only"
+        description: "CS pulse abnormal setting flag"
     CSPAS:
       Normal: [0, "CS pulse flag normal"]
       Abnormal: [1, "CS pulse flag is set abnormally"]

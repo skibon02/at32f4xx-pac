@@ -65,8 +65,8 @@ pub enum DBN_A {
     Bit16 = 0,
     #[doc = "1: 24-bit wide"]
     Bit24 = 1,
-    #[doc = "3: 32-bit wide"]
-    Bit32 = 3,
+    #[doc = "2: 32-bit wide"]
+    Bit32 = 2,
 }
 impl From<DBN_A> for u8 {
     #[inline(always)]
@@ -87,7 +87,7 @@ impl DBN_R {
         match self.bits {
             0 => Some(DBN_A::Bit16),
             1 => Some(DBN_A::Bit24),
-            3 => Some(DBN_A::Bit32),
+            2 => Some(DBN_A::Bit32),
             _ => None,
         }
     }

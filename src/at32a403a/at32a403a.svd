@@ -17934,12 +17934,12 @@
                 <usage>read</usage>
                 <enumeratedValue>
                   <name>Disabled</name>
-                  <description>RC calculation is disabled</description>
+                  <description>CRC calculation is disabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>RC calculation is enabled</description>
+                  <description>CRC calculation is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -17948,12 +17948,12 @@
                 <usage>write</usage>
                 <enumeratedValue>
                   <name>Disable</name>
-                  <description>RC calculation disable</description>
+                  <description>CRC calculation disable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enable</name>
-                  <description>RC calculation enable</description>
+                  <description>CRC calculation enable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -18576,12 +18576,12 @@
                 <name>RDBF</name>
                 <enumeratedValue>
                   <name>NotFull</name>
-                  <description>Transmit data buffer is not full</description>
+                  <description>Receive data buffer is not full</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Full</name>
-                  <description>Transmit data buffer is full</description>
+                  <description>Receive data buffer is full</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -18846,7 +18846,7 @@
                 <enumeratedValue>
                   <name>bit32</name>
                   <description>32-bit wide</description>
-                  <value>3</value>
+                  <value>2</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>

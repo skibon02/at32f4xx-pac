@@ -6,9 +6,9 @@ pub type W = crate::W<STS_SPEC>;
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RDBF_A {
-    #[doc = "0: Transmit data buffer is not full"]
+    #[doc = "0: Receive data buffer is not full"]
     NotFull = 0,
-    #[doc = "1: Transmit data buffer is full"]
+    #[doc = "1: Receive data buffer is full"]
     Full = 1,
 }
 impl From<RDBF_A> for bool {
@@ -28,12 +28,12 @@ impl RDBF_R {
             true => RDBF_A::Full,
         }
     }
-    #[doc = "Transmit data buffer is not full"]
+    #[doc = "Receive data buffer is not full"]
     #[inline(always)]
     pub fn is_not_full(&self) -> bool {
         *self == RDBF_A::NotFull
     }
-    #[doc = "Transmit data buffer is full"]
+    #[doc = "Receive data buffer is full"]
     #[inline(always)]
     pub fn is_full(&self) -> bool {
         *self == RDBF_A::Full
@@ -323,7 +323,7 @@ impl BF_R {
         *self == BF_A::Busy
     }
 }
-#[doc = "CS pulse abnormal setting fiag\n\nValue on reset: 0"]
+#[doc = "CS pulse abnormal setting flag\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CSPAS_A {
@@ -338,7 +338,7 @@ impl From<CSPAS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `CSPAS` reader - CS pulse abnormal setting fiag"]
+#[doc = "Field `CSPAS` reader - CS pulse abnormal setting flag"]
 pub type CSPAS_R = crate::BitReader<CSPAS_A>;
 impl CSPAS_R {
     #[doc = "Get enumerated values variant"]
@@ -401,7 +401,7 @@ impl R {
     pub fn bf(&self) -> BF_R {
         BF_R::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bit 8 - CS pulse abnormal setting fiag"]
+    #[doc = "Bit 8 - CS pulse abnormal setting flag"]
     #[inline(always)]
     pub fn cspas(&self) -> CSPAS_R {
         CSPAS_R::new(((self.bits >> 8) & 1) != 0)

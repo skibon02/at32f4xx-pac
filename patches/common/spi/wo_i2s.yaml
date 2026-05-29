@@ -41,11 +41,11 @@ SPI?:
       CRC: [1, "Next transmitted data is CRC value"]
     CCEN:
       _read:
-        Disabled: [0, "RC calculation is disabled"]
-        Enabled: [1, "RC calculation is enabled"]
+        Disabled: [0, "CRC calculation is disabled"]
+        Enabled: [1, "CRC calculation is enabled"]
       _write:
-        Disable: [0, "RC calculation disable"]
-        Enable: [1, "RC calculation enable"]
+        Disable: [0, "CRC calculation disable"]
+        Enable: [1, "CRC calculation enable"]
     SLBTD:
       Receive: [0, "Receive-only mode"]
       Transmit: [1, "Transmit-only mode"]
@@ -96,8 +96,8 @@ SPI?:
     MDIV3: [0, 1]
   STS:
     RDBF:
-      NotFull: [0, "Transmit data buffer is not full"]
-      Full: [1, "Transmit data buffer is full"]
+      NotFull: [0, "Receive data buffer is not full"]
+      Full: [1, "Receive data buffer is full"]
     TDBE:
       NotEmpty: [0, "Transmit data buffer is not empty"]
       Empty: [1, "Transmit data buffer is empty"]

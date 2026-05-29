@@ -580,9 +580,9 @@ where
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ccenr {
-    #[doc = "0: RC calculation is disabled"]
+    #[doc = "0: CRC calculation is disabled"]
     Disabled = 0,
-    #[doc = "1: RC calculation is enabled"]
+    #[doc = "1: CRC calculation is enabled"]
     Enabled = 1,
 }
 impl From<Ccenr> for bool {
@@ -602,12 +602,12 @@ impl CCEN_R {
             true => Ccenr::Enabled,
         }
     }
-    #[doc = "RC calculation is disabled"]
+    #[doc = "CRC calculation is disabled"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
         *self == Ccenr::Disabled
     }
-    #[doc = "RC calculation is enabled"]
+    #[doc = "CRC calculation is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == Ccenr::Enabled
@@ -617,9 +617,9 @@ impl CCEN_R {
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CcenwWO {
-    #[doc = "0: RC calculation disable"]
+    #[doc = "0: CRC calculation disable"]
     Disable = 0,
-    #[doc = "1: RC calculation enable"]
+    #[doc = "1: CRC calculation enable"]
     Enable = 1,
 }
 impl From<CcenwWO> for bool {
@@ -634,12 +634,12 @@ impl<'a, REG> CCEN_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "RC calculation disable"]
+    #[doc = "CRC calculation disable"]
     #[inline(always)]
     pub fn disable(self) -> &'a mut crate::W<REG> {
         self.variant(CcenwWO::Disable)
     }
-    #[doc = "RC calculation enable"]
+    #[doc = "CRC calculation enable"]
     #[inline(always)]
     pub fn enable(self) -> &'a mut crate::W<REG> {
         self.variant(CcenwWO::Enable)
