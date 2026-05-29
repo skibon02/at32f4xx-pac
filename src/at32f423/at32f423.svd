@@ -3853,7 +3853,7 @@
               <dimIncrement>0x1</dimIncrement>
               <dimIndex>0-15</dimIndex>
               <name>OM%s</name>
-              <description>GPIOx pin %s outpu mode configurate</description>
+              <description>GPIOx pin %s output mode configurate</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>

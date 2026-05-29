@@ -22,7 +22,8 @@ GPIO?:
       Analog: [3, "Analog mode"]
   OMODE:
     _array:
-      OM*: {}
+      OM*:
+        description: GPIOx pin %s output mode configurate
     OM*:
       PushPull: [0, "Push-pull"]
       OpenDrain: [1, "Open-drain"]
