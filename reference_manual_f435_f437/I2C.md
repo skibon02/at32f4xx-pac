@@ -64,14 +64,14 @@ These peripheral registers must be accessed by words (32 bits).
 | Bit 15     | DMAREN    | 0x0         | rw   | DMA receive data request enable<br/>0: DMA receive data request disabled<br/>1: DMA receive data request enabled                                                                                                                 |
 | Bit 14     | DMATEN    | 0x0         | rw   | DMA Transmit data request enable<br/>0: DMA Transmit data request disabled<br/>1: DMA Transmit data request enabled                                                                                                              |
 | Bit 13: 12 | Reserved  | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                       |
-| Bit 11: 8  | DELT      | 0x0         | rw   | Digital filter value<br/>Filter time = DFLT x TI2C\_CLK<br/>The glitches less than the filter time on the SCL bus will be filtered.<br/>Note: This bit can be set only when I2C is disabled (I2CEN=0)                            |
+| Bit 11: 8  | DFLT      | 0x0         | rw   | Digital filter value<br/>Filter time = DFLT x TI2C\_CLK<br/>The glitches less than the filter time on the SCL bus will be filtered.<br/>Note: This bit can be set only when I2C is disabled (I2CEN=0)                            |
 | Bit 7      | ERRIEN    | 0x0         | rw   | Error interrupt enable<br/>0: Error interrupt disabled<br/>1: Error interrupt enabled                                                                                                                                            |
 | Bit 6      | TDCIEN    | 0x0         | rw   | Data transfer complete interrupt enable<br/>0: Data transfer complete interrupt disabled<br/>1: Data transfer complete interrupt enabled                                                                                         |
 | Bit 5      | STOPIEN   | 0x0         | rw   | Stop generation complete interrupt enable                                                                                                                                                                                        |
 |       |            |     |      | 0: Stop generation complete interrupt disabled<br/>1: Stop generation complete interrupt enabled                       |
 | Bit 4 | ACKFAILIEN | 0x0 | rw   | Acknowledge fail interrupt enable<br/>0: Acknowledge fail interrupt disabled<br/>1: Acknowledge fail interrupt enabled |
 | Bit 3 | ADDRIEN    | 0x0 | rw   | Address match interrupt enable<br/>0: Address match interrupt disabled<br/>1: Address match interrupt enabled          |
-| Bit 2 | RDIEN      | 0x0 | resd | Data receive interrupt enable<br/>0: Data receive interrupt disabled<br/>1: Data receive interrupt enabled             |
+| Bit 2 | RDIEN      | 0x0 | rw | Data receive interrupt enable<br/>0: Data receive interrupt disabled<br/>1: Data receive interrupt enabled             |
 | Bit 1 | TDIEN      | 0x0 | rw   | Data transmit interrupt enable<br/>0: Data transmit interrupt disabled<br/>1: Data transmit interrupt enabled          |
 | Bit 0 | I2CEN      | 0x0 | rw   | I2C peripheral enable<br/>0: Disabled<br/>1: Enabled                                                                   |
 
@@ -98,7 +98,7 @@ These peripheral registers must be accessed by words (32 bits).
 
 | Bit        | Name         | Reset value | Type | Description                                                                                                                                      |
 | ---------- | ------------ | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Bit 31: 16 | Reserved     | 0x0000      | rw   | Kept at its default value.                                                                                                                       |
+| Bit 31: 16 | Reserved     | 0x0000      | resd | Kept at its default value.                                                                                                                       |
 | Bit 15     | ADDR1EN      | 0x0         | rw   | Own Address 1 enable<br/>0: Own Address 1 disabled<br/>1: Own Address 1 enabled                                                                  |
 | Bit 14: 11 | Reserved     | 0x0         | res  | Kept at its default value.                                                                                                                       |
 | Bit 10     | ADDR1MODE    | 0x0         | rw   | Own Address mode<br/>0: 7-bit address mode<br/>1: 10-bit address mode<br/>Note: This bit can be set only when ADDR1EN is enabled (ADDR1EN=1)     |
