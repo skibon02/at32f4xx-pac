@@ -3996,12 +3996,12 @@
                 <usage>read</usage>
                 <enumeratedValue>
                   <name>Disabled</name>
-                  <description>Falling polarity is disabled</description>
+                  <description>Falling trigger is disabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Falling polarity is enabled</description>
+                  <description>Falling trigger is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4010,12 +4010,12 @@
                 <usage>write</usage>
                 <enumeratedValue>
                   <name>Disable</name>
-                  <description>Falling polarity disable</description>
+                  <description>Falling trigger disable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enable</name>
-                  <description>Falling polarity enable</description>
+                  <description>Falling trigger enable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4025,7 +4025,7 @@
         <register>
           <name>SWTRG</name>
           <displayName>SWTRG</displayName>
-          <description>Software triggle register</description>
+          <description>Software trigger register</description>
           <addressOffset>0x10</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -20380,7 +20380,7 @@
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>1</minimum>
+                  <minimum>0</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>

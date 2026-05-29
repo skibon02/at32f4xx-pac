@@ -58,7 +58,7 @@ where
 }
 #[doc = "Field `TMR8_PAUSE` reader - TMR8_PAUSE"]
 pub use TMR1_PAUSE_R as TMR8_PAUSE_R;
-#[doc = "Field `TMR20_PAUSE` reader - TIM20_PAUSE"]
+#[doc = "Field `TMR20_PAUSE` reader - TMR20_PAUSE"]
 pub use TMR1_PAUSE_R as TMR20_PAUSE_R;
 #[doc = "Field `TMR9_PAUSE` reader - TMR9_PAUSE"]
 pub use TMR1_PAUSE_R as TMR9_PAUSE_R;
@@ -68,7 +68,7 @@ pub use TMR1_PAUSE_R as TMR10_PAUSE_R;
 pub use TMR1_PAUSE_R as TMR11_PAUSE_R;
 #[doc = "Field `TMR8_PAUSE` writer - TMR8_PAUSE"]
 pub use TMR1_PAUSE_W as TMR8_PAUSE_W;
-#[doc = "Field `TMR20_PAUSE` writer - TIM20_PAUSE"]
+#[doc = "Field `TMR20_PAUSE` writer - TMR20_PAUSE"]
 pub use TMR1_PAUSE_W as TMR20_PAUSE_W;
 #[doc = "Field `TMR9_PAUSE` writer - TMR9_PAUSE"]
 pub use TMR1_PAUSE_W as TMR9_PAUSE_W;
@@ -87,7 +87,7 @@ impl R {
     pub fn tmr8_pause(&self) -> TMR8_PAUSE_R {
         TMR8_PAUSE_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 6 - TIM20_PAUSE"]
+    #[doc = "Bit 6 - TMR20_PAUSE"]
     #[inline(always)]
     pub fn tmr20_pause(&self) -> TMR20_PAUSE_R {
         TMR20_PAUSE_R::new(((self.bits >> 6) & 1) != 0)
@@ -131,7 +131,7 @@ impl W {
     pub fn tmr8_pause(&mut self) -> TMR8_PAUSE_W<'_, APB2_PAUSE_SPEC> {
         TMR8_PAUSE_W::new(self, 1)
     }
-    #[doc = "Bit 6 - TIM20_PAUSE"]
+    #[doc = "Bit 6 - TMR20_PAUSE"]
     #[inline(always)]
     pub fn tmr20_pause(&mut self) -> TMR20_PAUSE_W<'_, APB2_PAUSE_SPEC> {
         TMR20_PAUSE_W::new(self, 6)

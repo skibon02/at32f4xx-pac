@@ -51,7 +51,7 @@ pub mod rld;
 pub type STS = crate::Reg<sts::STS_SPEC>;
 #[doc = "Status register"]
 pub mod sts;
-#[doc = "WIN (r) register accessor: Window register\n\nYou can [`read`](crate::Reg::read) this register and get [`win::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@win`] module"]
+#[doc = "WIN (rw) register accessor: Window register\n\nYou can [`read`](crate::Reg::read) this register and get [`win::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`win::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@win`] module"]
 pub type WIN = crate::Reg<win::WIN_SPEC>;
 #[doc = "Window register"]
 pub mod win;

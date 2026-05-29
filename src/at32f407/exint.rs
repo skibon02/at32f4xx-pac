@@ -30,7 +30,7 @@ impl RegisterBlock {
     pub const fn polcfg2(&self) -> &POLCFG2 {
         &self.polcfg2
     }
-    #[doc = "0x10 - Software triggle register"]
+    #[doc = "0x10 - Software trigger register"]
     #[inline(always)]
     pub const fn swtrg(&self) -> &SWTRG {
         &self.swtrg
@@ -57,9 +57,9 @@ pub mod polcfg1;
 pub type POLCFG2 = crate::Reg<polcfg2::POLCFG2_SPEC>;
 #[doc = "Falling polarity configuration register"]
 pub mod polcfg2;
-#[doc = "SWTRG (rw) register accessor: Software triggle register\n\nYou can [`read`](crate::Reg::read) this register and get [`swtrg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`swtrg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@swtrg`] module"]
+#[doc = "SWTRG (rw) register accessor: Software trigger register\n\nYou can [`read`](crate::Reg::read) this register and get [`swtrg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`swtrg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@swtrg`] module"]
 pub type SWTRG = crate::Reg<swtrg::SWTRG_SPEC>;
-#[doc = "Software triggle register"]
+#[doc = "Software trigger register"]
 pub mod swtrg;
 #[doc = "INTSTS (rw) register accessor: Interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`intsts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`intsts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@intsts`] module"]
 pub type INTSTS = crate::Reg<intsts::INTSTS_SPEC>;

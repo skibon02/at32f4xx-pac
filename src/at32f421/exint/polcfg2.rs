@@ -6,9 +6,9 @@ pub type W = crate::W<POLCFG2_SPEC>;
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fp0r {
-    #[doc = "0: Falling polarity is disabled"]
+    #[doc = "0: Falling trigger is disabled"]
     Disabled = 0,
-    #[doc = "1: Falling polarity is enabled"]
+    #[doc = "1: Falling trigger is enabled"]
     Enabled = 1,
 }
 impl From<Fp0r> for bool {
@@ -28,12 +28,12 @@ impl FP_R {
             true => Fp0r::Enabled,
         }
     }
-    #[doc = "Falling polarity is disabled"]
+    #[doc = "Falling trigger is disabled"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
         *self == Fp0r::Disabled
     }
-    #[doc = "Falling polarity is enabled"]
+    #[doc = "Falling trigger is enabled"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
         *self == Fp0r::Enabled
@@ -43,9 +43,9 @@ impl FP_R {
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fp0wWO {
-    #[doc = "0: Falling polarity disable"]
+    #[doc = "0: Falling trigger disable"]
     Disable = 0,
-    #[doc = "1: Falling polarity enable"]
+    #[doc = "1: Falling trigger enable"]
     Enable = 1,
 }
 impl From<Fp0wWO> for bool {
@@ -60,12 +60,12 @@ impl<'a, REG> FP_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Falling polarity disable"]
+    #[doc = "Falling trigger disable"]
     #[inline(always)]
     pub fn disable(self) -> &'a mut crate::W<REG> {
         self.variant(Fp0wWO::Disable)
     }
-    #[doc = "Falling polarity enable"]
+    #[doc = "Falling trigger enable"]
     #[inline(always)]
     pub fn enable(self) -> &'a mut crate::W<REG> {
         self.variant(Fp0wWO::Enable)

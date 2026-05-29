@@ -3783,12 +3783,12 @@
                 <usage>read</usage>
                 <enumeratedValue>
                   <name>Disabled</name>
-                  <description>Falling polarity is disabled</description>
+                  <description>Falling trigger is disabled</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enabled</name>
-                  <description>Falling polarity is enabled</description>
+                  <description>Falling trigger is enabled</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3797,12 +3797,12 @@
                 <usage>write</usage>
                 <enumeratedValue>
                   <name>Disable</name>
-                  <description>Falling polarity disable</description>
+                  <description>Falling trigger disable</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>Enable</name>
-                  <description>Falling polarity enable</description>
+                  <description>Falling trigger enable</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3812,7 +3812,7 @@
         <register>
           <name>SWTRG</name>
           <displayName>SWTRG</displayName>
-          <description>Software triggle register</description>
+          <description>Software trigger register</description>
           <addressOffset>0x10</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
@@ -7222,12 +7222,12 @@ If TPFLT&gt;0: High level</description>
                 <name>WINF</name>
                 <enumeratedValue>
                   <name>Complete</name>
-                  <description>Reload value update complete</description>
+                  <description>Window value update complete</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>InProgress</name>
-                  <description>Reload value update is in process</description>
+                  <description>Window value update is in process</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -7240,7 +7240,7 @@ If TPFLT&gt;0: High level</description>
           <description>Window register</description>
           <addressOffset>0x10</addressOffset>
           <size>0x20</size>
-          <access>read-only</access>
+          <access>read-write</access>
           <resetValue>0x00000FFF</resetValue>
           <fields>
             <field>
@@ -23077,7 +23077,7 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>8</bitWidth>
               <writeConstraint>
                 <range>
-                  <minimum>1</minimum>
+                  <minimum>0</minimum>
                   <maximum>255</maximum>
                 </range>
               </writeConstraint>
@@ -27023,12 +27023,14 @@ If TPFLT&gt;0: High level</description>
               <description>version ID</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
-              <writeConstraint>
-                <range>
-                  <minimum>0</minimum>
-                  <maximum>7</maximum>
-                </range>
-              </writeConstraint>
+              <enumeratedValues>
+                <name>REV_IDR</name>
+                <enumeratedValue>
+                  <name>A</name>
+                  <description>Revision A</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SER_ID</name>

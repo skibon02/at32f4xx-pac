@@ -1,7 +1,40 @@
 #[doc = "Register `SER_ID` reader"]
 pub type R = crate::R<SER_ID_SPEC>;
+#[doc = "version ID\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum REV_IDR_A {
+    #[doc = "0: Revision A"]
+    A = 0,
+}
+impl From<REV_IDR_A> for u8 {
+    #[inline(always)]
+    fn from(variant: REV_IDR_A) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for REV_IDR_A {
+    type Ux = u8;
+}
+impl crate::IsEnum for REV_IDR_A {}
 #[doc = "Field `REV_ID` reader - version ID"]
-pub type REV_ID_R = crate::FieldReader;
+pub type REV_ID_R = crate::FieldReader<REV_IDR_A>;
+impl REV_ID_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<REV_IDR_A> {
+        match self.bits {
+            0 => Some(REV_IDR_A::A),
+            _ => None,
+        }
+    }
+    #[doc = "Revision A"]
+    #[inline(always)]
+    pub fn is_a(&self) -> bool {
+        *self == REV_IDR_A::A
+    }
+}
 #[doc = "Field `SER_ID` reader - series ID"]
 pub type SER_ID_R = crate::FieldReader;
 impl R {

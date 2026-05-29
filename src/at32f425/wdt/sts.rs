@@ -78,9 +78,9 @@ impl RLDF_R {
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WINF_A {
-    #[doc = "0: Reload value update complete"]
+    #[doc = "0: Window value update complete"]
     Complete = 0,
-    #[doc = "1: Reload value update is in process"]
+    #[doc = "1: Window value update is in process"]
     InProgress = 1,
 }
 impl From<WINF_A> for bool {
@@ -100,12 +100,12 @@ impl WINF_R {
             true => WINF_A::InProgress,
         }
     }
-    #[doc = "Reload value update complete"]
+    #[doc = "Window value update complete"]
     #[inline(always)]
     pub fn is_complete(&self) -> bool {
         *self == WINF_A::Complete
     }
-    #[doc = "Reload value update is in process"]
+    #[doc = "Window value update is in process"]
     #[inline(always)]
     pub fn is_in_progress(&self) -> bool {
         *self == WINF_A::InProgress
