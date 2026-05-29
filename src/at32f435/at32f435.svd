@@ -29929,12 +29929,12 @@ If TPFLT&gt;0: High level</description>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>PCSWTRG</name>
-              <description>Preempted channel software conversion trigger</description>
-              <bitOffset>22</bitOffset>
+              <name>OCSWTRG</name>
+              <description>Ordinary channel software conversion trigger</description>
+              <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
-                <name>PCSWTRG</name>
+                <name>OCSWTRG</name>
                 <enumeratedValue>
                   <name>NotTriggered</name>
                   <description>Conversion of ordinary channels not triggered</description>
@@ -29946,13 +29946,6 @@ If TPFLT&gt;0: High level</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>OCSWTRG</name>
-              <description>Ordinary channel software conversion trigger</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <enumeratedValues derivedFrom="PCSWTRG"/>
             </field>
             <field>
               <name>OCETE</name>
@@ -29971,6 +29964,25 @@ If TPFLT&gt;0: High level</description>
               <description>High bit of trigger event select for preempted channels conversion</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>PCSWTRG</name>
+              <description>Preempted channel software conversion trigger</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>PCSWTRG</name>
+                <enumeratedValue>
+                  <name>NotTriggered</name>
+                  <description>Conversion of preempted channels not triggered</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Triggered</name>
+                  <description>Conversion of preempted channels triggered</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PCETE</name>
@@ -31032,6 +31044,11 @@ If TPFLT&gt;0: High level</description>
                   <name>OrdinaryShiftDual</name>
                   <description>Ordinary shift mode (dual slaves)</description>
                   <value>23</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AlternatePreemptedTriggerDual</name>
+                  <description>Alternate preempted trigger mode (dual slaves)</description>
+                  <value>25</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>

@@ -183,6 +183,7 @@ ADCCOM:
       PreemptedSimultaneousDual: [21, "Preempted simultaneous mode (dual slaves)"]
       OrdinarySimultaneousDual: [22, "Ordinary simultaneous mode (dual slaves)"]
       OrdinaryShiftDual: [23, "Ordinary shift mode (dual slaves)"]
+      AlternatePreemptedTriggerDual: [25, "Alternate preempted trigger mode (dual slaves)"]
 
     MSDRCEN:
       Disabled: [0, "MSDRC disabled"]

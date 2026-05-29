@@ -346,9 +346,9 @@ pub type PCETE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PCSWTRG_A {
-    #[doc = "0: Conversion of ordinary channels not triggered"]
+    #[doc = "0: Conversion of preempted channels not triggered"]
     NotTriggered = 0,
-    #[doc = "1: Conversion of ordinary channels triggered"]
+    #[doc = "1: Conversion of preempted channels triggered"]
     Triggered = 1,
 }
 impl From<PCSWTRG_A> for bool {
@@ -368,12 +368,12 @@ impl PCSWTRG_R {
             true => PCSWTRG_A::Triggered,
         }
     }
-    #[doc = "Conversion of ordinary channels not triggered"]
+    #[doc = "Conversion of preempted channels not triggered"]
     #[inline(always)]
     pub fn is_not_triggered(&self) -> bool {
         *self == PCSWTRG_A::NotTriggered
     }
-    #[doc = "Conversion of ordinary channels triggered"]
+    #[doc = "Conversion of preempted channels triggered"]
     #[inline(always)]
     pub fn is_triggered(&self) -> bool {
         *self == PCSWTRG_A::Triggered
@@ -385,12 +385,12 @@ impl<'a, REG> PCSWTRG_W<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Conversion of ordinary channels not triggered"]
+    #[doc = "Conversion of preempted channels not triggered"]
     #[inline(always)]
     pub fn not_triggered(self) -> &'a mut crate::W<REG> {
         self.variant(PCSWTRG_A::NotTriggered)
     }
-    #[doc = "Conversion of ordinary channels triggered"]
+    #[doc = "Conversion of preempted channels triggered"]
     #[inline(always)]
     pub fn triggered(self) -> &'a mut crate::W<REG> {
         self.variant(PCSWTRG_A::Triggered)
@@ -408,10 +408,60 @@ pub type OCTESEL_L_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 pub type OCETE_R = crate::FieldReader;
 #[doc = "Field `OCETE` writer - Ordinary channel external trigger edge select"]
 pub type OCETE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Ordinary channel software conversion trigger\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OCSWTRG_A {
+    #[doc = "0: Conversion of ordinary channels not triggered"]
+    NotTriggered = 0,
+    #[doc = "1: Conversion of ordinary channels triggered"]
+    Triggered = 1,
+}
+impl From<OCSWTRG_A> for bool {
+    #[inline(always)]
+    fn from(variant: OCSWTRG_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `OCSWTRG` reader - Ordinary channel software conversion trigger"]
-pub use PCSWTRG_R as OCSWTRG_R;
+pub type OCSWTRG_R = crate::BitReader<OCSWTRG_A>;
+impl OCSWTRG_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> OCSWTRG_A {
+        match self.bits {
+            false => OCSWTRG_A::NotTriggered,
+            true => OCSWTRG_A::Triggered,
+        }
+    }
+    #[doc = "Conversion of ordinary channels not triggered"]
+    #[inline(always)]
+    pub fn is_not_triggered(&self) -> bool {
+        *self == OCSWTRG_A::NotTriggered
+    }
+    #[doc = "Conversion of ordinary channels triggered"]
+    #[inline(always)]
+    pub fn is_triggered(&self) -> bool {
+        *self == OCSWTRG_A::Triggered
+    }
+}
 #[doc = "Field `OCSWTRG` writer - Ordinary channel software conversion trigger"]
-pub use PCSWTRG_W as OCSWTRG_W;
+pub type OCSWTRG_W<'a, REG> = crate::BitWriter<'a, REG, OCSWTRG_A>;
+impl<'a, REG> OCSWTRG_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Conversion of ordinary channels not triggered"]
+    #[inline(always)]
+    pub fn not_triggered(self) -> &'a mut crate::W<REG> {
+        self.variant(OCSWTRG_A::NotTriggered)
+    }
+    #[doc = "Conversion of ordinary channels triggered"]
+    #[inline(always)]
+    pub fn triggered(self) -> &'a mut crate::W<REG> {
+        self.variant(OCSWTRG_A::Triggered)
+    }
+}
 #[doc = "Field `OCTESEL_H` reader - High bit of trigger event select for ordinary channels conversion"]
 pub type OCTESEL_H_R = crate::BitReader;
 #[doc = "Field `OCTESEL_H` writer - High bit of trigger event select for ordinary channels conversion"]
@@ -507,11 +557,11 @@ impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CTRL2")
             .field("octesel_h", &self.octesel_h())
-            .field("pcswtrg", &self.pcswtrg())
             .field("ocswtrg", &self.ocswtrg())
             .field("ocete", &self.ocete())
             .field("octesel_l", &self.octesel_l())
             .field("pctesel_h", &self.pctesel_h())
+            .field("pcswtrg", &self.pcswtrg())
             .field("pcete", &self.pcete())
             .field("pctesel_l", &self.pctesel_l())
             .field("dtalign", &self.dtalign())

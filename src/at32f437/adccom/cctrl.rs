@@ -31,6 +31,8 @@ pub enum MSSEL_A {
     OrdinarySimultaneousDual = 22,
     #[doc = "23: Ordinary shift mode (dual slaves)"]
     OrdinaryShiftDual = 23,
+    #[doc = "25: Alternate preempted trigger mode (dual slaves)"]
+    AlternatePreemptedTriggerDual = 25,
 }
 impl From<MSSEL_A> for u8 {
     #[inline(always)]
@@ -61,6 +63,7 @@ impl MSSEL_R {
             21 => Some(MSSEL_A::PreemptedSimultaneousDual),
             22 => Some(MSSEL_A::OrdinarySimultaneousDual),
             23 => Some(MSSEL_A::OrdinaryShiftDual),
+            25 => Some(MSSEL_A::AlternatePreemptedTriggerDual),
             _ => None,
         }
     }
@@ -123,6 +126,11 @@ impl MSSEL_R {
     #[inline(always)]
     pub fn is_ordinary_shift_dual(&self) -> bool {
         *self == MSSEL_A::OrdinaryShiftDual
+    }
+    #[doc = "Alternate preempted trigger mode (dual slaves)"]
+    #[inline(always)]
+    pub fn is_alternate_preempted_trigger_dual(&self) -> bool {
+        *self == MSSEL_A::AlternatePreemptedTriggerDual
     }
 }
 #[doc = "Field `MSSEL` writer - Master slave mode select"]
@@ -191,6 +199,11 @@ where
     #[inline(always)]
     pub fn ordinary_shift_dual(self) -> &'a mut crate::W<REG> {
         self.variant(MSSEL_A::OrdinaryShiftDual)
+    }
+    #[doc = "Alternate preempted trigger mode (dual slaves)"]
+    #[inline(always)]
+    pub fn alternate_preempted_trigger_dual(self) -> &'a mut crate::W<REG> {
+        self.variant(MSSEL_A::AlternatePreemptedTriggerDual)
     }
 }
 #[doc = "Field `ASISEL` reader - Adjacent ADC sampling interval select in ordinary shift mode: {value} + 5 * TADCCLK"]

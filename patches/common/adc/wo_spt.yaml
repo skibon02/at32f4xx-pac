@@ -116,9 +116,12 @@ ADC?:
     DTALIGN:
       Right: [0, "Right alignment"]
       Left: [1, "Left alignment"]
-    "?CSWTRG":
+    OCSWTRG:
       NotTriggered: [0, "Conversion of ordinary channels not triggered"]
       Triggered: [1, "Conversion of ordinary channels triggered"]
+    PCSWTRG:
+      NotTriggered: [0, "Conversion of preempted channels not triggered"]
+      Triggered: [1, "Conversion of preempted channels triggered"]
   SPT?:
     CSPT*: [0, 7]
   OSQ?:

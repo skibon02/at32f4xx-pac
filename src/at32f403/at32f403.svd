@@ -20189,12 +20189,12 @@
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>PCSWTRG</name>
-              <description>Conversion trigger by software of preempted channels</description>
-              <bitOffset>21</bitOffset>
+              <name>OCSWTRG</name>
+              <description>Conversion trigger by software of ordinary channels</description>
+              <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
-                <name>PCSWTRG</name>
+                <name>OCSWTRG</name>
                 <enumeratedValue>
                   <name>NotTriggered</name>
                   <description>Conversion of ordinary channels not triggered</description>
@@ -20208,11 +20208,23 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>OCSWTRG</name>
-              <description>Conversion trigger by software of ordinary channels</description>
-              <bitOffset>22</bitOffset>
+              <name>PCSWTRG</name>
+              <description>Conversion trigger by software of preempted channels</description>
+              <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
-              <enumeratedValues derivedFrom="PCSWTRG"/>
+              <enumeratedValues>
+                <name>PCSWTRG</name>
+                <enumeratedValue>
+                  <name>NotTriggered</name>
+                  <description>Conversion of preempted channels not triggered</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Triggered</name>
+                  <description>Conversion of preempted channels triggered</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OCTEN</name>
@@ -21414,12 +21426,12 @@
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>PCSWTRG</name>
-              <description>Conversion trigger by software of preempted channels</description>
-              <bitOffset>21</bitOffset>
+              <name>OCSWTRG</name>
+              <description>Conversion trigger by software of ordinary channels</description>
+              <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
-                <name>PCSWTRG</name>
+                <name>OCSWTRG</name>
                 <enumeratedValue>
                   <name>NotTriggered</name>
                   <description>Conversion of ordinary channels not triggered</description>
@@ -21433,11 +21445,23 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>OCSWTRG</name>
-              <description>Conversion trigger by software of ordinary channels</description>
-              <bitOffset>22</bitOffset>
+              <name>PCSWTRG</name>
+              <description>Conversion trigger by software of preempted channels</description>
+              <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
-              <enumeratedValues derivedFrom="PCSWTRG"/>
+              <enumeratedValues>
+                <name>PCSWTRG</name>
+                <enumeratedValue>
+                  <name>NotTriggered</name>
+                  <description>Conversion of preempted channels not triggered</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Triggered</name>
+                  <description>Conversion of preempted channels triggered</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OCTEN</name>
@@ -22627,12 +22651,12 @@
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>PCSWTRG</name>
-              <description>Conversion trigger by software of preempted channels</description>
-              <bitOffset>21</bitOffset>
+              <name>OCSWTRG</name>
+              <description>Conversion trigger by software of ordinary channels</description>
+              <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues>
-                <name>PCSWTRG</name>
+                <name>OCSWTRG</name>
                 <enumeratedValue>
                   <name>NotTriggered</name>
                   <description>Conversion of ordinary channels not triggered</description>
@@ -22646,11 +22670,23 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>OCSWTRG</name>
-              <description>Conversion trigger by software of ordinary channels</description>
-              <bitOffset>22</bitOffset>
+              <name>PCSWTRG</name>
+              <description>Conversion trigger by software of preempted channels</description>
+              <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
-              <enumeratedValues derivedFrom="PCSWTRG"/>
+              <enumeratedValues>
+                <name>PCSWTRG</name>
+                <enumeratedValue>
+                  <name>NotTriggered</name>
+                  <description>Conversion of preempted channels not triggered</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Triggered</name>
+                  <description>Conversion of preempted channels triggered</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>OCTEN</name>
