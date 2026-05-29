@@ -1,5 +1,4 @@
 
-ARTERY logo AT32F435/437 Series Reference Manual
 
 Figure 9-8 DMAMUX event generation
 
@@ -40,19 +39,7 @@ These peripheral registers must be accessed by bytes (8 bits), half-words (16 bi
 | DMA\_C5PADDR | 0x60   | 0x0000 0000 |
 | DMA\_C5MADDR | 0x64   | 0x0000 0000 |
 | DMA\_C6CTRL  | 0x6c   | 0x0000 0000 |
-
-
-2025.05.28 Page 161 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | DMA\_C6DTCNT    | 0x70  | 0x0000 0000 |
-| --------------- | ----- | ----------- |
 | DMA\_C6PADDR    | 0x74  | 0x0000 0000 |
 | DMA\_C6MADDR    | 0x78  | 0x0000 0000 |
 | DMA\_C7CTRL     | 0x80  | 0x0000 0000 |
@@ -89,19 +76,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 25 | FDTF7    | 0x0         | ro   | Channel 7 transfer complete event flag<br/>0: No transfer complete event occurred.<br/>1: Transfer complete event occurred.                                                       |
 | Bit 24 | GF7      | 0x0         | ro   | Channel7 global event flag<br/>0: No transfer error, half transfer or transfer complete event occurred.<br/>1: Transfer error, half transfer or transfer complete event occurred. |
 | Bit 23 | DTERRF6  | 0x0         | ro   | Channel 6 data transfer error event flag<br/>0: No transfer error occurred.<br/>1: Transfer error occurred.                                                                       |
-
-
-2025.05.28
-Page 162
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | Bit 22 | HDTF6   | 0x0 | ro | Channel 6 half transfer event flag<br/>0: No half-transfer event occurred.<br/>1: Half-transfer event occurred.                                                          |
-| ------ | ------- | --- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 21 | FDTF6   | 0x0 | ro | Channel 6 transfer complete event flag<br/>0: No transfer complete event occurred.<br/>1: Transfer complete event occurred.                                              |
 | Bit 20 | GF6     | 0x0 | ro | Channel 6 global event flag<br/>0: No transfer error, half transfer or transfer complete event occurred.<br/>1: Transfer error, half transfer or transfer complete event |
 | Bit 19 | DTERRF5 | 0x0 | ro | Channel 5 data transfer error event flag<br/>0: No transfer error occurred.<br/>1: Transfer error occurred.                                                              |
@@ -118,17 +93,7 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 8  | GF3     | 0x0 | ro | Channel 3 global event flag<br/>0: No transfer error, half transfer or transfer complete event occurred.<br/>1: Transfer error, half transfer or transfer complete event |
 | Bit 7  | DTERRF2 | 0x0 | ro | Channel 2 data transfer error event flag<br/>0: No transfer error occurred.<br/>1: Transfer error occurred.                                                              |
 | Bit 6  | HDTF2   | 0x0 | ro | Channel 2 half transfer event flag<br/>0: No half-transfer event occurred.<br/>1: Half-transfer event occurred.                                                          |
-
-
-2025.05.28 Page 163 Rev 2.07
-
-
-
-
-Artery logo # AT32F435/437 Series Reference Manual
-
 | Bit 5 | FDTF2   | 0x0 | ro | Channel 2 transfer complete event flag<br/>0: No transfer complete event occurred.<br/>1: Transfer complete event occurred.                                              |
-| ----- | ------- | --- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 4 | GF2     | 0x0 | ro | Channel 2 global event flag<br/>0: No transfer error, half transfer or transfer complete event occurred.<br/>1: Transfer error, half transfer or transfer complete event |
 | Bit 3 | DTERRF1 | 0x0 | ro | Channel 1 data transfer error event flag<br/>0: No transfer error occurred.<br/>1: Transfer error occurred.                                                              |
 | Bit 2 | HDTF1   | 0x0 | ro | Channel 1 half transfer event flag<br/>0: No half-transfer event occurred.<br/>1: Half-transfer event occurred.                                                          |
@@ -152,21 +117,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 21 | FDTFC6   | 0x0         | rw1c | Channel 6 transfer complete flag clear<br/>0: No effect<br/>1: Clear the FDTF6 flag in the DMA\_STS register                        |
 | Bit 20 | GFC6     | 0x0         | rw1c | Channel 6 global interrupt flag clear<br/>0: No effect<br/>1: Clear the DTERRF6, HDTF6, FDTF6 and GF6 flag in the DMA\_STS register |
 | Bit 19 | DTERRFC5 | 0x0         | rw1c | Channel 5 data transfer error flag clear<br/>0: No effect<br/>1: Clear the DTERRF5 flag in the DMA\_STS register                    |
-
-
-2025.05.28
-Page 164
-Rev 2.07
-
-
-
-
-Artery logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 18 | HDTFC5   | 0x0 | rw1c | Channel 5 half transfer flag clear<br/>0: No effect<br/>1: Clear the HDTF5 flag in the DMA\_STS register                            |
-| ------ | -------- | --- | ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 17 | FDTFC5   | 0x0 | rw1c | Channel 5 transfer complete flag clear<br/>0: No effect<br/>1: Clear the FDTF5 flag in the DMA\_STS register                        |
 | Bit 16 | GFC5     | 0x0 | rw1c | Channel 5 global interrupt flag clear<br/>0: No effect<br/>1: Clear the DTERRF5, HDTF5, FDTF5 and GF5 in the DMA\_STS register      |
 | Bit 15 | DTERRFC4 | 0x0 | rw1c | Channel 4 data transfer error flag clear<br/>0: No effect<br/>1: Clear the DTERRF4 flag in the DMA\_STS register                    |
@@ -185,16 +136,6 @@ Artery logo
 | Bit 2  | HDTFC1   | 0x0 | rw1c | Channel 1 half transfer flag clear<br/>0: No effect<br/>1: Clear the HDTF1 flag in the DMA\_STS register                            |
 | Bit 1  | FDTFC1   | 0x0 | rw1c | Channel 1 transfer complete flag clear<br/>0: No effect<br/>1: Clear the FDTF1 flag in the DMA\_STS register                        |
 
-
-2025.05.28
-Page 165
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 **Bit 0**: **GFC1** (Reset value: 0x0, Type: rw1c)
 Channel 1 global interrupt flag clear
@@ -223,13 +164,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 1      | FDTIEN   | 0x0         | rw   | Transfer complete interrupt enable<br/>0: Disabled<br/>1: Enabled.                       |
 | Bit 0      | CHEN     | 0x0         | rw   | Channel enable<br/>0: Disabled<br/>1: Enabled.                                           |
 
-
-2025.05.28 Page 166 Rev 2.07
-
-
-
-
-Artery logo **AT32F435/437 Series Reference Manual**
 
 # 9.5.4 DMA channel-x number of data register (DMA_CxDTCNT) (x = 1...7)
 
@@ -277,17 +211,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | ---------- | -------- | ----------- | ---- | -------------------------- |
 | Bit 31: 25 | Reserved | 0x00        | resd | Kept at its default value. |
 | Bit 28: 24 | SYNCSEL  | 0x00        | rw   | Synchronization select     |
-
-
-2025.05.28 Page 167 Rev 2.07
-
-
-
-
-Artery logo # AT32F435/437 Series Reference Manual
-
 | Bit 23: 19 | REQCNT    | 0x00 | rw   | DMA request count<br/>These bits indicate the number of DMA requests sent to the DMA controller after synchronization is enabled, and/or DMA request count before event output is generated.<br/>These bits are reserved only when both SYNCEN and EVTGEN bits are low. |
-| ---------- | --------- | ---- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 18: 17 | SYNCPOL   | 0x0  | rw   | Synchronization polarity<br/>This field defines the polarity of the selected synchronization input.<br/>0x0: No events<br/>0x1: Rising edge<br/>0x2: Falling edge<br/>0x3: Rising edge and falling edge                                                                 |
 | Bit 16     | SYNCEN    | 0x0  | rw   | Synchronization enable<br/>0: Synchronization disabled<br/>1: Synchronization enabled                                                                                                                                                                                   |
 | Bit 15: 10 | Reserved  | 0x00 | resd | Kept at its default value.                                                                                                                                                                                                                                              |
@@ -307,21 +231,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 23: 19 | GREQCNT  | 0x00        | rw   | DMA request generation count<br/>These bits define the number of DMA requests (GNBREQ + 1) to be generated when a trigger event occurs.<br/>This field is reserved only when the GEN bit is disabled. |
 | Bit 18: 17 | GPOL     | 0x0         | rw   | DMA request generation polarity<br/>This field defines the polarity of the selected trigger input.<br/>0x0: No events<br/>0x1: Rising edge<br/>0x2: Falling edge<br/>0x3: Rising and falling edges    |
 | Bit 16     | GEN      | 0x0         | rw   | DMA request generation enable<br/>0: DMA request generation is disabled<br/>1: DMA request generation is enabled                                                                                      |
-
-
-2025.05.28
-Page 168
-Rev 2.07
-
-
-
-
-Artery logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 15: 9 | Reserved | 0x00 | resd | Kept at its default value.                                                                       |
-| --------- | -------- | ---- | ---- | ------------------------------------------------------------------------------------------------ |
 | Bit 8     | TRGOVIEN | 0x0  | rw   | Trigger overrun interrupt enable<br/>0: Interrupt disabled<br/>1: Interrupt enabled              |
 | Bit 7: 5  | Reserved | 0x0  | resd | Kept at its default value.                                                                       |
 | Bit 4: 0  | SIGSEL   | 0x00 | rw   | Signal select<br/>This field is used to select the DMA trigger input for DMA request generation. |
@@ -357,17 +267,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 3: 0  | TRGOVF   | 0x00        | ro   | Trigger overrun interrupt flag<br/>When the DMA request count is lower than GREQCNT, this field is set while a new trigger event occurs. |
 
 
-2025.05.28
-Page 169
-Rev 2.07
-
-
-
-
-Artery logo
-
-# AT32F435/437 Series Reference Manual
-
 # 9.5.13 DMAMUX generator interrupt flag clear register (DMA_MUXGCLR)
 
 Access: 0 wait state, accessible by bytes, half-words or words.
@@ -377,8 +276,4 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 31:4 | reserved | 0x0000 000  | resd | Kept at its default value.                                                                                                          |
 | Bit 3: 0 | TRGOVFC  | 0x00        | rw1c | Trigger overrun interrupt flag clear<br/>Writing 1 to the corresponding bit can clear the TRGOVF flag in the DMA\_MUXGSTS register. |
 
-
-2025.05.28
-Page 170
-Rev 2.07
 

@@ -1,6 +1,4 @@
 
-Artery logo
-AT32F435/437 Series Reference Manual
 
 # 29.5 EDMA registers
 
@@ -48,21 +46,7 @@ Table 29-5 BPR register map and reset values
 | EDMA\_S5FCTRL  | 0x84   | 0x0000 0000 |
 | EDMA\_S6CTRL   | 0x88   | 0x0000 0000 |
 | EDMA\_S6DTCNT  | 0x8c   | 0x0000 0000 |
-
-
-2025.05.28
-Page 699
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | EDMA\_S6PADDR  | 0x90  | 0x0000 0000 |
-| -------------- | ----- | ----------- |
 | EDMA\_S6M0ADDR | 0x94  | 0x0000 0000 |
 | EDMA\_S6M1ADDR | 0x98  | 0x0000 0000 |
 | EDMA\_S6FCTRL  | 0x9c  | 0x0000 0000 |
@@ -103,20 +87,7 @@ AT32F435/437 Series Reference Manual
 | EDMA\_S72DCNT  | 0x128 | 0x0000 0000 |
 | EDMA\_S7STRIDE | 0x12c | 0x0000 0000 |
 | EDMA\_S82DCNT  | 0x130 | 0x0000 0000 |
-
-
-2025.05.28
-Page 700
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 | EDMA\_S8STRIDE   | 0x134 | 0x0000 0000 |
-| ---------------- | ----- | ----------- |
 | EDMA\_SYNCEN     | 0x138 | 0x0000 0000 |
 | EDMA\_MUXSEL     | 0x13c | 0x0000 0000 |
 | EDMA\_MUXS1CTRL  | 0x140 | 0x0000 0000 |
@@ -157,19 +128,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 17     | Reserved | 0x0         | ro   | Kept at its default value.                         |
 | Bit 16     | FERRF3   | 0x0         | ro   | Stream3 fifo error interrupt flag                  |
 | Bit 15: 12 | Reserved | 0x0         | resd | Kept at its default value.                         |
-
-
-2025.05.28 Page 701 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | Bit 11 | FDTF2    | 0x0 | ro | Stream2 full data transfer complete interrupt flag |
-| ------ | -------- | --- | -- | -------------------------------------------------- |
 | Bit 10 | HDTF2    | 0x0 | ro | Stream2 half transfer complete interrupt flag      |
 | Bit 9  | DTERRF2  | 0x0 | ro | Stream2 transfer error interrupt flag              |
 | Bit 8  | DMERRF2  | 0x0 | ro | Stream2 direct mode error interrupt flag           |
@@ -204,21 +163,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 16     | FERRF7   | 0x0         | ro   | Stream7 fifo error interrupt flag                  |
 | Bit 15: 12 | Reserved | 0x0         | resd | Kept at its default value.                         |
 | Bit 11     | FDTF6    | 0x0         | ro   | Stream6 full data transfer complete interrupt flag |
-
-
-2025.05.28
-Page 702
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 10 | HDTF6    | 0x0 | ro | Stream6 half data transfer complete interrupt flag |
-| ------ | -------- | --- | -- | -------------------------------------------------- |
 | Bit 9  | DTERRF6  | 0x0 | ro | Stream6 transfer error interrupt flag              |
 | Bit 8  | DMERRF6  | 0x0 | ro | Stream6 direct mode error interrupt flag           |
 | Bit 7  | Reserved | 0x0 | ro | Kept at its default value.                         |
@@ -255,20 +200,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 10     | DTERRFC2 | 0x0         | w    | Stream2 clear error interrupt flag                  |
 | Bit 9      | DMERRFC2 | 0x0         | w    | Steam2 clear direct mode error interrupt flag       |
 | Bit 8      | Reserved | 0x0         | resd | Kept at its default value.                          |
-
-
-2025.05.28
-Page 703
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 | Bit 7 | FERRFC2  | 0x0 | w    | Stream2 clear fifo error interrupt flag             |
-| ----- | -------- | --- | ---- | --------------------------------------------------- |
 | Bit 6 | Reserved | 0x0 | resd | Kept at its default value.                          |
 | Bit 5 | FDTFC1   | 0x0 | w    | Stream1 clear transfer complete interrupt flag      |
 | Bit 4 | HDTFC1   | 0x0 | w    | Stream1 clear half transfer complete interrupt flag |
@@ -305,18 +237,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 7      | FERRFC6  | 0x0         | w    | Stream6 clear fifo error interrupt flag             |
 | Bit 6      | Reserved | 0x0         | resd | Kept at its default value.                          |
 | Bit 5      | FDTFC5   | 0x0         | w    | Stream5 clear transfer complete interrupt flag      |
-
-
-2025.05.28 Page 704 Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 | Bit 4 | HDTFC5   | 0x0 | w    | Stream5 clear half transfer complete interrupt flag |
-| ----- | -------- | --- | ---- | --------------------------------------------------- |
 | Bit 3 | DTERRFC5 | 0x0 | w    | Stream5 clear error interrupt flag                  |
 | Bit 2 | DMERRFC5 | 0x0 | w    | Steam5 clear direct mode error interrupt flag       |
 | Bit 1 | Reserved | 0x0 | resd | Kept at its default value.                          |
@@ -337,19 +258,7 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 19     | CM       | 0x0         | rw   | Current memory<br/>This bit is valid in dual buffer mode only.<br/>0: Current target is memory 0 (addressed by the DMA\_SxM0ADDR)<br/>1: Current target is memory 1 (addressed by the DMA\_SxM1ADDR)<br/>This bit can be written only when SEN=0 to indicate the target memory area of the first transfer.<br/>Once SEN=1, this bit is used as a status flag, indicating which is the current target memory area. |
 | Bit 18     | DMM      | 0x0         | rw   | Double memory mode<br/>0: Double memory mode disabled<br/>1: Double memory mode enabled<br/>This bit can be written only when SEN=0.                                                                                                                                                                                                                                                                              |
 | Bit 17: 16 | SPL      | 0x0         | rw   | Stream polarity<br/>00: Low<br/>01: Medium<br/>10: High<br/>11: Very high<br/>This field can be written only when SEN=0.                                                                                                                                                                                                                                                                                          |
-
-
-2025.05.28 Page 705 Rev 2.07
-
-
-
-
-
-Artery logo
-# AT32F435/437 Series Reference Manual
-
 | Bit 15     | PINCOS | 00x | rw | Peripheral increase offset<br/>0: Peripheral increase offset disabled<br/>1: Peripheral increase offset enabled<br/>If PINCOS bit is enabled, the offset size of the peripheral address calculation is fixed to 32-bit alignment. This bit has no meaning if PINCM=0.<br/>This bit is forced low by hardware when the direction mode is selected or if PBURST is different from 00.<br/>This bit can be written only when SEN=0. |
-| ---------- | ------ | --- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 14: 13 | MWIDTH | 0x0 | rw | Memory data width<br/>This field defines the HSIZE (AHB bus signal) in the memory controller.<br/>00: Byte (8-bit)<br/>01: Half-word (16-bit)<br/>10: Word (32-bit)<br/>11: Reserved<br/>In direct mode, this field is forced by hardware to be same value as PWIDTH when SEN=1.<br/>This field can be written only when SEN=0.                                                                                                  |
 | Bit 12: 11 | PWIDTH | 00x | rw | peripheral data width<br/>This field defines the HSIZE (AHB bus signal) in the peripheral controller.<br/>00: Byte (8-bit)<br/>01: Half-word (16-bit)<br/>10: Word (32-bit)<br/>11: Reserved<br/>This field can be written only when SEN=0.                                                                                                                                                                                      |
 | Bit 10     | MINCM  | 0x0 | rw | Memory increment mode<br/>0: Memory address pointer is fixed<br/>1: Memory address pointer is incremented<br/>This bit can be written only when SEN=0.                                                                                                                                                                                                                                                                           |
@@ -359,19 +268,7 @@ Artery logo
 | Bit 5      | PFCTRL | 0x0 | rw | Peripheral flow controller<br/>0: DMA is the flow controller<br/>1: The peripheral is the flow controller<br/>This bit is forced low by hardware if DTD=10 (M2M).<br/>This bit can be written only when SEN=0.                                                                                                                                                                                                                   |
 | Bit 4      | FDTIEN | 0x0 | rw | Full data transfer interrupt enable<br/>0: TC interrupt disabled<br/>1: TC interrupt enabled                                                                                                                                                                                                                                                                                                                                     |
 | Bit 3      | HDTIEN | 0x0 | rw | Half data transfer interrupt enable<br/>0: HT interrupt disabled<br/>1: HT interrupt enabled                                                                                                                                                                                                                                                                                                                                     |
-
-
-2025.05.28
-Page 706
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | Bit 2 | DTERRIEN | 0x0 | rw | Data transfer error interrupt enable<br/>0: TE interrupt disabled<br/>1: TE interrupt enabled                                                                                                                                                                                                                                                                                                                                                             |
-| ----- | -------- | --- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 1 | DMERRIEN | 0x0 | rw | Direct mode error interrupt enable<br/>0: DME interrupt disabled<br/>1: DME interrupt enabled                                                                                                                                                                                                                                                                                                                                                             |
 | Bit 0 | SEN      | 0x0 | rw | Stream enable<br/>0: Stream disabled<br/>1: Stream enabled<br/>This bit may be cleared by hardware under the following conditions:<br/>-DMA end of transfer<br/>-If a transfer error occurs on the AHB master buses<br/>-When the FIFO threshold on memory AHB port is not compatible with the burst size.<br/>Note: Before setting SEN=1 to start a new transfer, the event flags corresponding to the stream in DMA\_STS1 or DMA\_STS2 must be cleared. |
 
@@ -394,14 +291,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | --------- | ----- | ----------- | ---- | ----------------------------------------------------------------------------------------------------------- |
 | Bit 31: 0 | PADDR | 0x0000 0000 | rw   | Peripheral address<br/>Base address of the peripheral address.<br/>This field can be written only if SEN=0. |
 
-
-2025.05.28 Page 707 Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
 
 ### 29.5.8 DMA stream-x memory 0 address register (DMA_SxM0ADDR) (x= 1...8)
 
@@ -438,14 +327,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 2     | FEN      | 0x0         | rw   | FIFO mode enable<br/>0: Direct mode<br/>1: FIFO mode<br/>This bit is set by hardware if memory-to-memory mode is selected (DTD=10) and SEN=1.                                                                                                              |
 | Bit 1: 0  | FTHSEL   | 0x1         | rw   | FIFO threshold select<br/>00: 1/4 full FIFO<br/>01: 1/2 full FIFO<br/>10: 3/4 full FIFO<br/>11: full FIFO<br/>These bits are not used in direct mode (FEN=0).<br/>These bits cannot be written only if SEN=0.                                              |
 
-
-2025.05.28 Page 708 Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
 
 # 29.5.11 DMA linked table control register (DMA_SxLLCTRL)
 
@@ -500,15 +381,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 15: 0  | XCOUNT | 0x0000      | rw   | X-axis count |
 
 
-2025.05.28 Page 709 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 # 29.5.15 DMA 2D transfer stride register (DMA_STRIDE)( x = 1...8)
 
 Access: 0 wait state, accessible by bytes, half-words or words.
@@ -535,16 +407,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 1     | S2SYNC   | 0x0         | rw   | Stream2 synchronization enable |
 | Bit 0     | S1SYNC   | 0x0         | rw   | Stream1 synchronization enable |
 
-
-2025.05.28
-Page 710
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
 
 # 29.5.17 DMAMUX table select (DMA_MUXSEL)
 
@@ -574,15 +436,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 7      | Reserved  | 0x0         | resd | Kept at its default value.                                                                                                                                                                               |
 | Bit 6: 0   | REQSEL    | 0x00        | rw   | DMA request select<br/>Select a DMA request Refer to DMAMUX table for more information.                                                                                                                  |
 
-
-2025.05.28 Page 711 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 29.5.19 DMAMUX generator-x control register (DMA_MUXGxCTRL) (x = 1...8)
 
@@ -620,15 +473,6 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 7: 0  | SYNCOVFC | 0x00        | rw1c | Synchronization overrun interrupt flag clear<br/>Writing 1 to the corresponding bit clears the corresponding overrun flag SYNCOVF in DMA\_MUXCSR register. |
 
 
-2025.05.28
-Page 712
-Rev 2.07
-
-
-
-
-ARTERY logo **AT32F435/437 Series Reference Manual**
-
 # 29.5.22 DMAMUX generator interrupt status register (DMA_MUXGSTS)
 
 Access: 0 wait state, accessible by bytes, half-words or words.
@@ -649,6 +493,3 @@ Access: 0 wait state, accessible by bytes, half-words or words.
 | Bit 7: 0  | TRGOVFC  | 0x00        | rw1c | Trigger overrun interrupt flag clear<br/>Writing 1 to the corresponding bit clears the overrun flag TRGOVF in DMA\_MUXGS register. |
 
 
-2025.05.28
-Page 713
-Rev 2.07

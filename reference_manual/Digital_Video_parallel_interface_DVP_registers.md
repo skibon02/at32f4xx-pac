@@ -1,5 +1,4 @@
 
-Artery logo AT32F435/437 Series Reference Manual
 
 Figure 27-18 YUV422 format to Y8 (Y-only) format
 
@@ -48,19 +47,7 @@ Table 27-5 DVP register map and reset values
 | Bit 31: 21 | Reserved | 0x000       | resd | Kept at its default value.                                                                                                                                                                |
 | Bit 20     | LCDS     | 0x0         | rw   | Basic line capture/drop selection<br/>0: Capture the first line and drop the next<br/>1: Drop the first line and capture the next<br/>This register is valid when the LCDC=1 is asserted. |
 | Bit 19     | LCDC     | 0x0         | rw   | Basic line capture/drop control<br/>0: All frames are captured or use enhanced image scaling resize feature<br/>1: Enable capture/drop control to capture one out of two                  |
-
-
-2025.05.28	Page 664	Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 |            |          |     |      | lines                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------- | -------- | --- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 18     | PCDS     | 0x0 | rw   | Basic pixel capture/drop selection<br/>0: Capture the first group of data (one or two pixel data) and drop the next group<br/>1: Drop the first group of data (one or two pixel data) and capture the next group<br/>This register is valid when the PCDC=1/2/3 is asserted.                                                                                                                                                                                                 |
 | Bit 17: 16 | PCDC     | 0x0 | rw   | Basic pixel capture/drop control<br/>0: All frames are captured or use enhanced image scaling resize feature<br/>1: Enable capture/drop control to capture one in two pixel data<br/>2: Enable capture/drop control to capture one in four pixel data<br/>3: Enable capture/drop control to capture two consecutive data in four pixel data                                                                                                                                  |
 | Bit 15     | Reserved | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -73,20 +60,7 @@ AT32F435/437 Series Reference Manual
 | Bit 5      | CKP      | 0x0 | rw   | DVP\_PCLK polarity<br/>0: DVP\_PCLK rising edge active<br/>1: DVP\_PCLK falling edge active                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 4      | SM       | 0x0 | rw   | Synchronization mode<br/>0: Hardware synchronization mode<br/>1: Embedded synchronization mode                                                                                                                                                                                                                                                                                                                                                                               |
 | Bit 3      | JPEG     | 0x0 | rw   | JPEG format<br/>0: Uncompressed video format<br/>1: Compressed video format                                                                                                                                                                                                                                                                                                                                                                                                  |
-
-
-2025.05.28
-Page 665
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 | Bit 2<br/>Bit 1<br/>Bit 0 | CRP<br/>CFM<br/>CAP | 0x0<br/>0x0<br/>0x0 | rw<br/>rw<br/>rw | This feature is valid only when SM=0 is asserted.<br/>Cropping window function enable0: Cropping window function disabled1: Cropping window function enabled<br/>Capture function mode0: Continuous capture mode1: Single frame capture mode<br/>Capture function enable0: Capture function disabled1: Capture function enabledThe DMA controller and DVP register configurations must be programmed before enabling this bit.When CFM=1, after this bit is set, this register is automatically reset after the completion of a single frame capture.When CFM=0, after this bit is set, this register remains in set statue. After this bit is cleared by software, this register is automatically reset after the completion of the current frame capture. |
-| ------------------------- | ------------------- | ------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 
 ## 27.8.2 DVP status register (DVP_STS)
@@ -110,14 +84,6 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 1     | OVRES    | 0x0         | ro   | Output data FIFO overrun event status<br/>0: No data FIFO overrun event detected<br/>1: Data FIFO overrun event detected<br/>It is cleared by writing 1 to the OVRIC bit in the DVP\_ICLR register.                                                       |
 | Bit 0     | CFDES    | 0x0         | ro   | Capture frame done raw event status<br/>0: A frame has not been captured<br/>1: A frame has been captured                                                                                                                                                 |
 
-
-2025.05.28 Page 666 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 It is cleared by writing 1 to the CFDIC bit in the DVP_ICLR register.
 
@@ -153,17 +119,6 @@ It is cleared by writing 1 to the CFDIC bit in the DVP_ICLR register.
 | Bit 4     | HSIC     | 0x0         | wo   | Horizontal synchronization interrupt clear<br/>Writing 1 to this bit clears the HSES bit in the DVP\_ESTS register, and clears the HSIS bit in the DVP\_ISTS register. |
 | Bit 3     | VSIC     | 0x0         | wo   | Vertical synchronization interrupt clear<br/>Writing 1 to this bit clears the VSES bit in the DVP\_ESTS register, and clears the VSIS bit in the DVP\_ISTS register.   |
 | Bit 2     | ESEIC    | 0x0         | wo   | Embedded synchronization error interrupt clear                                                                                                                         |
-
-
-2025.05.28 Page 667 Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
-| Bit   | Name  | Reset value | Type | Description                                                                                                                                                            |
-| ----- | ----- | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |       |             |      | Writing 1 to this bit clears the ESEES bit in the DVP\_ESTS register, and clears the ESEIS bit in the DVP\_ISTS register.                                              |
 | Bit 1 | OVRIC | 0x0         | wo   | Output data FIFO overrun interrupt clear<br/>Writing 1 to this bit clears the OVRES bit in the DVP\_ESTS register, and clears the OVRIS bit in the DVP\_ISTS register. |
 | Bit 0 | CFDIC | 0x0         | wo   | Capture frame done interrupt clear<br/>Writing 1 to this bit clears the CFDES bit in the DVP\_ESTS register, and clears the CFDIS bit in the DVP\_ISTS register.       |
@@ -186,19 +141,7 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 31: 24 | FMEU | 0x00        | rw   | Frame end synchronization code unmask<br/>This field specifies the mask to be applied to the code of the frame end synchronization.<br/>PDL=0, set bit N =0 in the FMEU, the bit N is masked<br/>PDL=1, set bit N =0 in the FMEU, the bit N+2 is masked<br/>PDL=2, set bit N =0 in the FMEU, the bit N+4 is masked<br/>PDL=2, set bit N =0 in the FMEU, the bit N+6 is masked |
 | Bit 23: 16 | LNEU | 0x00        | rw   | Line end synchronization code unmask<br/>This field specifies the mask to be applied to the code of the line end synchronization.<br/>PDL=0, set bit N =0 in the LNEU, the bit N is masked<br/>PDL=1, set bit N =0 in the LNEU, the bit N+2 is masked<br/>PDL=2, set bit N =0 in the LNEU, the bit N+4 is masked<br/>PDL=2, set bit N =0 in the LNEU, the bit N+6 is masked   |
 | Bit 15: 8  | LNSU | 0x00        | rw   | Line start synchronization code unmask<br/>This field specifies the mask to be applied to the code of the line end synchronization.<br/>PDL=0, set bit N =0 in the LNSU, the bit N is masked                                                                                                                                                                                  |
-
-
-2025.05.28 | Page 668 | Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 |          |      |      |    | PDL=1, set bit N =0 in the LNSU, the bit N+2 is masked                                                                                                                                                                                |
-| -------- | ---- | ---- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |          |      |      |    | PDL=2, set bit N =0 in the LNSU, the bit N+4 is masked                                                                                                                                                                                |
 |          |      |      |    | PDL=2, set bit N =0 in the LNSU, the bit N+6 is masked                                                                                                                                                                                |
 |          |      |      |    | Frame start synchronization code unmask<br/>This field specifies the mask to be applied to the code of the line end synchronization.                                                                                                  |
@@ -241,20 +184,7 @@ AT32F435/437 Series Reference Manual
 | Bit 16     | HSEID    | 0x0         | rw   | Horizontal synchronization event and interrupt definition<br/>0: HSES and HEIS indicates line end event and interrupt<br/>1: HSES and HEIS indicates line start event and interrupt                                                        |
 | Bit 15: 13 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                 |
 | Bit 12     | DMABT    | 0x0         | rw   | DMA burst transaction<br/>This register works with EDMA’s peripheral transfer configuration (PBURST)<br/>0: DMA burst transaction disabled. The EDMA’s peripheral transfer must be programmed as a single transfer (PBURST=0), or use DMA. |
-
-
-2025.05.28
-Page 669
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |          |          |     |      | 1: DMA burst transaction enabled. The EDMA’s peripheral<br/>transfer must be programmed as INCR4 (PBURST=1).<br/>This configuration is enabled only when the EDMA is used<br/>for data transfer. If the DMA is used, this configuration<br/>must be disabled.                                                                                                                                                                                                                |
-| -------- | -------- | --- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 11   | Reserved | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 10   | IDUS     | 0x0 | rw   | Input data un-used setting<br/>0: Unused data bit in the MSB<br/>1: Unused data bit in the LSB                                                                                                                                                                                                                                                                                                                                                                               |
 | Bit 9: 8 | IDUN     | 0x0 | rw   | Input data un-used bit number<br/>0: No unused bits<br/>1: 2-bit unused data<br/>2: 4-bit unused data<br/>3: 6-bit unused data                                                                                                                                                                                                                                                                                                                                               |
@@ -266,15 +196,6 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 1    | EFRCE    | 0x0 | rw   | Enhanced frame rate control enable<br/>0: Enhanced frame rate control disabled<br/>1: Enhanced frame rate control enabled<br/>This configuration is valid only when CFM=0 and basic<br/>frame rate control is disabled.                                                                                                                                                                                                                                                      |
 | Bit 0    | EISRE    | 0x0 | rw   | Enhanced image scaling resize enable<br/>0: Enhanced image scaling resize disabled<br/>1: Enhanced image scaling resize enabled<br/>This configuration is valid only when PCDC=0 and<br/>LCDC=0.<br/>This configuration works normally only when EFDM=1 and<br/>EFDT is set.                                                                                                                                                                                                 |
 
-
-2025.05.28 Page 670 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 27.8.13 DVP enhanced horizontal scaling factor register (DVP_HSCF)
 
@@ -314,6 +235,3 @@ AT32F435/437 Series Reference Manual
 | Bit 7: 0  | MIBTHD   | 0x00        | rw   | Monochrome image binarization threshold<br/>Monochrome image is binarized based on this threshold.<br/>The value above the threshold is regarded as 1, while the value below the threshold is regarded as 0.<br/>This configuration is valid only when MIBE=1. |
 
 
-2025.05.28
-Page 671
-Rev 2.07

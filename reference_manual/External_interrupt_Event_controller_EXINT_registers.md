@@ -1,5 +1,4 @@
 
-ARTERY logo AT32F435/437 Series Reference Manual
 
 * Select an trigger mode by setting EXINT_POLCFG1 and EXINT_POLCFG2 register.
 * Enable interrupt or event by setting EXINT_INTEN and EXINT_EVTEN register.
@@ -51,13 +50,6 @@ Table 8-1 External interrupt/Event controller register map and reset value
 | Bit 22: 0  | RPx      | 0x00000     | rw   | Rising polarity configuration bit on line x<br/>These bits are used to select a rising edge to trigger an interrupt and event on line x.<br/>0: Rising trigger on line x is disabled.<br/>1: Rising trigger on line x is enable.<br/>Note: Bit 19 is applied to only AT32F437/437A and is reserved otherwise. |
 
 
-2025.05.28 Page 152 Rev 2.07
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 ## 8.3.4 Polarity configuration register 2 (EXINT_ POLCFG2)
 
 | Bit        | Name     | Reset value | Type | Description                                                                                                                                                                                                                                                                                                        |
@@ -82,4 +74,3 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 22: 0  | LINEx    | 0x00000     | Rw1c | Line x status bit<br/>0: No interrupt occurred.<br/>1: Interrupt occurred.<br/>Note: This bit is cleared by writing 1. Bit 19 is applied to only AT32F437/437A and is reserved otherwise. |
 
 
-2025.05.28 Page 153 Rev 2.07

@@ -1,5 +1,4 @@
 
-ARTERY logo AT32F435/437 Series Reference Manual
 
 ### 6.3.12 GPIO huge current control register (GPIOx_HDRV) (x=A..E)
 
@@ -48,19 +47,7 @@ Table 7-1 SCFG register map and reset values
 | Bit 11: 10 | SWAP\_XMC    | 0x0         | rw   | XMC address mapping swap<br/>00: No XMC address mapping swap<br/>01: SDRAM addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM /SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000.<br/>10: QSPI2 memory addresses are mapped at 0x8000 0000. NAND3 memory is mapped at 0xB000 0000.<br/>11: SDRAM memory addresses are mapped at 0x6000 0000 and 0x7000 0000. NOR/PSRAM /SRAM/NAND2 memory addresses are mapped at 0xC000 00000 and 0xD000 0000. QSPI2 memory addresses are mapped at *0x8000 0000. NAND3 memory is mapped at 0xB000 0000.* |
 | Bit 9: 8   | Reserved     | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 7: 6   | IR\_SRC\_SEL | 0x0         | rw   | Infrared modulation envelope signal source selection<br/>This field is used to select the infrared modulation envelope signal source.<br/>00: TMR10                                                                                                                                                                                                                                                                                                                                                                                                                         |
-
-
-2025.05.28 Page 143 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 |          |               |     |      | 01: Reserved<br/>10: Reserved<br/>11: Reserved                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| -------- | ------------- | --- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 5    | IR\_POL       | 0x0 | rw   | Infrared output polarity selection<br/>0: Infrared output (IR\_OUT) is not inversed<br/>1: Infrared output (IR\_OUT) is inversed                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Bit 4: 3 | Reserved      | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 2: 0 | MEM\_MAP\_SEL | 0xX | rw   | Memory address mapping selection<br/>This field defines the memory address mapping at 0x0000 0000. After reset, the reset value of this field is the same as that of the BOOT0 and BOOT1 pins. After changing this field, the user can decide which of the following memory to be mapped at 0x0000 0000.<br/>000: Main Flash memory mapped at 0x0000 0000<br/>001: Boot memory mapped at 0x0000 0000<br/>010: XMC BANK1 mapped at 0x0000 0000<br/>011: Embedded SRAM mapped at 0x0000 0000<br/>100: XMC SDRAM BANK1 mapped at 0x0000 0000<br/>Others: Reserved. |
@@ -82,21 +69,7 @@ AT32F435/437 Series Reference Manual
 | Bit 31: 16 | Reserved | 0x0000      | resd | Kept at its default value.                                                                                                                                                                                                                                                                                           |
 | Bit 15: 12 | EXINT3   | 0x0000      | rw   | EXINT3 input source configuration<br/>These bits are used to select the input source for the EXINT3 external interrupt.<br/>0000: GPIOA pin3<br/>0001: GPIOB pin3<br/>0010: GPIOC pin3<br/>0011: GPIOD pin3<br/>0100: GPIOE pin3<br/>0101: GPIOF pin3<br/>0110: GPIOG pin3<br/>0111: GPIOH pin3<br/>Others: Reserved |
 | Bit 11: 8  | EXINT2   | 0x0000      | rw   | EXINT2 input source configuration<br/>These bits are used to select the input source for the EXINT2 external interrupt.<br/>0000: GPIOA pin2<br/>0001: GPIOB pin2<br/>0010: GPIOC pin2<br/>0011: GPIOD pin2<br/>0100: GPIOE pin2                                                                                     |
-
-
-2025.05.28
-Page 144
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 |          |        |        |    | 0101: GPIOF pin2<br/>0110: GPIOG pin2<br/>0111: GPIOH pin2<br/>Others: Reserved                                                                                                                                                                                                                                      |
-| -------- | ------ | ------ | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 7: 4 | EXINT1 | 0x0000 | rw | EXINT1 input source configuration<br/>These bits are used to select the input source for the EXINT1 external interrupt.<br/>0000: GPIOA pin1<br/>0001: GPIOB pin1<br/>0010: GPIOC pin1<br/>0011: GPIOD pin1<br/>0100: GPIOE pin1<br/>0101: GPIOF pin1<br/>0110: GPIOG pin1<br/>0111: GPIOH pin1<br/>Others: Reserved |
 | Bit 3: 0 | EXINT0 | 0x0000 | rw | EXINT0 input source configuration<br/>These bits are used to select the input source for the EXINT0 external interrupt.<br/>0000: GPIOA pin0<br/>0001: GPIOB pin0<br/>0010: GPIOC pin0<br/>0011: GPIOD pin0<br/>0100: GPIOE pin0<br/>0101: GPIOF pin0<br/>0110: GPIOG pin0<br/>0111: GPIOH pin0<br/>Others: Reserved |
 
@@ -108,20 +81,7 @@ ARTERY logo
 | Bit 31: 16 | Reserved | 0x0000      | resd | Kept at its default value.                                                                                                                                                                                                                                                                      |
 | Bit 15: 12 | EXINT7   | 0x0000      | rw   | EXINT7 input source configuration<br/>These bits are used to select the input source for the EXINT7 external interrupt.<br/>0000: GPIOA pin7<br/>0001: GPIOB pin7<br/>0010: GPIOC pin7<br/>0011: GPIOD pin7<br/>0100: GPIOE pin7<br/>0101: GPIOF pin7<br/>0110: GPIOG pin7<br/>Others: Reserved |
 | Bit 11: 8  | EXINT6   | 0x0000      | rw   | EXINT6 input source configuration<br/>These bits are used to select the input source for the EXINT6 external interrupt.<br/>0000: GPIOA pin6                                                                                                                                                    |
-
-
-2025.05.28
-Page 145
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |          |        |        |    | 0001: GPIOB pin6<br/>0010: GPIOC pin6<br/>0011: GPIOD pin6<br/>0100: GPIOE pin6<br/>0101: GPIOF pin6<br/>0110: GPIOG pin6<br/>Others: Reserved                                                                                                                                                      |
-| -------- | ------ | ------ | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 7: 4 | EXINT5 | 0x0000 | rw | **EXINT5 input source configuration**<br/>These bits are used to select the input source for the EXINT5 external interrupt.<br/>0000: GPIOA pin5<br/>0001: GPIOB pin5<br/>0010: GPIOC pin5<br/>0011: GPIOD pin5<br/>0100: GPIOE pin5<br/>0101: GPIOF pin5<br/>0110: GPIOG pin5<br/>Others: Reserved |
 | Bit 3: 0 | EXINT4 | 0x0000 | rw | **EXINT4 input source configuration**<br/>These bits are used to select the input source for the EXINT4 external interrupt.<br/>0000: GPIOA pin4<br/>0001: GPIOB pin4<br/>0010: GPIOC pin4<br/>0011: GPIOD pin4<br/>0100: GPIOE pin4<br/>0101: GPIOF pin4<br/>0110: GPIOG pin4<br/>Others: Reserved |
 
@@ -133,18 +93,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 31: 16 | Reserved | 0x0000      | resd | Kept at its default value.                                                                                                                                                                                                                                                                                   |
 | Bit 15: 12 | EXINT11  | 0x0000      | rw   | **EXINT11 input source configuration**<br/>These bits are used to select the input source for the EXINT11 external interrupt.<br/>0000: GPIOA pin11<br/>0001: GPIOB pin11<br/>0010: GPIOC pin11<br/>0011: GPIOD pin11<br/>0100: GPIOE pin11<br/>0101: GPIOF pin11<br/>0110: GPIOG pin11<br/>Others: Reserved |
 | Bit 11: 8  | EXINT10  | 0x0000      | rw   | **EXINT10 input source configuration**<br/>These bits are used to select the input source for the EXINT10 external interrupt.                                                                                                                                                                                |
-
-
-2025.05.28 Page 146 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |          |        |        |    | 0000: GPIOA pin10<br/>0001: GPIOB pin10<br/>0010: GPIOC pin10<br/>0011: GPIOD pin10<br/>0100: GPIOE pin10<br/>0101: GPIOF pin10<br/>0110: GPIOG pin10<br/>Others: Reserved                                                                                                                      |
-| -------- | ------ | ------ | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 7: 4 | EXINT9 | 0x0000 | rw | EXINT9 input source configuration<br/>These bits are used to select the input source for the EXINT9 external interrupt.<br/>0000: GPIOA pin9<br/>0001: GPIOB pin9<br/>0010: GPIOC pin9<br/>0011: GPIOD pin9<br/>0100: GPIOE pin9<br/>0101: GPIOF pin9<br/>0110: GPIOG pin9<br/>Others: Reserved |
 | Bit 3: 0 | EXINT8 | 0x0000 | rw | EXINT8 input source configuration<br/>These bits are used to select the input source for the EXINT8 external interrupt.<br/>0000: GPIOA pin8<br/>0001: GPIOB pin8<br/>0010: GPIOC pin8<br/>0011: GPIOD pin8<br/>0100: GPIOE pin8<br/>0101: GPIOF pin8<br/>0110: GPIOG pin8<br/>Others: Reserved |
 
@@ -156,33 +105,10 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 31: 16 | Reserved | 0x0000      | resd | Kept at its default value                                                                                                                                                                                                                                                                                |
 | Bit 15: 12 | EXINT15  | 0x0000      | rw   | EXINT15 input source configuration<br/>These bits are used to select the input source for the EXINT15 external interrupt.<br/>0000: GPIOA pin15<br/>0001: GPIOB pin15<br/>0010: GPIOC pin15<br/>0011: GPIOD pin15<br/>0100: GPIOE pin15<br/>0101: GPIOF pin15<br/>0110: GPIOG pin15<br/>Others: Reserved |
 | Bit 11: 8  | EXINT14  | 0x0000      | rw   | EXINT14 input source configuration<br/>These bits are used to select the input source for the EXINT14 external interrupt.                                                                                                                                                                                |
-
-
-2025.05.28 Page 147 Rev 2.07
-
-
-
-
-
-ARTERY logo
-# AT32F435/437 Series Reference Manual
-
 |          |         |        |    | 0000: GPIOA pin14<br/>0001: GPIOB pin14<br/>0010: GPIOC pin14<br/>0011: GPIOD pin14<br/>0100: GPIOE pin14<br/>0101: GPIOF pin14<br/>0110: GPIOG pin14<br/>Others: Reserved                                                                                                                               |
-| -------- | ------- | ------ | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 7:4  | EXINT13 | 0x0000 | rw | EXINT13 input source configuration<br/>These bits are used to select the input source for the EXINT13 external interrupt.<br/>0000: GPIOA pin13<br/>0001: GPIOB pin13<br/>0010: GPIOC pin13<br/>0011: GPIOD pin13<br/>0100: GPIOE pin13<br/>0101: GPIOF pin13<br/>0110: GPIOG pin13<br/>Others: Reserved |
 | Bit 3: 0 | EXINT12 | 0x0000 | rw | EXINT12 input source configuration<br/>These bits are used to select the input source for the EXINT12 external interrupt.<br/>0000: GPIOA pin12<br/>0001: GPIOB pin12<br/>0010: GPIOC pin12<br/>0011: GPIOD pin12<br/>0100: GPIOE pin12<br/>0101: GPIOF pin12<br/>0110: GPIOG pin12<br/>Others: Reserved |
 
-
-2025.05.28
-Page 148
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
 
 ## 7.2.7 SCFG ultra high sourcing/sinking strength (SCFG_UHDRV)
 
@@ -199,17 +125,6 @@ AT32F435/437 Series Reference Manual
 | Bit 2      | PB10\_UH | 0x0         | rw   | PB10 Ultra high sourcing/sinking strength<br/>This bit is written by software to control the PB10 PAD sourcing/sinking strength.<br/>0: Not active<br/>1: Corresponding GPIO is switched to ultra-high                                                                                                                   |
 
 
-2025.05.28
-Page 149
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 sourcing/sinking strength
 When this bit is set, the control bits of GPIOx_ODRVR&GPIOx_HDRV become invalid.
 
@@ -218,6 +133,3 @@ When this bit is set, the control bits of GPIOx_ODRVR&GPIOx_HDRV become invalid.
 | Bit 0 | PB3\_UH | 0x0 | rw | PB3 Ultra high sourcing/sinking strength<br/>This bit is written by software to control the PB3 PAD sourcing/sinking strength.<br/>0: Not active<br/>1: Corresponding GPIO is switched to ultra-high sourcing/sinking strength<br/>When this bit is set, the control bits of GPIOx\_ODRVR\&GPIOx\_HDRV become invalid. |
 
 
-2025.05.28
-Page 150
-Rev 2.07

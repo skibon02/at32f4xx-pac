@@ -1,6 +1,4 @@
 
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 8-bit right alignment: load data into the DAC_DDTH8R [7: 0] and DAC_DDTH8R [15: 8]
 12-bit left alignment: load data into the DAC_DDTH12L [15: 4] and DAC_DDTH12L [31: 20]
@@ -39,21 +37,7 @@ Table 19-2 DAC register map and reset values
 | Bit 29     | D2DMAUDRIEN | 0x0         | rw   | DAC2 DMA transfer underrun interrupt enable<br/>This bit is set and cleared by software.<br/>0: DAC2 DMA transfer underrun interrupt disabled<br/>1: DAC2 DMA transfer underrun interrupt enabled                                                                                                                                                                                                                                                                                                                                                             |
 | Bit 28     | D2DMAEN     | 0x0         | rw   | DAC2 DMA transfer enable<br/>This bit is set and cleared by software.<br/>0: DAC2 DMA mode disabled<br/>1: DAC2 DMA mode enabled                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bit 27: 24 | D2NBSEL     | 0x0         | rw   | DAC2 noise bit select<br/>These bits are used to select the mark bit in noise generation mode or amplitude in triangular-wave generation mode.<br/>0000: Unmask LSFR bit0 /Triangle amplitude is equal to 1<br/>0001: Unmask LSFR bit\[1: 0] /Triangle amplitude is equal to 3<br/>0010: Unmask LSFR bit\[2: 0] /Triangle amplitude is equal to 7<br/>0011: Unmask LSFR bit\[3: 0] /Triangle amplitude is equal to 15<br/>0100: Unmask LSFR bit\[4: 0] /Triangle amplitude is equal to 31<br/>0101: Unmask LSFR bit\[5: 0] /Triangle amplitude is equal to 63 |
-
-
-2025.05.28
-Page 399
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 |            |             |     |      | 0110: Unmask LSFR bit\[6: 0] /Triangle amplitude is equal to 127<br/>0111: Unmask LSFR bit\[7: 0] /Triangle amplitude is equal to 255<br/>1000: Unmask LSFR bit\[8: 0] /Triangle amplitude is equal to 511<br/>1001: Unmask LSFR bit\[9: 0] /Triangle amplitude is equal to 1023<br/>1010: Unmask LSFR bit\[10:0] /Triangle amplitude is equal to 2047<br/>≥1011: Unmask LSFR bit\[11: 0] /Triangle amplitude is equal to 4095                                                                                                                                                               |
-| ---------- | ----------- | --- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 23: 22 | D2NM        | 0x0 | rw   | DAC2 noise mode<br/>00: Wave generation disabled<br/>01: Noise wave generation enabled<br/>1x: Triangular wave generation enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 21: 19 | D2TRGSEL    | 0x0 | rw   | DAC2 trigger select<br/>000: TMR6 TRGOUT event<br/>001: TMR8 TRGOUT event<br/>010: TMR7 TRGOUT event<br/>011: TMR5 TRGOUT event<br/>100: TMR2 TRGOUT event<br/>101: TMR4 TRGOUT event<br/>110: External interrupt line 9<br/>111: Software trigger<br/>Note: These bits can be valid only when D2TRGEN = 1.                                                                                                                                                                                                                                                                                  |
 | Bit 18     | D2TRGEN     | 0x0 | rw   | DAC2 trigger enable<br/>0: DAC2 trigger disabled<br/>1: DAC2 trigger enabled<br/>Note:<br/>When the DAC2 trigger is disabled, the data written into the DAC\_D2DTHx register is transferred into the DAC\_D2ODT register after one APB1 clock cycle.<br/>When the DAC2 trigger is enabled, the data written into the DAC\_D2DTHx register is transferred into the DAC\_D2ODT register after three APB1 clock cycles.<br/>If the software trigger is selected, it takes one APB1 clock cycle to have the data written into the DAC\_D2DTHx register transferred into the DAC\_D2ODT register. |
@@ -63,34 +47,13 @@ AT32F435/437 Series Reference Manual
 | Bit 13     | D1DMAUDRIEN | 0x0 | rw   | DAC1 DMA transfer underrun interrupt enable<br/>This bit is set and cleared by software.<br/>0: DAC1 DMA transfer underrun interrupt disabled<br/>1: DAC1 DMA transfer underrun interrupt enabled                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 12     | D1DMAEN     | 0x0 | rw   | DAC1 DMA transfer enable<br/>0: DAC1 DMA transfer disabled<br/>1: DAC1 DMA transfer enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 11: 8  | D1NBSEL     | 0x0 | rw   | DAC1 noise bit select<br/>These bits are used to select the mark bit in noise generation mode or amplitude in triangular-wave generation mode.<br/>0000: Unmask LSFR bit0/Triangle amplitude is equal to 1<br/>0001: Unmask LSFR bit\[1:0]/Triangle amplitude is equal to 3<br/>0010: Unmask LSFR bit\[2: 0]/Triangle amplitude is equal to 7<br/>0011: Unmask LSFR bit\[3: 0]/Triangle amplitude is equal to 15                                                                                                                                                                             |
-
-
-2025.05.28
-Page 400
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |          |          |     |    | 0100: Unmask LSFR bit\[4: 0]/Triangle amplitude is equal to 31<br/>0101: Unmask LSFR bit\[5: 0]/Triangle amplitude is equal to 63<br/>0110: Unmask LSFR bit\[6: 0]/Triangle amplitude is equal to 127<br/>0111: Unmask LSFR bit\[7: 0]/Triangle amplitude is equal to 255<br/>1000: Unmask LSFR bit\[8: 0]/Triangle amplitude is equal to 511<br/>1001: Unmask LSFR bit\[9: 0]/Triangle amplitude is equal to 1023<br/>1010: Unmask LSFR bit\[10: 0]/Triangle amplitude is equal to 2047<br/>≥1011: Unmask LSFR bit\[11:0]/Triangle amplitude is equal to 4095                               |
-| -------- | -------- | --- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 7: 6 | D1NM     | 0x0 | rw | DAC1 noise mode<br/>00: Wave generation disabled<br/>01: Noise wave generation enabled<br/>1x: Triangular wave generation enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 5: 3 | D1TRGSEL | 0x0 | rw | DAC1 trigger select<br/>000: TMR6 TRGOUT event<br/>001: TMR8 TRGOUT event<br/>010: TMR7 TRGOUT event<br/>011: TMR5 TRGOUT event<br/>100: TMR2 TRGOUT event<br/>101: TMR4 TRGOUT event<br/>110: External interrupt line 9<br/>111: Software trigger<br/>Note: These bits can be valid only when D1TRGEN = 1.                                                                                                                                                                                                                                                                                  |
 | Bit 2    | D1TRGEN  | 0x0 | rw | DAC1 trigger enable<br/>0: DAC1 trigger disabled<br/>1: DAC1 trigger enabled<br/>Note:<br/>When the DAC1 trigger is disabled, the data written into the DAC\_D1DTHx register is transferred into the DAC\_D1ODT register after one APB1 clock cycle.<br/>When the DAC1 trigger is enabled, the data written into the DAC\_D1DTHx register is transferred into the DAC\_D1ODT register after three APB1 clock cycles<br/>If the software trigger is selected, it takes one APB1 clock cycle to have the data written into the DAC\_D1DTHx register transferred into the DAC\_ D1ODT register. |
 | Bit 1    | D1OBDIS  | 0x0 | rw | DAC1 output buffer disable<br/>0: DAC1 output buffer enabled<br/>1: DAC1 output buffer disabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bit 0    | D1EN     | 0x0 | rw | DAC1 enable<br/>0: DAC1 disabled<br/>1: DAC1 enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-
-2025.05.28 Page 401 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 ### 19.5.2 DAC software trigger register (DAC_SWTRG)
 
@@ -142,14 +105,6 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 15: 4  | D2DT12L  | 0x000       | rw   | DAC2 12-bit left-aligned data |
 | Bit 3: 0   | Reserved | 0x0         | resd | Kept at its default value     |
 
-
-2025.05.28 Page 402 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 ### 19.5.8 DAC2 8-bit right-aligned data holding register (DAC_ D2DTH8R)
 
@@ -204,4 +159,3 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 11: 0  | D2ODT    | 0x000       | rw   | DAC2 output data          |
 
 
-2025.05.28 Page 403 Rev 2.07

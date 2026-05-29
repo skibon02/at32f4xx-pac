@@ -1,6 +1,4 @@
-ARTERY logo
 
-AT32F435/437 Series Reference Manual
 
 # 11.5 I²C interrupt requests
 
@@ -50,17 +48,6 @@ These peripheral registers must be accessed by words (32 bits).
 | I2C\_TXDT    | 0x28   | 0x00000000  |
 
 
-2025.05.28
-Page 200
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 ## 11.7.1 Control register 1 (I2C_CTRL1)
 
 | Bit        | Name      | Reset value | Type | Description                                                                                                                                                                                                                      |
@@ -81,21 +68,7 @@ AT32F435/437 Series Reference Manual
 | Bit 7      | ERRIEN    | 0x0         | rw   | Error interrupt enable<br/>0: Error interrupt disabled<br/>1: Error interrupt enabled                                                                                                                                            |
 | Bit 6      | TDCIEN    | 0x0         | rw   | Data transfer complete interrupt enable<br/>0: Data transfer complete interrupt disabled<br/>1: Data transfer complete interrupt enabled                                                                                         |
 | Bit 5      | STOPIEN   | 0x0         | rw   | Stop generation complete interrupt enable                                                                                                                                                                                        |
-
-
-2025.05.28
-Page 201
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 |       |            |     |      | 0: Stop generation complete interrupt disabled<br/>1: Stop generation complete interrupt enabled                       |
-| ----- | ---------- | --- | ---- | ---------------------------------------------------------------------------------------------------------------------- |
 | Bit 4 | ACKFAILIEN | 0x0 | rw   | Acknowledge fail interrupt enable<br/>0: Acknowledge fail interrupt disabled<br/>1: Acknowledge fail interrupt enabled |
 | Bit 3 | ADDRIEN    | 0x0 | rw   | Address match interrupt enable<br/>0: Address match interrupt disabled<br/>1: Address match interrupt enabled          |
 | Bit 2 | RDIEN      | 0x0 | resd | Data receive interrupt enable<br/>0: Data receive interrupt disabled<br/>1: Data receive interrupt enabled             |
@@ -116,21 +89,7 @@ AT32F435/437 Series Reference Manual
 | Bit 14     | GENSTOP    | 0x0         | rw   | Generate stop condition<br/>0: No stop generation<br/>1: stop generation<br/>Note: This bit can be set only when I2C is enabled (I2CEN=1)<br/>Note: This bit is automatically reset when a stop condition is detected.     |
 | Bit 13     | GENSTART   | 0x0         | rw   | Generate start condition<br/>0: No start generation<br/>1: Start generation<br/>Note: This bit can be set only when I2C is enabled (I2CEN=1)<br/>Note: This bit is automatically reset when a start condition is detected. |
 | Bit 12     | READH10    | 0x0         | rw   | 10-bit address header read enable<br/>0: 10-bit address header read disabled                                                                                                                                               |
-
-
-2025.05.28
-Page 202
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 11   | ADDR10       | 0x0   | rw | 1: 10-bit address header read enabled<br/>Host sends 10-bit address mode enable<br/>0: 7-bit address mode<br/>1: 10-bit address mode |
-| -------- | ------------ | ----- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 10   | DIR          | 0x0   | rw | Master data transfer direction<br/>0: Receive<br/>1: Transmit                                                                        |
 | Bit 9: 0 | SADDR\[9: 0] | 0x000 | rw | Slave address sent by the master<br/>In 7-bit address mode, BIT0 and BIT\[9: 8] don’t care.                                          |
 
@@ -167,19 +126,6 @@ AT32F435/437 Series Reference Manual
 | Bit 23: 20 | SCLD\[3: 0] | 0x0         | rw   | SCL output delay<br/>TSCLD = (SCLD + 1) x (DIV + 1) x TI2C\_CLK |
 | Bit 19: 16 | SDAD\[3: 0] | 0x0         | rw   | SDA output delay<br/>TSDAD = (SDAD + 1) x (DIV + 1) x TI2C\_CLK |
 | Bit 15: 8  | SCLH\[7: 0] | 0x00        | rw   | SCL high level                                                  |
-
-
-2025.05.28
-Page 203
-Rev 2.07
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
-| Bit      | Name        | Reset value | Type | Description                                                                                                 |
-| -------- | ----------- | ----------- | ---- | ----------------------------------------------------------------------------------------------------------- |
 | Bit 7: 0 | SCLL\[7: 0] | 0x00        | rw   | TSCLH = (SCLH + 1) x (DIV + 1) x TI2C\_CLK<br/>SCL low level<br/>TSCLL = (SCLL + 1) x (DIV + 1) x TI2C\_CLK |
 
 
@@ -209,19 +155,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 12     | TMOUT       | 0x0         | r    | SMBus timeout flag<br/>0: No timeout<br/>1: Timeout                                                                                                                                                |
 | Bit 11     | PECERR      | 0x0         | r    | PEC receive error flag<br/>0: No PEC error<br/>1: PEC error                                                                                                                                        |
 | Bit 10     | OUF         | 0x0         | r    | Overrun or underrun flag<br/>In transmission mode:                                                                                                                                                 |
-
-
-2025.05.28 | Page 204 | Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 |       |          |     |      | 0: No overrun or underrun<br/>1: Underrun<br/>In reception mode:<br/>0: No overrun or underrun<br/>1: Overrun                                                                                                                                                                                                                                                                                       |
-| ----- | -------- | --- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 9 | ARLOST   | 0x0 | r    | Arbitration lost flag<br/>0: No arbitration lost detected.<br/>1: Arbitration lost detected.                                                                                                                                                                                                                                                                                                        |
 | Bit 8 | BUSERR   | 0x0 | rw0c | Bus error flag<br/>0: No Bus error occurred<br/>1: Bus error occurred                                                                                                                                                                                                                                                                                                                               |
 | Bit 7 | TCRLD    | 0x0 | r    | Data transfer complete, waiting for data load<br/>0: Data transfer is not complete yet<br/>1: Data transfer is complete<br/>This bit is set when data transfer is complete (CNT=1) and reload mode is enabled (RLDEN=1). It is automatically cleared when writing a CNT value.<br/>This bit is applicable in master mode or when SCTRL=1 in slave mode.                                             |
@@ -242,21 +176,7 @@ ARTERY logo
 | Bit 13     | ALERTC   | 0x0         | w    | Clear SMBus alert flag<br/>SMBus alert flag is cleared by writing 1.             |
 | Bit 12     | TMOUTC   | 0x0         | w    | Clear SMBus timeout flag<br/>SMBus timeout flag is cleared by writing 1.         |
 | Bit 11     | PECERRC  | 0x0         | w    | Clear PEC receive error flag<br/>PEC receive error flag is cleared by writing 1. |
-
-
-2025.05.28
-Page 205
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 10   | OUFC     | 0x0 | w   | Clear overload / underload flag<br/>Overload / underload flag is cleared by writing 1.                             |
-| -------- | -------- | --- | --- | ------------------------------------------------------------------------------------------------------------------ |
 | Bit 9    | ARLOSTC  | 0x0 | w   | Clear arbitration lost flag<br/>Arbitration lost flag is cleared by writing 1.                                     |
 | Bit 8    | BUSERRC  | 0x0 | w   | Clear bus error flag<br/>Bus error flag is cleared by writing 1                                                    |
 | Bit 7: 6 | Reserved | 0x0 | res | Kept at its default value.                                                                                         |
@@ -292,4 +212,3 @@ Note: I2C_RXDT register is reset when I²C is disabled (I2CEN=0)
 | Bit 7: 0  | DT\[7: 0] | 0x00        | rw   | Transmit data register     |
 
 
-2025.05.28 Page 206 Rev 2.07

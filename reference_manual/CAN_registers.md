@@ -1,6 +1,4 @@
 
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 20.7 CAN registers
 
@@ -47,20 +45,7 @@ Table 20-1 CAN register map and reset values
 | Reserved | 210h       | xx          |
 | FRF      | 214h       | 0x0000 0000 |
 | Reserved | 218h       | xx          |
-
-
-2025.05.28
-Page 414
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 | FACFG    | 21Ch       | 0x0000 0000 |
-| -------- | ---------- | ----------- |
 | Reserved | 220h\~23Fh | xx          |
 | FB0F1    | 240h       | 0xXXXX XXXX |
 | FB0F2    | 244h       | 0xXXXX XXXX |
@@ -86,19 +71,7 @@ Artery logo AT32F435/437 Series Reference Manual
 | Bit 5      | AEDEN    | 0x0         | rw   | Automatic exit doze mode enable<br/>0: Automatic exit sleep mode disabled<br/>1: Automatic exit sleep mode enabled<br/>Note:<br/>When Automatic exit sleep mode is disabled, the sleep mode is left by software clearing the sleep request command.<br/>When Automatic exit sleep mode is enabled, the sleep mode is left without the need of software intervention as soon as a message is monitored on the CAN bus.                                                             |
 | Bit 4      | PRSFEN   | 0x0         | rw   | Prohibit retransmission enable when sending fails enable<br/>0: Retransmission is enabled.<br/>1: Retransmission is disabled.                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 3      | MDRSEL   | 0x0         | rw   | Message discard rule select when overflow<br/>0: The previous message is discarded.                                                                                                                                                                                                                                                                                                                                                                                               |
-
-
-2025.05.28 Page 415 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 2 | MMSSR | 0x0 | rw | 1: The new incoming message is discarded.<br/>Multiple message transmit sequence rule<br/>0: The message with the smallest identifier is first transmitted.<br/>1: The message with the first request order is first transmitted.                                                                                                                                                                                                                                                                                  |
-| ----- | ----- | --- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 1 | DZEN  | 0x1 | rw | Doze mode enable<br/>0: Sleep mode is disabled.<br/>1: Sleep mode is enabled.<br/>Note:<br/>The hardware will automatically leave sleep mode when the AEDEN is set and a message is monitored on the CAN bus.<br/>After CAN reset or partial software reset, this bit is forced to be set by hardware, that is, the CAN will keep in sleep mode, by default.                                                                                                                                                       |
 | Bit 0 | FZEN  | 0x0 | rw | Freeze mode enable<br/>0: Freeze mode disabled<br/>1: Freeze mode enabled<br/>Note:<br/>The CAN leaves Freeze mode once 11 consecutive recessive bits have been detected on the RX pin. For this reason, the software acknowledges the entry of Freeze mode after the FZC bit is cleared by hardware.<br/>The Freeze mode is entered only when the current CAN activity (transmission or reception) is completed. Thus the software acknowledges the exit of Freeze mode after the FZC bit is cleared by hardware. |
 
@@ -115,21 +88,7 @@ ARTERY logo
 | Bit 7: 5   | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                    |
 | Bit 4      | EDZIF    | 0x0         | rw1c | Enter doze mode interrupt flag<br/>0: Sleep mode is not entered or no condition for flag set.<br/>1: Sleep mode is entered.<br/>Note:<br/>This bit is set by hardware only when EDZIEN=1 and the CAN enters Sleep mode. When set, this bit will generate a status change interrupt. This bit is cleared by software (writing 1 to itself) or by hardware when DZC is cleared. |
 | Bit 3      | QDZIF    | 0x0         | rw1c | Exit doze mode interrupt flag<br/>0: Sleep mode is not left or no condition for exit.<br/>1: Sleep mode has been left or exit condition has generated.                                                                                                                                                                                                                        |
-
-
-2025.05.28
-Page 416
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 |       |      |     |      | Note:<br/>This bit is cleared by software (writing 1 to itself)<br/>Sleep mode is left when a SOF is detected on the bus.<br/>When QDZIEN=1, this bit will generate a status change<br/>interrupt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ----- | ---- | --- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 2 | EOIF | 0x0 | rw1c | Error occur interrupt flag<br/>0: No error interrupt or no condition for error interrupt flag<br/>1: Error interrupt is generated.<br/>Note:<br/>This bit is cleared by software (writing 1 to itself).<br/>This bit is set by hardware only when the corresponding<br/>bit is set in the CAN\_ESTS register and the corresponding<br/>interrupt enable bit in the CAN\_INTEN register is enabled.<br/>*When set, this bit will generate a status change interrupt.*                                                                                                                                                                                                                                                         |
 | Bit 1 | DZC  | 0x1 | ro   | Doze mode acknowledge<br/>0: The CAN is not in Sleep mode.<br/>1: CAN is in Sleep mode.<br/>Note:<br/>This bit is used to decide whether the CAN is in Sleep<br/>mode or not. This bit acknowledges the Sleep mode<br/>request generated by software.<br/>The Sleep mode can be entered only when the current<br/>CAN activity (transmission or reception) is completed. For<br/>this reason, the software acknowledges the entry of Sleep<br/>mode after this bit is set by hardware.<br/>The Sleep mode is left only once 11 consecutive recessive<br/>bits have been detect on the CAN RX pin. For this reason,<br/>the software acknowledges the exit of Sleep mode after<br/>this bit is cleared by hardware.           |
 | Bit 0 | FZC  | 0x0 | ro   | Freeze mode confirm<br/>0: The CAN is not in Freeze mode.<br/>1: The CAN is in Freeze mode.<br/>Note:<br/>This bit is used to decide whether the CAN is in Freeze<br/>mode or not. This bit acknowledges the Freeze mode<br/>request generated by software.<br/>The Freeze mode can be entered only when the current<br/>CAN activity (transmission or reception) is completed. For<br/>this reason, the software acknowledges the entry of<br/>Freeze mode after this bit is set by hardware.<br/>The Freeze mode is left only once 11 consecutive<br/>recessive bits have been detect on the CAN RX pin. For<br/>this reason, the software acknowledges the exit of Freeze<br/>mode after this bit is cleared by hardware. |
@@ -143,19 +102,7 @@ AT32F435/437 Series Reference Manual
 | Bit 30 | TM1LPF | 0x0         | ro   | Transmit mailbox 1 lowest priority flag<br/>0: Mailbox 1 is not given the lowest priority.<br/>1: Lowest priority (This indicates that more than one<br/>mailboxes are pending for transmission, the mailbox 1 has<br/>the lowest priority.) |
 | Bit 29 | TM0LPF | 0x0         | ro   | Transmit mailbox 0 lowest priority flag<br/>0: Mailbox 0 is not given the lowest priority.<br/>1: Lowest priority (This indicates that more than one<br/>mailboxes are pending for transmission, the mailbox 0 has<br/>the lowest priority.) |
 | Bit 28 | TM2EF  | 0x1         | ro   | Transmit mailbox 2 empty flag<br/>*This bit is set by hardware when no transmission is*                                                                                                                                                      |
-
-
-2025.05.28
-Page 417
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 |            |          |     |      | pending in the mailbox 2.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------- | -------- | --- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 27     | TM1EF    | 0x1 | ro   | Transmit mailbox 1 empty flag<br/>This bit is set by hardware when no transmission is pending in the mailbox 1.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 26     | TM0EF    | 0x1 | ro   | Transmit mailbox 0 empty flag<br/>This bit is set by hardware when no transmission is pending in the mailbox 0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 25: 24 | TMNR     | 0x0 | ro   | Transmit Mailbox number record<br/>Note:<br/>If the transmit mailbox is free, these two bits refer to the number of the next transmit mailbox free.<br/>For example, in case of free CAN, the value of these two bit becomes 01 after a message transmit request is written.<br/>If the transmit box is full, these two bits refer to the number of the transmit mailbox with the lowest priority.<br/>For example, when there are three messages are pending for transmission, the identifiers of mailbox 0, mailbox 1 and mailbox 2 are 0x400, 0x433 and 0x411 respectively, and the value of these two bits becomes 01. |
@@ -166,19 +113,7 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 17     | TM2TSF   | 0x0 | rw1c | Transmit mailbox 2 transmission success flag<br/>0: Transmission failed<br/>1: Transmission was successful.<br/>Note:<br/>This bit indicates whether the mailbox 2 transmission is successful or not. It is cleared by software writing 1.                                                                                                                                                                                                                                                                                                                                                                                 |
 | Bit 16     | TM2TCF   | 0x0 | rw1c | Transmit mailbox 2 transmission completed flag<br/>0: Transmission is in progress<br/>1: Transmission is completed<br/>Note:<br/>This bit is set by hardware when the transmission/abort request on mailbox 2 has been completed.<br/>It is cleared by software writing 1 or by hardware when a new transmission request is received.<br/>Clearing this bit will clear the TM2TSF, TM2ALF and TM2TEF bits of mailbox 2.                                                                                                                                                                                                    |
 | Bit 15     | TM1CT    | 0x0 | rw1s | Transmit mailbox 1 cancel transmit<br/>0: No effect<br/>1: Mailbox 1 cancel transmit<br/>Note: This bit is set by software to abort the transmission                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-
-
-2025.05.28
-Page 418
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 |            |          |     |      | request on mailbox 1. Clearing the message transmission on mailbox 1 will clear this bit. Setting by this software has no effect when the mailbox 1 is free.                                                                                                                                                                                                                                                            |
-| ---------- | -------- | --- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 14: 12 | Reserved | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bit 11     | TM1TEF   | 0x0 | rw1c | Transmit mailbox 1 transmission error flag<br/>0: No error<br/>1: Mailbox 1 transmission error<br/>Note:<br/>This bit is set when the mailbox 1 transmission error occurred.<br/>It is cleared by software writing 1 or by hardware at the start of the next transmission                                                                                                                                               |
 | Bit 10     | TM1ALF   | 0x0 | rw1c | Transmit mailbox 1 arbitration lost flag<br/>0: No arbitration lost<br/>1: Transmit mailbox 1 arbitration lost<br/>Note:<br/>This bit is set when the mailbox 1 transmission failed due to an arbitration lost.<br/>It is cleared by software writing 1 or by hardware at the start of the next transmission                                                                                                            |
@@ -189,21 +124,6 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 3      | TM0TEF   | 0x0 | rw1c | Transmit mailbox 0 transmission error flag<br/>0: No error<br/>1: Mailbox 0 transmission error<br/>Note:<br/>This bit is set when the mailbox 0 transmission error occurred.<br/>It is cleared by software writing 0 or by hardware at the start of the next transmission                                                                                                                                               |
 | Bit 2      | TM0ALF   | 0x0 | rw1c | Transmit mailbox 0 arbitration lost flag<br/>0: No arbitration lost<br/>1: Transmit mailbox 0 arbitration lost<br/>Note:<br/>This bit is set when the mailbox 0 transmission failed due to an arbitration lost.<br/>It is cleared by software writing 1 or by hardware at the start of the next transmission                                                                                                            |
 | Bit 1      | TM0TSF   | 0x0 | rw1c | Transmit mailbox 0 transmission success flag<br/>0: Transmission failed<br/>1: Transmission was successful.<br/>Note:                                                                                                                                                                                                                                                                                                   |
-
-
-2025.05.28
-Page 419
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
-| Bit   | Name   | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ----- | ------ | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 0 | TM0TCF | 0x0         | rw1c | This bit indicates whether the mailbox 0 transmission is successful or not. It is cleared by software writing 1.<br/>Transmit mailbox 0 transmission completed flag<br/>0: Transmission is in progress<br/>1: Transmission is completed<br/>Note:<br/>This bit is set by hardware when the transmission/abort request on mailbox 0 has been completed.<br/>It is cleared by software writing 1 or by hardware when a new transmission request is received.<br/>Clearing this bit will clear the TM0TSF, TM0ALF and TM0TEF bits of mailbox 0. |
 
 
@@ -225,19 +145,6 @@ AT32F435/437 Series Reference Manual
 | --------- | -------- | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31: 6 | Reserved | 0x0000000   | resd | Kept at its default value.                                                                                                                                                                                                                               |
 | Bit 5     | RF1R     | 0x0         | rw1s | Receive FIFO 1 release<br/>0: No effect<br/>1: Release FIFO<br/>Note:<br/>This bit is set by software to release FIFO 1. It is cleared by hardware when the FIFO 1 is released.<br/>Setting this bit by software has no effect when the FIFO 1 is empty. |
-
-
-2025.05.28
-Page 420
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
-| Bit      | Name     | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                          |
-| -------- | -------- | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |          |          |             |      | If there are more than two messages pending in the FIFO 0, the software has to release the FIFO 1 to access the second message.                                                                                                                                                                                                                                      |
 | Bit 4    | RF1OF    | 0x0         | rw1c | Receive FIFO 1 overflow flag<br/>0: No overflow<br/>1: Receive FIFO 1 overflow<br/>Note:<br/>This bit is set by hardware when a new message has been received and passed the filter while the FIFO 1 is full.<br/>It is cleared by software by writing 1.                                                                                                            |
 | Bit 3    | RF1FF    | 0x0         | rw1c | Receive FIFO 1 full flag<br/>0: Receive FIFO 1 is not full<br/>1: Receive FIFO 1 is full<br/>Note:<br/>This bit is set by hardware when three messages are pending in the FIFO 1.<br/>It is cleared by software by writing 1.                                                                                                                                        |
@@ -257,18 +164,7 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 11     | ETRIEN   | 0x0         | rw   | Error type record interrupt enable<br/>0: Error type record interrupt disabled<br/>1: Error type record interrupt enabled<br/>Note: EOIF is set only when this interrupt is enabled and the ETR\[2: 0] is set by hardware.                        |
 | Bit 10     | BOIEN    | 0x0         | rw   | Bus-off interrupt enable<br/>0: Bus-off interrupt disabled<br/>1: Bus-off interrupt enabled<br/>Note: EOIF is set only when this interrupt is enabled and the BOF is set by hardware.                                                             |
 | Bit 9      | EPIEN    | 0x0         | rw   | Error passive interrupt enable<br/>0: Error passive interrupt disabled<br/>1: Error passive interrupt enabled<br/>Note: EOIF is set only when this interrupt is enabled and                                                                       |
-
-
-2025.05.28 Page 421 Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 |       |          |     |      | the EPF is set by hardware.                                                                                                                                                                                                                                           |
-| ----- | -------- | --- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 8 | EAIEN    | 0x0 | rw   | Error active interrupt enable<br/>0: Error warning interrupt disabled<br/>1: Error warning interrupt enabled<br/>Note: EOIF is set only when this interrupt is enabled and the EAF is set by hardware.                                                                |
 | Bit 7 | Reserved | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                            |
 | Bit 6 | RF1OIEN  | 0x0 | rw   | Receive FIFO 1 overflow interrupt enable<br/>0: Receive FIFO 1 overflow interrupt disabled<br/>1: Receive FIFO 1 overflow interrupt enabled<br/>Note: The flag bit of this interrupt is the RF1OF bit. An interrupt is generated when this bit and RF1OF bit are set. |
@@ -288,17 +184,6 @@ Artery logo AT32F435/437 Series Reference Manual
 | Bit 23: 16 | TEC      | 0x00        | ro   | Transmit error counter<br/>This counter is implemented in accordance with the transmit part of the fault confinement mechanism of the CAN protocol.                                                                       |
 | Bit 15: 7  | Reserved | 0x00        | resd | Kept at its default value.                                                                                                                                                                                                |
 | Bit 6: 4   | ETR      | 0x00        | rw   | Error type record<br/>000: No error<br/>001: Bit stuffing error<br/>010: Format error<br/>011: Acknowledgement error<br/>100: Recessive bit error<br/>101: Dominant bit error<br/>110: CRC error<br/>111: Set by software |
-
-
-2025.05.28 Page 422 Rev 2.07
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
-| Bit   | Name     | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                             |
-| ----- | -------- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |          |             |      | Note:<br/>This field is used to indicate the current error type. It is set by hardware according to the error condition detected on the CAN bus. It is cleared by hardware when a message has been transmitted or received successfully.<br/>If the error code 7 is not used by hardware, this field can be set by software to monitor the code update. |
 | Bit 3 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                              |
 | Bit 2 | BOF      | 0x0         | ro   | Bus-off flag<br/>0: Bus-off state is not entered.<br/>1: Bus-off state is entered.<br/>Note: When the TEC is greater than 255, the bus-off state is entered, and this bit is set by hardware.                                                                                                                                                           |
@@ -331,15 +216,6 @@ Transmit and receive mailboxes are the same except:
 * A receive mailbox is read only
 * A transmit mailbox can be written only when empty. TMxEF=1 in the CAN_TSTS register indicates that the mailbox is empty.
 
-2025.05.28
-Page 423
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 There are three transmit mailboxes and two receive mailboxes. Each receive mailbox has 3-level depth of FIFO, and can only access to the first received message in the FIFO.
 
@@ -374,17 +250,6 @@ Note: 1. This register is write protected when its mailboxes are pending for tra
 | Bit 8      | TMTSTEN  | 0xX         | rw   | Transmit mailbox time stamp transmit enable<br/>0: Time stamp is not sent<br/>1: Time stamp is sent<br/>Note:<br/>This bit is valid only when the time-triggered communication mode is enabled.<br/>In the time stamp MTS\[15: 0], the MTS\[7: 0] is stored in the TMDT7, and MTS\[15: 8] in the TMDT6. The data length must be programmed as 8 to send time stamp. |
 | Bit 7: 4   | Reserved | 0xX         | resd | Kept at its default value                                                                                                                                                                                                                                                                                                                                           |
 | Bit 3: 0   | TMDTBL   | 0xX         | rw   | Transmit mailbox data byte length<br/>Note: This field defines the data length of a transmit                                                                                                                                                                                                                                                                        |
-
-
-2025.05.28 Page 424 Rev 2.07
-
-
-
-
-ARTERY logo
-
-AT32F435/437 Series Reference Manual
-
 message. A transmit message can contain from 0 to 8 data bytes.
 
 # 20.7.2.3 Transmit mailbox data low register (CAN_TMDTLx) (x=0..2)
@@ -435,14 +300,6 @@ Note: All the receive mailbox registers are read-only.
 | Bit 7: 4   | Reserved | 0xX         | resd | Kept at its default value                                                                                                                                                                                |
 | Bit 3: 0   | RFDTL    | 0xX         | ro   | Receive FIFO data length<br/>Note: This field defines the data length of a receive message. A transmit message can contain from 0 to 8 data bytes. For a remote frame, its data length RFDTl is fixed 0. |
 
-
-2025.05.28 Page 425 Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
 
 ## 20.7.2.7 Receive FIFO mailbox data low register (CAN_RFDTLx) (x=0..1)
 
@@ -500,14 +357,6 @@ Note: This register can be written only when FCS=1 in the CAN_FCTRL register (Th
 | Bit 27: 0  | FBWSELx  | 0x0000      | rw   | Filter bit width select<br/>Each bit corresponds to a filter bank.<br/>0: Dual 16-bit<br/>1: Single 32-bit |
 
 
-2025.05.28 Page 426 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 ## 20.7.3.4 CAN filter FIFO association register (CAN_ FRF)
 
 Note: This register can be written only when FCS=1 in the CAN_FCTRL register (The filter is in configuration mode).
@@ -535,4 +384,3 @@ Note: There are 14 filter banks (i=0..13). Each filter bank consists of two 32-b
 | Bit 31: 0 | FFDB | 0xXXXX XXXX | rw   | Filters filter data bit<br/>Identifier list mode:<br/>The configuration value of the register matches with the level of the corresponding bit of the data received on the bus (If it is a standard frame, the value of the corresponding bit of the extended frame is neglected.)<br/>Identifier mark mode:<br/>Only the bit with its register configuration value 1 can match with the level of the corresponding bit of the data received on the bus. It don’t care when the register value is 0. |
 
 
-2025.05.28 Page 427 Rev 2.07

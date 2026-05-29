@@ -1,6 +1,4 @@
 
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 ## 5.5.2 CRC calculation unit
 
@@ -53,19 +51,7 @@ These peripheral registers must be accessed by words (32 bits).
 | SLIB\_SET\_PWD     | 0xDC   | 0x0000 0000 |
 | SLIB\_SET\_RANGE0  | 0xE0   | 0x0000 0000 |
 | SLIB\_SET\_RANGE1  | 0xE4   | 0x0000 0000 |
-
-
-2025.05.28
-Page 112
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | SLIB\_UNLOCK     | 0xF0 | 0x0000 0000 |
-| ---------------- | ---- | ----------- |
 | FLASH\_CRC\_CTRL | 0xF4 | 0x0000 0000 |
 | FLASH\_CRC\_CHKR | 0xF8 | 0x0000 0000 |
 
@@ -115,14 +101,6 @@ Only used in Flash memory bank 1.
 | Bit 0     | OBF      | 0x0         | ro   | Operation busy flag<br/>When this bit is set, it indicates that Flash memory operation is in progress. It is cleared when operation is completed.               |
 
 
-2025.05.28 Page 113 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 ### 5.6.5 Flash control register (FLASH_CTRL)
 
 Only used in Flash memory bank 1.
@@ -161,18 +139,7 @@ Only used in Flash memory bank 1.
 | Bit 25: 18 | USER\_D1 | 0xFF        | ro   | User data 1                                                                                                     |
 | Bit 17: 10 | USER\_D0 | 0xFF        | ro   | User data 0                                                                                                     |
 | Bit 9: 2   | SSB      | 0xFF        | ro   | System setting byte<br/>Includes the system setting bytes in the loaded user system data area<br/>Bit 9: Unused |
-
-
-2025.05.28 Page 114 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |       |        |     |    | Bit 8: nSTDBY\_WDTBit 7: nDEPSLP\_WDTBit 6: UnusedBit 5: BTOPTBit 4: nSTDBY\_RSTBit 3: nDEPSLP\_RSTBit 2: nWDT\_ATO\_EN                                                                                                             |
-| ----- | ------ | --- | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 1 | FAP    | 0x0 | ro | Flash access protection<br/>Access to Flash memory is not allowed when this bit is set.                                                                                                                                             |
 | Bit 0 | USDERR | 0x0 | ro | User system data error<br/>When this bit is set, it indicates that certain byte does not match its inverse code in the user system data area. At this point, this byte and its inverse code will be forced to 0xFF when being read. |
 
@@ -214,18 +181,8 @@ Only used in Flash memory bank 2.
 | Bit 3     | Reserved | 0x0         | resd | Kept at its default value                                                                                                                                      |
 | Bit 2     | PRGMERR  | 0x0         | rw   | Program error<br/>When the programming address is in non-erase state, this bit is set by hardware. It is cleared by writing “1”.                               |
 | Bit 1     | Reserved | 0x0         | resd | Kept at its default value                                                                                                                                      |
-| Bit 0     | OBF      | 0x0         | ro   | Operation busy flag<br/>When this bit is set, it indicates that Flash memory operation is in process. It is cleared when operation is                          |
+| Bit 0     | OBF      | 0x0         | ro   | Operation busy flag<br/>When this bit is set, it indicates that Flash memory operation is in process. It is cleared when operation is completed.               |
 
-
-2025.05.28 Page 115 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
-completed.
 
 # 5.6.12 Flash control register 2 (FLASH_CTRL2)
 
@@ -263,15 +220,6 @@ Only used in Flash memory bank 2.
 | Bit 31: 0 | FCONTR\_EN | 0x0         | rw   | Flash continue read enable<br/>0: Flash continue read mode disabled<br/>1: Flash continue read mode enabled<br/>Setting this bit will enable the CPU to read Flash at a faster speed, but will also increase power consumption of Flash at the same time. |
 | Bit 30: 0 | Reserved   | 0x0000 0080 | resd | Kept at its default value.                                                                                                                                                                                                                                |
 
-
-2025.05.28 Page 116 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 5.6.15 Flash divider register (FLASH_DIVR)
 
@@ -313,17 +261,6 @@ Only used in Flash security library.
 | Bit 31: 16 | SLIB\_ES | 0xFFFF      | ro   | Security library end sector<br/>0: Sector 0<br/>1: Sector 1<br/>2: Sector 2<br/>...   |
 | Bit 15: 0  | SLIB\_SS | 0xFFFF      | ro   | Security library start sector<br/>0: Sector 0<br/>1: Sector 1<br/>2: Sector 2<br/>... |
 
-
-2025.05.28
-Page 117
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 5.6.19 Flash security library password clear register (SLIB_PWD_CLR)
 
@@ -369,15 +306,6 @@ Note: All these bits are write-only, and return 0 when being read.
 | Bit 10: 0  | SLIB\_SS\_SET | 0x000       | wo   | Security library start sector setting<br/>*These bits are used to set the security library start sector.*                                                    |
 
 
-2025.05.28
-Page 118
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 0: Sector 0
 1: Sector 1
 2: Sector 2
@@ -422,16 +350,6 @@ Only used in main Flash memory.
 
 Note: All these bits are write-only, and return 0 when being read.
 
-2025.05.28
-Page 119
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
 
 # 5.6.26 Flash CRC check result register (FLASH_CRC_CHKR)
 
@@ -444,6 +362,3 @@ Only used in Flash or security library.
 
 *Note: All these bits are read-only, and return 0 when being written.*
 
-2025.05.28
-Page 120
-Rev 2.07

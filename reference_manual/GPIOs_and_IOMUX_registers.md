@@ -1,6 +1,4 @@
 
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 * For ADC peripherals, the pins of analog channels should be configured as analog mode.
 * For I²C peripherals that intend to use pins as bidirectional functions, open-drain mode is required.
@@ -50,19 +48,7 @@ Table 6-10 lists GPIO register map and their reset values. These peripheral regi
 | GPIOx\_PULL(x = B,C,F) | 0x0C   | 0x0000 0100(B)<br/>0x0000 0000 |
 | GPIOx\_IDT             | 0x10   | 0x0000 XXXX                    |
 | GPIOx\_ODT             | 0x14   | 0x0000 0000                    |
-
-
-2025.05.28
-Page 139
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | GPIOx\_SCR  | 0x18 | 0x0000 0000 |
-| ----------- | ---- | ----------- |
 | GPIOx\_WPR  | 0x1C | 0x0000 0000 |
 | GPIOx\_MUXL | 0x20 | 0x0000 0000 |
 | GPIOx\_MUXH | 0x24 | 0x0000 0000 |
@@ -119,15 +105,6 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 15: 0  | IDT      | 0xXXXX      | ro   | GPIOx input data<br/>Indicates the input status of I/O port. Each bit corresponds to an I/O. |
 
 
- 2025.05.28
- Page 140
- Rev 2.07
-
-
-
-
-ARTERY logo **AT32F435/437 Series Reference Manual**
-
 ## 6.3.6 GPIO output register (GPIOx_IDH) (x=A..H)
 
 | Bit        | Name     | Reset value | Type | Description                                                                                                                   |
@@ -152,15 +129,6 @@ ARTERY logo **AT32F435/437 Series Reference Manual**
 | Bit 16     | WPSEQ    | 0x0         | rw   | Write protect sequence<br/>Write protect enable sequence bit and WPEN bit must be enabled at the same time to achieve write protection for some I/O bits.<br/>Write protect enable bit is executed four times in the order below: write “1” -> write “0” -> write “1” -> read. Note that the value of WPEN bit cannot be modified during this period. |
 | Bit 15: 0  | WPEN     | 0x0000      | rw   | Write protect enable<br/>Each bit corresponds to an I/O port.<br/>0: No effect.<br/>1: Write protect                                                                                                                                                                                                                                                  |
 
-
-2025.05.28 Page 141 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
 
 ## 6.3.9 GPIO multiplexed function low register (GPIOx_MUXL) (x=A..H)
 
@@ -188,6 +156,3 @@ ARTERY logo
 | Bit 15: 0  | IOCB     | 0x0000      | wo   | GPIOx clear bit<br/>The corresponding ODT register bit is cleared by writing “1” to these bits. Otherwise, the corresponding ODT register bit remains unchanged, which acts as ODT register bit operations.<br/>0: No action to the corresponding ODT bits<br/>1: Clear the corresponding ODT bits |
 
 
-2025.05.28
-Page 142
-Rev 2.07

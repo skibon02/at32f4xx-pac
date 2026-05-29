@@ -1,6 +1,4 @@
-ARTERY logo
 
-# AT32F435/437 Series Reference Manual
 
 * Low-power management reset: This type of reset is enabled when entering Standby mode (by clearing the nSTDBY_RST bit in the user system data area); this type of reset is also enabled when entering Deepsleep mode (by clearing the nDEPSLP_RST in the user system data area).
 * POR reset: power-on reset
@@ -67,21 +65,7 @@ These peripheral registers have to be accessed by bytes (8 bits), half words (16
 | CRM\_APB1EN   | 0x040  | 0x0000 0000 |
 | CRM\_APB2EN   | 0x044  | 0x0000 0000 |
 | CRM\_AHBLPEN1 | 0x050  | 0x3F63 90FF |
-
-
-2025.05.28
-Page 73
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | CRM\_AHBLPEN2 | 0x054 | 0x0000 8081 |
-| ------------- | ----- | ----------- |
 | CRM\_AHBLPEN3 | 0x058 | 0x0000 C003 |
 | CRM\_APB1LPEN | 0x060 | 0xF6FE E9FF |
 | CRM\_APB2LPEN | 0x064 | 0x2017 7733 |
@@ -104,21 +88,7 @@ AT32F435/437 Series Reference Manual
 | Bit 17     | HEXTSTBL | 0x0         | ro   | High speed external crystal stable<br/>This bit is set by hardware after HEXT becomes stable.<br/>0: HEXT is not ready.<br/>1: HEXT is ready.                                                                                                                                                                                                                                                                                                                                       |
 | Bit 16     | HEXTEN   | 0x0         | rw   | High speed external crystal enable<br/>This bit is set and cleared by software. It can also be cleared by hardware when entering Standby or Deepsleep mode. When the HEXT clock is used as the system clock, this bit cannot be cleared<br/>0: OFF.<br/>1: ON                                                                                                                                                                                                                       |
 | Bit 15: 8  | HICKCAL  | 0xXX        | rw   | High speed internal clock calibration<br/>The default value of this field is the initial factory calibration value.<br/>When the HICK output frequency is 48 MHz, it needs adjust 240 kHz (design value) based on this frequency for each HICKCAL value change; when HICK output frequency is 8 MHz (design value), it needs adjust 40 kHz based on this frequency for each HICKCAL value change.<br/>Note: This bit can be written only if the HICKCAL\_KEY\[7: 0] is set as 0x5A. |
-
-
-2025.05.28
-Page 74
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 7: 2 | HICKTRIM | 0x20 | rw | High speed internal clock trimming<br/>These bits work with the HICKCAL\[7: 0] to determine the HICK oscillator frequency. The default value is 32, which can trim the HICK to be ±1%.                                                                                                                                 |
-| -------- | -------- | ---- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 1    | HICKSTBL | 0x1  | ro | High speed internal clock stable<br/>This bit is set by hardware after the HICK is ready.<br/>0: Not ready<br/>1: Ready                                                                                                                                                                                                |
 | Bit 0    | HICKEN   | 0x1  | rw | High speed internal clock enable<br/>This bit is set and cleared by software. It can also be set by hardware when exiting Standby or Deepsleep mode. When a HEXT clock failure occurs. This bit can also be set. When the HICK is used as the system clock, this bit cannot be cleared.<br/>0: Disabled<br/>1: Enabled |
 
@@ -136,21 +106,7 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 15     | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                           |
 | Bit 14: 6  | PLL\_NS  | 0x0C0       | rw   | PLL multiplication factor<br/>PLL\_NS range (31\~500)<br/>000000000 \~ 000011110: Forbidden<br/>000011111: 31<br/>000100000: 32<br/>000100001: 33<br/>......<br/>111110011: 499<br/>111110100: 500<br/>111110101\~111111111: Forbidden                                                                                                                               |
 | Bit 5: 4   | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                           |
-
-
-2025.05.28
-Page 75
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 3: 0 | PLL\_MS | 0x2 | rw | PLL pre-division<br/>PLL\_MS range (1\~15)<br/>0000: Forbidden<br/>0001: 1<br/>0010: 2<br/>0011: 3<br/>……<br/>1110: 14<br/>1111: 15 |
-| -------- | ------- | --- | -- | ----------------------------------------------------------------------------------------------------------------------------------- |
 
 
 Note: PLL clock formulas:
@@ -171,21 +127,7 @@ Access: 0 to 2 wait states. 1 or 2 wait states are inserted only when the access
 | Bit 26: 24 | USBDIV        | 0x0         | rw   | Clock output1 division1<br/>0xx: CLKOUT1<br/>100: CLKOUT1/2<br/>101: CLKOUT1/3<br/>110: CLKOUT1/4<br/>111: CLKOUT1/5                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 23     | Reserved      | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Bit 22: 21 | CLKOUT1\_SEL  | 0x0         | rw   | Clock output1 selection<br/>This field is set and cleared by software.<br/>00: HICK selected<br/>01: LEXT selected<br/>10: HEXT selected<br/>11: PLL selected<br/>Note: This clock out may be cut off during the startup and switch of CLKOUT1 clock source. While being used as an output to the CLKOUT1 pin, the system clock output frequency must not exceed 50 MHz (the maximum frequency of an IO port).                                                                                                                            |
-
-
-2025.05.28
-Page 76
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 20: 16 | ERTCDIV  | 0x00 | rw   | HEXT division for ERTC clock<br/>This field is set and cleared by software to divide the HEXT for ERTC clock.<br/>These bits must be configured before selecting the ERTC clock source.<br/>00000: Forbidden<br/>00001: Forbidden<br/>00010: HEXT/2<br/>00011: HEXT/3<br/>00100: HEXT/4<br/>...<br/>11110: HEXT/30<br/>11111: HEXT/31 |                                                      |                                                       |                                                        |                           |
-| ---------- | -------- | ---- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ | ------------------------- |
 | Bit 15: 13 | APB2DIV  | 0x0  | rw   | APB2 division<br/>The divided HCLK is used as APB2 clock.<br/>0xx: not divided<br/>100: divided by 2<br/>101: divided by 4<br/>110: divided by 8<br/>111: divided by 16<br/>Note: The software must set these bits correctly to ensure that the APB2 clock frequency does not exceed 144 MHz.                                         |                                                      |                                                       |                                                        |                           |
 | Bit 12: 10 | APB1DIV  | 0x0  | rw   | APB1 division<br/>The divided HCLK is used as APB1 clock.<br/>0xx: not divided<br/>100: divided by 2<br/>101: divided by 4<br/>110: divided by 8<br/>111: divided by 16<br/>Note: The software must set these bits correctly to ensure that the APB1 clock frequency does not exceed 144 MHz                                          |                                                      |                                                       |                                                        |                           |
 | Bit 9: 8   | Reserved | 0x0  | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                            |                                                      |                                                       |                                                        |                           |
@@ -193,17 +135,6 @@ AT32F435/437 Series Reference Manual
 | Bit 3: 2   | SCLKSTS  | 0x0  | R0   | System clock select status<br/>00: HICK<br/>01: HEXT<br/>10: PLL<br/>11: Reserved. Kept at its default value.                                                                                                                                                                                                                         |                                                      |                                                       |                                                        |                           |
 | Bit 1: 0   | SCLKSEL  | 0x0  | rw   | System clock select<br/>00: HICK<br/>01: HEXT<br/>10: PLL<br/>11: Reserved. Kept at its default value.                                                                                                                                                                                                                                |                                                      |                                                       |                                                        |                           |
 
-
-2025.05.28
-Page 77
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 4.3.4 Clock interrupt register (CRM_CLKINT)
 
@@ -227,20 +158,7 @@ AT32F435/437 Series Reference Manual
 | Bit 8      | LICKSTBLIEN | 0x0         | rw   | LICK stable interrupt enable<br/>0: Disabled<br/>1: Enabled                                                                                   |
 | Bit 7      | CFDF        | 0x0         | ro   | Clock Failure Detection flag<br/>This bit is set by hardware when the HEXT clock failure occurs.<br/>0: No clock failure<br/>1: Clock failure |
 | Bit 6: 5   | Reserved    | 0x0         | resd | Keep at its default value.                                                                                                                    |
-
-
-2025.05.28
-Page 78
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 | Bit 4 | PLLSTBLF  | 0x0 | ro | PLL stable flag<br/>Set by hardware.<br/>0: PLL is not ready.<br/>1: PLL is ready.              |
-| ----- | --------- | --- | -- | ----------------------------------------------------------------------------------------------- |
 | Bit 3 | HEXTSTBLF | 0x0 | ro | HEXT stable flag<br/>Set by hardware.<br/>0: HEXT is not ready.<br/>1: HEXT is ready.           |
 | Bit 2 | HICKSTBLF | 0x0 | ro | HICK stable flag<br/>Set by hardware.<br/>0: HICK is not ready.<br/>1: HICK is ready.           |
 | Bit 1 | LEXTSTBLF | 0x0 | ro | LEXT stable flag<br/>Set by hardware.<br/>0: LEXT is not ready.<br/>1: LEXT is ready.           |
@@ -267,19 +185,7 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 7      | GPIOHRST  | 0x0         | rw   | IO port H reset<br/>0: Does not reset IO port H<br/>1: Reset IO port H          |
 | Bit 6      | GPIOGRST  | 0x0         | rw   | IO port G reset<br/>0: Does not reset IO port G<br/>1: Reset IO port G          |
 | Bit 5      | GPIOFRST  | 0x0         | rw   | IO port F reset<br/>0: Does not reset IO port F<br/>1: Reset IO port F          |
-
-
-2025.05.28 Page 79 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | Bit 4 | GPIOERST | 0x0 | rw | IO port E reset<br/>0: Does not reset IO port E<br/>1: Reset IO port E |
-| ----- | -------- | --- | -- | ---------------------------------------------------------------------- |
 | Bit 3 | GPIODRST | 0x0 | rw | IO port D reset<br/>0: Does not reset IO port D<br/>1: Reset IO port D |
 | Bit 2 | GPIOCRST | 0x0 | rw | IO port C reset<br/>0: Does not reset IO port C<br/>1: Reset IO port C |
 | Bit 1 | GPIOBRST | 0x0 | rw | IO port B reset<br/>0: Does not reset IO port B<br/>1: Reset IO port B |
@@ -314,17 +220,6 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 0     | XMCRST   | 0x0         | rw   | XMC reset<br/>0: Does not reset XMC<br/>1: Reset XMC       |
 
 
-2025.05.28
-Page 80
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 # 4.3.8 APB1 peripheral reset register (CRM_APB1RST)
 
 Access: 0 wait state, accessible by words, half-words and bytes.
@@ -354,19 +249,7 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 10: 9  | Reserved  | 0x0         | resd | Kept at its default value.                                                                     |
 | Bit 8      | TMR14RST  | 0x0         | rw   | Timer14 reset<br/>0: Does not reset Timer14<br/>1: Reset Timer14                               |
 | Bit 7      | TMR13RST  | 0x0         | rw   | Timer13 reset<br/>0: Does not reset Timer13                                                    |
-
-
-2025.05.28
-Page 81
-Rev 2.07
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 |       |          |     |    | 1: Reset Timer13                                                 |
-| ----- | -------- | --- | -- | ---------------------------------------------------------------- |
 | Bit 6 | TMR12RST | 0x0 | rw | Timer12 reset<br/>0: Does not reset Timer12<br/>1: Reset Timer12 |
 | Bit 5 | TMR7RST  | 0x0 | rw | Timer7 reset<br/>0: Does not reset Timer7<br/>1: Reset Timer7    |
 | Bit 4 | TMR6RST  | 0x0 | rw | Timer6 reset<br/>0: Does not reset Timer6<br/>1: Reset Timer6    |
@@ -399,18 +282,6 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 7: 6   | Reserved  | 0x0         | resd | Kept at its default value.                                                           |
 | Bit 5      | USART6RST | 0x0         | rw   | USART6 reset<br/>0: Does not reset USART6<br/>1: Reset USART6                        |
 | Bit 4      | USART1RST | 0x0         | rw   | USART1 reset                                                                         |
-
-
-2025.05.28 Page 82 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
-| Bit      | Name     | Reset value | Type | Description                                                   |
-| -------- | -------- | ----------- | ---- | ------------------------------------------------------------- |
 |          |          |             |      | 0: Does not reset USART1<br/>1: Reset USART1                  |
 | Bit 3: 2 | Reserved | 0x0         | resd | Kept at its default value.                                    |
 | Bit 1    | TMR8RST  | 0x0         | rw   | TMR8 timer reset<br/>0: Does not reset TMR8<br/>1: Reset TMR8 |
@@ -438,19 +309,7 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 11: 8  | Reserved  | 0x0         | resd | Kept at its default value.                                                                                                                    |
 | Bit 7      | GPIOHEN   | 0x0         | rw   | IO port H clock enable<br/>0: Disabled<br/>1: Enabled                                                                                         |
 | Bit 6      | GPIOGEN   | 0x0         | rw   | IO port G clock enable<br/>0: Disabled<br/>1: Enabled                                                                                         |
-
-
-2025.05.28 Page 83 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 5 | GPIOFEN | 0x0 | rw | IO port F clock enable<br/>0: Disabled<br/>1: Enabled |
-| ----- | ------- | --- | -- | ----------------------------------------------------- |
 | Bit 4 | GPIOEEN | 0x0 | rw | IO port E clock enable<br/>0: Disabled<br/>1: Enabled |
 | Bit 3 | GPIODEN | 0x0 | rw | IO port D clock enable<br/>0: Disabled<br/>1: Enabled |
 | Bit 2 | GPIOCEN | 0x0 | rw | IO port C clock enable<br/>0: Disabled<br/>1: Enabled |
@@ -486,16 +345,6 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 0      | XMCEN    | 0x0         | rw   | XMC clock enable<br/>0: Disabled<br/>1: Enabled   |
 
 
-2025.05.28
-Page 84
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 # 4.3.13 APB1 peripheral clock enable register (CRM_APB1EN)
 
 <u>Access: 0</u> wait state, accessible by words, half-words and bytes.
@@ -521,19 +370,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 15     | SPI3EN   | 0x0         | rw   | SPI3 clock enable<br/>0: Disabled<br/>1: Enabled            |
 | Bit 14     | SPI2EN   | 0x0         | rw   | SPI2 clock enable<br/>0: Disabled<br/>1: Enabled            |
 | Bit 13: 12 | Reserved | 0x0         | rw   | Kept at its default value.                                  |
-
-
-2025.05.28 Page 85 Rev 2.07
-
-
-
-
-Artery logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 11    | WWDTEN   | 0x0 | rw | Window watchdog clock enable<br/>0: Disabled<br/>1: Enabled |
-| --------- | -------- | --- | -- | ----------------------------------------------------------- |
 | Bit 10: 9 | Reserved | 0x0 | rw | Kept at its default value.                                  |
 | Bit 8     | TMR14EN  | 0x0 | rw | Timer14 clock enable<br/>0: Disabled<br/>1: Enabled         |
 | Bit 7     | TMR13EN  | 0x0 | rw | Timer13 clock enable<br/>0: Disabled<br/>1: Enabled         |
@@ -560,21 +397,7 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 18     | TMR11EN  | 0x0         | rw   | Timer11 clock enable<br/>0: Disabled<br/>1: Enabled |
 | Bit 17     | TMR10EN  | 0x0         | rw   | Timer10 clock enable<br/>0: Disabled<br/>1: Enabled |
 | Bit 16     | TMR9EN   | 0x0         | rw   | Timer9 clock enable<br/>0: Disabled<br/>1: Enabled  |
-
-
-2025.05.28
-Page 86
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | Bit 15   | Reserved | 0x0 | resd | Kept at its default value.                                 |
-| -------- | -------- | --- | ---- | ---------------------------------------------------------- |
 | Bit 14   | SCFGEN   | 0x0 | rw   | SCFG clock enable<br/>0: Disabled<br/>1: Enabled           |
 | Bit 13   | SPI4EN   | 0x0 | rw   | SPI4 clock enable<br/>0: Disabled<br/>1: Enabled           |
 | Bit 12   | SPI1EN   | 0x0 | rw   | SPI1 clock enable<br/>0: Disabled<br/>1: Enabled           |
@@ -601,19 +424,7 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 28     | EMACPTP\_LPEN | 0x1         | rw   | EMAC PTP clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled                                                                                              |
 | Bit 27     | EMACRXLPEN    | 0x1         | rw   | EMAC RX clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled<br/>Note: In RMII mode, if this clock is enabled, then the MAC RMII clock is enabled as well. |
 | Bit 26     | EMACTXLPEN    | 0x1         | rw   | EMAC TX clock enable in sleep mode<br/>Set and cleared by software.<br/>0: Disabled<br/>1: Enabled                                                              |
-
-
-2025.05.28
-Page 87
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 |            |           |     |      | Note: In RMII mode, if this clock is enabled, then the MAC RMII clock is enabled as well. |
-| ---------- | --------- | --- | ---- | ----------------------------------------------------------------------------------------- |
 | Bit25      | EMACLPEN  | 0x1 | rw   | EMAC clock enable during sleep mode<br/>0: Disabled<br/>1: Enabled                        |
 | Bit 24     | DMA2LPEN  | 0x1 | rw   | DMA2 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled                            |
 | Bit 23     | Reserved  | 0x0 | resd | Kept at its default value.                                                                |
@@ -635,13 +446,6 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 1      | GPIOBLPEN | 0x1 | rw   | IO port B clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled                       |
 | Bit 0      | GPIOALPEN | 0x1 | rw   | IO port A clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled                       |
 
-
-2025.05.28 Page 88 Rev 2.07
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 # 4.3.16 APB peripheral clock enable in low power mode register2 (CRM_AHBLPEN2)
 
@@ -684,20 +488,7 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 27 | Reserved  | 0x0         | resd | Kept at its default value.                                                |
 | Bit 26 | CAN2LPEN  | 0x1         | rw   | CAN2 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled            |
 | Bit 25 | CAN1LPEN  | 0x1         | rw   | CAN1 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled            |
-
-
-2025.05.28
-Page 89
-Rev 2.07
-
-
-
-
-
-Artery logo **AT32F435/437 Series Reference Manual**
-
 | Bit 24     | Reserved   | 0x0 | resd | Kept at its default value.                                                |
-| ---------- | ---------- | --- | ---- | ------------------------------------------------------------------------- |
 | Bit 23     | I2C3LPEN   | 0x1 | rw   | I2C3 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled            |
 | Bit 22     | I2C2LPEN   | 0x1 | rw   | I2C2 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled            |
 | Bit 21     | I2C1LPEN   | 0x1 | rw   | I2C1 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled            |
@@ -721,14 +512,6 @@ Artery logo **AT32F435/437 Series Reference Manual**
 | Bit 1      | TMR3LPEN   | 0x1 | rw   | Timer 3 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled         |
 | Bit 0      | TMR2LPEN   | 0x1 | rw   | Timer 2 clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled         |
 
-
-2025.05.28 Page 90 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 ### 4.3.19 APB2 peripheral clock enable in low power mode register (CRM_AHB2LPEN)
 
@@ -760,15 +543,6 @@ Access: 0 wait state, accessible by words, half-words and bytes.
 | Bit 0      | TMR1LPEN   | 0x1         | rw   | TMR1 timer clock enable in sleep mode<br/>0: Disabled<br/>1: Enabled     |
 
 
-2025.05.28 Page 91 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 # 4.3.20 Battery powered domain control register (CRM_BPDC)
 
 Access: 0 to 3 wait states, accessible by words, half-words or bytes. Wait states are inserted in the case of consecutive accesses to this register.
@@ -798,20 +572,6 @@ Access: 0 to 3 wait states, accessible by words, half-words or bytes. Wait state
 | ------ | -------- | ----------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31 | LPRSTF   | 0x0         | ro   | Low-power reset flag<br/>Set by hardware. Cleared by writing to the RSTFC bit.<br/>0: No low-power reset occurs<br/>1: Low-power reset occurs                                     |
 | Bit 30 | WWDTRSTF | 0x0         | ro   | Window watchdog timer reset flag<br/>Set by hardware. Cleared by writing to the RSTFC bit.<br/>0: No window watchdog timer reset occurs<br/>1: Window watchdog timer reset occurs |
-
-
-2025.05.28
-Page 92
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
-| Bit       | Name     | Reset value | Type | Description                                                                                                                                                   |
-| --------- | -------- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 29    | WDTRSTF  | 0x0         | ro   | Watchdog timer reset flag<br/>Set by hardware. Cleared by writing to the RSTFC bit.<br/>0: No watchdog timer reset occurs<br/>1: Watchdog timer reset occurs. |
 | Bit 28    | SWRSTF   | 0x0         | ro   | Software reset flag<br/>Set by hardware. Cleared by writing to the RSTFC bit.<br/>0: No software reset occurs<br/>1: Software reset occurs.                   |
 | Bit 27    | PORRSTF  | 0x1         | ro   | POR/LVR reset flag<br/>Set by hardware. Cleared by writing to the RSTFC bit.<br/>0: No POR/LVR reset occurs<br/>1: POR/LVR reset occurs.                      |
@@ -831,19 +591,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | ---------- | ----------- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 31: 28 | CLKOUT2DIV2 | 0x0         | rw   | Clock output2 division2<br/>0xxx: Clock output<br/>1000: Clock output divided by 2<br/>1001: Clock output divided by 4<br/>1010: Clock output divided by 8<br/>1011: Clock output divided by 16<br/>1100: Clock output divided by 64<br/>1101: Clock output divided by 128<br/>1110: Clock output divided by 256<br/>1111: Clock output divided by 512 |
 | Bit 27: 24 | CLKOUT1DIV2 | 0x0         | rw   | Clock output1 division2<br/>0xxx: Clock output<br/>1000: Clock output divided by 2<br/>1001: Clock output divided by 4<br/>1010: Clock output divided by 8<br/>1011: Clock output divided by 16<br/>1100: Clock output divided by 64<br/>1101: Clock output divided by 128<br/>1110: Clock output divided by 256<br/>1111: Clock output divided by 512 |
-
-
-2025.05.28 Page 93 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | Bit 23: 20 | Reserved       | 0x0  | resd | Kept its default value.                                                                                                                                                                                                                                                                            |
-| ---------- | -------------- | ---- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 19: 16 | CLKOUT2\_SEL2  | 0x0  | rw   | Clock output2 sel2<br/>0000: USB clock output<br/>0001: ADC clock output<br/>0010: Internal RC oscillator clock (HICK) output frequency divider<br/>0011: LICK clock output<br/>0100: LEXT clock output<br/>0101\~1111: Reserved                                                                   |
 | Bit 15     | Reserved       | 0x0  | resd | Kept its default value.                                                                                                                                                                                                                                                                            |
 | Bit 14     | HICK\_TO\_SCLK | 0x0  | rw   | HICK as system clock frequency select<br/>When the HICK is selected as the clock source of SCLKSEL, the frequency of SCLK is:<br/>0: Fixed 8 MHz, that is, HICK/6<br/>1: 48 MHz or 8 MHz, depending on the HICKDIV                                                                                 |
@@ -864,33 +612,13 @@ AT32F435/437 Series Reference Manual
 | Bit 8      | CLK1\_TO\_TMR  | 0x0         | rw   | CLKOUT1 internal connected to timer 10 channel 1<br/>0: Disconnected<br/>1: Connected                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Bit 7: 6   | Reserved       | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 5: 4   | AUTO\_STEP\_EN | 0x0         | rw   | Auto step-by-step system clock switch enable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-
-
-2025.05.28
-Page 94
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 When the system clock source is switched from others to the PLL or when the AHB prescaler is changed from large to small (system frequency is from small to large), it is recommended to enable the auto step-by-step system clock switch if the operational target is larger than 108 MHz,. Once it is enabled, the AHB bus is halted by hardware till the completion of the switch. During this switch period, the DMA remain working, and the interrupt events are recorded and then handled by NVIC when the AHB bus resumes.
-
 00: Disabled
-
 01: Reserved
-
 10: Reserved
-
 11: Enabled. When AHBDIV or SCLKSEL is modified, the auto step-by-step system clock switch is activated automatically.
 
 | Bit 3: 0 | Reserved | 0xD | resd | It is fixed to 0xd. Do not change. |
 | -------- | -------- | --- | ---- | ---------------------------------- |
 
 
-2025.05.28
-Page 95
-Rev 2.07

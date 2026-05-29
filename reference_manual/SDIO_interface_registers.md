@@ -1,5 +1,4 @@
 
-ARTERY logo AT32F435/437 Series Reference Manual
 
 **SDIO interrupts**
 
@@ -47,14 +46,6 @@ Table 25-24 A summary of the SDIO registers
 
 Note: Write access to this register is not allowed within seven HCLK clock periods after data is written.
 
-2025.05.28 Page 575 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 25.4.2 SDIO clock control register (SDIO_ CLKCTRL)
 
@@ -79,16 +70,6 @@ Note: 1. While the SD/SDIO card or MultiMedia car is in identification mode, the
 
 3. This register cannot be written within seven HCLK clock periods after data is written. The SDIO_CK can be stopped during the read wait period for SD I/O cards. In this case, the SDIO_ CLKCTRL register does not control the SDIO_CK.
 
-2025.05.28
-Page 576
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
 
 ## 25.4.3 SDIO argument register (SDIO_ARG)
 
@@ -117,13 +98,6 @@ The SDIO_CMD register contains the command index and command type bits. The comm
 Note: 1.This register cannot be written within seven HCLK clock periods after data is written.
 2.MultiMedia card can sent two types of responses: 48-bit short response or 136-bit short response. The SD card and SD I/O card can send only short responses, and the argument can vary according to the type of response. The software will distinguish the type of response according to the command sent.
 
-2025.05.28 Page 577 Rev 2.07
-
-
-
-
-
-ARTERY logo **AT32F435/437 Series Reference Manual**
 
 ### 25.4.5 SDIO command response register (SDIO_RSPCMD)
 
@@ -182,14 +156,6 @@ The SDIO_DTLEN register contains the number of data bytes to be transferred. The
 *Note: For a block data transfer, the value in the SDIO_DTLEN must be a multiple of the block data size.*
 *A data transfer must be written to the SDIO_DTCNTR and the SDIO_DTLEN register before being written to the SDIO data control register (SDIO_DTCTRL).*
 
-2025.05.28 Page 578 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 25.4.9 SDIO data control register (SDIO_DTCTRL)
 
@@ -206,21 +172,6 @@ The SDIO_DTCTRL register controls the data channel statue machine (DCSM).
 | Bit 3      | DMAEN     | 0x0         | rw   | DMA enable bit<br/>This bit is set or cleared by software.<br/>0: Disabled<br/>1: Enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 2      | TFRMODE   | 0x0         | rw   | Data transfer mode selection<br/>This bit is set or cleared by software. If this bit is set, it indicates stream data transfer; if this bit cleared, it indicates block data transfer.<br/>0: Disabled<br/>1: Enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Bit 1      | TFRDIR    | 0x0         | rw   | Data transfer direction selection<br/>This bit is set or cleared by software. If this bit is set, data transfer is from a card to a controller; if this bit is cleared, data transfer is from a controller to a card.<br/>0: Disabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-
-
-2025.05.28
-Page 579
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
-| Bit   | Name  | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----- | ----- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 0 | TFREN | 0x0         | rw   | 1: Enabled<br/>Data transfer enabled bit<br/>This bit is set or cleared by software. If this bit is set, data transfer starts. The DCSM enters the Wait\_S or Wait\_R state, depending on the direction bit TFRDIR. The DCSM goes to the read wait state if the RDWTSTART bit is set from the beginning of the transfer. It is not necessary to clear the enable bit after the end of data transfer but the SDIO\_DTCTRL must be updated to enable a new data transfer.<br/>0: Disabled<br/>1: Enabled |
 
 
@@ -267,20 +218,7 @@ The SDIO_STS is a read-only register, containing two types of flags:
 | Bit 7      | CMDCMPL    | 0x0         | ro   | Command sent (no response required)                                                                                            |
 | Bit 6      | CMDRSPCMPL | 0x0         | ro   | Command response (CRC check passed)                                                                                            |
 | Bit 5      | RXERRO     | 0x0         | ro   | Received BUF overrun error                                                                                                     |
-
-
-2025.05.28
-Page 580
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 | Bit 4 | TXERRU     | 0x0 | ro | Transmit BUF underrun error                                                                     |
-| ----- | ---------- | --- | -- | ----------------------------------------------------------------------------------------------- |
 | Bit 3 | DTTIMEOUT  | 0x0 | ro | Data timeout                                                                                    |
 | Bit 2 | CMDTIMEOUT | 0x0 | ro | Command response timeout<br/>The command timeout is a fixed value of 64 SDIO\_CK clock periods. |
 | Bit 1 | DTFAIL     | 0x0 | ro | Data block sent/received (CRC check failed)                                                     |
@@ -320,19 +258,6 @@ The SDIO_INTEN register determines which status bit generates an interrupt by se
 | Bit 21     | RXBUFIEN  | 0x0         | rw   | Data available in RxBUF interrupt enable<br/>This bit is set or cleared by software to enable/disable the Data Available in RxBUF Interrupt.<br/>0: Disabled<br/>1: Enabled    |
 | Bit 20     | TXBUFIEN  | 0x0         | rw   | Data available in TxBUF interrupt enable<br/>This bit is set or cleared by software to enable/disable the Data Available in TxBUF Interrupt.<br/>0: Disabled<br/>1: Enabled    |
 | Bit 19     | RXBUFEIEN | 0x0         | rw   | RxBUF empty interrupt enable<br/>This bit is set or cleared by software to enable/disable the                                                                                  |
-
-
-2025.05.28 Page 581 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
-| Bit    | Name          | Reset Value | Type/Description                                      | Type/Description                                                                                                                                                      |
-| ------ | ------------- | ----------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |        |               |             | RxBUF empty interrupt.<br/>0: Disabled<br/>1: Enabled |                                                                                                                                                                       |
 | Bit 18 | TXBUFEIEN     | 0x0         | rw                                                    | TxBUF empty interrupt enable<br/>This bit is set or cleared by software to enable/disable the TxBUF empty interrupt.<br/>0: Disabled<br/>1: Enabled                   |
 | Bit 17 | RXBUFFIEN     | 0x0         | rw                                                    | RxBUF full interrupt enable<br/>This bit is set or cleared by software to enable/disable the RxBUF full interrupt.<br/>0: Disabled<br/>1: Enabled                     |
@@ -347,19 +272,6 @@ ARTERY logo
 | Bit 8  | DTCMPLIEN     | 0x0         | rw                                                    | Data end interrupt enable<br/>This bit is set or cleared by software to enable/disable the Data end interrupt.<br/>0: Disabled<br/>1: Enabled                         |
 | Bit 7  | CMDCMPLIEN    | 0x0         | rw                                                    | Command sent interrupt enable<br/>This bit is set or cleared by software to enable/disable the Command sent interrupt.<br/>0: Disabled<br/>1: Enabled                 |
 | Bit 6  | CMDRSPCMPLIEN | 0x0         | rw                                                    | Command response received interrupt enable                                                                                                                            |
-
-
-2025.05.28
-Page 582
-Rev 2.07
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
-| Bit   | Name          | Reset value | Type | Description                                                                                                                                                               |
-| ----- | ------------- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |               |             |      | This bit is set or cleared by software to enable/disable the<br/>Command response received interrupt.<br/>0: Disabled<br/>1: Enabled                                      |
 | Bit 5 | RXERROIEN     | 0x0         | rw   | RxBUF overrun error interrupt enable<br/>This bit is set or cleared by software to enable/disable the<br/>RxBUF overrun error interrupt.<br/>0: Disabled<br/>1: Enabled   |
 | Bit 4 | TXERRUIEN     | 0x0         | rw   | TxBUF underrun error interrupt enable<br/>This bit is set or cleared by software to enable/disable the<br/>TxBUF underrun error interrupt.<br/>0: Disabled<br/>1: Enabled |
@@ -388,4 +300,3 @@ The receive and data BUF is group of a 32-bit wide registers that can be written
 | Bit 31: 0 | DT   | 0x0000 0000 | rw   | Receive and transmit BUF data<br/>The BUF data occupies 32x 32-bit words, the address:<br/>SDIO base + 0x80 to SDIO base + 0xFC |
 
 
-2025.05.28 Page 583 Rev 2.07

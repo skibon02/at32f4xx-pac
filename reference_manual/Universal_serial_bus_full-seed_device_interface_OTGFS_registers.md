@@ -1,6 +1,4 @@
 
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 are transmitted on the USB line.
 
@@ -39,16 +37,6 @@ Figure 21-13 CSR memory map
 
 x = 7 in device mode, x =15 in host mode.
 
-2025.05.28
-Page 465
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 The OTGFS control and status registers contain OTGFS global register, host mode register, device mode register, data FIFO register, power and clock control register.
 
@@ -97,21 +85,7 @@ Table 21-4 OTGFS register map and reset values
 | OTGFS\_HCFG                           | 0x400  | 0x0000 0000 |
 | OTGFS\_HFIR                           | 0x404  | 0x0000 EA60 |
 | OTGFS\_HFNUM                          | 0x408  | 0x0000 3FFF |
-
-
-2025.05.28
-Page 466
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | OTGFS\_HPTXSTS   | 0x410 | 0x0008 0100 |
-| ---------------- | ----- | ----------- |
 | OTGFS\_HAINT     | 0x414 | 0x0000 0000 |
 | OTGFS\_HAINTMSK  | 0x418 | 0x0000 0000 |
 | OTGFS\_HPRT      | 0x440 | 0x0000 0000 |
@@ -152,20 +126,7 @@ AT32F435/437 Series Reference Manual
 | OTGFS\_HCINTMSK8 | 0x60C | 0x0000 0000 |
 | OTGFS\_HCTSIZ8   | 0x610 | 0x0000 0000 |
 | OTGFS\_HCCHAR9   | 0x620 | 0x0000 0000 |
-
-
-2025.05.28
-Page 467
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 | OTGFS\_HCINT9     | 0x628 | 0x0000 0000 |
-| ----------------- | ----- | ----------- |
 | OTGFS\_HCINTMSK9  | 0x62C | 0x0000 0000 |
 | OTGFS\_HCTSIZ9    | 0x630 | 0x0000 0000 |
 | OTGFS\_HCCHAR10   | 0x640 | 0x0000 0000 |
@@ -206,19 +167,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | OTGFS\_DTXFSTS0   | 0x918 | 0x0000 0200 |
 | OTGFS\_DIEPCTL1   | 0x920 | 0x0000 0000 |
 | OTGFS\_DIEPINT1   | 0x928 | 0x0000 0080 |
-
-
-2025.05.28 Page 468 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | OTGFS\_DIEPTSIZ1 | 0x930 | 0x0000 0000 |
-| ---------------- | ----- | ----------- |
 | OTGFS\_DTXFSTS1  | 0x938 | 0x0000 0200 |
 | OTGFS\_DIEPCTL2  | 0x940 | 0x0000 0000 |
 | OTGFS\_DIEPINT2  | 0x948 | 0x0000 0080 |
@@ -259,21 +208,7 @@ AT32F435/437 Series Reference Manual
 | OTGFS\_DOEPCTL4  | 0xB80 | 0x0000 0000 |
 | OTGFS\_DOEPINT4  | 0xB88 | 0x0000 0000 |
 | OTGFS\_DOEPTSIZ4 | 0xB90 | 0x0000 0000 |
-
-
-2025.05.28
-Page 469
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 | OTGFS\_DOEPCTL5  | 0xBA0 | 0x0000 0000 |
-| ---------------- | ----- | ----------- |
 | OTGFS\_DOEPINT5  | 0xBA8 | 0x0000 0000 |
 | OTGFS\_DOEPTSIZ5 | 0xBB0 | 0x0000 0000 |
 | OTGFS\_DOEPCTL6  | 0xBC0 | 0x0000 0000 |
@@ -321,21 +256,7 @@ This register is used to configure the controller after power-on or mode change.
 | --------- | ---------- | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31: 9 | Reserved   | 0x000000    | resd | Kept at its default value.                                                                                                                                       |
 | Bit 8     | PTXFEMPLVL | 0x0         | rw   | Accessible in host mode only<br/>Periodic TxFIFO empty level<br/>It indicates when the periodic TxFIFO empty interrupt bit in the GINTSTS register is triggered. |
-
-
-2025.05.28
-Page 470
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |          |             |             |      | 0: PTXFEMP (GINTSTS) interrupt indicates that the periodic TxFIFO is half empty<br/>1: PTXFEMP (GINTSTS) interrupt indicates that the periodic TxFIFO is fully empty                                                                                                                                                                                                                                                                                                                                                           |
-| -------- | ----------- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Bit      | Name        | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Bit 7    | NPTXFEMPLVL | 0x0         | rw   | Accessible in both host mode and device modes<br/>Non-Periodic TxFIFO empty level<br/>In host mode, this bit indicates when the non-periodic TxFIFO empty interrupt (NPTXFEMP in GINTSTS) is triggered.<br/>In device mode, this bit indicates when the IN endpoint TxFIFO empty interrupt (TXFEMP bit in DIEPINTn) is triggered.<br/>0: The TxFEMP (in DIEPINTn) interrupt indicates that the IN endpoint TxFIFO is half empty<br/>1: The TxFEMP (in DIEPINTn) interrupt indicates that the IN endpoint TxFIFO is fully empty |
 | Bit 6: 1 | Reserved    | 0x00        | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 0    | GLBINTMSK   | 0x0         | rw   | Accessible in both host mode and device modes<br/>Global interrupt mask<br/>The application uses this bit to mask or unmask the interrupts sent by the interrupt line to itself.<br/>0: Mask the interrupts sent to the application<br/>1: Unmask the interrupts sent to the application                                                                                                                                                                                                                                       |
@@ -354,15 +275,6 @@ This register is used to configure the controller after power-on or a change bet
 | Bit 14     | Reserved  | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 13: 10 | USBTRDTIM | 0x5         | rw   | Accessible in device mode<br/>USB Turnaround Time<br/>This field sets the turnaround time in PHY clocks. It defines the response time when the MAC sends a request to the packet FIFO controller (PFC) to fetch data from the DFIFO (SPRAM). These bits must be configured as follows:<br/>0101: When the MAC interface is 16-bit UTMI+<br/>1001: When the MAC interface is 8-bit UTMI+<br/>Note: The aforementioned values are calculated based on a minimum of 30MHz AHB frequency. The USB turnaround time is critical for certifications with long *cables and 5-Hub. If you want the AHB to run below 30* |
 
-
-2025.05.28 Page 471 Rev 2.07
-
-
-
-
-
-ARTERY logo
-# AT32F435/437 Series Reference Manual
 
 MHz, and don’t care about the USB turnaround time, you can set larger values for these bits.
 
@@ -385,35 +297,12 @@ The application resets various hardware modules in the controller through this r
 |            |          |             |      | Accessible in both host mode and device modes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Bit 5      | TXFFLSH  | 0x0         | rw1s | TxFIFO Flush<br/>This bit selectively refreshes a single or all transmit FIFOs, but can do so when the controller is not in the process of a transaction.<br/>The application must write this bit only after checking that the controller is neither writing to nor reading from the TxFIFO.<br/>Verify using these registers:<br/>Read: NAK effective interrupt (NAK Effective Interrupt) ensures that the controller is not reading from the FIFO<br/>Write: AHBIDLE bit in GRSTCTL ensures that the controller is not writing to the FIFO.<br/>For FIFO reprogramming, it is usually recommended to carry out flushing operation.<br/>In device endpoint disable state, it is also advised to use FIFO flushing operation. The application must wait until the controller clears this bit, before performing other operations. It takes 8 clocks to clear this bit (slowest of phy\_clk or hclk) |
 | Bit 4      | RXFFLSH  | 0x0         | rw1s | Accessible in both host mode and device modes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-
-
-2025.05.28
-Page 472
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 |       |           |     |      | RxFIFO flush<br/>The application can refresh the entire RxFIFO using this bit, but must first ensure that the controller is not in the process of a transaction. The application must only write to this bit after checking that the controller is neither reading from nor writing to the RxFIFO.<br/>The application must wait until the controller clears this bit, before performing other operations. It takes 8 clocks to clear this bit (slowest of PHY or AHB)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ----- | --------- | --- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 3 | Reserved  | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Bit 2 | FRMCNTRST | 0x0 | rw1s | Accessible in both host mode and device modes<br/>Host frame counter reset<br/>The application uses this bit to reset the frame number counter inside the controller. After the frame counter is reset, the subsequent SOS sent out by the controller has a frame number of 0.<br/>If the application writes 1 to this bit, it may not be able to read the value, because this bit is cleared after a few clock cycles by the controller                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 1 | PIUSFTRST | 0x0 | rw1s | Accessible in both host mode and device modes<br/>PIU FS dedicated controller soft reset<br/>This bit is used to reset PIU full-speed dedicated controller<br/>All state machines in the PIU full-speed dedicated controller are reset to the idle state. When the PHY remains in the receive state for more than one-frame time due to PHY errors (such as operation interrupted or babble), this bit can be used to reset the PIU full-speed dedicated controller.<br/>This is can be cleared automatically, the controller this clear this bit after all the necessary logic is reset in the controller.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Bit 0 | CSFTRST   | 0x0 | rw1s | Accessible in both host mode and device modes<br/>Controller soft reset<br/>Resets the hclk and phy\_clock domain as follows:<br/>Clears all interrupts and CSR registers except for the following bits:<br/>- HCFG.FSLSPCS<br/>- DCFG.DECSPD<br/>- DCTL.SFTDIS<br/>Resets all state machines (except AHB slave) to the idle state, and clears all the transmit and receive FIFOs.<br/>All transactions on the AHB master are terminated as soon as possible after completing the last phase of an AHB data transfer. All transactions on the USB are terminated immediately.<br/>The application can write to this bit at any time to reset the controller. This is can be cleared automatically, the controller this clear this bit after all the necessary logic is reset in the controller. The controller could take several clocks to clear this bit, depending on the current state of the controller. Once this bit is cleared, the application must wait at least 3 PHY clocks before accessing the PHY domain (synchronization delay).<br/>Additionally, the application must ensure that the bit 31 in this register is set (AHB master is in idle state) before performing other operations.<br/>Typically, the software set is used during software development and also when the user dynamically changes the PHY selection bits in the above-listed USB configuration registers. To change the PHY, the corresponding PHY clock is selected and used in the PHY domain. After a new clock is selected, the PHY domain has to be reset for normal operation. |
 
-
-2025.05.28
-Page 473
-Rev 2.07
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 # 21.6.3.6 OTGFS interrupt register (OTGFS_GINTSTS)
 
@@ -437,21 +326,7 @@ The application must clear the GINTSTS register at initialization before enablin
 | Bit 24     | PRTINT                    | 0x0         | ro   | Host port interrupt<br/>The controller sets this bit to indicate a change in port status one of the ports. The application must read the Host Port Control and Status register to determine the exact event source. The application must clear the Host Port Control and Status register to clear this bit.                                                                                                                                                                                                                                 |
 | Bit 23: 22 | Reserved                  | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 21     | INCOMPIP<br/>INCOMPISOOUT | 0x0         | rw1c | Incomplete periodic transfer<br/>Accessible in host mode only<br/>In host mode, the controller sets this interrupt bit when there are incomplete periodic transfers still pending in the current frame.<br/>Incomplete Isochronous OUT Transfer<br/>Accessible in device mode only<br/>In device mode, the controller sets this interrupt bit to                                                                                                                                                                                            |
-
-
-2025.05.28
-Page 474
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 |            |             |     |      | indicate that there is at least one synchronous OUT endpoint with incomplete transfers in the current frame. This interrupt is generated along with the End of Periodic Frame Interrupt bit in this register.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------- | ----------- | --- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 20     | INCOMPISOIN | 0x0 | rw1c | Accessible in device mode only<br/>Incomplete Isochronous IN Transfer<br/>The controller sets this interrupt to indicate that there is at least one synchronous IN endpoint with incomplete transfers in the current frame. This interrupt is generated along with the End of Periodic Frame Interrupt bit in this register.                                                                                                                                                                                                                                                                                            |
 | Bit 19     | OEPTINT     | 0x0 | ro   | Accessible in device mode only<br/>OUT endpoints interrupt<br/>The controller sets this bit to indicate that an interrupt is pending on one of the OUT endpoints in the controller. The application must read the Device All Endpoints Interrupt register to determine the exact number of the OUT endpoint on which the interrupt occurred, and then read the corresponding Device OUT Endpoint-n Interrupt register to determine the exact source of the interrupt. The application must clear the corresponding status bit in the corresponding Device OUT Endpoint-n Interrupt register to clear this bit.          |
 | Bit 18     | IEPTINT     | 0x0 | ro   | Accessible in device mode only<br/>IN Endpoints interrupt<br/>The controller sets this bit to indicate that an interrupt is pending one of the IN endpoints in the controller (in device mode). The application must read the Device All Endpoints Interrupt register to determine the exact number of the IN endpoint on which the interrupt occurred, and then read the corresponding Device IN Endpoint-n Interrupt register to determine the exact source of the interrupt. The application must clear the corresponding status bit in the corresponding Device IN Endpoint-n Interrupt register to clear this bit. |
@@ -461,21 +336,7 @@ AT32F435/437 Series Reference Manual
 | Bit 13     | ENUMDONE    | 0x0 | rw1c | Accessible in device mode only<br/>Enumeration done<br/>The controller sets this bit to indicate that speed enumeration is done.<br/>The application must read the Device Status register to obtain the enumeration speed.                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bit 12     | USBRST      | 0x0 | rw1c | Accessible in device mode only<br/>USB Reset<br/>The controller sets this bit to indicate that a reset is detected on the USB bus.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 11     | USBSUSP     | 0x0 | rw1c | Accessible in device mode only<br/>USB Suspend<br/>The controller sets this bit to indicate that a suspend is detected on the USB bus. The controller enters the Suspend state when there is no activity on the bus for a long period of time.                                                                                                                                                                                                                                                                                                                                                                          |
-
-
-2025.05.28
-Page 475
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 10   | ERLYSUSP   | 0x0 | rw1c | Accessible in device mode only<br/>Early suspend<br/>The controller sets this bit to indicate that the idle state has been detected on the USB bus for 3 ms.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------- | ---------- | --- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 9: 8 | Reserved   | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Bit 7    | GOUTNAKEFF | 0x0 | ro   | Accessible in device mode only<br/>Global OUT NAK effective<br/>This bit indicates that the Set Global OUT NAK bit in the Device Control register (set by the application) has taken effect. This bit can be cleared by writing the Clear Global OUT NAK bit in the Device Control register.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bit 6    | GINNAKEFF  | 0x0 | ro   | Accessible in device mode only<br/>Global IN Non-periodic NAK effective<br/>This bit indicates that the Set Global Non-periodic IN NA bit in the Device Control register (set by the application) has taken effect. That is, the controller has sampled the Global IN NAK bit set by the application. This bit can be cleared by writing the Clear Global Non-periodic IN NA bit in the Device Control register. This interrupt does not necessarily mean that a NAK handshake signal is sent out on the USB bus. The STALL bit has priority over the NAK bit.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -484,20 +345,6 @@ ARTERY logo
 | Bit 3    | SOF        | 0x0 | rw1c | Accessible in both host and device modes<br/>Start of Frame<br/>In host mode, the controller sets this bit to indicate that an SOF (full-speed) or Keep-Alive (low-speed) is transmitted on the USB bus. The application must set this bit to 1 to clear this interrupt.<br/>In device mode, the controller sets this bit to indicate that an SOF token has been received on the USB bus. The application must read the Device Status register to get the current frame number. This interrupt can be generated only when the controller is running in FS mode. This bit is set by the controller. The application must write 1 to clear this bit.<br/>Note: Reading this register immediately after power-on reset may return the value 0x1. If this register is read as 0x1 immediately after power-on reset, it does not mean that an SOF has been transmitted (in host mode) or received (in device mode). The reading of this register is valid only when an effective connection has been established between the host and the device. If this bit is set after power-on reset, the application can clear this bit. |
 | Bit 2    | OTGINT     | 0x0 | ro   | Accessible in both host and device modes<br/>OTG interrupt<br/>The controller sets this bit to indicate that an OTG protocol event is generated. The application must read the OTGFS\_GOTGINT register to determine the exact source that caused this interrupt. The application must clear the corresponding status bit in the OTGFS\_GOTGINT register to clear this bit.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Bit 1    | MODEMIS    | 0x0 | rw1c | Accessible in both host and device modes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-
-
-2025.05.28
-Page 476
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
-| Bit   | Name   | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----- | ------ | ----------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |        |             |      | Mode mismatch interrupt<br/>The controller sets this bit when the application is attempting to access:<br/>A host-mode register, when the controller is running in device mode<br/>A device-mode register, when the controller is running in host mode<br/>An OKAY response occurs when the register access is completed on the AHB, but it is ignored by the controller internally, and does not affect the operation of the controller.<br/>This bit can be set by the controller only. The application must write 1 to clear this bit. |
 | Bit 0 | CURMOD | 0x0         | ro   | Accessible in both host and device modes<br/>Current mode of operation<br/>This bit indicates the current mode.<br/>0: Device mode<br/>1: Host mode                                                                                                                                                                                                                                                                                                                                                                                       |
 
@@ -532,17 +379,6 @@ Interrupt unmask: 1
 | Bit 13     | ENUMDONEMSK                     | 0x0         | rw   | Accessible in device mode only<br/>Enumeration done mask                                                                                           |
 | Bit 12     | USBRSTMSK                       | 0x0         | rw   | Accessible in device mode only<br/>USB Reset mask                                                                                                  |
 | Bit 11     | USBSUSPMSK                      | 0x0         | rw   | Accessible in device mode only                                                                                                                     |
-
-
-2025.05.28 Page 477 Rev 2.07
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
-| Bit      | Name          | Reset value | Type | Description                                                                  |
-| -------- | ------------- | ----------- | ---- | ---------------------------------------------------------------------------- |
 |          |               |             |      | USB suspend interrupt mask                                                   |
 | Bit 10   | ERLYSUSPMSK   | 0x0         | rw   | Accessible in device mode only<br/>Early suspend interrupt mask              |
 | Bit 9: 8 | Reserved      | 0x0         | resd | Kept at its default value.                                                   |
@@ -579,19 +415,6 @@ The receive status contents are interpreted differently in host and device modes
 | ---------- | -------- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31: 25 | Reserved | 0x00        | resd | Kept at its default value.                                                                                                                                                                              |
 | Bit 24: 21 | FN       | 0x0         | ro   | Frame number<br/>Indicates the least significant 4 bits of the frame number of the data packet received on the USB bus. This field is applicable only when the synchronous OUT endpoints are supported. |
-
-
-2025.05.28 Page 478 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
-| Bit        | Name   | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                              |
-| ---------- | ------ | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 20: 17 | PKTSTS | 0x0         | ro   | Packet status<br/>Indicates the status of the received data packet.<br/>0001: Global OUT NAK (triggers an interrupt)<br/>0010: OUT data packet received<br/>0011: OUT transfer completed (triggers an interrupt)<br/>0100: SETUP transaction completed (triggers an interrupt)<br/>0110: SETUP data packet received<br/>Others: Reserved |
 | Bit 16: 15 | DPID   | 0x0         | ro   | Data PID<br/>Indicates the data PID of the received OUT data packet.<br/>00: DATA0<br/>10: DATA1<br/>01: DATA2<br/>11: MDATA                                                                                                                                                                                                             |
 | Bit 14: 4  | BCNT   | 0x000       | ro   | Byte count<br/>Indicates the byte count of the received data packet.                                                                                                                                                                                                                                                                     |
@@ -628,17 +451,6 @@ The application can program the SRAM size and start address of the non-periodic 
 | Bit 15: 0  | INEPT0TXSTADDR | 0x0200      | ro/rw | IN Endpoint FIFO0 transmit SRAM start address<br/>This field contains the memory start address of the IN Endpoint FIFO0 transmit SRAM. |
 
 
-2025.05.28
-Page 479
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 # 21.6.3.11 OTGFS non-periodic Tx FIFO size/request queue status register (OTGFS_GNPTXSTS)
 
 This register is valid in host mode only. It is a read-only register that contains the available space information for the Non-periodic TxFIFO and the Non-periodic Transmit Request Queue.
@@ -661,21 +473,6 @@ This register is valid in host mode only. It is a read-only register that contai
 | Bit 19: 18 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                 |
 | Bit 17     | LP\_MODE | 0x0         | rw   | Low-power mode<br/>This bit is used to control the OTG PHY consumption. When this bit is set to 1 by software, the OTG PHY enters low-power mode; when this bit is cleared by software, the OTG PHY operates in normal mode.<br/>0: Non-low-power mode<br/>1: Low-power mode                               |
 | Bit 16     | PWRDOWN  | 0x0         | rw   | Power down<br/>This bit is used to activate the transceiver in transmission/reception. It must be pre-configured to allow                                                                                                                                                                                  |
-
-
-2025.05.28
-Page 480
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
-| Bit       | Name     | Reset value | Type | Description<br/>USB communication.0: Power down enable1: Power down disable (Transceiver active) |
-| --------- | -------- | ----------- | ---- | ------------------------------------------------------------------------------------------------ |
 | Bit 15: 0 | Reserved | 0x0000      | resd | Kept at its default value.                                                                       |
 
 
@@ -720,21 +517,7 @@ This register is used to configure the controller after power-on. Do not change 
 | --------- | -------- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 31: 3 | Reserved | 0x0000 0000 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                             |
 | Bit 2     | FSLSSUPP | 0x0         | ro   | FS- and LS-only support<br/>The application uses this bit to control the controller’s enumeration speed. With this bit, the application can make the controller enumerate as a full-speed host mode, even if the connected device supports high-speed communication. Do not change this bit after initial programming.<br/>0: FS/LS, depending on the largest speed supported by the connected device. |
-
-
-2025.05.28
-Page 481
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 1: 0 | FSLSPCLKSEL | 0x0 | rw | 1: FS/LS-only, even if the connected device supports high-speed.<br/>FS/LS PHY clock select<br/>When the controller is in FS host mode:<br/>01: PHY clock is running at 48MHz<br/>Others: Reserved<br/>When the controller is in LS host mode:<br/>00: Reserved<br/>01: PHY clock is running at 48 MHz<br/>10: PHY clock is running at 6 MHz. If 6 MHz clock is selected, reset must be done by software.<br/>11: Reserved |
-| -------- | ----------- | --- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 
 # 21.6.4.2 OTGFS host frame interval register (OTGFS_HFIR)
@@ -757,17 +540,6 @@ This register indicates the current frame number, and also the time remaining in
 | Bit 31: 16 | FTREM | 0x0000      | ro   | Frame time remaining<br/>Indicates the time remaining in the current frame (FS/HS), in terms of the number of PHY clocks. This field decrements with the number of PHY clocks. When it reaches zero, this filed is reloaded with the value of the frame interval register, and a new SOF is transmitted on the USB bus. |
 | Bit 15: 0  | FRNUM | 0x3FFF      | ro   | Frame number<br/>This field increments every time a new SOP is transmitted on the USB bus, and is cleared to 0 when the value reaches 16'h3FFF.                                                                                                                                                                         |
 
-
-2025.05.28
-Page 482
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-AT32F435/437 Series Reference Manual
 
 # 21.6.4.4 OTGFS host periodic Tx FIFO/request queue register (OTGFS_HPTXSTS)
 
@@ -800,16 +572,6 @@ The host all channels interrupt mask register works with the host all channels i
 | Bit 15: 0  | HAINTMSK | 0x0000      | rw   | Channel interrupt mask<br/>One bit per channel: bit 0 for channel 0, bit 15 for channel 15. |
 
 
-2025.05.28
-Page 483
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 # 21.6.4.7 OTGFS host port control and status register (OTGFS_HPRT)
 
 This register is valid only in host mode. Currently, the OTG host supports only one port.
@@ -826,18 +588,7 @@ This register contains USB port-related information such as USB reset, enable, s
 | Bit 9      | Reserved  | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Bit 8      | PRTRST    | 0x0         | rw   | Port reset<br/>When this bit is set by the application, a reset sequence is started on this port. The application must calculate the time required for the reset sequence, and clear this bit after the reset sequence is complete.<br/>0: Port not in reset<br/>1: Port in reset<br/>The application must keep this bit set for a minimum duration defined in Section 7.1.7.5 of USB 2.0 specification to start a reset on the port. In addition to this, the application can make this bit set for another 10 ms to the minimum duration, before clearing this bit. There is no maximum limit set by the USB standard. |
 | Bit 7      | PRTSUSP   | 0x0         | rw1s | Port suspend<br/>The application sets this bit to put this port in suspend mode. In this case, the controller only stops sending SOF. The application must set the port clock stop bit in order to disable the PHY clock.<br/>The read value of this bit reflects the current suspend status of the port.<br/>This bit is cleared by the controller when a remote wakeup signal is detected or when the application sets the port reset bit or port resume bit in this register, or sets the                                                                                                                             |
-
-
-2025.05.28 Page 484 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |       |             |     |      | resume/remote wakeup detected interrupt bit or disconnect detected interrupt bit in the controller interrupt register.<br/>The controller can still clear this bit, even if the device is disconnected with the host.<br/>0: Port not in suspend mode<br/>1: Port in suspend mode                                                                                                                                                                                                                                                                                                                               |
-| ----- | ----------- | --- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 6 | PRTRES      | 0x0 | rw   | **Port resume**<br/>The application sets this bit to drive resume signaling on the port. The controller continues to trigger the resume signal until the application clears this bit. If the controller detects a USB remote wakeup sequence (as indicated by the port resume/remote wakeup detected interrupt bit of the controller interrupt register), the controller starts driving resume signaling without the intervention of the application.<br/>The read value of this bit indicates whether the controller is currently driving resume signaling.<br/>0: No resume triggered<br/>1: Resume triggered |
 | Bit 5 | PRTOVRCCHNG | 0x0 | rw1c | **Port overcurrent change**<br/>The controller sets this bit when the status of the port overcurrent active bit (bit 4) in this register changes. This bit can only be set by the controller. The application must write 1 to clear this bit.                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 4 | PRTOVRCACT  | 0x0 | ro   | **Port overcurrent active**<br/>Indicates the overcurrent status of the port.<br/>0: No overcurrent<br/>1: Overcurrent condition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -853,19 +604,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | ------ | ----- | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31 | CHENA | 0x0         | rw1s | **Channel enable**<br/>This bit is set by the application and cleared by the OTG host.<br/>0: Channel disabled<br/>1: Channel enabled  |
 | Bit 30 | CHDIS | 0x0         | rw1s | **Channel disable**<br/>The application sets this bit to stop transmitting or receiving data on a channel, even before the transfer on |
-
-
-2025.05.28 Page 485 Rev 2.07
-
-
-
-
-ARTERY logo
-
-AT32F435/437 Series Reference Manual
-
 |            |          |       |      | that channel is complete. The application must wait for the generation of the channel disabled interrupt before treating the channel as disabled.                                                                                                                                                                                        |
-| ---------- | -------- | ----- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 29     | ODDFRM   | 0x0   | rw   | Odd frame<br/>This bit is set / cleared by the application to indicate that the OTG host must perform a transfer in an odd frame.<br/>This bit is applicable for periodic transfers (synchronous and interrupt) only.<br/>0: Even frame<br/>1: Odd frame                                                                                 |
 | Bit 28: 22 | DEVADDR  | 0x00  | rw   | Device address<br/>This field is used to select the device that can serve as the data source or receiver.                                                                                                                                                                                                                                |
 | Bit 21: 20 | MC       | 0x0   | rw   | Multi count (MC)<br/>This field indicates to the host the number of transfers that must be performed per frame for the periodic endpoint.<br/>00: Reserved. This field generates undefined results.<br/>01: 1 transaction<br/>10: 2 transactions per frame<br/>11: 3 transactions per frame<br/>This field must be set to at least 0x01. |
@@ -888,21 +627,6 @@ This register contains the status of a channel related to USB and AHB events, as
 | Bit 9      | FRMOVRUN | 0x0         | rw1c | Frame overrun<br/>This bit can only be set by the controller. The application must write 1 to clear this bit.     |
 | Bit 8      | BBLERR   | 0x0         | rw1c | Babble error<br/>This bit can only be set by the controller. The application must write 1 to clear this bit.      |
 | Bit 7      | XACTERR  | 0x0         | rw1c | Transaction error<br/>Indicates one of the following errors occurred on the USB                                   |
-
-
-2025.05.28
-Page 486
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
-| Bit   | Name     | Reset value | Type | Description                                                                                                                                                                 |
-| ----- | -------- | ----------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |          |             |      | bus:<br/>CRC check failure<br/>Timeout<br/>Bit stuffing error<br/>EOP error<br/>This bit can only be set by the controller. The application must write 1 to clear this bit. |
 | Bit 6 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                  |
 | Bit 5 | ACK      | 0x0         | rw1c | ACK response received/Transmitted interrupt<br/>This bit can only be set by the controller. The application must write 1 to clear this bit.                                 |
@@ -940,19 +664,7 @@ This register is used to mask the channels described in the previous section.
 | Bit 31     | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                      |
 | Bit 30: 29 | PID      | 0x0         | rw   | PID (Pid)<br/>The application programs this field with the type of PID used for the initial transfer. The host controls this filed for the rest of transfers.<br/>00: DATA0<br/>01: DATA2<br/>10: DATA1<br/>11: MDATA(non-control)/SETUP(control)                                               |
 | Bit 28: 19 | PKTCNT   | 0x000       | rw   | Packet count<br/>The application programs this field with the expected number of packets to be transmitted or received. The host decrements the packet count on every successful transmission or reception of an OUT/IN packet. When this count reaches zero, the application is interrupted to |
-
-
-2025.05.28
-Page 487
-Rev 2.07
-
-
-
-
-Artery logo # AT32F435/437 Series Reference Manual
-
 | Bit 18: 0 | XFERSIZE | 0x00000 | rw | indicate normal completion of the transfer.<br/>Transfer size<br/>For an OUT transfer, this field indicates the number of data bytes the host sends during a transfer.<br/>For an IN transfer, this field indicates the buffer size that the application has reserved for the transfer.<br/>For an IN transfer (periodic and non-periodic), the application must program this field as an integer multiple of the maximum packet size. |
-| --------- | -------- | ------- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 
 ## 21.6.5 Device-mode registers
@@ -979,17 +691,7 @@ This register configures the controller in device mode after power-on or after c
 | ---------- | ---------- | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31: 12 | Reserved   | 0x00000     | resd | Kept at its default value.                                                                                                                               |
 | Bit 11     | PWROPRGDNE | 0x0         | wo   | Power-on programming done<br/>The application uses this bit to indicate that the register configuration is complete after a wakeup from power-down mode. |
-
-
-2025.05.28 Page 488 Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | Bit 10   | CGOUTNAK    | 0x0 | wo | Clear global OUT NAK<br/>Writing 1 to this bit clears the global OUT NAK.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------- | ----------- | --- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 9    | SGOUTNAK    | 0x0 | wo | Set global OUT NAK<br/>Writing to this bit sets the global OUT NAK.<br/>The application uses this bit to send a NAK handshake on all OUT endpoints. The application must set this bit only after checking that the global OUT NAK effective bit in the controller interrupt register is cleared.                                                                                                                                                                                                                             |
 | Bit 8    | CGNPINNAK   | 0x0 | wo | Clear Global Non-periodic IN NAK<br/>Writing to this bit clears the global Non-periodic OUT NAK.                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Bit 7    | SGNPINNAK   | 0x0 | wo | Set global Non-periodic IN NAK<br/>Writing to this bit sets the global Non-periodic OUT NAK.<br/>The application uses this bit to send a NAK handshake on all non-periodic IN endpoints. The application must set this bit only after checking that the global IN NAK effective bit in the controller interrupt register is cleared.                                                                                                                                                                                         |
@@ -1002,12 +704,6 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 
 Table 21-5 lists the minimum duration at which the software disconnect bit must be set in various states for the USB host to detect a device disconnect. To accommodate clock jitter, it is advised that the application adds some extra delay to the specified minimum duration.
 
-2025.05.28 Page 489 Rev 2.07
-
-
-
-
-ARTERY logo **AT32F435/437 Series Reference Manual**
 
 Table 21-5 Minimum duration for software disconnect
 
@@ -1042,19 +738,7 @@ This register works with each of the device IN endpoint interrupt register for a
 | Bit 9      | BNAINMSK     | 0x0         | rw   | BNA interrupt mask<br/>0: Interrupt masked<br/>1: Interrupt unmasked |
 | Bit 8      | TXFIFOUDRMSK | 0x0         | rw   | FIFO underrun mask<br/>0: Interrupt masked<br/>1: Interrupt unmasked |
 | Bit 7      | Reserved     | 0x0         | resd | Kept at its default value.                                           |
-
-
-2025.05.28 Page 490 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 6 | INEPTNAKMSK    | 0x0 | rw   | IN endpoint NAK effective mask<br/>0: Interrupt masked<br/>1: Interrupt unmasked                      |
-| ----- | -------------- | --- | ---- | ----------------------------------------------------------------------------------------------------- |
 | Bit 5 | INTKNEPTMISMSK | 0x0 | rw   | IN token received with EP mismatch mask<br/>0: Interrupt masked<br/>1: Interrupt unmasked             |
 | Bit 4 | INTKNTXFEMPMSK | 0x0 | rw   | IN token received when TxFIFO empty mask<br/>0: Interrupt masked<br/>1: Interrupt unmasked            |
 | Bit 3 | TIMEOUTMSK     | 0x0 | rw   | Timeout condition mask (Non-isochronous endpoints))<br/>0: Interrupt masked<br/>1: Interrupt unmasked |
@@ -1081,17 +765,6 @@ This register works with each of the OTGFS_DOEPINTx registers for all endpoints 
 | Bit 1     | EPTDISMSK   | 0x0         | rw   | Endpoint disabled interrupt mask<br/>0: Interrupt masked<br/>1: Interrupt unmasked                             |
 | Bit 0     | XFERCMSK    | 0x0         | rw   | Transfer completed interrupt mask<br/>0: Interrupt masked<br/>1: Interrupt unmasked                            |
 
-
-2025.05.28
-Page 491
-Rev 2.07
-
-
-
-
-Artery logo
-
-AT32F435/437 Series Reference Manual
 
 ### 21.6.5.6 OTGFS device all endpoints interrupt mask register (OTGFS_DAINT)
 
@@ -1134,21 +807,7 @@ This section describes the control IN endpoint 0 control register. Nonzero contr
 | Bit    | Name   | Reset value | Type | Description                                                                                                                                                                        |
 | ------ | ------ | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31 | EPTENA | 0x0         | rw1s | Endpoint enable<br/>- The application sets this bit to start data transmission on the endpoint 0.<br/>- The controller clears this bit before generating the following interrupts: |
-
-
-2025.05.28
-Page 492
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 30     | EPTDIS   | 0x0    | ro   | - Endpoint disabled<br/>- Transfer completed.<br/>**Endpoint disable**<br/>The application sets this bit to stop data transmission on an endpoint. The application must wait for the endpoint disabled interrupt before treating the endpoint as disabled. The controller clears this bit before setting the endpoint disabled interrupt. The application must set this bit only when the endpoint is enabled.                                                                        |
-| ---------- | -------- | ------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 29: 28 | Reserved | 0x0    | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 27     | SNAK     | 0x0    | wo   | **Set NAK**<br/>A write to this bit sets the NAK bit of the endpoint. The application can use this bit to control the transmission of NAK handshakes on the endpoint. The controller also sets this bit when a SETUP data packet is received on the endpoint.                                                                                                                                                                                                                         |
 | Bit 26     | CNAK     | 0x0    | wo   | **Clear NAK**<br/>A write to this bit clears the NAK bit for the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -1162,17 +821,6 @@ ARTERY logo
 | Bit 14: 2  | Reserved | 0x0000 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 1: 0   | MPS      | 0x0    | rw   | Applies to IN and OUT endpoints<br/>The application uses this bit to program the maximum packet size for the current logical endpoint.<br/>00: 64 bytes<br/>01: 32 bytes<br/>10: 16 bytes<br/>11: 8 bytes                                                                                                                                                                                                                                                                             |
 
-
-2025.05.28
-Page 493
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
 
 # 21.6.5.10 OTGFS device IN endpoint-x control register (OTGFS_DIEPCTLx) (x=x=1…7, where x is endpoint number)
 
@@ -1188,21 +836,7 @@ The application uses this register to control the behavior of the endpoints othe
 | Bit 26     | CNAK                    | 0x0         | wo   | Clear NAK<br/>A write to this bit clears the NAK bit for this endpoint.<br/>0: Not clear NAK<br/>1: Clear NAK                                                                                                                                                                                                                                                                                                      |
 | Bit 25: 22 | TXFNUM                  | 0x0         | rw   | TxFIFO number<br/>Allocate FIFO number to the corresponding endpoint. A separate FIFO number is allocated to each valid IN endpoint. This bit applies to IN endpoints only.                                                                                                                                                                                                                                        |
 | Bit 21     | STALL                   | 0x0         | rw   | STALL handshake<br/>Applies to non-control, non-synchronous IN and OUT endpoints.<br/>The application sets this bit to stall all tokens from the USB host to this endpoint. If a NAK bit, global non-periodic IN NAK bit or global OUT NAK bit is set along with this bit, the STALL bit has priority. Only the application can clear this bit, but the controller never.                                          |
-
-
-2025.05.28
-Page 494
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 20     | Reserved          | 0x0   | resd | 0: Stall all invalid tokens<br/>1: Stall all valid tokens<br/>Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ---------- | ----------------- | ----- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 19: 18 | EPTYPE            | 0x0   | rw   | Endpoint type<br/>This is the transfer type supported by this logical endpoint.<br/>00: Control<br/>01: Synchronous<br/>10: Bulk<br/>11: Interrupt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 17     | NAKSTS            | 0x0   | ro   | NAK status<br/>Indicates the following status:<br/>0: The controller is sending non-NAK handshakes based on the FIFO status<br/>1: The controller is sending NAK handshakes<br/>When this bit is set (either by the application or the controller), the controller stops receiving any data on an OUT endpoint, even if there is space in the receive FIFO to accommodate the incoming data packets.<br/>For non-synchronous IN endpoints: the controller stops transmitting data on the endpoint, even if there is data pending in the transmit FIFO.<br/>For synchronous IN endpoints: the controller sends a zero-length data packet, even if there is space in the transmit FIFO.<br/>The controller always responds to SETUP data packets with an ACK handshake, regardless of whether this bit is set or not. |
 | Bit 16     | DPID/<br/>EOFRNUM | 0x0   | ro   | Endpoint data PID<br/>Applies to interrupt/bulk IN endpoints only.<br/>This bit contains the PID of the packet to be transmitted on this endpoint. The application must program the PID of the initial data packet to be received or transmitted on this endpoint, after the endpoint is enabled. The application programs DATA0 or DATA1 PID through the SetD1PID and SetD0PID of this register.<br/>0: DATA0<br/>1: DATA1<br/>Even/Odd frame<br/>Applies to synchronous IN endpoints only.<br/>Indicates the frame number in which the controller transmits synchronous data on this endpoint. The application must program the even/odd frame number in which it tends to transmit or receive synchronous data through the SETEVNFR and SETODDFR bits in this register.<br/>0: Even frame<br/>1: Odd frame       |
@@ -1210,17 +844,6 @@ ARTERY logo
 | Bit 14: 11 | Reserved          | 0x0   | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Bit 10: 0  | MPS               | 0x000 | rw   | Maximum packet size<br/>The application uses this field to set the maximum packet size for the current logical endpoint. The values are in bytes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-
-2025.05.28
-Page 495
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 21.6.5.11 OTGFS device control OUT endpoint 0 control register (OTGFS_DOEPCTL0)
 
@@ -1244,16 +867,6 @@ This section describes the control OUT endpoint 0 control register. Non-zero con
 | Bit 1: 0   | MPS      | 0x0         | ro   | Maximum packet size<br/>The maximum packet size of the control OUT endpoint 0 is the same as that of the control IN endpoint 0.<br/>00: 64 bytes<br/>01: 32 bytes<br/>10: 16 bytes<br/>11: 8 bytes                                                                                                                                                                                                                                                                              |
 
 
-2025.05.28
-Page 496
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 # 21.6.5.12 OTGFS device control OUT endpoint-x control register (OTGFS_DOEPCTLx) (x= x=1...7, where x if endpoint number)
 
 This application uses this register to control the behavior of all endpoints other than endpoint 0.
@@ -1268,19 +881,7 @@ This application uses this register to control the behavior of all endpoints oth
 | Bit 26     | CNAK                    | 0x0         | wo   | Clear NAK<br/>A write to this bit clears the NAK bit for the endpoint.<br/>0: Not clear NAK<br/>1: Clear NAK                                                                                                                                                                                                                                                                                                                                                 |
 | Bit 25: 22 | Reserved                | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 21     | STALL                   | 0x0         | rw   | Applies to non-control, non-synchronous IN and OUT endpoints.<br/>The application sets this bit to stall all tokens from the USB host to this endpoint. If a NAK bit, global non-periodic IN NAK bit or global OUT NAK bit is set along with this bit, the STALL bit has priority. Only the application can clear                                                                                                                                            |
-
-
-2025.05.28 Page 497 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 |            |                   |       |      | this bit, but the controller never.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------- | ----------------- | ----- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 20     | SNP               | 0x0   | rw   | Snoop mode<br/>This bit configures the endpoint to Snoop mode. In this mode, the controller does not check the correctness of OUT packets before transmitting OUT packets to the application memory.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 19: 18 | EPTYPE            | 0x0   | rw   | Endpoint type<br/>This is the transfer type supported by this logical endpoint.<br/>00: Control<br/>01: Synchronous<br/>10: Bulk<br/>11: Interrupt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bit 17     | NAKSTS            | 0x0   | ro   | NAK status<br/>Indicates the followings:<br/>0: The controller is sending non-NAK handshakes based on the FIFO status<br/>1: The controller is sending NAK handshakes<br/>When this bit is set (either by the application or the controller), the controller stops receiving any data on an OUT endpoint, even if there is space in the receive FIFO to accommodate the incoming data packets.<br/>For non-synchronous IN endpoints: the controller stops transmitting data on the endpoint, even if there is data pending in the transmit FIFO.<br/>For synchronous IN endpoints: the controller sends a zero-length data packet, even if there is space in the transmit FIFO.<br/>The controller always responds to SETUP data packets with an ACK handshake, regardless of whether this bit is set or not.   |
@@ -1289,15 +890,6 @@ AT32F435/437 Series Reference Manual
 | Bit 14: 11 | Reserved          | 0x0   | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 10: 0  | MPS               | 0x000 | rw   | Maximum packet size<br/>The application uses this field to set the maximum packet size for the current logical endpoint. The values are in bytes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-
-2025.05.28
-Page 498
-Rev 2.07
-
-
-
-
-Artery logo **AT32F435/437 Series Reference Manual**
 
 ## 21.6.5.13 OTGFS device IN endpoint-x interrupt register (OTGFS_DIEPINTx) (x=0…7, where x if endpoint number)
 
@@ -1326,17 +918,6 @@ This register indicates the status of an endpoint with respect to USB and AHB-re
 | Bit 6     | B2BSTUP  | 0x0         | rw1c | Back-to-back SETUP packets received<br/>Indicates that more than three back-to-back SETUP packets are received.                                                                                                                                              |
 | Bit 5     | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                   |
 | Bit 4     | OUTTEPD  | 0x0         | rw1c | OUT token received when endpoint disabled<br/>Applies to control OUT endpoints only.<br/>Indicates that an OUT token was received when the endpoint has not yet been enabled. An interrupt is generated on the endpoint for which an OUT token was received. |
-
-
-2025.05.28 Page 499 Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
-| Bit   | Name     | Reset value | Type | Description                                                                                                                                                                                                                                                                                                 |
-| ----- | -------- | ----------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 3 | SETUP    | 0x0         | rw1c | SETUP phase done<br/>Applies to control OUT endpoints only.<br/>Indicates that the SETUP stage for the control endpoint is complete and no more back-to-back SETUP packets were received for the current control transfer. Upon this interrupt, the application can decode the received SETUP data packets. |
 | Bit 2 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                  |
 | Bit 1 | EPTDISD  | 0x0         | rw1c | Endpoint disabled interrupt<br/>Indicates that the endpoint is disabled according to the application's request.                                                                                                                                                                                             |
@@ -1369,15 +950,6 @@ The application must set this register before enabling endpoint 0. Once the endp
 | Bit 6: 0   | XFERSIZE | 0x0         | rw   | Transfer size<br/>Indicates the transfer size (in bytes) for the endpoint 0. The controller interrupts the application when the transfer size becomes 0. The transfer size can be set to the maximum packet size of the endpoint, to be interrupted at the end of each packet.<br/>The controller decrements this field every time a packet from the external memory is written to the transmit FIFO. |
 
 
-2025.05.28 | Page 500 | Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 The controller decrements this field every time a packet from the receive FIFO is written to the external memory.
 
 # 21.6.5.17 OTGFS device IN endpoint-x transfer size register (OTGFS_DIEPTSIZx) (x=1...7, where x is endpoint number)
@@ -1401,16 +973,6 @@ This is a read-only register containing the free space information for the devic
 | Bit 31: 16 | Reserved   | 0x0000      | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                               |
 | Bit 15: 0  | INEPTXFSAV | 0x0200      | ro   | IN endpoint TxFIFO space available<br/>Indicates the amount of free space in the endpoint transmit FIFO. Values are in terms of 32-bit words.<br/>0x0: Endpoint transmit FIFO is full<br/>0x1: 1 word available<br/>0x02: 2 words available<br/>0xn: n words available (0 < n < 512)<br/>0x200: Remaining 512 words<br/>Others: Reserved |
 
-
-2025.05.28
-Page 501
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 # 21.6.5.19 OTGFS device OUT endpoint-x transfer size register (OTGFS_DOEPTSIZx) (x=1...7, where x is endpoint number)
 
@@ -1438,4 +1000,3 @@ This register is available in host and device modes.
 | Bit 0     | STOPPCLK | 0x0         | rw   | Stop PHY clock<br/>The application uses this bit to stop PHY clock when the USB is suspended, session is invalid or device is disconnected. The application clears this bit when the USB is resumed or a new session starts. |
 
 
-2025.05.28 Page 502 Rev 2.07

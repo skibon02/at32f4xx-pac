@@ -1,5 +1,4 @@
 
-ARTERY logo AT32F435/437 Series Reference Manual
 
 # 30 Debug (DEBUG)
 
@@ -46,14 +45,6 @@ Table 30-1 DEBUG register address and reset value
 | DEBUG\_SER\_ID     | 0xE004 2020 | 0x0000 XX0X |
 
 
-2025.05.28 Page 714 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 # 30.4.1 DEBUG device ID (DEBUG_IDCODE)
 
 MCU integrates an ID code that is used to identify MCU’s revision code. The DEBUG_IDCODE register is mapped on the external PPB bus at address 0xE0042000. This code is accessible by the JTAG debug port or SW debug port or by the user code.
@@ -99,14 +90,6 @@ MCU integrates an ID code that is used to identify MCU’s revision code. The DE
 | 0x7008\_3257 | AT32F437RCT7     | 256KB      | LQFP64   |
 
 
-2025.05.28 Page 715 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 ## 30.4.2 DEBUG control register (DEBUG_CTRL)
 
 This register is asynchronously reset by POR Reset (not reset by system reset). It can be written by the debugger under reset.
@@ -130,17 +113,7 @@ This register is asynchronously reset by POR Reset (not reset by system reset). 
 | Bit 27     | I2C2\_SMBUS\_TIMEOUT | 0x0         | rw   | I2C2 pause control bit<br/>0: I2C2 SMBUS timeout control works normally<br/>1: I2C2 SMBUS timeout control stops running |
 | Bit 26     | CAN2\_PAUSE          | 0x0         | rw   | CAN2 pause control bit<br/>0: CAN2 works normally<br/>1: CAN2 receive register pauses (does not receive data)           |
 | Bit 25     | CAN1\_PAUSE          | 0x0         | rw   | CAN1 pause control bit<br/>0: CAN1 works normally<br/>1: CAN1 receive register pauses (does not receive data)           |
-
-
-2025.05.28 Page 716 Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | Bit 24     | I2C1\_SMBUS\_TIMEOUT | 0x0  | rw   | I²C1 pause control bit<br/>0: I²C1 SMBUS timeout control works normally<br/>1: I²C1 SMBUS timeout control stops running |
-| ---------- | -------------------- | ---- | ---- | ----------------------------------------------------------------------------------------------------------------------- |
 | Bit 23: 16 | Reserved             | 0x00 | resd | Kept at its default value.                                                                                              |
 | Bit 15     | ERTC\_512\_PAUSE     | 0x0  | rw   | ERTC 512Hz output clock pause control bit<br/>0: ERTC 512Hz output clock works normally<br/>1: Froze 512Hz output clock |
 | Bit 14: 13 | Reserved             | 0x0  | rw   | Kept at its default value.                                                                                              |
@@ -158,15 +131,6 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 1      | TMR3\_PAUSE          | 0x0  | rw   | TMR3 pause control bit<br/>0: TMR3 works normally<br/>1: TMR3 stops running                                             |
 | Bit 0      | TMR2\_PAUSE          | 0x0  | rw   | TMR2 pause control bit<br/>0: TMR2 works normally<br/>1: TMR2 stops running                                             |
 
-
-2025.05.28 Page 717 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 ### 30.4.4 DEBUG APB2 pause register (DEBUG_ APB2_PAUSE)
 
@@ -197,6 +161,3 @@ DEBUG_SIE_ID register is used to identify MCU part number and its revision code.
 | Bit 2: 0   | REV\_ID  | 0xX         | ro   | Revision code<br/>0x0: Revision A                        |
 
 
-2025.05.28
-Page 718
-Rev 2.07

@@ -1,6 +1,4 @@
-ARTERY logo
 
-AT32F435/437 Series Reference Manual
 
 Table 15-1 Minimum and maximum timeout value when PCLK1=72 MHz
 
@@ -56,19 +54,7 @@ Table 15-2 WWDT register map and reset value
 | Bit 31: 10 | Reserved | 0x000000    | resd | Kept at its default value.                                                       |
 | Bit 9      | RLDIEN   | 0x0         | rw1s | Reload counter interrupt<br/>0: Disabled<br/>1: Enabled                          |
 | Bit 8: 7   | DIV      | 0x0         | rw   | Clock division value<br/>00: PCLK1 divided by 4096<br/>01: PCLK1 divided by 8192 |
-
-
-2025.05.28 Page 340 Rev 2.07
-
-
-
-
-ARTERY logo
-
-AT32F435/437 Series Reference Manual
-
 |          |     |      |    | 10: PCLK1 divided by 16384<br/>11: PCLK1 divided by 32768                                                                                                                              |
-| -------- | --- | ---- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 6: 0 | WIN | 0x7F | rw | Window value<br/>If the counter is reloaded while its value is greater than the window register value, a reset is generated. The counter must be reloaded between 0x40 and WIN\[6: 0]. |
 
 
@@ -80,6 +66,3 @@ AT32F435/437 Series Reference Manual
 | Bit 0     | RLDF     | 0x0         | rw0c | Reload counter interrupt flag<br/>This flag is set when the downcounter reaches 0x40.<br/>'This bit is set by hardware and cleared by software. |
 
 
-2025.05.28
-Page 341
-Rev 2.07

@@ -1,6 +1,4 @@
 
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 Figure 16-1 WDT block diagram
 
@@ -75,16 +73,6 @@ Table 16-2 WDT register and reset value
 | WDT\_WIN | 0x10   | 0x0000 0FFF |
 
 
-2025.05.28
-Page 343
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 ### 16.5.1 Command register (WDT_CMD)
 
 (Reset in Standby mode)
@@ -134,4 +122,3 @@ Artery logo AT32F435/437 Series Reference Manual
 | Bit 11 : 0 | WIN      | 0xFFF       | ro   | Window value<br/>When the counter value is greater than the window value, the reload counter will perform a reset. The reload counter value falls between 0 and the window value. |
 
 
-2025.05.28 Page 344 Rev 2.07

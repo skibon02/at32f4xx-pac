@@ -1,6 +1,4 @@
 
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 Figure 22-3 Cross-return algorithm
 
@@ -43,15 +41,6 @@ Refer to the list of abbreviations used in register descriptions.
 
 These peripheral registers must be accessed by words (32 bits).
 
-2025.05.28
-Page 505
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 # 22.6.1 ACC register map
 
@@ -84,19 +73,6 @@ Table 22-2 ACC register map and reset values
 | Bit 11: 8  | STEP      | 0x1         | rw   | Calibrated step<br/>This field defines the value after each calibration.<br/>Note: It is recommended to set the step bit in order to get a more accurate calibration result. While ENTRIM=0, only the HICKCAL is calibrated. If the step is incremented or decremented by one, the HICKCAL will be incremented or decremented by one accordingly, and the HICK frequency will increase or decrease by 40KHz (design value). This is a positive relationship.<br/>While ENTRIM=1, only the HICKTRIM is calibrated. If the step is incremented or decremented by one, the HICKTRIM will be incremented or decremented by one accordingly, and the HICK frequency will increase or decrease by 20KHz (design value). This is a positive relationship. |
 | Bit 7: 6   | Reserved  | 0x0         | rw   | Forced by hardware to 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Bit 5      | CALRDYIEN | 0x0         | rw   | CALRDY interrupt enable<br/>This bit is set or cleared by software.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-
-
-2025.05.28 Page 506 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
-| Bit   | Name     | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                               |
-| ----- | -------- | ----------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |          |             |      | 0: Interrupt generation disabled<br/>1: ACC interrupt is generated when CALRDY=1 in the ACC\_STS register                                                                                                                                                                                                                                                 |
 | Bit 4 | EIEN     | 0x0         | rw   | RSLOST error interrupt enable<br/>This bit is set or cleared by software.<br/>0: Interrupt generation disabled<br/>1: ACC interrupt is generated when RSLOST=1 in the ACC\_STS register                                                                                                                                                                   |
 | Bit 3 | Reserved | 0x0         | rw   | Forced by hardware to 0                                                                                                                                                                                                                                                                                                                                   |
@@ -122,17 +98,6 @@ AT32F435/437 Series Reference Manual
 | Bit 15: 0  | C1       | 0x1F2C      | rw   | Compare 1<br/>This value is the lower boundary for triggering calibration, and its default value is 7980. When the number of clocks sampled by ACC in 1ms period is less than or equal to C1, auto calibration is triggered automatically.<br/>When the actual sampling value (number of clocks in 1ms) is greater than C1 but less than C3, auto calibration is not enabled. |
 
 
-2025.05.28
-Page 507
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 ## 22.6.6 Compare value 2 (ACC_C2)
 
 | Bit        | Name     | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -149,6 +114,3 @@ AT32F435/437 Series Reference Manual
 | Bit 15: 0  | C3       | 0x1F54      | rw   | Compare 3<br/>This value is the upper boundary for triggering calibration. When the number of clock sampled by ACC in 1ms period is greater than or equal to C3, auto calibration is triggered automatically.<br/>When the actual sampling value (number of clocks in 1ms period) is greater than C1 but less than C3, auto calibration is not enabled. |
 
 
-2025.05.28
-Page 508
-Rev 2.07

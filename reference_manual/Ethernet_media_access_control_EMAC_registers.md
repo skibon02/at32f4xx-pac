@@ -1,5 +1,4 @@
 
-Artery logo AT32F435/437 Series Reference Manual
 
 Figure 26-17 Ethernet interrupts
 
@@ -89,19 +88,7 @@ The peripheral registers can be accessed by bytes (8-bit), half words (16-bit) o
 | EMAC\_MACRWFF       | 0x28   | 0x0000 0000 |
 | EMAC\_MACPMTCTRLSTS | 0x2C   | 0x0000 0000 |
 | EMAC\_MACISTS       | 0x38   | 0x0000 0000 |
-
-
-2025.05.28 Page 616 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | EMAC\_MAIMR      | 0x3C   | 0x0000 0000 |
-| ---------------- | ------ | ----------- |
 | EMAC\_MACA0H     | 0x40   | 0x0010 FFFF |
 | EMAC\_MACA0L     | 0x44   | 0xFFFF FFFF |
 | EMAC\_MACA1H     | 0x48   | 0x0000 FFFF |
@@ -142,21 +129,7 @@ AT32F435/437 Series Reference Manual
 | EMAC\_DMASTS     | 0x1014 | 0x0000 0000 |
 | EMAC\_DMAOPM     | 0x1018 | 0x0000 0000 |
 | EMAC\_DMAIE      | 0x101C | 0x0000 0000 |
-
-
-2025.05.28
-Page 617
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | EMAC\_DMAMFBOCNT | 0x1020 | 0x0000 0000 |
-| ---------------- | ------ | ----------- |
 | EMAC\_DMACTD     | 0x1048 | 0x0000 0000 |
 | EMAC\_DMACRD     | 0x104C | 0x0000 0000 |
 | EMAC\_DMACTBADDR | 0x1050 | 0x0000 0000 |
@@ -182,20 +155,7 @@ A delay greater than 4μs is required for two consecutive write accesses to this
 | Bit 15     | Reserved | 0x1         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                |
 | Bit 14     | FES      | 0x0         | rw   | Fast EMAC Speed<br/>This bit indicates the speed of the MII, RMII interface.<br/>0: 10 Mbps<br/>1: 100 Mbps                                                                                                                                                                                                                                                                                               |
 | Bit 13     | DRO      | 0x0         | rw   | Disable Receive Own<br/>When this bit is set, the MAC disables the frame reception in half-duplex mode if the phy\_txen\_o is enabled.<br/>When this bit is cleared, the MAC will receive all packets that are given by the PHY during transmission.<br/>*This bit is not applicable when the MAC is in full-duplex*                                                                                      |
-
-
-2025.05.28
-Page 618
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |          |          |     |      | mode.<br/>This bit is reserved (with default value RO) when the MAC is configured as “For full-duplex mode only” mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------- | -------- | --- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 12   | LM       | 0x0 | rw   | Loopback Mode<br/>When this bit is set, the MAC MII operates in loopback mode. The MII receive clock input (clk\_rx\_i) is required for the loopback mode to work normally, for the transmit clock is not looped-back internally.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 11   | DM       | 0x0 | rw   | Duplex Mode<br/>When this bit is set, the MAC operates in full-duplex mode, in which it can transmit and receive simultaneously.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 10   | IPC      | 0x0 | rw   | IPv4 Checksum<br/>When this bit is set, the MAC calculates the 16-bit complement sum of all received Ethernet frames and enables IPv4 header checksum (assuming it is bytes 26-26 or 29-30 (VLANtagged)) for received frames, and gives the status in the receive status information.<br/>The MAC also appends the 16-bit checksum of the calculated IP header packets (bytes after the IPv4header ), and adds it to the Ethernet frame that has been sent out to the application (when Type 2 COE is deselected).<br/>When this bit is cleared, this feature is disabled.<br/>When this bit is set, IPv4 header checksum feature and IPv4 or IPv6 TCP, UDP or ICMP payload checksum feature is enabled while the Type 2 COE is selected. When this bit is cleared, the COE function in the receiver is disabled, and the corresponding PCE and IP HCE status bits are always 0. This bit is reserved (with default value RO) if the IP checksum mechanism is disabled during the core configuration. |
@@ -204,17 +164,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 7    | ACS      | 0x0 | rw   | Automatic pad/CRC Stripping<br/>When this bit is set, the MAC strips the pad/FCS field on received frames only when the frame length is shorter than 1536 bytes. All received frame with length field greater than or equal to 1536 bytes are passed on to the application without stripping the Pad or FCS field.<br/>When this bit is cleared, the MAC will forward all received frames to the master without changing its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Bit 6: 5 | BL       | 0x0 | rw   | Back-off Limit<br/>The Back-off limit defines the random integer number (r) of slot time delays (512 bit times for 10/100 Mbps) the MAC waits before retries after a collision. This field is applicable only in the half-duplex mode. It is reserved (RO) in “For full-duplex mode only” mode.<br/>00: k= min (n, 10)<br/>01: k = min (n, 8)<br/>10: k = min (n, 4)<br/>11: k = min (n, 1)<br/>Where n = the number of slot time delays for retransmission attempt, and r takes the random integer value in the range 0 ≤ r < 2k.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Bit 4    | DC       | 0x0 | rw   | Deferral Check                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-
-
-2025.05.28 Page 619 Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 |          |          |     |      | When this bit is set, the deferral check function is enabled in the MAC. The MAC issues a frame abort status and sets the excessive deferral error flag bit in the transmit frame status when the transmit state machine is delayed for more than 24288 bit times in 10/100 Mbit/s mode.<br/>If the Jumbo frame mode is enabled in 10/100 Mbps mode, the deferral threshold is 155680 bit times. Deferral begins when the transmitter is ready to transmit, but is prevented when an active carrier sense signals is detected on the MII. Deferral time is not cumulative. For instance, if the transmitter is deferred for 10000 bit times because that the CRS signals is active first, but then becomes inactive, then transmits, collides, backs off because of collision, and then has to defer again after the completion of back-off, the deferral times resets to 0 and restarts.<br/>When this bit is cleared, the deferral check function is disabled. The MAC defers until the CRS signal becomes inactive. This bit is applicable only in the half-duplex mode. It is reserved (RO) in “For full-duplex mode only” mode. |
-| -------- | -------- | --- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 3    | TE       | 0x0 | rw   | Transmitter Enable<br/>When this bit is set, the transmit state machine of the MAC is enabled. when this bit is cleared, the MAC disables the transmit state machine after the completion of the current frame transmission, and does not transmit any further frames (To modify this bit through consecutive commands, if needed, a deferral value greater than 4us is required between two consecutive operations)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Bit 2    | RE       | 0x0 | rw   | Receiver Enable<br/>When this bit is set, the receive state machine of the MAC is enabled. when this bit is cleared, the MAC disables the receive state machine after the completion of the current frame reception, and does not receive any further frames (To modify this bit through consecutive commands, if needed, a deferral value greater than 4us is required between two consecutive operations).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Bit 1: 0 | Reserved | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -232,18 +182,7 @@ The second level of filtering is performed on the incoming frames based on other
 | Bit 30: 11 | Reserved | 0x00000     | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 10     | HPF      | 0x0         | rw   | Hash or Perfect Filter<br/>When this bit is set, the address filter passes frames that match the perfect filter or hash filter set by the HMC or HUC bit.<br/>When this bit is cleared, if the HUC or HMC bit is set, only frames that match the hash filter can pass address filter.                                                                                                                                                                                        |
 | Bit 9      | SAF      | 0x0         | rw   | Source Address Filter<br/>When this bit is set, the MAC compares the source address of the received frame with the value programmed in the enabled source address registers. If the comparison                                                                                                                                                                                                                                                                               |
-
-
-2025.05.28 Page 620 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |          |      |     |    | mismatches, the MAC will drop this frame.<br/>(SAF). When this bit is cleared, the MAC forwards the received frame to the application and updates the source address filter bit (SAF) in the receive status based on the source address comparison.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------- | ---- | --- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 8    | SAIF | 0x0 | rw | Source Address Inverse Filtering<br/>When this bit is set, the address check block operates in inverse filtering mode. The frame whose source address matches the source address register is marked as failing the source address filter.<br/>When this bit is cleared, the frame whose source address does not match the source address register is marked as failing the source address filter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 7: 6 | PCF  | 0x0 | rw | Pass Control Frames<br/>These bits control the forwarding of all control frames (including unicast and multicast Pause frames).<br/>00: MAC filters all control frames and prevents them from reaching the application<br/>01: MAC forwards all control frames, except Pause frame, to the application even if they fail the address filter<br/>10: MAC forwards all control frames to the application even if they fail the address filter<br/>11: MAC forwards control frames that pass the address filter to the application<br/>The following conditions must be met when dealing with a Pause frame:<br/>1: When the MAC is in full-duplex mode, the bit 2 (REF) is set in the register 6 (flow control register) to enable flow control.<br/>2: When the bit 3 (UP) is set in the register 6 (flow control register), the destination address of the received frames matches the specific multicast address or MAC address 0.<br/>3: Type field of the receive frame is 0x8808, and the OPCODE field is 0x0001. |
 | Bit 5    | DBF  | 0x0 | rw | Disable Broadcast Frames<br/>When this bit is set, the address filters filter all incoming broadcast frames. In addition, all other filter settings will also be overwritten.<br/>When this bit is set, the address filters pass all incoming broadcast frames.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -251,17 +190,7 @@ ARTERY logo AT32F435/437 Series Reference Manual
 | Bit 3    | DAIF | 0x0 | rw | Destination Address Inverse Filtering<br/>When this bit is set, the address check block operates in inverse filtering mode for the destination address comparison for both unicast and multicast frames.<br/>When this bit is cleared, the filter work normally.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 2    | HMC  | 0x0 | rw | Hash MultiCast<br/>When this bit is set, the MAC performs destination address filtering of the received multicast frames according to the hash table.<br/>When this bit is cleared, the MAC performs a perfect destination address filtering for multicast frames, that is, it compares the destination address field with the values programmed in the destination registers.<br/>This bit is reserved if Hash filter is not selected during core configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 1    | HUC  | 0x0 | rw | Hash UniCast<br/>When this bit is set, the MAC performs destination address filtering for unicast frames according to the hash table.<br/>When this bit is cleared, the MAC performs a perfect                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-
-
-2025.05.28 Page 621 Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | Bit   | Name | Reset value | Type | Description                                                                                                                                                                                                                                                        |
-| ----- | ---- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |       |      |             |      | destination address filtering for unicast frames, that is, it compares the destination address field with the values programmed in the destination registers.                                                                                                      |
 | Bit 0 | PR   | 0x0         | rw   | **Promiscuous Mode**<br/>When this bit is set, the address filters pass all incoming frames regardless of their destination or source address. When the PR is set, the source address or destination *address error bits in the receive status word are always 0.* |
 
@@ -302,17 +231,6 @@ The Ethernet MAC MII address register controls the <u>external PHY through the m
 | Bit 15: 11 | PA       | 0x00        | rw   | **PHY Address**<br/>This field indicates which of the 32 possible PHY devices are being accessed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Bit 10: 6  | MII      | 0x00        | rw   | **MII Register**<br/>*This field select the desired MII register in the PHY device.*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Bit 5: 2   | CR       | 0x0         | rw   | **Clock Range**<br/>The CSR clock range selection determines the MDC clock frequency based on the used CSR clock frequency.<br/>Each value (when bit 5=0) has its corresponding CSR clock frequency range in order to ensure that the MDC clock frequency is roughly between 1.0 MHz and 2.5 MHz.<br/>0000: CSR clock frequency is 60–100 MHz, and MDC clock frequency is CSR clock/42<br/>0001: CSR clock frequency is 100–150 MHz, and MDC clock frequency is CSR clock/62<br/>0010: CSR clock frequency is 20–35 MHz, and MDC clock frequency is CSR clock/16<br/>0011: CSR clock frequency is 35–60 MHz, and MDC clock |
-
-
-2025.05.28 | Page 622 | Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
-| Bit   | Name | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----- | ---- | ----------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |      |             |      | frequency is CSR clock/26<br/>0100: CSR clock frequency is 150–250 MHz, and MDC clock frequency is CSR clock/102<br/>0101: CSR clock frequency is 250–288 MHz, and MDC clock frequency is CSR clock/124<br/>0110, 0111: Reserved                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 1 | MW   | 0x0         | rw   | MII Write<br/>When this bit is set, it indicates that the EMAC\_MACMIIDT register is used for a write operation to the PHY.<br/>When this bit is not set, it is a read operation, and the data is loaded to the EMAC\_MACMIIDT register.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Bit 0 | MB   | 0x0         | rw   | MII Busy<br/>This bit should read a logic 0 before writing to the EMAC\_MACMIIADDR and EMAC\_MACMIIDT register.<br/>During a PHY register access, this bit is set to 1'b1 by software, indicating that a read or write access is in progress.<br/>The EMAC\_MACMIIDT register is invalid before this bit is cleared by the MAC. Thus, the MII data should be kept valid until this bit is cleared by the MAC during a PHY write operation. Similarly, the EMAC\_MACMIIDT value is invalid until this bit is cleared by the MAC during a PHY read operation.<br/>The previous operation must be completed before performing subsequent read or write operations. This is because that there will be no acknowledgement from PHY to MAC after the completion of a read or write operation, the function of this bit will not change even if the PHY is not present. |
@@ -339,15 +257,6 @@ The Ethernet MAC flow control register controls the generation and reception of 
 | Bit 7      | DZQP     | 0x0         | rw   | Disable Zero-Quanta Pause<br/>When this bit is set, it disables the automatic generation of Zero-quanta Pause frame while the flow control signal of the FIFO layer is disabled.                                                                                                                                                           |
 
 
-2025.05.28 | Page 623 | Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 When this bit is cleared, normal operation resumes. The automatic generation of Zero-quanta Pause frame is enabled.
 
 | Bit 6    | Reserved | 0x0 | resd    | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -359,27 +268,8 @@ When this bit is cleared, normal operation resumes. The automatic generation of 
 | Bit 0    | FCB/BPA  | 0x0 | rw1c/rw | Flow Control Busy/Back Pressure Activate<br/>In full-duplex mode, this bit initiates a Pause frame; in half-duplex mode, the back-pressure feature is activated if the TFE bit is set.<br/>In full-duplex mode, this bit is read as 1'b0 before writing to the EMAC\_MACFCTRL register. The application must set this bit to 1'b1 to initiate a Pause frame. During a control frame transmission, this bit remains set, indicating that a frame transmission is in progress. After the completion of the Pause frame, the MAC resets this bit to 1'b0. The Ethernet MAC flow control register (EMAC\_MACFCTRL) should not be written until this bit is cleared.<br/>In half-duplex mode, when this bit is set (and the TFE is set), the back-pressure feature is activated by the MAC. During back pressure, when the MAC receives a new frame, the transmitter starts sending a JAM mode, resulting a collision. When the MAC is configured to full-duplex mode, the back-pressure (BPA) function is |
 
 
-2025.05.28
-Page 624
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 automatically disabled.
 
-2025.05.28
-Page 625
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 # 26.3.8 Ethernet MAC VLAN tag register (EMAC_MACVLT)
 
@@ -411,14 +301,6 @@ Figure 26-18 Ethernet MAC remote wakeup frame filter register (EMAC_MACRWFF)
 | Wkuppktfilter\_reg7 | Filter 3 CRC-16    |              |                 |              | Filter 2 CRC-16 |              |                 |              |
 
 
-2025.05.28 Page 626 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 # 26.3.10 Ethernet MAC PMT control and status register (EMAC_MACPMTCTRLSTS)
 
 The Ethernet MAC PMT control and status register sets the request wakeup events and detects the wakeup events.
@@ -448,17 +330,6 @@ The Ethernet MAC interrupt status register identify the events in the MAC that c
 | Bit 8: 7   | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                       |
 | Bit 6      | MTIS     | 0x0         | ro   | MMC Transmit Interrupt Status<br/>This bit is set when an interrupt event is generated in the EMAC\_MMCTI register. This bit is cleared when all bits in the transmit interrupt register are cleared.                                            |
 | Bit 5      | MRIS     | 0x0         | ro   | MMC Receive Interrupt Status<br/>This bit is set when an interrupt is generated in the                                                                                                                                                           |
-
-
-2025.05.28 Page 627 Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
-| Bit      | Name     | Reset value | Type | Description                                                                                                                                                                                                                                                                                   |
-| -------- | -------- | ----------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |          |          |             |      | EMAC\_MMCRI register. This bit is cleared when all bits in the receive interrupt register are cleared.                                                                                                                                                                                        |
 | Bit 4    | MIS      | 0x0         | ro   | MMC Interrupt Status<br/>This bit is set whenever any bit of the \[7: 5] bit is set high. This bit is cleared only when these bits are set low.                                                                                                                                               |
 | Bit 3    | PIS      | 0x0         | ro   | PMT Interrupt Status<br/>This bit is set when a Magic packet or a remote wakeup event is received in power-down mode (see bits 5 and 6 in the EMAC\_MACPMTCTRLSTS register). This bit is cleared when both bits \[6: 5] are cleared due to a read access to the EMAC\_MACPMTCTRLSTS register. |
@@ -491,15 +362,6 @@ If the MAC address register is configured to be double-synchronized with the MII
 | Bit 15: 0  | MA0H     | 0xFFFF      | rw   | MAC Address0 \[47: 32]<br/>This field contains the upper 16 bits of the first 6-byte MCU address. This is used by the MAC for filtering received frames, and for inserting the MAC address in the transmit flow control frames (Pause). |
 
 
-2025.05.28 Page 628 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 # 26.3.14 Ethernet MAC address 0 low register (EMAC_MACA0L)
 
 The Ethernet MAC address 0 low register contains the lower 32 bits of the 6-byte first MAC address.
@@ -531,15 +393,6 @@ The Ethernet MAC address 1 low register contains the lower 32 bits of the 6-byte
 | Bit 31: 0 | MA1L | 0xFFFF FFFF | rw   | MAC Address1 \[31: 0]<br/>These bits contain the lower 32 bits of the 6-byte second MAC address. The contents of this field is undefined until loaded by the application after the initialization process. |
 
 
-2025.05.28
-Page 629
-Rev 2.07
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 # 26.3.17 Ethernet MAC address 2 high register (EMAC_MACA2H)
 
 The Ethernet MAC address 2 high register holds the upper 16 bits of the 6-byte second MAC address. If the MAC address register is configured to be double-synchronized with the MII domain, the synchronization can be enabled only by writing the bit [31: 24] (in little endian mode) or the bit [7: 0] (in big-endian mode) in the Ethernet MAC address 2 low register (EMAC_MACA2L). Consecutive write operations to this address low register must be performed after at least 4 cycles in the destination clock domain so as to achieve an accurate synchronous update.
@@ -569,21 +422,7 @@ The Ethernet MAC address 3 high register holds the upper 16 bits of the 6-byte s
 | Bit    | Name | Reset value | Type | Description                                                                                                      |
 | ------ | ---- | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------- |
 | Bit 31 | AE   | 0x0         | rw   | Address Enable<br/>When this bit is set, the address filter uses the second MAC address for a perfect filtering. |
-
-
-2025.05.28
-Page 630
-Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | Bit 30     | SA       | 0x0    | rw   | When this bit is cleared, the address filter will ignore the address for filtering.<br/>Source Address<br/>When this bit is set, the MAC address 3 \[47: 0] is used for comparison with the source address field of the received frame.<br/>When this bit is cleared, the MAC address 3 \[47: 0] is used for comparison with the destination address field of the received frame.                                                                                                                                                                                                                               |
-| ---------- | -------- | ------ | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 29: 24 | MBC      | 0x00   | rw   | Mask Byte Control<br/>These bits are mask control bits for comparison with each of the MAC address bytes.<br/>When this bit is set, the MAC does not compare the corresponding byte of the received DA/SA with the contents of the MAC address 3 register. Each control bit is used for controlling the mask of the bytes as follows:<br/>Bit 29: EMAC\_MACA3H \[15: 8]<br/>Bit 28: EMAC\_MACA3H \[7: 0]<br/>Bit 27: EMAC\_MACA3L\[31: 24]<br/>...<br/>Bit 24: EMAC\_MACA3L\[7: 0]<br/>It is possible to filter group addresses (that is, group address filtering) by masking one or more bytes of the address. |
 | Bit 23: 16 | Reserved | 0x00   | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 15: 0  | MA3H     | 0xFFFF | rw   | MAC Address3 High \[47: 32]<br/>These bits contain the lower 16 bits (47: 32) of the 6-byte second MAC address.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -609,41 +448,14 @@ The Ethernet DMA bus mode register defines the bus operation modes for the DMA.
 | Bit 24     | PBLx8    | 0x0         | rw   | PBLx8 Mode<br/>When this bit is set, this bit multiples the PBL value programmed (bits \[22: 17] and bits \[13: 8] ) by 8. Thus the DMA transfers data at 8, 16, 32, 64, 128 and 256 beats depending on the PBL value.                                                                                                                                                                                                                             |
 | Bit 23     | USP      | 0x0         | rw   | Use separate PBL<br/>When this bit is set, the Rx DMA uses the value programmed in bit \[22: 17] as PBL. The PBL value in bit \[13: 8] is applicable to Tx DMA operations only.<br/>When this bit is cleared, the PBL value in bit \[13: 8] is applicable to both Tx DMA and Rx DMA operations.                                                                                                                                                    |
 | Bit 22: 17 | RDP      | 0x01        | rw   | Rx DMA PBL                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-
-
-2025.05.28
-Page 631
-Rev 2.07
-
-
-
-
-
-Artery logo
-# AT32F435/437 Series Reference Manual
-
 |            |     |      |    | This field indicates the maximum number of beats to be transferred in one Rx DMA operation. This is the maximum value that is used for a single write or read operation. The Rx DMA always attempts to perform burst transfer as specified in RPBL each time it starts a burst transfer on the host bus. The RPBL can be programmed with 1, 2, 4, 8, 16 and 32. Any other value result in unexpected behavior. These bits are applicable only when the USP bit is set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------- | --- | ---- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 16     | FB  | 0x0  | rw | **Fixed Burst**<br/>This bit controls whether the AHB master interface performs fixed burst transfers or not. When this bit is set, the AHB uses only SINGLE, INCR4, INCR8 or INCR16 during start of normal burst transfers. When this bit is cleared, the AHB or AXI interface uses SINGLE and INCR burst transfer operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Bit 15: 14 | PR  | 0x0  | rw | **Priority Ratio**<br/>These bits control the priority ratio of the round-robin arbitration between Rx DMA and Tx DMA. These bits are valid only when the bit 1 (destination address) is reset. The priority ratio is either Rx: Tx or Tx: Rx, depending on whether the bit 27 (TXPR) is set or reset.<br/>00: 1: 1<br/>01: 2: 1<br/>10: 3: 1<br/>11: 4: 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Bit 13: 8  | PBL | 0x01 | rw | **Programmable Burst Length**<br/>These bits indicate the maximum number of beats to be transferred in one DMA transaction. This is the maximum that is used for a single write or read operation.<br/>The DMA always attempts to perform burst transfer as specified in PBL each time it starts a burst transfer on the host bus. The RPBL can be programmed with 1, 2, 4, 8, 16 and 32. Any other value result in unexpected behavior. When the USP is set, the PBL value is applicable to Tx DMA operations only.<br/>If the number of beats to be transferred is greater than 32, the following steps are required:<br/>1. Set PBLx8 mode<br/>2. Set PBL<br/>For example, if the maximum value to be transferred is greater than 64, then the PBLx8 should be set first, and then the PBL is set to 8. The PBL values have the following limitations:<br/>The maximum number of beats possible is limited by the size of the Tx FIFO and Rx FIFO on the MTL layer, as well as the data bus width on the DMA.<br/>FIFO constraint: The maximum beat supported by the FIFO is half the depth of the FIFO, unless otherwise specified. |
 | Bit 7      | EDE | 0x0  | rw | **Enhanced descriptor enable**<br/>When this bit is set to 1, the enhanced descriptor format is enabled and the descriptor size is increased to 8 words. For details, refer to TX enhanced descriptors and RX enhanced descriptors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 6: 2   | DSL | 0x00 | rw | **Descriptor Skip Length**<br/>These bits define the number of words to skip between two unchained descriptors. The address skip starts from the end of the current descriptor to the start of next descriptor. When the DSL value equals 0, the descriptor is regarded as contiguous by the DMA in ring mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Bit 1      | DA  | 0x0  | rw | **DMA Arbitration**<br/>These bits specify the arbitration scheme between the transmit path and receive path of channel 0.<br/>0: Rx: Tx or Tx: Rx<br/>The priority between round-robin channels depends on the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-
-
-2025.05.28
-Page 632
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 |       |     |     |    | priority as specified in the bit \[15: 14] (PR) and the priority weight as specified in bit 27(TXPR).<br/>1: Fixed priority<br/>When the bit 27 (TXPR) is set, Tx has priority over Rx. Otherwise, Rx has priority over Tx. |
-| ----- | --- | --- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 0 | SWR | 0x1 | rw | Software Reset<br/>When this bit is set, the MAC DMA controller resets all internal registers and MAC logic. This bit is automatically cleared after all reset operations have been completed.                              |
 
 
@@ -680,14 +492,6 @@ If the SR is cleared and this register remains unchanged, then the DMA will use 
 | Bit 31: 0 | SRL  | 0x0000 0000 | rw   | Start of Receive List |
 
 
-2025.05.28 Page 633 Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 These bits contain the base address of the first descriptor in the receive descriptor list. The LSB bits (1: 0, 2: 0 or 3: 0) for 32/64/128-bit bus width are ignored and taken as <u>zero by the DMA. Therefore these LSB bits are read only.</u>
 
 # 26.3.25 Ethernet DMA transmit descriptor list address register (EMAC_DMATDLADDR)
@@ -717,40 +521,14 @@ The EMAC_DMASTS register contains all the status bits the DMA reports to the hos
 | Bit 27     | MMI      | 0x0         | ro   | MAC MMC Interrupt<br/>This bit indicates an interrupt event in the MMC. The software must read the corresponding register to get interrupt sources and clear them in order to reset this bit to 1'b0.<br/>This bit is applicable only when the MAC MMC is enabled. Otherwise, this bit is reserved.                                                 |
 | Bit 26     | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                          |
 | Bit 25: 23 | EB       | 0x0         | ro   | Error Bits<br/>These bits indicate the type of error that caused a bus error. They are applicable only when the bit 13 (FBI) is set. This filed does not generate an interrupt.<br/>000: Error during data transfer by Rx DMA<br/>011: Error during read transfer by Tx DMA<br/>100: Error during Rx DMA descriptor write access                    |
-
-
-2025.05.28 Page 634 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 |            |      |     |      | 101: Error during Tx DMA descriptor write access<br/>110: Error during Rx DMA descriptor read access<br/>111: Error during Tx DMA descriptor read access<br/>Note: 001 and 010 are reserved.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------- | ---- | --- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 22: 20 | TS   | 0x0 | ro   | Transmit Process State<br/>This field indicates the Tx DMA FSM state. This field does not generate an interrupt.<br/>3'b000: Stopped; Rest or Stop transmit command issued<br/>3'b001: Running; Fetching transmit descriptor<br/>3'b010: Running; Waiting for status<br/>3'b011: Running; Reading data from host memory buffer and queuing it to Tx FIFO<br/>3'b100: Time stamp write status<br/>3'b101: Reserved for future use<br/>3'b110: Suspended; Transmit descriptor unavailable or transmit buffer underflow<br/>3'b111: Running; Closing transmit descriptor                                                                                                                                                                                                                                                                |
 | Bit 19: 17 | RS   | 0x0 | ro   | Receive Process State<br/>This field indicates the Rx DMA FSM state. This field does not generate an interrupt.<br/>3'b000: Stopped; Rest or Stop transmit command issued<br/>3'b001: Running; Fetching receive descriptor<br/>3'b010: Reserved for future use<br/>3'b011: Running; Waiting for receive packet<br/>3'b100: Suspended; Receive descriptor unavailable<br/>3'b101: Running; Closing receive descriptor<br/>3'b110: Time stamp write status<br/>3'b111: Running; Transferring the receive buffer data to host memory                                                                                                                                                                                                                                                                                                    |
 | Bit 16     | NIS  | 0x0 | rw1c | Normal Interrupt Summary<br/>The normal interrupt summary value is the logic OR of the following bits when the corresponding interrupt bits are enabled in the interrupt enable registers.<br/>EMAC\_DMASTS\[0]: Transmit interrupt<br/>EMAC\_DMASTS\[2]: Transmit buffer unavailable<br/>EMAC\_DMASTS\[6]: Receive interrupt<br/>EMAC\_DMASTS\[14]: Early receive interrupt<br/>Only unmasked bits affect the normal interrupt summary.<br/>This is a sticky bit and it must be cleared (by writing 1 to this bit) each time a corresponding bit (causes NIS to be set) is cleared.                                                                                                                                                                                                                                                 |
 | Bit 15     | AIS  | 0x0 | rw1c | Abnormal Interrupt Summary<br/>The abnormal interrupt summary value is the logic OR of the following bits when the corresponding interrupt bits are enabled in the interrupt enable registers.<br/>EMAC\_DMASTS\[1]: Transmit process stopped<br/>EMAC\_DMASTS\[3]: Transmit Jabber timeout<br/>EMAC\_DMASTS\[4]: Receive FIFO overflow<br/>EMAC\_DMASTS\[5]: Transmit data underflow<br/>EMAC\_DMASTS\[7]: Receive buffer unavailable<br/>EMAC\_DMASTS\[8]: Receive process stopped<br/>EMAC\_DMASTS\[9]: Receive watchdog timeout<br/>EMAC\_DMASTS\[10]: Early transmit interrupt<br/>EMAC\_DMASTS\[13]: Fatal bus error<br/>Only unmasked bits affect the abnormal interrupt summary.<br/>This is a sticky bit and it must be cleared (by writing 1 to this bit) each time a corresponding bit (causes AIS to be set) is cleared. |
 | Bit 14     | ERI  | 0x0 | rw1c | Early Receive Interrupt<br/>This bit indicates that the DMA has filled the first data buffer of the packet. This bit is cleared when the software writes 1 to this bit or when the bit 6 (RI) bit is set in this register. (Whichever occurs first)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 13     | FBEI | 0x0 | rw1c | Fatal Bus Error Interrupt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-
-
-2025.05.28
-Page 635
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-# AT32F435/437 Series Reference Manual
-
 |            |          |     |      | This bit indicates that a bus error occurred as defined in bit \[25: 23]. When this bit is set, the corresponding DMA will disable all its bus accesses.                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------- | -------- | --- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 12: 11 | Reserved | 0x0 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Bit 10     | ETI      | 0x0 | rw1c | **Early Transmit Interrupt**<br/>This bit indicates that the frame to be transmitted was fully sent to the MTL Tx FIFO.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Bit 9      | RWT      | 0x0 | rw1c | **Receive Watchdog Timeout**<br/>When this bit is set, it indicates that the receive watchdog timer timeout occurs while receiving the current frame, and the current frame is cut off after the watchdog timeout happens.                                                                                                                                                                                                                                                                                                                      |
@@ -764,17 +542,6 @@ ARTERY logo
 | Bit 1      | TPS      | 0x0 | rw1c | **Transmit Process Stopped**<br/>This bit is set when the transmit process stops.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Bit 0      | TI       | 0x0 | rw1c | **Transmit Interrupt**<br/>This bit indicates the completion of a frame transmission. The bit 31 (OWN) is reset in the TDES0. Specific frame status information will be posted in the descriptor.                                                                                                                                                                                                                                                                                                                                               |
 
-
-2025.05.28
-Page 636
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 # 26.3.27 Ethernet DMA operation mode register (EMAC_DMAOPM)
 
@@ -792,21 +559,7 @@ The EMAC_DMAOPM register defines the receive and transmit operation modes and co
 | Bit 19: 17 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Bit 16: 14 | TTC      | 0x0         | rw   | Transmit Threshold Control<br/>These bits control the threshold of the Tx FIFO. Transmission starts when the frame size in the Tx FIFO is greater than the threshold. In addition, full frames with a length less than the threshold are also transmitted. These bits are applicable only when the bit 21 (TSF) is reset.<br/>000: 64<br/>001: 128<br/>010: 192<br/>011: 256<br/>100: 40<br/>101: 32<br/>110: 24<br/>111: 16                                                                                                                                                                                                |
 | Bit 13     | SSTC     | 0x0         | rw   | Start or Stop Transmission Command<br/>When this bit is set, transmission is in the running state, and the DMA checks the transmit list at the current location                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-
-
-2025.05.28
-Page 637
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 |           |          |      |      | and determines the frame to be transmitted. The DMA acquires the descriptor either from the current position in the list (the transmit list base address set by the transmit descriptor list address register) or from the position where the transmit process was stopped previously. If the current descriptor is owned by the DMA, the transmit process enters suspend state, and the bit 2 (transmit buffer unavailable) is set in the statue register. Transmission command is valid only when the transmission is stopped. If the transmit command were issued before setting the transmit descriptor list address register, the DMA will show unpredictable behavior. |
-| --------- | -------- | ---- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |           |          |      |      | When this bit is cleared, transmit process enters stop state after the completion of a frame transmission. The next descriptor position in the transmit list is saved, and becomes the current position when transmission gets started. To change the list address, write a new value to the transmit descriptor list address register when this bit is reset. The newly written value becomes effective only when this bit is set again. The Stop Transmission Command is effective only when the current frame transmission is complete or transmit process enters suspend state.                                                                                          |
 | Bit 12: 8 | Reserved | 0x00 | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 7     | FEF      | 0x0  | rw   | Forward Error Frames<br/>1: All frames except runt error frames are forwarded to the DMA<br/>0: Rx FIFO drops error frames (CRC error, collision error, giant frame, watchdog timeout and overflow). However, if the frame’s start byte point has already been transferred to the application in Threshold mode, then the frames are not dropped. The Rx FIFO drops the error frames whose start bytes have not been transferred to the AHB bus.                                                                                                                                                                                                                             |
@@ -816,17 +569,6 @@ AT32F435/437 Series Reference Manual
 | Bit 2     | OSF      | 0x0  | rw   | Operate on Second Frame<br/>When this bit is set, it instructs the DMA to process a second frame of transmit data even before the status of the first frame is obtained.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bit 1     | SSR      | 0x0  | rw   | Start or Stop Receive<br/>When this bit is set, the receive process is in the running state, and the DMA attempts to acquire the descriptor from the receive list and processes incoming frames. The DMA acquires the descriptor either from the current position in                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-
-2025.05.28
-Page 638
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
 
 the list (the receive list base address set by the receive descriptor list address register) or from the position where the receive process was stopped previously. If the current descriptor is owned by the DMA, the receive process enters suspend state, and the bit 7 (receive buffer unavailable) is set in the statue register. Reception command is valid only when the reception is stopped. If the reception command were issued before setting the receive descriptor list address register, the DMA will show unpredictable behavior.
 
@@ -851,21 +593,6 @@ The EMAC_DMAIE register enables the interrupts reported by the status register. 
 | Bit 12: 11 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Bit 10     | EIE      | 0x0         | rw   | Early transmit Interrupt Enable<br/>When this bit is set with the abnormal interrupt summary enable bit, the early transmit interrupt is enabled. When *this bit is cleared, the early transmit interrupt is disabled.*                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Bit 9      | RWTE     | 0x0         | rw   | Receive Watchdog Timeout Enable<br/>*When this bit is set with the abnormal interrupt summary*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-
-
-2025.05.28
-Page 639
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-AT32F435/437 Series Reference Manual
-
-| Bit   | Name | Reset value | Type | Description                                                                                                                                                                                                                                      |
-| ----- | ---- | ----------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |       |      |             |      | enable bit, the receive watchdog timeout interrupt is enabled. When this bit is cleared, the receive watchdog timeout interrupt is disabled.                                                                                                     |
 | Bit 8 | RSE  | 0x0         | rw   | Receive Stopped Enable<br/>When this bit is set with the abnormal interrupt summary enable bit, the receive stopped interrupt is enabled. When *this bit is cleared, the receive stopped interrupt is disabled.*                                 |
 | Bit 7 | RBUE | 0x0         | rw   | Receive Buffer Unavailable Enable<br/>When this bit is set with the abnormal interrupt summary enable bit, the receive buffer unavailable interrupt is enabled. When this bit is cleared, the receive buffer unavailable interrupt is disabled.  |
@@ -889,21 +616,7 @@ The DMA contains two counters to track the number of missed frames during recept
 | Bit 31: 29 | Reserved | 0x0         | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                    |
 | Bit 28     | OBFOC    | 0x0         | rrc  | Overflow Bit for FIFO Overflow Counter<br/>This bit is set whenever an overflow occurs on the overflow frame counter (\[27: 17]), that is, the Rx FIFO overflows, and the overflow frame counter reaches its maximum value. In this case, the overflow frame counter is reset to all zero, and this bit indicates that a toggle has occurred. |
 | Bit 27: 17 | OFC      | 0x000       | rrc  | Overflow Frame Counter                                                                                                                                                                                                                                                                                                                        |
-
-
-2025.05.28
-Page 640
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 16    | OBMFC | 0x0    | rrc | These bits indicate the number of frames missed by the application.<br/>Overflow Bit for Missed Frame Counter<br/>This bit is set whenever an overflow occurs on the missed frame counter (\[15: 0]), that is, the DMA ignores incoming frames due to the host receive buffer being unavailable, and the missed frame counter reaches its maximum value. In this case, the missed frame counter is reset to all zero, and this bit indicates that a toggle has occurred. |
-| --------- | ----- | ------ | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Bit 15: 0 | MFC   | 0x0000 | rrc | Missed Frame Counter<br/>This field indicates the number of frames missed by the controller due to the host receive buffer being unavailable. This counter is incremented each time the DMA discards an incoming frame.                                                                                                                                                                                                                                                  |
 
 
@@ -951,21 +664,6 @@ The EMAC_MMCCTRL register defines the operating mode of the management counters.
 | --------- | -------- | ----------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31: 4 | Reserved | 0x00000000  | resd | Kept at its default value.                                                                                                                    |
 | Bit 3     | FMC      | 0x0         | rw   | Freeze MMC Counter<br/>When this bit is set, it freezes all the MMC counters to their current value. None of the MMC counters are updated due |
-
-
-2025.05.28
-Page 641
-Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
-| Bit   | Name | Reset value | Type | Description                                                                                                                                                             |
-| ----- | ---- | ----------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |      |             |      | to any transmitted or received frame until this bit is set to 0. If the Reset on Read bit is set while the MMC counter is being read, the counter is also cleared.      |
 | Bit 2 | RR   | 0x0         | rw   | **Reset on Read**<br/>When this bit is set, the MMC counter is reset to 0 after being read. The counter is cleared when the least significant byte bit \[7: 0] is read. |
 | Bit 1 | SCR  | 0x0         | rw   | **Stop Counter Rollover**<br/>When this bit is set, the counter does not roll over to 0 after it reaches the maximum value.                                             |
@@ -1002,19 +700,7 @@ The EMAC_MMCTI register contains the interrupts generated in the following condi
 | Bit 21     | TGF      | 0x0         | rrc  | **Transmitted Good Frames**<br/>This bit is set when the transmitted good frame counter reaches its maximum value or half its maximum value.                                                          |
 | Bit 20: 16 | Reserved | 0x00        | resd | Kept at its default value.                                                                                                                                                                            |
 | Bit 15     | TGFMSC   | 0x0         | rrc  | **Transmitted Good Frames More Single Collision**<br/>This bit is set when the transmitted good frame after more than a single collision counter reaches its maximum value or half its maximum value. |
-
-
-2025.05.28
-Page 642
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | Bit 14    | TSCGFCI  | 0x0    | rrc  | Transmitted Single Collision Good Frame Counter Interrupt<br/>This bit is set when the transmitted good frame after a single collision counter reaches its maximum value or half its maximum value. |
-| --------- | -------- | ------ | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 13: 0 | Reserved | 0x0000 | resd | Kept at its default value.                                                                                                                                                                          |
 
 
@@ -1054,14 +740,6 @@ This register maintains the number of successfully transmitted frames after a si
 | --------- | ------ | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31: 0 | TGFSCC | 0x0000 0000 | ro   | Transmitted Good Frames Single Collision Counter)<br/>This field maintains the transmitted good frames after a single collision counter. |
 
-
-2025.05.28 | Page 643 | Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 ### 26.3.40 Ethernet MMC transmitted good frame more than a single collision counter register (EMAC_MMCTFMSCC)
 
@@ -1118,19 +796,7 @@ This register controls the generation of system time in the receiver and the gen
 | Bit 18     | EMAFPFF  | 0x0         | rw   | Enable MAC Address For PTP Frame Filtering<br/>When this bit is set, the MAC address (matches any of the MAC address registers) is used for PTP frame filtering while the PTP is directly sent by the Ethernet. |
 | Bit 17: 16 | SPPFTS   | 0x0         | rw   | Select PTP Packets For Taking Snapshot<br/>00: Normal clock<br/>01: Boundary clock<br/>10: End-to-End Transparent Clock<br/>11: Point-to-Point Transparent Clock                                                |
 | Bit 15     | ESFMRTM  | 0x0         | rw   | Enable Snapshot For Message Relevant To Master<br/>When this bit is set, it enables snapshots for messages relevant to master. Otherwise, it enables snapshots for                                              |
-
-
-2025.05.28 Page 644 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 |          |           |     |      | messages relevant to slave.                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------- | --------- | --- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 14   | ETSFEM    | 0x0 | rw   | Enable Timestamp Snapshot For Event Messages<br/>When this bit is set, it enables time stamp snapshots for event messages only (SYNC, Delay\_Req, Pdelay\_Req, or Pdelay\_Resp). When this bit is cleared, time stamp snapshots are applicable to all the messages except Announce, Management and Signaling.                                                                                                          |
 | Bit 13   | EPPFSIP4U | 0x1 | rw   | Enable Processing of PTP Frames Sent over IPv4-UDP<br/>When this bit is set, the MAC receiver processes the PTP encapsulated in UDP over IPv4 packet. When this bit is cleared, the MAC ignores the PTP transferred over UDP-IPv4 packet. This bit is set by default.                                                                                                                                                  |
 | Bit 12   | EPPFSIP6U | 0x0 | rw   | Enable Processing of PTP Frames Sent over IPv6-UDP<br/>When this bit is set, the MAC receiver processes the PTP encapsulated in UDP over IPv6 packet. When this bit is cleared, the MAC ignores the PTP sent over UDP-IPv6 packet.                                                                                                                                                                                     |
@@ -1143,20 +809,6 @@ ARTERY logo
 | Bit 4    | TITE      | 0x0 | rw   | Timestamp Interrupt Trigger Enable<br/>When this bit is set, a time stamp interrupt is enabled if the system time becomes greater than the value written in the target time register. This bit is cleared when the time stamp trigger interrupt is generated.                                                                                                                                                          |
 | Bit 3    | TU        | 0x0 | rw   | Timestamp Update<br/>When this bit is set, the system time is updated (added or subtracted from) with the value programmed in the system time second update register and system time nanosecond update register.<br/>This bit must be read as 0 before being updated. This bit is cleared after the hardware update is completed. Time stamp high word register (if enabled) is not updated.                           |
 | Bit 2    | TI        | 0x0 | rw   | Timestamp Initialize<br/>When this bit is set, the system time is initialized (overwritten) with the value specified in the system time second update register and system time nanosecond update register.                                                                                                                                                                                                             |
-
-
-2025.05.28
-Page 645
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
-| Bit   | Name | Reset value | Type | Description                                                                                                                                                                                                                                                                                                                                                                                        |
-| ----- | ---- | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       |      |             |      | This bit must be read as 0 before being updated. This bit is cleared after the initialization. Time stamp high word register (if enabled) is not updated.                                                                                                                                                                                                                                          |
 | Bit 1 | TFCU | 0x0         | rw   | Timestamp Fine or Coarse Update<br/>When this bit is set, it indicates that the system time is updated using a fine update method. When this bit is cleared, it indicates that the system time is updated using a coarse update method.                                                                                                                                                            |
 | Bit 0 | TE   | 0x0         | rw   | Timestamp Enable<br/>When this bit is set, time stamp function is enabled for transmit and receive frames. Once disabled, the time stamp function is not added for transmit and receive frames, and the time stamp generator is suspended as well. Once enabled, the time stamp (system time) should be initialized. On the receive side, the MAC processes 1588 frames only when this bit is set. |
@@ -1198,14 +850,6 @@ System time second register and system time nanosecond register indicate the cur
 | Bit 31: 0 | TS   | 0x0000 0000 | ro   | Timestamp Second<br/>This field indicates the second value of the current system time maintained by the MAC. |
 
 
-2025.05.28 Page 646 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 # 26.3.48 Ethernet PTP time stamp low register (EMAC_PTPTSL)
 
 This register contains the lower 32 time bits. It is a read-only register containing the subsecond system time value.
@@ -1244,14 +888,6 @@ This register value is used only when the system time is configured for Fine upd
 | Bit 31: 0 | TAR  | 0x0000 0000 | rw   | Timestamp Addend Register<br/>This field indicates the 32-bit time value to be added to the accumulator in order to achieve time synchronization. |
 
 
-2025.05.28 Page 647 Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
-
 # 26.3.52 Ethernet PTP target time high register (EMAC_PTPTTH)
 
 Target time second register and target time subsecond register are used to schedule an interrupt event when the system time exceeds the value programmed in these registers.
@@ -1283,23 +919,9 @@ Target time second register and target time subsecond register are used to sched
 | --------- | -------- | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 31: 4 | Reserved | 0x00000000  | resd | Kept at its default value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Bit 3: 0  | POFC     | 0x0         | rw   | PPS0 Output Frequency Control<br/>The output of this field depends on the emac\_pps\_sel bit (bit 15 in the CRM\_MISC2 register)<br/>Emac\_pps\_sel=0:<br/>0000: 1 Hz, use binary rollover control, pulse width is 125 ms; use digital rollover, pulse width is 100 ms<br/>0001: 2 Hz, use binary rollover control, duty cycle is 50% (digital rollover is not recommended)<br/>0010: 4 Hz, se binary rollover control, duty cycle is 50% (digital rollover is not recommended)<br/>0011: 8 Hz, use binary rollover control, duty cycle is 50%(digital rollover is not recommended)<br/>0100: 16 Hz, use binary rollover control, duty cycle is 50% (digital rollover is not recommended)<br/>1111: 32.768 kHz, use binary rollover control, duty cycle is 50% (digital rollover is not recommended)<br/>Emac\_pps\_sel=1:<br/>0000: 1 Hz, pulse width is one clk\_ptp cycle<br/>0001: For binary rollover, 2hz, duty cycle 50%; For digital |
-
-
-2025.05.28 Page 648 Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 rollover, 1hz (digital rollover is not recommended)
 0010: For binary rollover, 4hz, duty cycle 50%; For digital rollover, 2hz (digital rollover is not recommended)
 0011: For binary rollover, 8hz, duty cycle 50%; For digital rollover, 4hz (digital rollover is not recommended)
 1111: For binary rollover, 32.768khz, duty cycle 50%; For digital rollover, 16.384khz (digital rollover is not recommended)
 Digital rollover is not recommended when the PPS is non-zero value, because PPS output waveforms will be irregular (although its average frequency is always correct in any one-second window ) in these cases.
 
-2025.05.28
-Page 649
-Rev 2.07

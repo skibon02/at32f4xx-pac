@@ -1,4 +1,3 @@
-ARTERY logo **AT32F435/437 Series Reference Manual**
 
 Table 17-2 ERTC low-power mode wakeup
 
@@ -57,19 +56,7 @@ Table 17-4 ERTC register map and reset values
 | ERTC\_TSDT  | 0x34   | 0x0000 000D |
 | ERTC\_TSSBS | 0x38   | 0x0000 0000 |
 | ERTC\_SCAL  | 0x3C   | 0x0000 0000 |
-
-
-2025.05.28 Page 352 Rev 2.07
-
-
-
-
-
-Artery logo
-AT32F435/437 Series Reference Manual
-
 | ERTC\_TAMP   | 0x40      | 0x0000 0000 |
-| ------------ | --------- | ----------- |
 | ERTC\_ALASBS | 0x44      | 0x0000 0000 |
 | ERTC\_ALBSBS | 0x48      | 0x0000 0000 |
 | ERTC\_BPRx   | 0x50-0x9C | 0x0000 0000 |
@@ -113,21 +100,7 @@ AT32F435/437 Series Reference Manual
 | Bit 31: 24 | Reserved | 0x00        | resd | Kept at its default value.                                                                                               |
 | Bit 23     | CALOEN   | 0x0         | rw   | Calibration output enable<br/>0: Calibration output disabled<br/>1: Calibration output enabled                           |
 | Bit 22: 21 | OUTSEL   | 0x0         | rw   | Output source selection<br/>00: Output source disabled<br/>01: Alarm clock A<br/>10: Alarm clock B<br/>11: Wakeup events |
-
-
-2025.05.28
-Page 353
-Rev 2.07
-
-
-
-
-
-ARTERY logo
-AT32F435/437 Series Reference Manual
-
 | Bit 20 | OUTP    | 0x0 | rw | Output polarity<br/>0: High<br/>1: Low                                                                                                                                                                                                                                                                                                                               |
-| ------ | ------- | --- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 19 | CALOSEL | 0x0 | rw | Calibration output selection<br/>0: 512Hz<br/>1: 1Hz                                                                                                                                                                                                                                                                                                                 |
 | Bit 18 | BPR     | 0x0 | rw | Battery powered domain data register<br/>This bit in the battery powered domain is not affected by a system reset. It is used to store the daylight saving time change or others that need to be saved permanently.                                                                                                                                                  |
 | Bit 17 | DEC1H   | 0x0 | wo | Decrease 1 hour<br/>0: No effect<br/>1: Subtract 1 hour<br/>Note: This bit is applicable only when the current hour is not 0. The next second takes effect when this bit is set (don’t set this bit when the hour is being incremented)                                                                                                                              |
@@ -145,19 +118,7 @@ AT32F435/437 Series Reference Manual
 | Bit 5  | DREN    | 0x0 | rw | Date/time register direct read enable<br/>0: Date/time register direct read disabled. ERTC\_TIME, ERTC\_DATE and ERTC\_SBS values are taken from the synchronized registers, which are updated once every two ERTC\_CLK cycles<br/>1: Date/time register direct read enabled. ERTC\_TIME, ERTC\_DATE and ERTC\_SBS values are taken from the battery powered domain. |
 | Bit 4  | RCDEN   | 0x0 | rw | Reference clock detection enable<br/>0: Reference clock detection disabled<br/>1: Reference clock detection enabled                                                                                                                                                                                                                                                  |
 | Bit 3  | TSEDG   | 0x0 | rw | Timestamp trigger edge<br/>0: Rising edge                                                                                                                                                                                                                                                                                                                            |
-
-
-2025.05.28
-Page 354
-Rev 2.07
-
-
-
-
-ARTERY logo # AT32F435/437 Series Reference Manual
-
 | Bit 2: 0 | WATCLK | 0x0 | rw | 1: Falling edge<br/>Wakeup timer clock selection<br/>000: ERTC\_CLK/16<br/>001: ERTC\_CLK/8<br/>010: ERTC\_CLK/4<br/>011: ERTC\_CLK/2<br/>10x: ck\_b<br/>11x: ck\_b is selected. 216 is added to the wakeup counter value, and wakeup time =ERTC\_WAT+216.<br/>Note: The write access to this field is supported when WATEN=0 and WATWF=1. |
-| -------- | ------ | --- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 
 ## 17.4.4 ERTC initialization and status register (ERTC_STS)
@@ -175,19 +136,7 @@ ARTERY logo # AT32F435/437 Series Reference Manual
 | Bit 9      | ALBF     | 0x0         | rw0c | Alarm clock B flag<br/>0: No alarm clock event<br/>1: Alarm clock event occurs<br/>Note: The clearing operation of this bit takes effect after two APB\_CLK cycles.                                                                                                                                                                                                                     |
 | Bit 8      | ALAF     | 0x0         | rw0c | Alarm clock A flag<br/>0: No alarm clock event<br/>1: Alarm clock event occurs<br/>Note: The clearing operation of this bit takes effect after two APB\_CLK cycles.                                                                                                                                                                                                                     |
 | Bit 7      | IMEN     | 0x0         | rw   | Initialization mode enable<br/>0: Initialization mode disabled<br/>1: Initialization mode enabled<br/>When an initialization mode is entered, the calendar stops running.                                                                                                                                                                                                               |
-
-
-2025.05.28 Page 355 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 6 | IMF   | 0x0 | ro   | Enter initialization mode flag<br/>0: Initialization mode is not entered<br/>1: Initialization mode is entered<br/>The ERTC\_TIME, ERTC\_DATE and ERTC\_DIV registers can be modified only when an initialization mode is enabled (INITEN=1) and entered (INITEF=1).                          |
-| ----- | ----- | --- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 5 | UPDF  | 0x0 | rw0c | Calendar update flag<br/>0: Calendar update is in progress<br/>1: Calendar update is complete<br/>The UPDF bit is set each time the shadow register is synchronized with the ERTC calendar value located in the battery powered domain. The synchronization is performed every two ERTC\_CLK. |
 | Bit 4 | INITF | 0x0 | ro   | Calendar initialization flag<br/>0: Calendar has not been initialized<br/>1: Calendar has been initialized<br/>This bit is set when the calendar year filed (ERTC\_DATE) is different from 0. It is cleared when the year is 0.                                                               |
 | Bit 3 | TADJF | 0x0 | ro   | Time adjustment flag<br/>0: No time adjustment<br/>1: Time adjustment is in progress<br/>This bit is automatically set when a write access to the ERTC\_TADJ register is performed. It is automatically cleared at the end of time adjustment.                                                |
@@ -222,18 +171,6 @@ ARTERY logo
 | Bit 7     | CALDIR   | 0x0         | rw   | Calibration direction<br/>0: Positive calibration<br/>1: Negative calibration                    |
 | Bit 6: 5  | Reserved | 0x0         | resd | Kept at its default value.                                                                       |
 | Bit 4: 0  | CALVAL   | 0x00        | rw   | Calibration value<br/>Positive calibration<br/>00000: +0 ppm<br/>00001: +4 ppm<br/>00010: +8 ppm |
-
-
-2025.05.28
-Page 356
-Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 11111: +126 ppm
 Negative calibration
 00000: -0 ppm
@@ -275,18 +212,7 @@ Negative calibration
 | Bit 21: 20 | HT    | 0x0         | rw   | Hour tens                                                                                                       |
 | Bit 19: 16 | HU    | 0x0         | rw   | Hour units                                                                                                      |
 | Bit 15     | MASK2 | 0x0         | rw   | Minute mask<br/>0: No minute mask                                                                               |
-
-
-2025.05.28 Page 357 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
-
 | Bit 14: 12 | MT    | 0x0 | rw | 1: Alarm clock doesn’t care about minutes<br/>Minute tens                       |
-| ---------- | ----- | --- | -- | ------------------------------------------------------------------------------- |
 | Bit 11: 8  | MU    | 0x0 | rw | Minute units                                                                    |
 | Bit 7      | MASK1 | 0x0 | rw | Second mask<br/>0: No second mask<br/>1: Alarm clock doesn’t care about seconds |
 | Bit 6: 4   | ST    | 0x0 | rw | Second tens                                                                     |
@@ -336,13 +262,6 @@ ARTERY logo AT32F435/437 Series Reference Manual
 
 \*Note: The content of this register is valid only when the TSF is set in the ERTC_STS register. It is cleared when TSF bit is reset.
 
-2025.05.28 Page 358 Rev 2.07
-
-
-
-
-
-ARTERY logo AT32F435/437 Series Reference Manual
 
 # 17.4.14 ERTC time stamp date register (ERTC_TSDT)
 
@@ -390,19 +309,7 @@ Note: The content of this register is valid only when the TSF is set in the ERTC
 | Bit 17     | TSPIN    | 0x0         | rw   | Time stamp detection pin selection<br/>0: ERTC\_MUX1<br/>1: ERTC\_MUX2 |
 | Bit 16     | TP1PIN   | 0x0         | rw   | Tamper detection pin selection<br/>0: ERTC\_MUX1<br/>1: ERTC\_MUX2     |
 | Bit 15     | TPPU     | 0x0         | rw   | Tamper detection pull-up<br/>0: Tamper detection pull-up enabled       |
-
-
-2025.05.28 Page 359 Rev 2.07
-
-
-
-
-ARTERY logo
-
-# AT32F435/437 Series Reference Manual
-
 | Bit 14: 13 | TPPR     | 0x0 | rw   | 1: Tamper detection pull-up disabled<br/>Tamper detection pre-charge time<br/>0: 1 ERTC\_CLK cycle<br/>1: 2 ERTC\_CLK cycles<br/>2: 4 ERTC\_CLK cycles<br/>3: 8 ERTC\_CLK cycles                                |
-| ---------- | -------- | --- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bit 12: 11 | TPFLT    | 0x0 | rw   | Tamper detection filter time<br/>0: No filter<br/>1: Tamper is detected after 2 consecutive samples<br/>2: Tamper is detected after 4 consecutive samples<br/>3: Tamper is detected after 8 consecutive samples |
 | Bit 10: 8  | TPFREQ   | 0x0 | rw   | Tamper detection frequency<br/>0: ERTC\_CLK/32768<br/>1: ERTC\_CLK/16384<br/>2: ERTC\_CLK/8192<br/>3: ERTC\_CLK/4096<br/>4: ERTC\_CLK/2048<br/>5: ERTC\_CLK/1024<br/>6: ERTC\_CLK/512<br/>7: ERTC\_CLK/256      |
 | Bit 7      | TPTSEN   | 0x0 | rw   | Tamper detection timestamp enable<br/>0: Tamper detection timestamp disabled<br/>1: Tamper detection timestamp enabled. Save timestamp on a tamper event.                                                       |
@@ -413,16 +320,6 @@ ARTERY logo
 | Bit 1      | TP1EDG   | 0x0 | rw   | Tamper detection 1 valid edge<br/>If TPFLT=0:<br/>0: Rising edge<br/>1: Falling edge<br/>If TPFLT>0:<br/>0: Low<br/>1: High                                                                                     |
 | Bit 0      | TP1EN    | 0x0 | rw   | Tamper detection 1 enable<br/>0: Tamper detection 1 disabled<br/>1: Tamper detection 1 enabled                                                                                                                  |
 
-
-2025.05.28
-Page 360
-Rev 2.07
-
-
-
-
-
-Artery logo AT32F435/437 Series Reference Manual
 
 ### 17.4.18 ERTC alarm clock A subsecond register (ERTC_ALASBS)
 
@@ -451,4 +348,3 @@ Artery logo AT32F435/437 Series Reference Manual
 | Bit 31: 0 | DT   | 0x0000 0000 | rw   | Battery powered domain data<br/>BPR\_DTx registers are powered on by VBAT so that they are not reset by a system reset. They are reset on a tamper event or when a battery powered domain is reset. |
 
 
-2025.05.28 Page 361 Rev 2.07
