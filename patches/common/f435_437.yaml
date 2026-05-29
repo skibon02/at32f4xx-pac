@@ -43,7 +43,7 @@ _add:
       usage: registers
     registers:
       RMP:
-        description: "TMR2 remap remap"
+        description: "TMR2 remap"
         addressOffset: 0x0
         size: 32
         access: read-write
