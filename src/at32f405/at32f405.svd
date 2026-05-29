@@ -4670,7 +4670,7 @@
               </field>
               <field>
                 <name>SYNCEN</name>
-                <description>Synchroniztion enable</description>
+                <description>Synchronization enable</description>
                 <bitOffset>16</bitOffset>
                 <bitWidth>1</bitWidth>
                 <access>read-write</access>

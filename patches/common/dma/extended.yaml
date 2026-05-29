@@ -5,6 +5,9 @@ DMA?:
       MUXC?CTRL:
         name: MUXCTRL
         description: "DMA channel mux control register"
+        _modify:
+          SYNCEN:
+            description: "Synchronization enable"
         REQSEL: [0, 0x7F]
         SYNCOVIEN:
           _read:
@@ -84,7 +87,7 @@ DMA?:
     _array:
       TRGOVF?:
         description: "Channel %s trigger overrun flag"
-        dimIndex: "1,2,3,4,5,6,7"
+        dimIndex: "1,2,3,4"
     _modify:
       TRGOVF?:
         access: "read-only"
@@ -95,7 +98,7 @@ DMA?:
     _array:
       TRGOVFC?:
         description: "Channel %s trigger overrun flag clear"
-        dimIndex: "1,2,3,4,5,6,7"
+        dimIndex: "1,2,3,4"
     TRGOVFC?:
       _W1C:
         Clear: [1, "Clear trigger overrun flag"]

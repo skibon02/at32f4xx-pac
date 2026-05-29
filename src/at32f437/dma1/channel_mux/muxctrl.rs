@@ -144,7 +144,7 @@ where
         self.variant(EvtgenwWO::Enable)
     }
 }
-#[doc = "Synchroniztion enable\n\nValue on reset: 0"]
+#[doc = "Synchronization enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Syncenr {
@@ -159,7 +159,7 @@ impl From<Syncenr> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `SYNCEN` reader - Synchroniztion enable"]
+#[doc = "Field `SYNCEN` reader - Synchronization enable"]
 pub type SYNCEN_R = crate::BitReader<Syncenr>;
 impl SYNCEN_R {
     #[doc = "Get enumerated values variant"]
@@ -181,7 +181,7 @@ impl SYNCEN_R {
         *self == Syncenr::Enabled
     }
 }
-#[doc = "Synchroniztion enable\n\nValue on reset: 0"]
+#[doc = "Synchronization enable\n\nValue on reset: 0"]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SyncenwWO {
@@ -196,7 +196,7 @@ impl From<SyncenwWO> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `SYNCEN` writer - Synchroniztion enable"]
+#[doc = "Field `SYNCEN` writer - Synchronization enable"]
 pub type SYNCEN_W<'a, REG> = crate::BitWriter<'a, REG, SyncenwWO>;
 impl<'a, REG> SYNCEN_W<'a, REG>
 where
@@ -324,7 +324,7 @@ impl R {
     pub fn evtgen(&self) -> EVTGEN_R {
         EVTGEN_R::new(((self.bits >> 9) & 1) != 0)
     }
-    #[doc = "Bit 16 - Synchroniztion enable"]
+    #[doc = "Bit 16 - Synchronization enable"]
     #[inline(always)]
     pub fn syncen(&self) -> SYNCEN_R {
         SYNCEN_R::new(((self.bits >> 16) & 1) != 0)
@@ -374,7 +374,7 @@ impl W {
     pub fn evtgen(&mut self) -> EVTGEN_W<'_, MUXCTRL_SPEC> {
         EVTGEN_W::new(self, 9)
     }
-    #[doc = "Bit 16 - Synchroniztion enable"]
+    #[doc = "Bit 16 - Synchronization enable"]
     #[inline(always)]
     pub fn syncen(&mut self) -> SYNCEN_W<'_, MUXCTRL_SPEC> {
         SYNCEN_W::new(self, 16)
